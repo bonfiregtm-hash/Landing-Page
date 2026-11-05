@@ -4,12 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bonfire GTM: your whole outbound stack, run by agents</title>
-    <link rel="icon" type="image/png" href="app-icon.png" />
-    <link rel="stylesheet" href="hark.css" />
+    <link rel="icon" type="image/png" href="/assets/app-icon.png" />
+    <link rel="stylesheet" href="/assets/hark.css" />
+    <link rel="stylesheet" href="/assets/chrome.css" />
     <style>
       /* ===== Global (Bonfire v4: custom design, departs from Hark default) ===== */
-      @font-face { font-family: "Geist"; src: url("Geist.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
-      @font-face { font-family: "Geist Mono"; src: url("GeistMono.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+      @font-face { font-family: "Geist"; src: url("/assets/fonts/Geist.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+      @font-face { font-family: "Geist Mono"; src: url("/assets/fonts/GeistMono.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
       :root {
         --x-ink: #111111; --x-grey: #5F5F5F; --x-line: #E7E7E7; --x-panel: #FAFAFA;
         --x-ember: #FF5A1F; --x-ember-dk: #C2410C; --x-tint: #FFF1EA;
@@ -74,31 +75,6 @@
       .x-ann a { color: inherit; text-underline-offset: 3px; }
       .x-ann__x { position: absolute; right: 4px; top: 0; width: 36px; height: 36px; border: 0; background: none; color: var(--x-ink); font-size: 16px; cursor: pointer; border-radius: 6px; }
       .x-ann[hidden] { display: none; }
-
-      /* ===== 2. Header ===== */
-      .x-head { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid transparent; transition: border-color .2s; }
-      .x-head.is-scrolled { border-bottom-color: var(--x-line); }
-      .x-head__in { display: flex; align-items: center; justify-content: space-between; gap: 13px; height: var(--x-hh); }
-      .x-brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--x-ink); font-weight: 600; font-size: 14px; letter-spacing: -0.02em; min-height: 36px; }
-      /* Logo lockup: logo.png carries transparent margins, so the box crops to the artwork (bbox 212,209 to 2788,763 of 3000x965) */
-      .x-logo { --lh: 26px; position: relative; display: block; flex: none; overflow: hidden; height: var(--lh); width: calc(var(--lh) * 2576 / 554); }
-      .x-logo img { position: absolute; max-width: none; height: calc(var(--lh) * 965 / 554); width: auto; top: calc(var(--lh) * -209 / 554); left: calc(var(--lh) * -212 / 554); }
-      .x-logo--foot { --lh: 28px; }
-      .x-nav { display: flex; gap: 2px; }
-      .x-nav a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; color: var(--x-grey); text-decoration: none; font-size: var(--x-fs-ui); font-weight: 500; border-radius: 6px; transition: color .2s; }
-      .x-nav a:hover { color: var(--x-ink); }
-      .x-head__cta { display: flex; gap: 6px; align-items: center; }
-      .x-menu { display: none; width: 36px; height: 36px; border: 1px solid #D9D9D9; border-radius: 999px; background: #fff; cursor: pointer; align-items: center; justify-content: center; }
-      .x-menu span, .x-menu span::before { display: block; width: 14px; height: 1.5px; background: var(--x-ink); position: relative; }
-      .x-menu span::before { content: ""; position: absolute; top: 4px; }
-      .x-menu span { top: -2px; }
-      @media (max-width: 920px) {
-        .x-nav { display: none; position: absolute; top: var(--x-hh); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--x-line); flex-direction: column; padding: 6px var(--x-gut) 13px; }
-        .x-head.is-open .x-nav { display: flex; }
-        .x-nav a { font-size: 14px; color: var(--x-ink); }
-        .x-menu { display: inline-flex; }
-      }
-      @media (max-width: 440px) { .x-head__cta .x-signin { display: none; } }
 
       /* ===== Waitlist view (hash route #waitlist) ===== */
       .x-wl[hidden], .x-page.is-wl main, .x-page.is-wl .x-foot { display: none; }
@@ -627,24 +603,6 @@
       .x-fire { width: 72px; height: 85px; overflow: hidden; position: relative; margin-bottom: 22px; }
       .x-fire img { position: absolute; width: 472px; max-width: none; height: auto; left: -33px; top: -33px; }
 
-      /* ===== 12. Footer ===== */
-      .x-foot { padding: 70px 0 0; border-top: 1px solid var(--x-line); overflow: hidden; }
-      .x-foot__top { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr); gap: 38px; align-items: start; }
-      .x-foot__brand .x-brand { gap: 10px; }
-      .x-foot__tag { margin: 11px 0 19px; font-size: 12px; max-width: 256px; }
-      .x-foot__cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
-      .x-foot h3 { font: 400 12px/1 var(--x-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--x-grey); margin: 11px 0 6px; }
-      .x-foot ul { list-style: none; margin: 0; padding: 0; }
-      .x-foot li a { display: inline-flex; align-items: center; min-height: 36px; min-width: 36px; color: var(--x-ink); text-decoration: none; font-size: 12px; font-weight: 500; }
-      .x-foot li a:hover { color: var(--x-ember-dk); }
-      .x-foot__bot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 19px; margin-top: 51px; padding-top: 18px; border-top: 1px solid var(--x-line); font-size: 12px; color: var(--x-grey); }
-      .x-foot__bot p { margin: 0; }
-      .x-foot__mark { display: flex; justify-content: center; align-items: flex-start; max-width: 100%; margin: 32px 0 0; font: 700 clamp(44px, calc((100vw - 64px) / 4.9), 188px)/0.78 var(--x-sans); color: rgba(17, 17, 17, .04); white-space: nowrap; overflow: visible; user-select: none; pointer-events: none; }
-      .x-foot__mark::before { content: "BONFIRE"; letter-spacing: -0.06em; }
-      .x-foot__mark::after { content: "GTM"; font-size: .22em; line-height: .78; letter-spacing: -0.02em; margin: .12em 0 0 .25em; color: rgba(255, 90, 31, .18); }
-      @media (max-width: 860px) { .x-foot__top { grid-template-columns: 1fr; gap: 32px; } }
-      @media (max-width: 480px) { .x-foot__cols { grid-template-columns: 1fr 1fr; } }
-
       /* ===== 5. Stack (scroll-driven discs on desktop, list otherwise) ===== */
       .x-stk__top { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; margin-bottom: 26px; }
       .x-stk__total { margin: 0; font: 500 clamp(34px, 9vw, 44px)/1.1 var(--x-sans); letter-spacing: -0.02em; color: var(--x-ink); }
@@ -1002,24 +960,32 @@
         </div>
       </div>
 
-      <!-- 2. Header -->
+      <!-- partial:header -->
       <header class="x-head" id="head">
         <div class="x-wrap x-head__in">
-          <a class="x-brand" href="#top"><span class="x-logo"><img src="logo.png" alt="Bonfire GTM" /></span></a>
+          <a class="x-brand" href="/"><span class="x-logo"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
           <nav class="x-nav" id="nav" aria-label="Main">
-            <a href="#start">How it starts</a>
-            <a href="#stack">The stack</a>
-            <a href="#product">Product</a>
-            <a href="#agents">Agents</a>
-            <a href="#faq">FAQ</a>
+            <div class="x-dd" id="x-dd">
+              <button class="x-dd__btn" type="button" aria-expanded="false" aria-controls="x-dd-menu">Product<span class="x-dd__chev" aria-hidden="true"></span></button>
+              <span class="x-dd__lbl" aria-hidden="true">Product</span>
+              <ul class="x-dd__menu" id="x-dd-menu" aria-label="Product">
+                <li><a href="/flows">Flows<small>Email + LinkedIn in one chain</small></a></li>
+                <li><a href="/agents">Agents<small>8 AI agents, one crew</small></a></li>
+                <li><a href="/plays">Plays<small>Funding &amp; hiring triggers</small></a></li>
+              </ul>
+            </div>
+            <a href="/#start">How it works</a>
+            <a href="/blog">Blog</a>
+            <a href="/#faq">FAQ</a>
           </nav>
           <div class="x-head__cta">
-            <a class="x-btn x-btn--light x-signin" href="#waitlist">Join the waitlist</a>
+            <a class="x-btn x-btn--light x-signin" href="/#waitlist">Join the waitlist</a>
             <a class="x-btn x-btn--dark" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
             <button class="x-menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
           </div>
         </div>
       </header>
+      <!-- /partial:header -->
 
       <main>
         <!-- 3. Hero -->
@@ -1168,7 +1134,7 @@
                 </ol>
                 <div class="x-stk__fin">
                   <div class="x-stk__bf">
-                    <img src="logo.png" alt="Bonfire GTM" width="161" height="52" />
+                    <img src="/assets/logo.png" alt="Bonfire GTM" width="161" height="52" />
                     <span class="x-stk__spark" style="--x:38%; --d:0s; --sx:-6px" aria-hidden="true"></span>
                     <span class="x-stk__spark x-stk__spark--s" style="--x:47%; --d:.25s; --sx:4px" aria-hidden="true"></span>
                     <span class="x-stk__spark" style="--x:56%; --d:.1s; --sx:8px" aria-hidden="true"></span>
@@ -1909,7 +1875,7 @@
             <canvas class="x-field" aria-hidden="true"></canvas>
             <canvas class="x-sparks" aria-hidden="true"></canvas>
             <div class="x-final__copy" data-clear>
-              <div class="x-fire"><img src="logo.png" alt="Pixel bonfire" /></div>
+              <div class="x-fire"><img src="/assets/logo.png" alt="Pixel bonfire" /></div>
               <h2 class="x-h2" id="final-h"><span>Light the fire.</span><span>We'll keep it warm.</span></h2>
               <p class="x-p">Book a 20-minute demo. We'll map your ICP, your first play and your first sequence, live.</p>
               <div class="x-hero__cta">
@@ -1971,41 +1937,109 @@
       </section>
 
       <!-- 12. Footer -->
-      <footer class="x-foot">
+      <!-- partial:footer -->
+      <footer class="x-foot x-ft">
         <div class="x-wrap">
-          <div class="x-foot__top">
-            <div class="x-foot__brand">
-              <a class="x-brand" href="#top"><span class="x-logo x-logo--foot"><img src="logo.png" alt="Bonfire GTM" /></span></a>
-              <p class="x-p x-foot__tag">Your whole outbound stack, run by agents.</p>
-              <a class="x-btn x-btn--dark" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a 20-min demo</a>
-            </div>
-            <div class="x-foot__cols">
-            <div>
-              <h3>Product</h3>
-              <ul>
-                <li><a href="#start">How it starts</a></li>
-                <li><a href="#stack">The stack</a></li>
-                <li><a href="#product">Product</a></li>
-                <li><a href="#agents">Agents</a></li>
-                <li><a href="#faq">FAQ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3>Company</h3>
-              <ul>
-                <li><a href="https://x.com/bonfiregtm" target="_blank" rel="noopener">X</a></li>
-                <li><a href="https://www.linkedin.com/company/bonfiregtm" target="_blank" rel="noopener">LinkedIn</a></li>
-                <li><a href="mailto:bonfiregtm@gmail.com">Email</a></li>
-              </ul>
-            </div>
+          <div class="x-ft__frame">
+            <div class="x-ft__grid">
+              <!-- Row 1 -->
+              <div class="x-ft__cell">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <a class="x-ft__logo" href="/" aria-label="Bonfire GTM home"><span class="x-logo x-logo--foot"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
+                <p class="x-ft__tag">Your whole outbound engine, kept warm.</p>
+              </div>
+              <nav class="x-ft__cell" aria-label="Quick links">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Quick links</p>
+                <div class="x-ft__cols">
+                  <div>
+                    <h3 class="x-ft__h">Product</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/flows">Flows</a></li>
+                      <li><a href="/agents">Agents</a></li>
+                      <li><a href="/plays">Plays</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Resources</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/blog">Blog</a></li>
+                      <li><a href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <div class="x-ft__cell x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Social</p>
+                <div class="x-ft__tiles">
+                  <a class="x-ft__tile" href="https://www.linkedin.com/company/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on LinkedIn" data-tip="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M8 10.5V17M12 17v-6.5M12 13.5c0-1.9 1.2-3 2.7-3s2.3 1 2.3 2.8V17"/><circle cx="8" cy="7.5" r=".6" fill="currentColor"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="https://x.com/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on X" data-tip="X">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4h4.2L20 20h-4.2z"/><path d="M19.5 4l-6.4 7M4.5 20l6.4-7"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="mailto:bonfiregtm@gmail.com" aria-label="Email bonfiregtm@gmail.com" data-tip="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13"/><path d="M3 6l9 7 9-7"/></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Row 2 -->
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Bonfire GTM</p>
+                <p class="x-ft__copy">© 2026 Bonfire GTM</p>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <div class="x-ft__ctas">
+                  <a class="x-ft__cta" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">
+                    <img src="/assets/app-icon.png" alt="" width="24" height="24" />
+                    <b>Book a 20-min demo</b>
+                    <span>See your engine run on your own ICP.</span>
+                  </a>
+                  <a class="x-ft__cta" href="/#waitlist">
+                    <img src="/assets/app-icon.png" alt="" width="24" height="24" />
+                    <b>Join the waitlist</b>
+                    <span>Early access. Limited onboarding spots.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Ask AI about us</p>
+                <div class="x-ft__tiles" id="x-ft-ai">
+                  <a class="x-ft__tile" data-ai="https://chatgpt.com/?q=" href="https://chatgpt.com/" target="_blank" rel="noopener" aria-label="Ask ChatGPT about Bonfire GTM" data-tip="Ask ChatGPT">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://claude.ai/new?q=" href="https://claude.ai/new" target="_blank" rel="noopener" aria-label="Ask Claude about Bonfire GTM" data-tip="Ask Claude">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.3 4.3M14.1 14.1l4.3 4.3M18.4 5.6l-4.3 4.3M9.9 14.1l-4.3 4.3"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.perplexity.ai/search?q=" href="https://www.perplexity.ai/" target="_blank" rel="noopener" aria-label="Ask Perplexity about Bonfire GTM" data-tip="Ask Perplexity">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M5 3l7 6 7-6v6H5zM5 9v8l7-6 7 6V9M5 15v4l7-5 7 5v-4"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.google.com/search?udm=50&amp;q=" href="https://www.google.com/search?udm=50" target="_blank" rel="noopener" aria-label="Ask Gemini (Google AI Mode) about Bonfire GTM" data-tip="Ask Gemini">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c.6 5.2 4.3 8.9 9.5 9.5-5.2.6-8.9 4.3-9.5 9.5-.6-5.2-4.3-8.9-9.5-9.5 5.2-.6 8.9-4.3 9.5-9.5z"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://grok.com/?q=" href="https://grok.com/" target="_blank" rel="noopener" aria-label="Ask Grok about Bonfire GTM" data-tip="Ask Grok">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M18.5 4L5 20.5"/><path d="M15.5 7.2A7 7 0 0 0 6 16.8"/><path d="M18 9.5a7 7 0 0 1-8.6 9.7"/></svg>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="x-foot__bot"><p>© 2026 Bonfire GTM</p><p>Outbound that runs itself.</p></div>
-          <div class="x-foot__mark" aria-hidden="true"></div>
         </div>
+        <script>
+          (function () {
+            var q = encodeURIComponent("Explain what Bonfire GTM (bonfiregtm.com) does, who it's for, and how it compares to Instantly, Smartlead and Clay.");
+            document.querySelectorAll("#x-ft-ai [data-ai]").forEach(function (a) { a.href = a.getAttribute("data-ai") + q; });
+          })();
+        </script>
       </footer>
+      <!-- /partial:footer -->
     </div>
-    <script src="hark.js"></script>
+    <script src="/assets/hark.js"></script>
     <script>
       /* Waitlist: hash router + form */
       (function () {
@@ -2421,5 +2455,6 @@
         requestAnimationFrame(loop);
       })();
     </script>
+    <script src="/assets/chrome.js"></script>
   </body>
 </html>

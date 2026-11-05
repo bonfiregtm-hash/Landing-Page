@@ -13,15 +13,6 @@
     a.addEventListener("click", function () { head.classList.remove("is-open"); menu.setAttribute("aria-expanded", "false"); });
   });
 
-  /* 2b. Product dropdown: click/Enter toggles, Escape and outside click close */
-  var dd = document.getElementById("x-dd"), ddBtn = dd.querySelector(".x-dd__btn");
-  function ddSet(open) { dd.classList.toggle("is-open", open); ddBtn.setAttribute("aria-expanded", open ? "true" : "false"); }
-  ddBtn.addEventListener("click", function () { ddSet(!dd.classList.contains("is-open")); });
-  dd.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && dd.classList.contains("is-open")) { ddSet(false); ddBtn.focus(); }
-    if (e.key === "ArrowDown" && document.activeElement === ddBtn) { e.preventDefault(); ddSet(true); dd.querySelector(".x-dd__menu a").focus(); }
-  });
-  dd.addEventListener("focusout", function (e) { if (!dd.contains(e.relatedTarget)) ddSet(false); });
   document.addEventListener("click", function (e) { if (!dd.contains(e.target)) ddSet(false); });
   /* /partial:header script */
 
