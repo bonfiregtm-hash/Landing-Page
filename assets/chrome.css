@@ -95,7 +95,7 @@
   .x-dd:hover .x-dd__btn { color: var(--x-ink); }
 }
 @media (max-width: 920px) {
-  .x-nav { max-height: calc(100svh - var(--x-hh) - var(--x-annh)); overflow-y: auto; overscroll-behavior: contain; }
+  .x-nav { max-height: calc(100svh - var(--x-hh) - var(--x-annh, 0px)); overflow-y: auto; overscroll-behavior: contain; }
   .x-dd { flex-direction: column; align-items: stretch; }
   .x-dd__btn { display: none; }
   .x-dd__lbl { display: block; padding: 10px 10px 2px; font: 500 12px/1.2 var(--x-sans); color: var(--x-grey); }
