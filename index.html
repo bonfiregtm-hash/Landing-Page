@@ -6,75 +6,11 @@
     <title>Bonfire GTM: your whole outbound stack, run by agents</title>
     <link rel="icon" type="image/png" href="/assets/app-icon.png" />
     <link rel="stylesheet" href="/assets/hark.css" />
+    <link rel="stylesheet" href="/assets/site.css" />
     <link rel="stylesheet" href="/assets/chrome.css" />
     <style>
-      /* ===== Global (Bonfire v4: custom design, departs from Hark default) ===== */
-      @font-face { font-family: "Geist"; src: url("/assets/fonts/Geist.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
-      @font-face { font-family: "Geist Mono"; src: url("/assets/fonts/GeistMono.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
-      :root {
-        --x-ink: #111111; --x-grey: #5F5F5F; --x-line: #E7E7E7; --x-panel: #FAFAFA;
-        --x-ember: #FF5A1F; --x-ember-dk: #C2410C; --x-tint: #FFF1EA;
-        --x-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-        --x-mono: "Geist Mono", ui-monospace, monospace;
-        /* Scale: the design at 80% (every size below is the old value x 0.8) */
-        --x-k: .8;
-        --x-max: 992px; --x-gut: clamp(16px, 3.2vw, 32px);
-        --x-hh: 54px; --x-annh: 36px;
-        --x-fs-h1: clamp(36px, 5.6vw, 67px);
-        --x-fs-h2: clamp(28px, 3.84vw, 45px);
-        --x-fs-h3: 21px;
-        --x-fs-body: 14.5px;
-        --x-fs-ui: 12px;
-        --x-btn-h: 36px; --x-btn-h-lg: 40px;
-        --x-sec-pad: clamp(64px, 8.8vw, 112px);
-        --x-gap: 26px;
-        color-scheme: light;
-      }
-      :root:has(.x-ann[hidden]) { --x-annh: 0px; }
-      html { background: #fff; }
-      body.x-body {
-        margin: 0; background: #fff; color: var(--x-ink);
-        font: 500 var(--x-fs-body)/1.55 var(--x-sans); letter-spacing: -0.005em;
-        -webkit-font-smoothing: antialiased; overflow-x: hidden;
-      }
-      .x-body :focus-visible { outline: 2px solid var(--x-ember-dk); outline-offset: 3px; border-radius: 6px; }
-      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: var(--x-gut); }
-      .x-h1, .x-h2, .x-h3 { font-family: var(--x-sans); color: var(--x-ink); letter-spacing: -0.035em; margin: 0; }
-      .x-h1 { font-size: var(--x-fs-h1); line-height: 1.0; font-weight: 600; }
-      .x-h2 { font-size: var(--x-fs-h2); line-height: 1.04; font-weight: 600; }
-      .x-h2 span, .x-h1 span { display: block; }
-      .x-h3 { font-size: var(--x-fs-h3); line-height: 1.1; font-weight: 600; letter-spacing: -0.03em; }
-      .x-p { color: var(--x-grey); font-weight: 500; font-size: var(--x-fs-body); line-height: 1.55; margin: 0; }
-      .x-mono { font-family: var(--x-mono); }
+      /* Fonts, tokens, type scale, buttons, sections, FAQ: /assets/site.css. Announcement bar, header, footer: /assets/chrome.css */
       .x-ember { color: var(--x-ember); }
-      .x-ember-sm { color: var(--x-ember-dk); }
-
-      /* Buttons */
-      .x-btn {
-        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-        min-height: var(--x-btn-h); padding: 0 16px; border-radius: 999px; text-decoration: none;
-        font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.01em; white-space: nowrap;
-        border: 1px solid transparent; transition: background-color .2s, border-color .2s, transform .2s;
-      }
-      .x-btn--dark { background: var(--x-ink); color: #fff; }
-      .x-btn--dark:hover { background: #2a2a2a; }
-      .x-btn--light { background: #fff; color: var(--x-ink); border-color: #D9D9D9; }
-      .x-btn--light:hover { border-color: #9a9a9a; }
-      .x-btn--lg { min-height: var(--x-btn-h-lg); padding: 0 19px; font-size: 13px; }
-      /* Hatched frame utility (GrayPass blueprint frame) */
-      .x-hatch {
-        padding: 11px;
-        background: repeating-linear-gradient(135deg, #E2E2E2 0 1px, transparent 1px 6px);
-      }
-      .x-hatch > .x-hatch__in { background: var(--x-panel); height: 100%; }
-
-      /* ===== 1. Announcement bar ===== */
-      .x-ann { background: var(--x-tint); color: var(--x-ink); font-size: var(--x-fs-ui); font-weight: 500; }
-      .x-ann__in { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--x-annh); position: relative; padding-inline: 44px; text-align: center; box-sizing: border-box; }
-      .x-ann__dot { width: 5px; height: 5px; background: var(--x-ember); flex: none; }
-      .x-ann a { color: inherit; text-underline-offset: 3px; }
-      .x-ann__x { position: absolute; right: 4px; top: 0; width: 36px; height: 36px; border: 0; background: none; color: var(--x-ink); font-size: 16px; cursor: pointer; border-radius: 6px; }
-      .x-ann[hidden] { display: none; }
 
       /* ===== Waitlist view (hash route #waitlist) ===== */
       .x-wl[hidden], .x-page.is-wl main, .x-page.is-wl .x-foot { display: none; }
@@ -159,10 +95,6 @@
       .x-strip__label { font-size: var(--x-fs-ui); color: var(--x-grey); font-weight: 500; margin: 0 0 14px; }
       .x-strip__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 11px 32px; }
       .x-strip__list li { font-weight: 600; font-size: 15px; letter-spacing: -0.03em; color: #6B6B6B; }
-
-      /* ===== Sections ===== */
-      .x-sec { padding: var(--x-sec-pad) 0 0; scroll-margin-top: var(--x-hh); }
-      .x-sec__head { margin-bottom: clamp(29px, 4vw, 51px); }
 
       /* ===== 4. Steps ===== */
       .x-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--x-gap); }
@@ -743,7 +675,6 @@
       @media (min-width: 1200px) { .x-fire__row { grid-template-columns: repeat(6, 1fr); } }
 
       /* #compare table + #faq numbered accordion */
-      .x-h2 .x-sub2 { color: #8A8A8A; }
       .x-cmp { display: block; width: 100%; box-sizing: border-box; height: auto; max-height: none; overflow: visible; padding-bottom: 2px; margin-bottom: 28px; }
       @media (max-width: 719px) { .x-cmp { overflow-x: auto; overflow-y: visible; -webkit-overflow-scrolling: touch; } }
       #compare { position: relative; z-index: 1; padding-bottom: 48px; overflow: visible; }
@@ -760,29 +691,8 @@
       .x-cmp .x-cmp__us { background: #FFF4EF; color: var(--x-ink); }
       .x-cmp tbody .x-cmp__us::before { top: 19px; width: 7px; height: 7px; background: #FF5A1F; }
       .x-cmp thead .x-cmp__us { background: #111; color: #fff; }
-      .x-faq { border-top: 1px solid var(--x-line); max-width: 736px; }
-      .x-faq details { border-bottom: 1px solid var(--x-line); }
-      .x-faq summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 38px 1fr 19px; gap: 10px; align-items: baseline; min-height: 36px; padding: 19px 0; font-weight: 600; font-size: 15px; letter-spacing: -0.02em; color: var(--x-ink); }
-      .x-faq summary::-webkit-details-marker { display: none; }
-      .x-faq summary::after { content: "+"; font-weight: 400; color: var(--x-grey); text-align: right; }
-      .x-faq details[open] summary::after { content: "\2212"; }
-      .x-faq__n { font: 400 12px/1 var(--x-mono); color: #6E6E6E; letter-spacing: 0; }
-      .x-faq details p { margin: -6px 0 0; padding: 0 29px 19px 48px; color: var(--x-grey); font-weight: 500; }
-      @media (max-width: 640px) { .x-faq summary { grid-template-columns: 29px 1fr 16px; font-size: 14px; } .x-faq details p { padding: 0 0 18px 38px; } }
 
-      @media (prefers-reduced-motion: reduce) {
-        html { scroll-behavior: auto; }
-        .x-body *, .x-body *::before, .x-body *::after { animation: none !important; transition: none !important; }
-      }
 
-      /* Touch: keep 44px tap targets at the smaller scale */
-      @media (pointer: coarse), (max-width: 640px) {
-        .x-btn, .x-btn--lg, .x-nav a, .x-brand, .x-ann__in, .x-foot li a, .x-faq summary { min-height: 44px; }
-        .x-ann__x, .x-menu { width: 44px; height: 44px; }
-        .x-ann__x { top: 50%; margin-top: -22px; }
-        :root { --x-annh: 44px; }
-        .x-foot li a { min-width: 44px; }
-      }
 
       /* ===== 5b. Product grid, v5 remake: shared hairlines, hatched gutters, flat illustrations ===== */
       #product { --g-line: #E6E6E6; --g-fr: #D4D4D4; --g-em: #FF5A1F;
@@ -2118,21 +2028,8 @@
         var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         var coarse = window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
-        /* 1. Announcement dismiss */
-        var ann = document.getElementById("ann");
-        ann.querySelector(".x-ann__x").addEventListener("click", function () { ann.hidden = true; });
-
-        /* 2. Header: hairline on scroll, mobile menu */
-        var head = document.getElementById("head"), menu = head.querySelector(".x-menu");
-        function onScroll() { head.classList.toggle("is-scrolled", head.getBoundingClientRect().top <= 0 && window.scrollY > 4); }
-        window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
-        menu.addEventListener("click", function () {
-          var open = head.classList.toggle("is-open");
-          menu.setAttribute("aria-expanded", open); menu.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-        });
-        head.querySelectorAll(".x-nav a").forEach(function (a) {
-          a.addEventListener("click", function () { head.classList.remove("is-open"); menu.setAttribute("aria-expanded", "false"); });
-        });
+        /* 1-2. Announcement dismiss, header hairline + mobile menu: /assets/site.js */
+        var head = document.getElementById("head");
 
         /* 3 + 11. Square-dot dither fields with a bonfire glow and rising ember sparks */
         var BAYER = [[0, 8, 2, 10], [12, 4, 14, 6], [3, 11, 1, 9], [15, 7, 13, 5]];
@@ -2455,6 +2352,7 @@
         requestAnimationFrame(loop);
       })();
     </script>
+    <script src="/assets/site.js"></script>
     <script src="/assets/chrome.js"></script>
   </body>
 </html>

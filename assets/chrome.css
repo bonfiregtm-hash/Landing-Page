@@ -1,7 +1,46 @@
-/* Bonfire GTM site chrome: header, Product dropdown, footer.
-   Shared by every page. Page files keep only their own section styles. */
+/* Bonfire GTM site chrome: announcement bar, header, Product dropdown, footer.
+   Shared by every page (and copied verbatim into the blog). Self-contained: the chrome sets its own tokens,
+   type and box model, so page-level styles can't resize or recolour it. The values are the home page's. */
 
-:root { --x-bg: #FFFFFF; --x-rule: #D4D4D4; --x-on-ink: #FFFFFF; --x-hatch: #E2E2E2; }
+.x-ann, .x-head, .x-ft {
+  --x-bg: #FFFFFF; --x-ink: #111111; --x-grey: #5F5F5F; --x-meta: #111111;
+  --x-line: #E7E7E7; --x-rule: #D4D4D4; --x-panel: #FAFAFA; --x-hatch: #E2E2E2; --x-on-ink: #FFFFFF;
+  --x-ember: #FF5A1F; --x-ember-dk: #C2410C; --x-tint: #FFF1EA;
+  --x-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --x-max: 992px; --x-gut: clamp(16px, 3.2vw, 32px); --x-hh: 54px;
+  --x-fs-ui: 12px; --x-btn-h: 36px; --x-sec-pad: clamp(64px, 8.8vw, 112px);
+  font: 500 14.5px/1.55 var(--x-sans); letter-spacing: -0.0725px; color: var(--x-ink);
+  -webkit-font-smoothing: antialiased;
+}
+.x-ann, .x-head, .x-ft, .x-ann *, .x-head *, .x-ft *, .x-ann *::before, .x-head *::before, .x-ft *::before, .x-ann *::after, .x-head *::after, .x-ft *::after { box-sizing: border-box; }
+/* Zero-specificity resets (:where) so the component rules below always win */
+:where(.x-head, .x-ft) .x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: var(--x-gut); }
+:where(.x-head, .x-ft) :where(a) { color: inherit; }
+:where(.x-head, .x-ft) :where(img) { display: block; max-width: 100%; }
+:where(.x-head, .x-ft) :where(ul, p, h3) { margin: 0; }
+:where(.x-head, .x-ft) :where(p) { text-wrap: pretty; }
+:where(.x-head, .x-ft) :where(h3) { text-wrap: balance; }
+:where(.x-ann, .x-head, .x-ft) :where(:focus-visible) { outline: 2px solid var(--x-ember-dk); outline-offset: 3px; border-radius: 6px; }
+
+/* ===== Announcement bar ===== */
+.x-ann { --x-annh: 36px; background: var(--x-tint); color: var(--x-ink); font-size: var(--x-fs-ui); font-weight: 500; }
+.x-ann__in { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--x-annh); position: relative; padding-inline: 44px; text-align: center; }
+.x-ann__dot { width: 5px; height: 5px; background: var(--x-ember); flex: none; }
+.x-ann a { color: inherit; text-underline-offset: 3px; }
+.x-ann__x { position: absolute; right: 4px; top: 0; width: 36px; height: 36px; border: 0; background: none; color: var(--x-ink); font-size: 16px; cursor: pointer; border-radius: 6px; }
+.x-ann[hidden] { display: none; }
+
+/* ===== Header buttons (same as the home page's .x-btn) ===== */
+.x-head .x-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: var(--x-btn-h); padding: 0 16px; border-radius: 999px; text-decoration: none;
+  font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.01em; white-space: nowrap;
+  border: 1px solid transparent; box-shadow: none; transition: background-color .2s, border-color .2s, transform .2s;
+}
+.x-head .x-btn--dark { background: var(--x-ink); color: #fff; }
+.x-head .x-btn--dark:hover { background: #2a2a2a; }
+.x-head .x-btn--light { background: #fff; color: var(--x-ink); border-color: #D9D9D9; }
+.x-head .x-btn--light:hover { border-color: #9a9a9a; }
 
 /* ===== Header (partial:header, from landing-reference-v4.html) ===== */
 .x-head { position: sticky; top: 0; z-index: 50; background: var(--x-bg); border-bottom: 1px solid transparent; transition: border-color .2s; }
@@ -51,7 +90,7 @@
   .x-dd__menu, .x-dd.is-open .x-dd__menu { display: block; position: static; width: auto; padding: 0 0 4px; border: 0; }
   .x-nav .x-dd__menu a { font-size: 14px; }
 }
-/* Current page: Agents */
+/* Current page in the Product dropdown */
 .x-nav .x-dd__menu a[aria-current="page"] { background: var(--x-tint); }
 .x-nav .x-dd__menu a[aria-current="page"]::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: var(--x-ember); }
 .x-nav .x-dd__menu a { position: relative; }
@@ -102,4 +141,13 @@
   .x-ft__frame { padding: 0 8px; }
   .x-ft__cell { padding: 24px 18px 26px; }
   .x-ft__cols, .x-ft__ctas { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+}
+
+/* ===== Touch: 44px tap targets (as on the home page) ===== */
+@media (pointer: coarse), (max-width: 640px) {
+  .x-ann { --x-annh: 44px; }
+  .x-ann__in, .x-head .x-btn, .x-nav a, .x-brand { min-height: 44px; }
+  .x-ann__x, .x-menu { width: 44px; height: 44px; }
+  .x-ann__x { top: 50%; margin-top: -22px; }
+  .x-ft__links a { min-height: 44px; min-width: 44px; }
 }

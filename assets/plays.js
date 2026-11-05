@@ -1,20 +1,5 @@
 (function () {
   document.documentElement.classList.add("js");
-  /* partial:header script (from landing-reference-v4.html) */
-  /* 2. Header: hairline on scroll, mobile menu */
-  var head = document.getElementById("head"), menu = head.querySelector(".x-menu");
-  function onScroll() { head.classList.toggle("is-scrolled", head.getBoundingClientRect().top <= 0 && window.scrollY > 4); }
-  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
-  menu.addEventListener("click", function () {
-    var open = head.classList.toggle("is-open");
-    menu.setAttribute("aria-expanded", open); menu.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-  });
-  head.querySelectorAll(".x-nav a").forEach(function (a) {
-    a.addEventListener("click", function () { head.classList.remove("is-open"); menu.setAttribute("aria-expanded", "false"); });
-  });
-
-  document.addEventListener("click", function (e) { if (!dd.contains(e.target)) ddSet(false); });
-  /* /partial:header script */
 
   // Toggles (on/off switches) and the plays tally
   var tally = document.querySelector("[data-tally]");

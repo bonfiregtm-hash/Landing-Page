@@ -17,9 +17,7 @@
     <meta name="twitter:description" content="They just raised. You're first in the inbox. Plays turn signals into verified, approved outreach." />
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" type="image/png" href="/assets/app-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="/assets/site.css" />
     <link rel="stylesheet" href="/assets/chrome.css" />
     <link rel="stylesheet" href="/assets/plays.css" />
     <script type="application/ld+json">
@@ -60,7 +58,15 @@
   <body class="x-body">
     <a class="x-skip" href="#main">Skip to content</a>
 
-    <!-- partial:header -->
+      <div class="x-ann" id="ann">
+        <div class="x-ann__in">
+          <span class="x-ann__dot" aria-hidden="true"></span>
+          <span>New: LinkedIn steps now run inside Flows</span>
+          <button class="x-ann__x" type="button" aria-label="Dismiss announcement">×</button>
+        </div>
+      </div>
+
+      <!-- partial:header -->
       <header class="x-head" id="head">
         <div class="x-wrap x-head__in">
           <a class="x-brand" href="/"><span class="x-logo"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
@@ -99,7 +105,7 @@
               <a class="x-btn x-btn--dark x-btn--lg" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
               <a class="x-btn x-btn--light x-btn--lg" href="https://forms.gle/EdGWZGEn91CfFPFG7" target="_blank" rel="noopener">Join waitlist</a>
             </div>
-            <p class="x-hero__tert">One rule per play<b>·</b>Every email verified<b>·</b>Nothing sends until you approve</p>
+            <p class="x-hero__tert"><span>One rule per play</span><b>·</b><span>Every email verified</span><b>·</b><span>Nothing sends until you approve</span></p>
           </div>
           <div class="x-pd x-rv" role="group" aria-label="Example play detail">
             <span class="x-ex x-pd__ex">Example</span>
@@ -401,7 +407,7 @@
       <!-- Final CTA -->
       <section class="x-final" aria-labelledby="final-h">
         <div class="x-final__copy x-rv">
-          <svg class="x-final__mark" width="66" height="72" viewBox="0 0 11 12" shape-rendering="crispEdges" aria-hidden="true"><rect x="5" y="0" width="1" height="1" fill="#FF5A1F"/><rect x="4" y="1" width="2" height="1" fill="#FF5A1F"/><rect x="3" y="2" width="4" height="1" fill="#FF5A1F"/><rect x="3" y="3" width="5" height="1" fill="#FF5A1F"/><rect x="2" y="4" width="6" height="1" fill="#FF5A1F"/><rect x="2" y="5" width="7" height="1" fill="#FF5A1F"/><rect x="4" y="5" width="2" height="1" fill="#FFB38F"/><rect x="2" y="6" width="7" height="1" fill="#C2410C"/><rect x="4" y="6" width="3" height="1" fill="#FFB38F"/><rect x="3" y="7" width="5" height="1" fill="#C2410C"/><rect x="1" y="9" width="9" height="1" fill="#111"/><rect x="2" y="10" width="7" height="1" fill="#111"/></svg>
+          <div class="x-fire"><img src="/assets/logo.png" alt="" /></div>
           <h2 class="x-h2" id="final-h"><span>Be first in the inbox.</span><span class="x-sub2">Every time they raise.</span></h2>
           <p class="x-p">Book a 20-minute demo. We'll set up your first play on your ICP, live.</p>
           <div class="x-hero__cta">
@@ -514,6 +520,7 @@
       </footer>
       <!-- /partial:footer -->
     <script src="/assets/plays.js"></script>
+    <script src="/assets/site.js"></script>
     <script src="/assets/chrome.js"></script>
   </body>
 </html>

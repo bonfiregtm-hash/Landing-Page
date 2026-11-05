@@ -1,0 +1,104 @@
+/* Bonfire GTM shared base: fonts, tokens, type scale, buttons, section rhythm, FAQ and compare table.
+   Every page loads this before chrome.css and its own styles, so the pages share one type system (the home page's).
+   Page files keep only their own section styles; add a token here rather than redefining one in a page. */
+
+@font-face { font-family: "Geist"; src: url("/assets/fonts/Geist.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("/assets/fonts/GeistMono.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+
+:root {
+  /* Colour */
+  --x-bg: #FFFFFF;        /* page background, surfaces */
+  --x-ink: #111111;       /* headlines, body ink, dark buttons */
+  --x-grey: #5F5F5F;      /* body copy and secondary text */
+  --x-sub: #8A8A8A;       /* second line of a headline */
+  --x-line: #E7E7E7;      /* hairlines: grids, rows, tables */
+  --x-rule: #D4D4D4;      /* frames: mockup windows, chips, controls */
+  --x-panel: #FAFAFA;     /* panels */
+  --x-hatch: #E2E2E2;     /* hatched frame strokes */
+  --x-ember: #FF5A1F;     /* ember: dots, accents */
+  --x-ember-dk: #C2410C;  /* ember text */
+  --x-tint: #FFF1EA;      /* ember tint */
+  --x-on-ink: #FFFFFF;    /* text on ink */
+  /* Type */
+  --x-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --x-mono: "Geist Mono", ui-monospace, monospace;
+  --x-fs-h1: clamp(36px, 5.6vw, 67px);
+  --x-fs-h2: clamp(28px, 3.84vw, 45px);
+  --x-fs-h3: 21px;
+  --x-fs-body: 14.5px;
+  --x-fs-lede: clamp(14px, 1.28vw, 15px);
+  --x-fs-ui: 12px;
+  /* Layout */
+  --x-k: .8;
+  --x-max: 992px; --x-gut: clamp(16px, 3.2vw, 32px);
+  --x-hh: 54px; --x-annh: 36px;
+  --x-btn-h: 36px; --x-btn-h-lg: 40px;
+  --x-sec-pad: clamp(64px, 8.8vw, 112px);
+  --x-gap: 26px;
+  color-scheme: light;
+}
+@media (pointer: coarse), (max-width: 640px) { :root { --x-annh: 44px; } }
+:root:has(.x-ann[hidden]) { --x-annh: 0px; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: #fff; }
+body.x-body {
+  margin: 0; background: #fff; color: var(--x-ink);
+  font: 500 var(--x-fs-body)/1.55 var(--x-sans); letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+.x-body :focus-visible { outline: 2px solid var(--x-ember-dk); outline-offset: 3px; border-radius: 6px; }
+.x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: var(--x-gut); }
+
+/* Type scale */
+.x-h1, .x-h2, .x-h3 { font-family: var(--x-sans); color: var(--x-ink); letter-spacing: -0.035em; margin: 0; text-wrap: balance; }
+.x-h1 { font-size: var(--x-fs-h1); line-height: 1.0; font-weight: 600; }
+.x-h2 { font-size: var(--x-fs-h2); line-height: 1.04; font-weight: 600; }
+.x-h2 span, .x-h1 span { display: block; }
+.x-h2 .x-sub2 { color: var(--x-sub); }
+.x-h3 { font-size: var(--x-fs-h3); line-height: 1.1; font-weight: 600; letter-spacing: -0.03em; }
+.x-p { color: var(--x-grey); font-weight: 500; font-size: var(--x-fs-body); line-height: 1.55; margin: 0; text-wrap: pretty; }
+.x-mono { font-family: var(--x-mono); }
+.x-ember-sm { color: var(--x-ember-dk); }
+
+/* Buttons */
+.x-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: var(--x-btn-h); padding: 0 16px; border-radius: 999px; text-decoration: none;
+  font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.01em; white-space: nowrap;
+  border: 1px solid transparent; transition: background-color .2s, border-color .2s, transform .2s;
+}
+.x-btn--dark { background: var(--x-ink); color: #fff; }
+.x-btn--dark:hover { background: #2a2a2a; }
+.x-btn--light { background: #fff; color: var(--x-ink); border-color: #D9D9D9; }
+.x-btn--light:hover { border-color: #9a9a9a; }
+.x-btn--lg { min-height: var(--x-btn-h-lg); padding: 0 19px; font-size: 13px; }
+
+/* Hatched frame utility (blueprint frame) */
+.x-hatch { padding: 11px; background: repeating-linear-gradient(135deg, #E2E2E2 0 1px, transparent 1px 6px); }
+.x-hatch > .x-hatch__in { background: var(--x-panel); height: 100%; }
+
+/* Section rhythm */
+.x-sec { padding: var(--x-sec-pad) 0 0; scroll-margin-top: var(--x-hh); }
+.x-sec__head { margin-bottom: clamp(29px, 4vw, 51px); }
+.x-sec__head .x-p { margin-top: 18px; max-width: 560px; font-size: var(--x-fs-lede); }
+
+/* FAQ: numbered accordion */
+.x-faq { border-top: 1px solid var(--x-line); max-width: 736px; }
+.x-faq details { border-bottom: 1px solid var(--x-line); }
+.x-faq summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 38px 1fr 19px; gap: 10px; align-items: baseline; min-height: 36px; padding: 19px 0; font-weight: 600; font-size: 15px; letter-spacing: -0.02em; color: var(--x-ink); }
+.x-faq summary::-webkit-details-marker { display: none; }
+.x-faq summary::after { content: "+"; font-weight: 400; color: var(--x-grey); text-align: right; }
+.x-faq details[open] summary::after { content: "\2212"; }
+.x-faq__n { font: 400 12px/1 var(--x-mono); color: #6E6E6E; letter-spacing: 0; }
+.x-faq details p { margin: -6px 0 0; padding: 0 29px 19px 48px; color: var(--x-grey); font-weight: 500; }
+@media (max-width: 640px) { .x-faq summary { grid-template-columns: 29px 1fr 16px; font-size: 14px; } .x-faq details p { padding: 0 0 18px 38px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .x-body *, .x-body *::before, .x-body *::after { animation: none !important; transition: none !important; }
+}
+/* Touch: 44px tap targets */
+@media (pointer: coarse), (max-width: 640px) {
+  .x-btn, .x-btn--lg, .x-faq summary { min-height: 44px; }
+}

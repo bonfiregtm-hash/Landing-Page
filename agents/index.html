@@ -17,12 +17,6 @@
     <meta name="twitter:description" content="One chatbot SDR can't run outbound. Eight specialist agents can, and nothing sends without your approval." />
     <meta name="twitter:image" content="/app-icon.png" />
     <link rel="icon" type="image/png" href="/assets/app-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
-    />
     <link rel="stylesheet" href="/assets/hark.css" />
     <link rel="stylesheet" href="/assets/hark-hero.css" />
     <script type="application/ld+json">
@@ -57,86 +51,25 @@
         ]
       }
     </script>
+    <link rel="stylesheet" href="/assets/site.css" />
     <link rel="stylesheet" href="/assets/chrome.css" />
     <style>
-      /* ===== Global (Bonfire v4: custom design, departs from Hark default; matches landing-reference-v4.html) ===== */
+      /* Fonts, tokens, type scale, buttons, sections, FAQ: /assets/site.css. Announcement bar, header, footer: /assets/chrome.css */
       :root {
-        /* Colours: every colour on the page lives here */
-        --x-bg: #FFFFFF;          /* background */
-        --x-ink: #111111;         /* ink */
-        --x-grey: #555555;        /* text-2 */
-        --x-rule: #D4D4D4;        /* rules: frames, controls */
-        --x-line: #E6E6E6;        /* hairlines */
-        --x-panel: #F7F7F7;       /* panel */
-        --x-ember: #FF5A1F;       /* ember */
-        --x-ember-dk: #C2410C;    /* ember text */
-        --x-tint: #FFF1EA;        /* ember tint */
-        --x-on-ink: #FFFFFF;      /* text on ink */
-        --x-ink-hover: #2A2A2A;   /* dark button hover (reference) */
-        --x-rule-hover: #9A9A9A;  /* light button hover border (reference) */
-        --x-sub: #8A8A8A;         /* second line of a headline (reference) */
         --x-px-mid: #8A8A8A;      /* pixel glyph, mid */
         --x-px-light: #BDBDBD;    /* pixel glyph, light; table dashes */
-        --x-px-hot-2: var(--x-px-hot-2);    /* selected glyph, mid ember */
-        --x-px-hot-3: var(--x-px-hot-3);    /* selected glyph, light ember */
-        --x-hatch: #E2E2E2;       /* hatched frame stroke */
-        --x-meta: #6B6B6B;        /* footer column heads and copyright (reference) */
-        --x-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-        --x-mono: "Geist Mono", ui-monospace, monospace;
-        --x-max: 992px; --x-gut: clamp(16px, 3.2vw, 32px);
-        --x-hh: 54px;
-        --x-fs-h1: clamp(36px, 5.6vw, 67px);
-        --x-fs-h2: clamp(28px, 3.84vw, 45px);
-        --x-fs-h3: 21px;
-        --x-fs-body: 14.5px;
-        --x-fs-ui: 12px;
-        --x-btn-h: 36px; --x-btn-h-lg: 40px;
-        --x-sec-pad: clamp(64px, 8.8vw, 112px);
-        --x-gap: 26px;
-        color-scheme: light;
+        --x-px-hot-2: #FF8A4C;    /* selected glyph, mid ember */
+        --x-px-hot-3: #FFB48A;    /* selected glyph, light ember */
       }
-      html { background: var(--x-bg); }
-      body.x-body {
-        margin: 0; background: var(--x-bg); color: var(--x-ink);
-        font: 500 var(--x-fs-body)/1.55 var(--x-sans); letter-spacing: -0.005em;
-        -webkit-font-smoothing: antialiased; overflow-x: hidden;
-      }
-      .x-body :focus-visible { outline: 2px solid var(--x-ember-dk); outline-offset: 3px; border-radius: 0; }
-      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: var(--x-gut); }
-      .x-h1, .x-h2, .x-h3 { font-family: var(--x-sans); color: var(--x-ink); letter-spacing: -0.035em; margin: 0; }
-      .x-h1 { font-size: var(--x-fs-h1); line-height: 1.0; font-weight: 600; }
-      .x-h2 { font-size: var(--x-fs-h2); line-height: 1.04; font-weight: 600; }
-      .x-h2 span, .x-h1 span { display: block; }
-      .x-h2 .x-sub2 { color: var(--x-sub); }
-      .x-h3 { font-size: var(--x-fs-h3); line-height: 1.1; font-weight: 600; letter-spacing: -0.03em; }
-      .x-p { color: var(--x-grey); font-weight: 500; font-size: var(--x-fs-body); line-height: 1.55; margin: 0; }
       .x-p + .x-p { margin-top: 14px; }
-      .x-ember-sm { color: var(--x-ember-dk); }
-
-      /* Buttons (reference .x-btn, square corners) */
-      .x-btn {
-        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-        min-height: var(--x-btn-h); padding: 0 16px; border-radius: 0; text-decoration: none;
-        font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.01em; white-space: nowrap;
-        border: 1px solid transparent; transition: background-color .2s, border-color .2s, transform .2s;
-      }
-      .x-btn--dark { background: var(--x-ink); color: var(--x-on-ink); }
-      .x-btn--dark:hover { background: var(--x-ink-hover); }
-      .x-btn--light { background: var(--x-bg); color: var(--x-ink); border-color: var(--x-rule); }
-      .x-btn--light:hover { border-color: var(--x-rule-hover); }
-      .x-btn--lg { min-height: var(--x-btn-h-lg); padding: 0 19px; font-size: 13px; }
-
-      /* ===== Sections ===== */
-      .x-sec { padding: var(--x-sec-pad) 0 0; scroll-margin-top: var(--x-hh); }
-      .x-sec__head { margin-bottom: clamp(29px, 4vw, 51px); }
-      .x-sec__head .x-p { margin-top: 18px; max-width: 560px; }
 
       /* ===== Hero ===== */
-      .x-hero { padding-top: clamp(28px, 5vw, 56px); }
+      .x-hero { padding-top: clamp(40px, 6vw, 72px); }
       .x-hero__copy { max-width: 760px; }
-      .x-hero__sub { margin-top: 21px; max-width: 560px; font-size: clamp(14px, 1.28vw, 15px); }
+      .x-hero__sub { margin-top: 21px; max-width: 560px; font-size: var(--x-fs-lede); }
       .x-hero__cta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 27px; }
       .x-hero__tert { margin-top: 16px; font-size: var(--x-fs-ui); color: var(--x-grey); font-weight: 500; }
+      .x-hero__tert span { white-space: nowrap; }
       .x-hero__tert b { font-weight: 500; color: var(--x-grey); padding: 0 3px; }
       .x-h1 .x-agw { display: inline; padding: 0 .12em .02em; border: 2px solid var(--x-ember); border-radius: 0; background: var(--x-tint); }
       .x-hero .x-aw { margin-top: clamp(36px, 5vw, 56px); }
@@ -196,29 +129,18 @@
       .x-cmp tbody .x-cmp__us::before { top: 19px; width: 7px; height: 7px; background: var(--x-ember); }
       .x-cmp thead .x-cmp__us { background: var(--x-ink); color: var(--x-on-ink); }
 
-      /* ===== FAQ ===== */
-      .x-faq { border-top: 1px solid var(--x-line); max-width: 736px; }
-      .x-faq details { border-bottom: 1px solid var(--x-line); }
-      .x-faq summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 38px 1fr 19px; gap: 10px; align-items: baseline; min-height: 36px; padding: 19px 0; font-family: var(--x-sans); font-weight: 600; font-size: 15px; letter-spacing: -0.02em; color: var(--x-ink); }
-      .x-faq summary::-webkit-details-marker { display: none; }
-      .x-faq summary::after { content: "+"; font-weight: 500; color: var(--x-grey); text-align: right; }
-      .x-faq details[open] summary::after { content: "\2212"; }
-      .x-faq__n { font: 400 12px/1 var(--x-mono); color: var(--x-grey); letter-spacing: 0; }
-      .x-faq details p { margin: -6px 0 0; padding: 0 29px 19px 48px; color: var(--x-grey); font-weight: 500; }
-      @media (max-width: 640px) { .x-faq summary { grid-template-columns: 29px 1fr 16px; font-size: 14px; } .x-faq details p { padding: 0 0 18px 38px; } }
-
-      /* ===== Final CTA ===== */
-      .x-final { margin-top: var(--x-sec-pad); }
-      .x-final__card { position: relative; overflow: hidden; border-top: 1px solid var(--x-line); border-bottom: 1px solid var(--x-line); background: var(--x-panel); min-height: 440px; display: flex; justify-content: center; }
-      .x-final__copy { position: relative; z-index: 1; text-align: center; padding: 77px 19px 72px; max-width: 608px; display: flex; flex-direction: column; align-items: center; }
-      .x-final__copy .x-p { margin-top: 18px; max-width: 448px; }
-      .x-final__copy .x-hero__cta { justify-content: center; }
+      /* ===== Final CTA (same on Agents, Flows, Plays) ===== */
+      .x-final { margin-top: var(--x-sec-pad); border-top: 1px solid var(--x-line); border-bottom: 1px solid var(--x-line); background: var(--x-panel); }
+      .x-final__copy { position: relative; text-align: center; padding: 80px 19px 88px; max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+      .x-final__copy .x-p { margin-top: 18px; max-width: 460px; text-wrap: balance; }
+      .x-final__copy .x-hero__cta, .x-final__copy .x-cta { justify-content: center; }
       .x-fire { width: 72px; height: 85px; overflow: hidden; position: relative; margin-bottom: 22px; }
       .x-fire img { position: absolute; width: 472px; max-width: none; height: auto; left: -33px; top: -33px; }
 
       /* ===== App mockup: the three-column Agents screen (after landing-reference .x-aw) ===== */
       .x-aw { position: relative; }
-      .x-aw__tag { margin: 0 0 10px auto; display: table; padding: 0; font: 400 12px/1 var(--x-sans); color: var(--x-grey); }
+      .x-aw__tag { display: flex; align-items: center; justify-content: flex-end; gap: 7px; margin: 0 0 10px; padding: 0; font: 500 12px/1 var(--x-sans); color: var(--x-grey); }
+      .x-aw__tag::before { content: ""; width: 6px; height: 6px; background: var(--x-ember); }
       .x-aw__win { display: flex; flex-direction: column; height: 560px; overflow: hidden; background: var(--x-bg); border: 1px solid var(--x-rule); border-radius: 0; box-shadow: none; font-family: var(--x-sans); letter-spacing: -0.01em; }
       .x-aw__bar { flex: none; display: flex; align-items: center; gap: 5px; height: 32px; box-sizing: border-box; padding: 0 8px 0 12px; border-bottom: 1px solid var(--x-line); }
       .x-aw__bar > i { flex: none; width: 7px; height: 7px; background: var(--x-line); }
@@ -332,23 +254,22 @@
       .x-fl code { font: 400 12px/1.3 var(--x-mono); color: var(--x-grey); }
 
       /* Square corners on every card, frame, chip and button (only dots stay round); no shadows */
-      .x-body .x-btn, .x-body .x-menu, .x-body .x-dd__btn, .x-body .x-nav a, .x-body .x-dd__menu,
       .x-body .x-aw__win, .x-body .x-aw__btn, .x-body .x-aw__sugg span, .x-body .x-aw__row, .x-body .x-aw__card,
-      .x-body .x-aw__task, .x-body .x-aw__comp, .x-body .x-aw__give, .x-body .x-fl, .x-body .x-ft__tile, .x-body .x-ft__cta { border-radius: 0; box-shadow: none; }
+      .x-body .x-aw__task, .x-body .x-aw__comp, .x-body .x-aw__give, .x-body .x-fl { border-radius: 0; box-shadow: none; }
 
-      @media (prefers-reduced-motion: reduce) {
-        html { scroll-behavior: auto; }
-        .x-body *, .x-body *::before, .x-body *::after { animation: none !important; transition: none !important; }
-      }
-      @media (pointer: coarse), (max-width: 640px) {
-        .x-btn, .x-btn--lg, .x-nav a, .x-brand, .x-ft__links a, .x-faq summary, .x-plug a.x-tlink { min-height: 44px; }
-        .x-menu { width: 44px; height: 44px; }
-        .x-ft__links a { min-width: 44px; }
-      }
+      @media (pointer: coarse), (max-width: 640px) { .x-plug a.x-tlink { min-height: 44px; } }
     </style>
   </head>
   <body class="x-body">
     <div class="x-page" id="top">
+      <div class="x-ann" id="ann">
+        <div class="x-ann__in">
+          <span class="x-ann__dot" aria-hidden="true"></span>
+          <span>New: LinkedIn steps now run inside Flows</span>
+          <button class="x-ann__x" type="button" aria-label="Dismiss announcement">×</button>
+        </div>
+      </div>
+
       <!-- partial:header -->
       <header class="x-head" id="head">
         <div class="x-wrap x-head__in">
@@ -386,7 +307,7 @@
               <a class="x-btn x-btn--dark x-btn--lg" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
               <a class="x-btn x-btn--light x-btn--lg" href="https://forms.gle/EdGWZGEn91CfFPFG7" target="_blank" rel="noopener">Join waitlist</a>
             </div>
-            <p class="x-hero__tert">8 AI agents<b>·</b>Nothing sends without approval<b>·</b>Stop any agent in one click</p>
+            <p class="x-hero__tert"><span>8 AI agents</span><b>·</b><span>Nothing sends without approval</span><b>·</b><span>Stop any agent in one click</span></p>
           </div>
 
           <div class="x-aw" role="img" aria-label="Example of the Agents screen: the Crew list on the left with Researcher working and Reply agent waiting on you, an Ask Bonfire chat in the centre, and Tasks and activity on the right grouped as Needs approval, Running and Done.">
@@ -666,6 +587,7 @@
         <section class="x-final" aria-labelledby="final-h">
           <div class="x-final__card">
             <div class="x-final__copy">
+              <div class="x-fire"><img src="/assets/logo.png" alt="" /></div>
               <h2 class="x-h2" id="final-h"><span>Hire the crew.</span><span>Skip the salaries.</span></h2>
               <p class="x-p">Book a demo. We'll walk you through all 8 agents, the approval queue and your first flow, live.</p>
               <div class="x-hero__cta">
@@ -788,21 +710,9 @@
           el.setAttribute("aria-hidden", "true");
           el.innerHTML = el.getAttribute("data-g").split("").map(function (c) { return "<i" + (cls[c] || "") + "></i>"; }).join("");
         });
-        /* Header: hairline on scroll, mobile menu */
-        var head = document.getElementById("head"), menu = head.querySelector(".x-menu");
-        function onScroll() { head.classList.toggle("is-scrolled", head.getBoundingClientRect().top <= 0 && window.scrollY > 4); }
-        window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
-        menu.addEventListener("click", function () {
-          var open = head.classList.toggle("is-open");
-          menu.setAttribute("aria-expanded", open); menu.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-        });
-        head.querySelectorAll(".x-nav a").forEach(function (a) {
-          a.addEventListener("click", function () { head.classList.remove("is-open"); menu.setAttribute("aria-expanded", "false"); });
-        });
-
-        document.addEventListener("click", function (e) { if (!dd.contains(e.target)) ddSet(false); });
       })();
     </script>
+    <script src="/assets/site.js"></script>
     <script src="/assets/chrome.js"></script>
   </body>
 </html>
