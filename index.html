@@ -1529,6 +1529,122 @@
               .x-rs__view { position: relative; aspect-ratio: 2 / 1; background: #fff; }
               .x-rs__shot { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
               .x-rs__shot[hidden] { display: none; }
+
+              .x-ui-wrap { position: relative; height: calc(590px * var(--s, 1)); aspect-ratio: auto; overflow: hidden; background: #fff; }
+              .x-ui { position: absolute; left: 0; top: 0; width: 980px; height: 590px; transform: scale(var(--s, 1)); transform-origin: 0 0; font: 400 13px/1.35 var(--x-sans); color: #171717; letter-spacing: -0.01em; text-align: left; }
+              .x-ui * { box-sizing: border-box; }
+              .x-ui p { margin: 0; }
+              .x-ui i, .x-ui em, .x-ui s { font-style: normal; text-decoration: none; }
+              .x-ui svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+              .x-ui .u-ic { width: 13px; height: 13px; }
+              .u-scr { position: absolute; inset: 0; display: grid; }
+              .u-scr[hidden] { display: none; }
+              .u-ag { grid-template-columns: 236px 1fr; }
+              .u-pl { grid-template-columns: 250px 1fr; }
+              .u-fl { grid-template-rows: 44px 1fr; }
+              .u-side { border-right: 1px solid #EDEDED; background: #FAFAF9; padding: 10px 8px; overflow: hidden; }
+              .u-row { display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: 8px; }
+              .u-row.is-sel { background: #EFEEEC; }
+              .u-row > span:last-child { display: flex; flex-direction: column; min-width: 0; }
+              .u-row b { display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 13px; }
+              .u-row i, .u-task i, .u-pc i, .u-m i, .u-nd em { color: #737373; font-size: 11.5px; }
+              .u-ib { display: inline-grid; place-items: center; width: 28px; height: 28px; flex: none; border: 1px solid #E5E5E5; border-radius: 7px; background: #fff; color: #404040; }
+              .u-ib--fl { color: #FF5A1F; background: #FFF1EA; border-color: #FFD9C7; }
+              .u-ib--dk { background: #171717; border-color: #171717; color: #fff; }
+              .u-ib--em { color: #FF5A1F; background: #FFF1EA; border-color: #FFD9C7; }
+              .u-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #D4D4D4; }
+              .u-dot.is-on { background: #22A06B; box-shadow: 0 0 0 2px #DDF3E8; }
+              .u-dot.is-wait { background: #F59E0B; box-shadow: 0 0 0 2px #FDEFD3; }
+              .u-lab { margin: 10px 8px 4px !important; font-size: 11px; color: #8A8A8A; display: flex; justify-content: space-between; align-items: center; }
+              .u-lab--sp { margin-top: 12px !important; border-top: 1px solid #EDEDED; padding-top: 10px; }
+              .u-mut { padding: 2px 8px; color: #8A8A8A; font-size: 12px; }
+              .u-mut2 { display: inline-flex; align-items: center; gap: 5px; color: #737373; font-size: 12px; }
+              .u-main { display: flex; flex-direction: column; min-width: 0; }
+              .u-hd { display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0 20px; border-bottom: 1px solid #EDEDED; }
+              .u-hd b { font-weight: 600; font-size: 14px; }
+              .u-pill { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: #404040; }
+              .u-chat { flex: 1; padding: 18px 40px 0; display: flex; flex-direction: column; gap: 14px; }
+              .u-me { align-self: flex-end; max-width: 420px; padding: 9px 13px; background: #F1F0EE; border-radius: 12px; }
+              .u-bot { display: flex; gap: 12px; }
+              .u-bot > div { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+              .u-bot > div > p { margin-bottom: 2px; max-width: 560px; line-height: 1.5; }
+              .u-task { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 1px solid #E8E8E8; border-radius: 10px; background: #fff; }
+              .u-task > span:nth-child(2) { flex: 1; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+              .u-task b { font-weight: 500; }
+              .u-prog { display: block; height: 4px; width: 220px; background: #EFEFEF; border-radius: 4px; overflow: hidden; }
+              .u-prog s { display: block; height: 100%; background: #FF5A1F; }
+              .u-st { font-size: 11.5px; padding: 3px 8px; border-radius: 999px; }
+              .u-st.is-ok { color: #15803D; background: #E7F6EE; }
+              .u-st.is-run { color: #C2410C; background: #FFF1EA; }
+              .u-btn { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; border: 1px solid #E2E2E2; border-radius: 7px; background: #fff; font-size: 12px; font-weight: 500; color: #262626; white-space: nowrap; }
+              .u-btn--dk { background: #171717; border-color: #171717; color: #fff; }
+              .u-btn--ic { padding: 0 7px; }
+              .u-comp { padding: 0 40px 18px; }
+              .u-chips { display: flex; gap: 6px; margin-bottom: 8px; }
+              .u-chips span { padding: 5px 10px; border: 1px solid #E5E5E5; border-radius: 999px; font-size: 12px; color: #404040; background: #fff; }
+              .u-box { border: 1px solid #DCDCDC; border-radius: 12px; padding: 12px 12px 10px; box-shadow: 0 2px 8px -4px rgba(0,0,0,.12); background: #fff; }
+              .u-box p { color: #9A9A9A; margin-bottom: 14px; }
+              .u-boxrow { display: flex; align-items: center; gap: 6px; }
+              .u-chip { display: inline-flex; align-items: center; gap: 5px; height: 26px; padding: 0 9px; border: 1px solid #E5E5E5; border-radius: 7px; font-size: 12px; color: #404040; background: #fff; white-space: nowrap; }
+              .u-chip b { font-weight: 500; color: #171717; }
+              .u-send { margin-left: auto; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: #FF5A1F; color: #fff; }
+              .u-tb { display: flex; align-items: center; gap: 10px; padding: 0 14px; border-bottom: 1px solid #EDEDED; }
+              .u-name { font-weight: 600; font-size: 14px; }
+              .u-sp { flex: 1; }
+              .u-tg { position: relative; display: inline-block; width: 28px; height: 16px; border-radius: 999px; background: #D4D4D4; flex: none; }
+              .u-tg s { position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: #fff; }
+              .u-tg.is-on { background: #FF5A1F; }
+              .u-tg.is-on s { left: 14px; }
+              .u-flb { display: grid; grid-template-columns: 210px 1fr; min-height: 0; }
+              .u-pal { border-right: 1px solid #EDEDED; background: #FAFAF9; padding: 10px 10px; display: flex; flex-direction: column; overflow: hidden; }
+              .u-palh { display: flex; align-items: baseline; gap: 8px; padding: 0 4px 2px; }
+              .u-palh b { font-weight: 600; font-size: 13px; }
+              .u-palh i { color: #8A8A8A; font-size: 11.5px; }
+              .u-pal .u-lab { margin: 7px 4px 3px !important; font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; }
+              .u-st2 { display: flex; align-items: center; gap: 8px; height: 24px; padding: 0 8px; margin-bottom: 2px; border: 1px solid #E8E8E8; border-radius: 6px; background: #fff; font-size: 12px; color: #262626; }
+              .u-st2 svg { width: 13px; height: 13px; color: #737373; }
+              .u-cv { position: relative; background: #FCFCFB radial-gradient(#E3E3E1 1px, transparent 1.3px) 0 0 / 16px 16px; overflow: hidden; }
+              .u-edges { position: absolute; inset: 0; width: 770px !important; height: 546px !important; stroke: #BDBDBD !important; stroke-width: 1.3 !important; }
+              .u-nd { position: absolute; width: 172px; display: grid; grid-template-columns: 28px 1fr; column-gap: 9px; align-items: center; padding: 8px 10px 9px; border: 1px solid #E2E2E2; border-radius: 10px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+              .u-nd > i { grid-column: 1 / -1; font-size: 9.5px; text-transform: uppercase; letter-spacing: .07em; color: #8A8A8A; margin-bottom: 5px; }
+              .u-nd .u-ib { grid-row: span 2; width: 26px; height: 26px; }
+              .u-nd b { font-weight: 600; font-size: 12.5px; }
+              .u-nd em { font-size: 11px; line-height: 1.3; }
+              .u-yn { position: absolute; padding: 2px 7px; border-radius: 999px; background: #fff; border: 1px solid #E2E2E2; font-size: 10.5px; color: #525252; }
+              .u-fit { position: absolute; right: 12px; top: 12px; display: inline-flex; align-items: center; gap: 5px; height: 26px; padding: 0 10px; border: 1px solid #E2E2E2; border-radius: 999px; background: #fff; font-size: 12px; }
+              .u-zm { position: absolute; left: 12px; bottom: 12px; display: flex; flex-direction: column; border: 1px solid #E2E2E2; border-radius: 7px; background: #fff; overflow: hidden; }
+              .u-zm span { display: grid; place-items: center; width: 26px; height: 24px; border-bottom: 1px solid #EDEDED; color: #525252; }
+              .u-zm span:last-child { border-bottom: 0; }
+              .u-plist { padding: 12px 10px; }
+              .u-sig { display: flex; gap: 6px; margin: 10px 0 12px; }
+              .u-sig span { flex: 1; padding: 7px 8px; border: 1px solid #E8E8E8; border-radius: 8px; background: #fff; font-size: 11px; color: #737373; display: flex; flex-direction: column; }
+              .u-sig b { font-size: 15px; font-weight: 600; color: #171717; }
+              .u-pc { display: flex; align-items: center; gap: 8px; padding: 9px 10px; margin-bottom: 6px; border: 1px solid #E8E8E8; border-radius: 9px; background: #fff; }
+              .u-pc.is-sel { border-color: #FF5A1F; box-shadow: 0 0 0 3px #FFF1EA; }
+              .u-pc > span:first-child { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+              .u-pc b { font-weight: 500; }
+              .u-pc > em { font-size: 12px; color: #525252; }
+              .u-newp { display: flex; align-items: center; justify-content: center; gap: 6px; height: 32px; border: 1px dashed #D4D4D4; border-radius: 9px; font-size: 12px; color: #525252; }
+              .u-pd { padding: 16px 22px; gap: 0; }
+              .u-pt { display: flex; align-items: center; gap: 10px; }
+              .u-pt > b { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
+              .u-sum { margin-top: 6px !important; color: #262626; }
+              .u-stat { margin: 4px 0 12px !important; font-size: 11.5px; color: #8A8A8A; }
+              .u-rule { display: flex; align-items: center; gap: 7px; padding: 7px 0; border-top: 1px solid #F0F0F0; }
+              .u-rule > i { width: 42px; font-size: 12px; color: #8A8A8A; }
+              .u-rule > em { font-size: 12px; color: #8A8A8A; }
+              .u-cb { display: inline-grid; width: 12px; height: 12px; border-radius: 3px; background: #171717; position: relative; }
+              .u-cb::after { content: ""; position: absolute; left: 4px; top: 1.5px; width: 3px; height: 6px; border: solid #fff; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
+              .u-mh { display: flex; align-items: center; gap: 8px; margin-top: 10px; padding: 10px 0 8px; border-top: 1px solid #EDEDED; }
+              .u-mh b { font-weight: 600; }
+              .u-mh i { font-size: 12px; color: #8A8A8A; }
+              .u-m { display: flex; align-items: center; gap: 8px; padding: 9px 0; border-top: 1px solid #F0F0F0; }
+              .u-m > span { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+              .u-m b { font-weight: 500; display: flex; align-items: center; gap: 8px; }
+              .u-m i { display: flex; align-items: center; gap: 6px; }
+              .u-g { font-size: 11.5px; font-weight: 400; color: #15803D; }
+              .u-ok { font-size: 12px; color: #737373; }
+              .x-rs__tag { margin-left: auto; padding: 2px 8px; border: 1px solid #E6E6E6; border-radius: 999px; font-size: 11px; font-style: normal; color: #737373; }
               .x-rs__cap { margin: 14px 0 0; max-width: 620px; font: 400 var(--x-fs-body)/1.55 var(--x-sans); color: var(--x-grey); }
               .x-rs__cap b { color: var(--x-ink); font-weight: 600; }
             </style>
@@ -1540,12 +1656,175 @@
                 <button class="x-rs__tab" type="button" role="tab" id="rs-t2" aria-controls="rs-p2" aria-selected="false" tabindex="-1">Plays</button>
               </div>
               <div class="x-rs__win">
-                <div class="x-rs__bar"><i></i><i></i><i></i><span>Bonfire GTM</span></div>
-                <div class="x-rs__view">
-                <img class="x-rs__shot" id="rs-p0" role="tabpanel" aria-labelledby="rs-t0" src="app/agents.webp" width="1167" height="583" alt="Bonfire GTM Agents screen: the crew of eight agents on the left and a chat with all agents on the right." decoding="async">
-                <img class="x-rs__shot" id="rs-p1" role="tabpanel" aria-labelledby="rs-t1" src="app/flows.webp" width="1230" height="615" alt="Bonfire GTM Flows canvas: a funding signal triggers research, a notification, a why-now summary and adding the lead to a campaign." decoding="async" hidden>
-                <img class="x-rs__shot" id="rs-p2" role="tabpanel" aria-labelledby="rs-t2" src="app/plays.webp" width="1208" height="604" alt="Bonfire GTM Plays screen: a funding-round play with its when, who and do rules, and matching companies listed most urgent first." decoding="async" hidden>
-              </div>
+                <div class="x-rs__bar"><i></i><i></i><i></i><span>Bonfire GTM</span><em class="x-rs__tag">Example data</em></div>
+                <div class="x-rs__view x-ui-wrap" id="x-ui-wrap">
+                  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+                    <symbol id="ui-tasks" viewBox="0 0 24 24"><path d="M3 6l1.5 1.5L7 5M3 12l1.5 1.5L7 11M3 18l1.5 1.5L7 17M11 6h10M11 12h10M11 18h10"/></symbol>
+                    <symbol id="ui-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+                    <symbol id="ui-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12l6.4-6.4"/></symbol>
+                    <symbol id="ui-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></symbol>
+                    <symbol id="ui-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></symbol>
+                    <symbol id="ui-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.4 3.6a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4z"/></symbol>
+                    <symbol id="ui-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/></symbol>
+                    <symbol id="ui-reply" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 6 6v5"/></symbol>
+                    <symbol id="ui-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M8 17v-4M13 17V8M18 17v-7"/></symbol>
+                    <symbol id="ui-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+                    <symbol id="ui-send" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+                    <symbol id="ui-at" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></symbol>
+                    <symbol id="ui-zap" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+                    <symbol id="ui-userplus" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M19 8v6M16 11h6"/></symbol>
+                    <symbol id="ui-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+                    <symbol id="ui-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></symbol>
+                    <symbol id="ui-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+                    <symbol id="ui-msg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+                    <symbol id="ui-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></symbol>
+                    <symbol id="ui-bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13v1M15 13v1"/></symbol>
+                    <symbol id="ui-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+                    <symbol id="ui-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+                    <symbol id="ui-split" viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 6 6h0a6 6 0 0 1 6 6M18 3v6a6 6 0 0 1-3 5.2"/><path d="M3 6l3-3 3 3M15 6l3-3 3 3"/></symbol>
+                    <symbol id="ui-clip" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 11h6M9 15h4"/></symbol>
+                    <symbol id="ui-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol>
+                    <symbol id="ui-hist" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></symbol>
+                    <symbol id="ui-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+                    <symbol id="ui-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+                    <symbol id="ui-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+                    <symbol id="ui-link" viewBox="0 0 24 24"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></symbol>
+                    <symbol id="ui-folder" viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+                    <symbol id="ui-fit" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+                    <symbol id="ui-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+                    <symbol id="ui-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+                  </svg>
+                  <div class="x-ui" id="x-ui">
+
+                    <!-- AGENTS -->
+                    <div class="u-scr u-ag" id="rs-p0" role="tabpanel" aria-labelledby="rs-t0">
+                      <aside class="u-side">
+                        <div class="u-row"><span class="u-ib"><svg><use href="#ui-tasks"/></svg></span><span><b>Tasks &amp; activity</b><i>3 running</i></span></div>
+                        <div class="u-row is-sel"><span class="u-ib u-ib--fl"><svg><use href="#ui-flame"/></svg></span><span><b>All agents</b><i>Ask Bonfire anything</i></span></div>
+                        <p class="u-lab">Crew</p>
+                        <div class="u-row"><span class="u-ib"><svg><use href="#ui-book"/></svg></span><span><b>Researcher <s class="u-dot"></s></b><i>Idle</i></span></div>
+                        <div class="u-row"><span class="u-ib"><svg><use href="#ui-radar"/></svg></span><span><b>Scout <s class="u-dot is-on"></s></b><i>Working · Funding signals</i></span></div>
+                        <div class="u-row"><span class="u-ib"><svg><use href="#ui-users"/></svg></span><span><b>List builder <s class="u-dot is-on"></s></b><i>Working · 22 of 31 found</i></span></div>
+                        <div class="u-row"><span class="u-ib"><svg><use href="#ui-check"/></svg></span><span><b>Verifier <s class="u-dot is-on"></s></b><i>Working · Checking emails</i></span></div>
+                        <div class="u-row"><span class="u-ib"><svg><use href="#ui-pen"/></svg></span><span><b>Copywriter <s class="u-dot is-wait"></s></b><i>Waiting on you</i></span></div>
+                        <div class="u-row"><span class="u-ib"><svg><use href="#ui-shield"/></svg></span><span><b>Deliverability guard <s class="u-dot"></s></b><i>Idle</i></span></div>
+                        <div class="u-row"><span class="u-ib"><svg><use href="#ui-reply"/></svg></span><span><b>Reply agent <s class="u-dot"></s></b><i>Idle</i></span></div>
+                        <div class="u-row"><span class="u-ib"><svg><use href="#ui-chart"/></svg></span><span><b>Reporter <s class="u-dot"></s></b><i>Idle</i></span></div>
+                        <p class="u-lab u-lab--sp">Your agents <svg class="u-ic"><use href="#ui-plus"/></svg></p>
+                        <p class="u-mut">Build one from a template…</p>
+                      </aside>
+                      <main class="u-main">
+                        <header class="u-hd"><b>All agents</b><span class="u-pill"><s class="u-dot is-on"></s>Bonfire is working · 3</span></header>
+                        <div class="u-chat">
+                          <p class="u-me">Find Series A fintech founders in the US who raised this month, and draft an opener.</p>
+                          <div class="u-bot">
+                            <span class="u-ib u-ib--fl"><svg><use href="#ui-flame"/></svg></span>
+                            <div>
+                              <p>On it. Scout is pulling this month's rounds, List builder finds the founders, and Copywriter drafts an opener for you to approve.</p>
+                              <div class="u-task"><span class="u-ib"><svg><use href="#ui-radar"/></svg></span><span><b>Scout · Pull Series A fintech rounds, US</b><i>14 companies found</i></span><em class="u-st is-ok">Done</em></div>
+                              <div class="u-task"><span class="u-ib"><svg><use href="#ui-users"/></svg></span><span><b>List builder · Find founders and verify emails</b><i class="u-prog"><s style="width:71%"></s></i></span><em class="u-st is-run">22 of 31</em></div>
+                              <div class="u-task"><span class="u-ib"><svg><use href="#ui-pen"/></svg></span><span><b>Copywriter · Draft opener: "Congrats on the round"</b><i>3-step sequence, email + LinkedIn</i></span><em class="u-btn u-btn--dk">Approve</em><em class="u-btn">Edit</em></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="u-comp">
+                          <div class="u-chips"><span>What's waiting on me?</span><span>Build a list from hiring signals</span><span>Draft a follow-up</span></div>
+                          <div class="u-box">
+                            <p>Ask Bonfire anything, or @ an agent…</p>
+                            <div class="u-boxrow"><span class="u-chip"><svg class="u-ic"><use href="#ui-at"/></svg>Agents</span><span class="u-chip">Based on: Workspace</span><span class="u-send"><svg><use href="#ui-send"/></svg></span></div>
+                          </div>
+                        </div>
+                      </main>
+                    </div>
+
+                    <!-- FLOWS -->
+                    <div class="u-scr u-fl" id="rs-p1" role="tabpanel" aria-labelledby="rs-t1" hidden>
+                      <header class="u-tb">
+                        <span class="u-chip">Flows 3 <svg class="u-ic"><use href="#ui-down"/></svg></span>
+                        <b class="u-name">Funding signal → verify → email</b>
+                        <span class="u-tg is-on"><s></s></span><span class="u-mut2">On</span>
+                        <span class="u-sp"></span>
+                        <span class="u-btn"><svg class="u-ic"><use href="#ui-play"/></svg>Test run</span>
+                        <span class="u-btn u-btn--dk">Run now</span>
+                        <span class="u-btn"><svg class="u-ic"><use href="#ui-hist"/></svg>Runs</span>
+                        <span class="u-btn u-btn--ic"><svg class="u-ic"><use href="#ui-trash"/></svg></span>
+                      </header>
+                      <div class="u-flb">
+                        <aside class="u-pal">
+                          <p class="u-palh"><b>Steps</b><i>click or drag</i></p>
+                          <p class="u-lab">Triggers</p>
+                          <span class="u-st2"><svg><use href="#ui-zap"/></svg>New signal</span>
+                          <span class="u-st2"><svg><use href="#ui-userplus"/></svg>New lead</span>
+                          <span class="u-st2"><svg><use href="#ui-reply"/></svg>New reply</span>
+                          <p class="u-lab">LinkedIn</p>
+                          <span class="u-st2"><svg><use href="#ui-eye"/></svg>View LinkedIn profile</span>
+                          <span class="u-st2"><svg><use href="#ui-in"/></svg>LinkedIn invite (no note)</span>
+                          <span class="u-st2"><svg><use href="#ui-msg"/></svg>LinkedIn message</span>
+                          <p class="u-lab">Email</p>
+                          <span class="u-st2"><svg><use href="#ui-mail"/></svg>Send email</span>
+                          <span class="u-st2"><svg><use href="#ui-send"/></svg>Add to campaign</span>
+                          <p class="u-lab">Leads</p>
+                          <span class="u-st2"><svg><use href="#ui-spark"/></svg>Enrich</span>
+                          <span class="u-st2"><svg><use href="#ui-check"/></svg>Verify email</span>
+                          <p class="u-lab">Tasks &amp; agents</p>
+                          <span class="u-st2"><svg><use href="#ui-clip"/></svg>Create task</span>
+                          <span class="u-st2"><svg><use href="#ui-bot"/></svg>Agent task</span>
+                          <span class="u-st2"><svg><use href="#ui-bell"/></svg>Notify me</span>
+                          <p class="u-lab">Logic</p>
+                          <span class="u-st2"><svg><use href="#ui-clock"/></svg>Wait</span>
+                          <span class="u-st2"><svg><use href="#ui-split"/></svg>Condition</span>
+                        </aside>
+                        <div class="u-cv">
+                          <svg class="u-edges" viewBox="0 0 770 546" aria-hidden="true">
+                            <path d="M180 82H205M365 82H390M550 82H575"/>
+                            <path d="M659 114V200"/>
+                            <path d="M640 114C640 160 474 150 474 200"/>
+                            <path d="M659 264V330M659 394V448M474 264V330"/>
+                          </svg>
+                          <span class="u-fit"><svg class="u-ic"><use href="#ui-fit"/></svg>Fit</span>
+                          <div class="u-nd" style="left:12px;top:50px"><i>When</i><span class="u-ib u-ib--dk"><svg><use href="#ui-zap"/></svg></span><b>New signal</b><em>Funding round</em></div>
+                          <div class="u-nd" style="left:205px;top:50px"><i>Leads</i><span class="u-ib"><svg><use href="#ui-spark"/></svg></span><b>Enrich</b><em>Email, title, LinkedIn</em></div>
+                          <div class="u-nd" style="left:390px;top:50px"><i>Leads</i><span class="u-ib"><svg><use href="#ui-check"/></svg></span><b>Verify email</b><em>Deliverable only</em></div>
+                          <div class="u-nd" style="left:575px;top:50px"><i>Logic</i><span class="u-ib"><svg><use href="#ui-split"/></svg></span><b>Condition</b><em>Email verified?</em></div>
+                          <span class="u-yn" style="left:666px;top:148px">Yes</span>
+                          <span class="u-yn" style="left:520px;top:146px">No</span>
+                          <div class="u-nd" style="left:575px;top:200px"><i>Email</i><span class="u-ib u-ib--em"><svg><use href="#ui-mail"/></svg></span><b>Send email</b><em>Case-study opener</em></div>
+                          <div class="u-nd" style="left:390px;top:200px"><i>LinkedIn</i><span class="u-ib"><svg><use href="#ui-in"/></svg></span><b>LinkedIn invite</b><em>No note, you approve</em></div>
+                          <div class="u-nd" style="left:575px;top:330px"><i>Logic</i><span class="u-ib"><svg><use href="#ui-clock"/></svg></span><b>Wait</b><em>3 days, no reply</em></div>
+                          <div class="u-nd" style="left:390px;top:330px"><i>Task</i><span class="u-ib"><svg><use href="#ui-bell"/></svg></span><b>Notify me</b><em>Accepted? Draft a DM</em></div>
+                          <div class="u-nd" style="left:575px;top:448px"><i>Email</i><span class="u-ib u-ib--em"><svg><use href="#ui-send"/></svg></span><b>Add to campaign</b><em>Funding follow-ups</em></div>
+                          <div class="u-zm"><span><svg class="u-ic"><use href="#ui-plus"/></svg></span><span><svg class="u-ic"><use href="#ui-minus"/></svg></span><span><svg class="u-ic"><use href="#ui-fit"/></svg></span></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- PLAYS -->
+                    <div class="u-scr u-pl" id="rs-p2" role="tabpanel" aria-labelledby="rs-t2" hidden>
+                      <aside class="u-side u-plist">
+                        <p class="u-palh"><b>Plays</b><i>3 plays · 2 on</i></p>
+                        <div class="u-sig"><span><b>18</b>funding</span><span><b>15</b>hiring</span><span><b>9</b>launches</span></div>
+                        <div class="u-pc is-sel"><span><b>Funding round</b><i>Fintech · 10–50 · US + Canada</i></span><em>12</em><span class="u-tg is-on"><s></s></span></div>
+                        <div class="u-pc"><span><b>Hiring for sales</b><i>SaaS · hiring SDRs or AEs</i></span><em>9</em><span class="u-tg is-on"><s></s></span></div>
+                        <div class="u-pc"><span><b>New marketing leader</b><i>B2B · new CMO or VP Marketing</i></span><em>4</em><span class="u-tg"><s></s></span></div>
+                        <span class="u-newp"><svg class="u-ic"><use href="#ui-plus"/></svg>New play</span>
+                      </aside>
+                      <main class="u-main u-pd">
+                        <div class="u-pt"><b>Funding round</b><span class="u-sp"></span><span class="u-mut2"><svg class="u-ic"><use href="#ui-link"/></svg>Open in Flows</span><span class="u-tg is-on"><s></s></span><span class="u-mut2">On</span></div>
+                        <p class="u-sum">When a Fintech company raises a Seed to Series B round and has 10–50 people in the US or Canada → find the CMO, verify, send "Case-study opener"</p>
+                        <p class="u-stat">Scout runs it · 12 matches · 90 days · 7 sent · 2 replies</p>
+                        <div class="u-rule"><i>When</i><span class="u-chip"><svg class="u-ic"><use href="#ui-zap"/></svg>Funding round <svg class="u-ic"><use href="#ui-down"/></svg></span><em>raises a Seed to Series B round</em></div>
+                        <div class="u-rule"><i>Who</i><span class="u-chip">Industry <b>Fintech</b></span><span class="u-chip">Size <b>10–50 people</b></span><span class="u-chip">Geo <b>US + Canada</b></span><em>+ Add filter</em></div>
+                        <div class="u-rule"><i>Do</i><span class="u-chip">Find <b>CMO</b></span><em>→</em><span class="u-chip"><s class="u-cb"></s>Verify email</span><em>→</em><span class="u-chip">Send <b>"Case-study opener"</b></span></div>
+                        <div class="u-mh"><b>Matches</b><i>12 · most urgent first</i><span class="u-sp"></span><span class="u-btn"><svg class="u-ic"><use href="#ui-radar"/></svg>Find for this play</span><span class="u-btn"><svg class="u-ic"><use href="#ui-folder"/></svg>Approve into: Funding openers</span></div>
+                        <div class="u-m"><span><b>Kestrel Pay <s class="u-g">Reach out now · 6 days left</s></b><i><s class="u-dot is-on"></s>Funding · Nov 2 · Raised a $14M Series A</i></span><em class="u-btn">Skip</em><em class="u-btn u-btn--dk">Approve</em></div>
+                        <div class="u-m"><span><b>Orchard Ledger <s class="u-g">Reach out now · 9 days left</s></b><i><s class="u-dot is-on"></s>Funding · Oct 30 · Raised a $9M Seed</i></span><em class="u-btn">Skip</em><em class="u-btn u-btn--dk">Approve</em></div>
+                        <div class="u-m"><span><b>Tidewater Card <s class="u-g">Reach out now · 12 days left</s></b><i><s class="u-dot is-on"></s>Funding · Oct 27 · Raised a $22M Series A</i></span><em class="u-ok">In Leads</em></div>
+                        <div class="u-m"><span><b>Brightfern <s class="u-g">This week · 15 days left</s></b><i><s class="u-dot is-on"></s>Funding · Oct 24 · Raised a $6.5M Seed</i></span><em class="u-ok">In Leads</em></div>
+                      </main>
+                    </div>
+
+                  </div>
+                </div>
               </div>
               <p class="x-rs__cap" id="rs-cap" aria-live="polite"><b>Agents.</b> Eight agents share one task list. Ask any of them in plain words, watch what's running, and approve anything risky before it goes out.</p>
             </div>
@@ -1561,6 +1840,10 @@
               "<b>Flows.</b> Drag triggers, email, LinkedIn and agent steps onto a canvas. A funding signal can research the company, ping you, and add the lead to a campaign.",
               "<b>Plays.</b> Say when, who and what to do. Bonfire GTM watches for funding, hiring and launches, then lines up the matches most urgent first."
             ];
+            var wrap = document.getElementById("x-ui-wrap");
+            function fit() { if (wrap) wrap.style.setProperty("--s", wrap.clientWidth / 980); }
+            fit(); addEventListener("resize", fit);
+            if ("ResizeObserver" in window && wrap) new ResizeObserver(fit).observe(wrap);
             function show(i, focus) {
               tabs.forEach(function (t, j) {
                 var on = j === i;
