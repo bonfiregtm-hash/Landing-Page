@@ -1514,31 +1514,38 @@
             </svg>
             <style>
               .x-rs { position: relative; }
-              .x-rs__tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
-              .x-rs__tab { appearance: none; cursor: pointer; height: 32px; padding: 0 14px; border: 1px solid #D4D4D4; border-radius: 0; background: #fff; color: var(--x-ink); font: 500 13px/1 var(--x-sans); letter-spacing: -0.01em; }
-              .x-rs__tab:hover { border-color: #A3A3A3; }
-              .x-rs__tab[aria-selected="true"] { background: var(--x-ink); border-color: var(--x-ink); color: #fff; }
+              .x-rs__sw { position: relative; display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; margin: 0 0 18px; padding: 5px; border: 1px solid #E6E6E6; border-radius: 999px; background: #F7F7F5; box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 18px -8px rgba(0,0,0,.12); }
+              .x-rs__knob { position: absolute; top: 5px; bottom: 5px; left: 5px; width: calc((100% - 10px) / 3); border-radius: 999px; background: var(--x-ink); transform: translateX(calc(var(--i, 0) * 100%)); transition: transform .35s cubic-bezier(.3,.7,.2,1); }
+              .x-rs__tab { position: relative; z-index: 1; appearance: none; cursor: pointer; min-width: 128px; height: 48px; padding: 0 26px; border: 0; border-radius: 999px; background: none; color: #525252; font: 600 13px/1 var(--x-sans); letter-spacing: .08em; text-transform: uppercase; transition: color .25s; }
+              .x-rs__tab:hover { color: var(--x-ink); }
+              .x-rs__tab[aria-selected="true"] { color: #fff; }
               .x-rs__tab:focus-visible { outline: 2px solid var(--x-ember); outline-offset: 2px; }
+              @media (max-width: 480px) { .x-rs__sw { display: grid; width: 100%; box-sizing: border-box; } .x-rs__tab { min-width: 0; padding: 0 10px; height: 44px; font-size: 12px; } }
+              @media (prefers-reduced-motion: reduce) { .x-rs__knob, .x-rs__tab { transition: none; } }
               .x-rs__win { margin: 0 6px 6px 0; background: #fff; border: 1px solid #D4D4D4; box-shadow: 6px 6px 0 -1px #fff, 6px 6px 0 0 #D4D4D4; overflow: hidden; }
               .x-rs__bar { display: flex; align-items: center; gap: 5px; height: 30px; padding: 0 12px; border-bottom: 1px solid #E6E6E6; font: 400 12px/1 var(--x-sans); color: #737373; }
               .x-rs__bar > i { width: 7px; height: 7px; background: #E6E6E6; }
               .x-rs__bar span { margin-left: 8px; }
-              .x-rs__shot { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; }
+              .x-rs__view { position: relative; aspect-ratio: 2 / 1; background: #fff; }
+              .x-rs__shot { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
               .x-rs__shot[hidden] { display: none; }
               .x-rs__cap { margin: 14px 0 0; max-width: 620px; font: 400 var(--x-fs-body)/1.55 var(--x-sans); color: var(--x-grey); }
               .x-rs__cap b { color: var(--x-ink); font-weight: 600; }
             </style>
             <div class="x-rs" id="x-rs">
-              <div class="x-rs__tabs" role="tablist" aria-label="Bonfire GTM app screens">
+              <div class="x-rs__sw" role="tablist" aria-label="Bonfire GTM app screens">
+                <span class="x-rs__knob" aria-hidden="true"></span>
                 <button class="x-rs__tab" type="button" role="tab" id="rs-t0" aria-controls="rs-p0" aria-selected="true">Agents</button>
                 <button class="x-rs__tab" type="button" role="tab" id="rs-t1" aria-controls="rs-p1" aria-selected="false" tabindex="-1">Flows</button>
                 <button class="x-rs__tab" type="button" role="tab" id="rs-t2" aria-controls="rs-p2" aria-selected="false" tabindex="-1">Plays</button>
               </div>
               <div class="x-rs__win">
                 <div class="x-rs__bar"><i></i><i></i><i></i><span>Bonfire GTM</span></div>
-                <img class="x-rs__shot" id="rs-p0" role="tabpanel" aria-labelledby="rs-t0" src="app/app-agents.webp" width="1600" height="1000" alt="Bonfire GTM Agents screen: the crew of eight agents on the left, a chat with all agents in the middle, and running, done and stopped tasks on the right." loading="lazy" decoding="async">
-                <img class="x-rs__shot" id="rs-p1" role="tabpanel" aria-labelledby="rs-t1" src="app/app-flows.webp" width="1600" height="1000" alt="Bonfire GTM Flows builder: a palette of trigger, LinkedIn, email, lead and agent steps, and a flow from a funding signal to research, notify and add to campaign." loading="lazy" decoding="async" hidden>
-                <img class="x-rs__shot" id="rs-p2" role="tabpanel" aria-labelledby="rs-t2" src="app/app-plays.webp" width="1600" height="1000" alt="Bonfire GTM Plays screen: a funding-round play with its when, who and do rules, and matching companies listed most urgent first." loading="lazy" decoding="async" hidden>
+                <div class="x-rs__view">
+                <img class="x-rs__shot" id="rs-p0" role="tabpanel" aria-labelledby="rs-t0" src="app/agents.webp" width="1167" height="583" alt="Bonfire GTM Agents screen: the crew of eight agents on the left and a chat with all agents on the right." decoding="async">
+                <img class="x-rs__shot" id="rs-p1" role="tabpanel" aria-labelledby="rs-t1" src="app/flows.webp" width="1230" height="615" alt="Bonfire GTM Flows canvas: a funding signal triggers research, a notification, a why-now summary and adding the lead to a campaign." decoding="async" hidden>
+                <img class="x-rs__shot" id="rs-p2" role="tabpanel" aria-labelledby="rs-t2" src="app/plays.webp" width="1208" height="604" alt="Bonfire GTM Plays screen: a funding-round play with its when, who and do rules, and matching companies listed most urgent first." decoding="async" hidden>
+              </div>
               </div>
               <p class="x-rs__cap" id="rs-cap" aria-live="polite"><b>Agents.</b> Eight agents share one task list. Ask any of them in plain words, watch what's running, and approve anything risky before it goes out.</p>
             </div>
@@ -1561,6 +1568,7 @@
                 t.tabIndex = on ? 0 : -1;
                 document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
               });
+              root.querySelector(".x-rs__sw").style.setProperty("--i", i);
               cap.innerHTML = C[i];
               if (focus) tabs[i].focus();
             }
@@ -2099,8 +2107,8 @@
         var last = performance.now();
         function loop(now) {
           var dt = Math.min(50, now - last); last = now;
-          x += (tx - x) * 0.35; y += (ty - y) * 0.35;
-          sc += ((hover ? 1.4 : 1) - sc) * 0.2;
+          x = tx; y = ty;
+          sc += ((hover ? 1.15 : 1) - sc) * 0.2;
           lean += (leanT - lean) * 0.15; leanT *= 0.88;
           ctx.clearRect(0, 0, vw, vh);
           for (var i = sparks.length - 1; i >= 0; i--) {
@@ -2113,8 +2121,10 @@
           ctx.globalAlpha = 1;
           if (visible && seen) {
             var f = frames[Math.floor(now / 120) % 3], pc = hover ? hot : pal;
+            ctx.fillStyle = "#111"; ctx.fillRect(Math.round(x) - 3, Math.round(y) - 3, 6, 6);
+            ctx.fillStyle = hover ? "#FF8A4F" : "#FF5A1F"; ctx.fillRect(Math.round(x) - 2, Math.round(y) - 2, 4, 4);
             ctx.save();
-            ctx.translate(Math.round(x), Math.round(y));
+            ctx.translate(Math.round(x) + 14, Math.round(y) + 6);
             ctx.transform(sc, 0, Math.tan(lean * Math.PI / 180) * sc, sc, 0, 0);
             for (var r = 0; r < f.length; r++) for (var c = 0; c < W; c++) {
               var k = f[r][c];
