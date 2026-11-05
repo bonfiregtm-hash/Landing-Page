@@ -1,0 +1,1009 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flows: email + LinkedIn outbound automation builder | Bonfire GTM</title>
+    <meta name="description" content="Stop duct-taping five tools with Zapier. Bonfire GTM Flows runs your whole outbound in one chain: trigger, research, verify, write, send on email and LinkedIn, and route replies, with approvals built in." />
+    <link rel="canonical" href="https://bonfiregtm.com/flows" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bonfire GTM" />
+    <meta property="og:title" content="Flows: email + LinkedIn outbound automation builder | Bonfire GTM" />
+    <meta property="og:description" content="One visual builder for your whole outbound motion. Email and LinkedIn steps, AI agents and approvals on one canvas." />
+    <meta property="og:url" content="https://bonfiregtm.com/flows" />
+    <meta property="og:image" content="https://bonfiregtm.com/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@bonfiregtm" />
+    <link rel="icon" type="image/png" href="app-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "Bonfire GTM Flows",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "url": "https://bonfiregtm.com/flows",
+            "description": "A visual builder where your whole outbound motion runs as one chain: trigger, research, verify, write, send on email and LinkedIn, and route replies. AI agents run as steps and anything risky waits for your approval.",
+            "featureList": ["Triggers: New signal, New lead, New reply", "Email and LinkedIn steps in one flow", "AI agent tasks as steps", "Approvals in Needs you", "Test run dry runs", "On/off per flow and run history"],
+            "publisher": { "@type": "Organization", "name": "Bonfire GTM", "url": "https://bonfiregtm.com/", "sameAs": ["https://x.com/bonfiregtm", "https://www.linkedin.com/company/bonfiregtm"] }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bonfiregtm.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Flows", "item": "https://bonfiregtm.com/flows" }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              { "@type": "Question", "name": "Do I need Zapier?", "acceptedAnswer": { "@type": "Answer", "text": "No. Triggers, research, verification, email, LinkedIn, agents and approvals all run inside one flow in Bonfire GTM. Nothing to glue together." } },
+              { "@type": "Question", "name": "Can it send LinkedIn messages?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Flows can view a LinkedIn profile, send an invite with no note, and message a connection. Each one runs after you approve it." } },
+              { "@type": "Question", "name": "Does anything send without me?", "acceptedAnswer": { "@type": "Answer", "text": "Nothing risky. Emails, LinkedIn steps and agent changes land in Needs you until you approve them. Test run is a dry run on the latest matching item, so nothing changes." } },
+              { "@type": "Question", "name": "What triggers a flow?", "acceptedAnswer": { "@type": "Answer", "text": "Three things: New signal (a funding, hiring, launch or leadership signal is found), New lead (a lead is added from an import, list builder, play or agent) and New reply (someone replies to a campaign email)." } },
+              { "@type": "Question", "name": "How long does setup take?", "acceptedAnswer": { "@type": "Answer", "text": "About 15 minutes for your first flow: pick a trigger, add steps, do a test run and switch it on. New sending inboxes still warm up for 21 days before they send at full volume." } }
+            ]
+          }
+        ]
+      }
+    </script>
+    <style>
+      /* ===== Bonfire GTM, Flows page: custom design matching the landing page ===== */
+      /* Tokens: the landing page's v4 palette (white, ink, neutral rules, ember) */
+      :root {
+        --x-paper: #FFFFFF; --x-ink: #111111; --x-grey: #555555; --x-mute: #555555;
+        --x-line: #D4D4D4; --x-fr: #D4D4D4; --x-panel: #F7F7F7; --x-white: #FFFFFF;
+        --x-ember: #FF5A1F; --x-ember-dk: #C2410C; --x-tint: #FFF1EA;
+        --x-head: "Geist", ui-sans-serif, system-ui, sans-serif;
+        --x-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+        --x-mono: "Geist Mono", ui-monospace, monospace;
+        --x-max: 992px; --x-gut: clamp(16px, 3.2vw, 32px);
+        --x-hh: 54px; --x-annh: 36px;
+        --x-fs-h1: clamp(36px, 5.6vw, 67px);
+        --x-fs-h2: clamp(28px, 3.84vw, 45px);
+        --x-fs-body: 14.5px; --x-fs-ui: 12px;
+        --x-btn-h: 36px; --x-btn-h-lg: 40px;
+        --x-sec-pad: clamp(64px, 8.8vw, 112px);
+        --x-gap: 26px;
+        color-scheme: light;
+      }
+      :root:has(.x-ann[hidden]) { --x-annh: 0px; }
+      html { background: var(--x-paper); }
+      body.x-body {
+        margin: 0; background: var(--x-paper); color: var(--x-ink);
+        font: 500 var(--x-fs-body)/1.55 var(--x-sans); letter-spacing: -0.005em;
+        -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      }
+      .x-body :focus-visible { outline: 2px solid var(--x-ember-dk); outline-offset: 3px; border-radius: 0; }
+      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: var(--x-gut); }
+      .x-h1, .x-h2, .x-h3 { font-family: var(--x-sans); color: var(--x-ink); letter-spacing: -0.035em; margin: 0; }
+      .x-h1 { font-size: var(--x-fs-h1); line-height: 1.0; font-weight: 600; }
+      .x-h2 { font-size: var(--x-fs-h2); line-height: 1.04; font-weight: 600; }
+      .x-h1 span, .x-h2 span { display: block; }
+      .x-h3 { font-size: 21px; line-height: 1.1; font-weight: 600; letter-spacing: -0.03em; }
+      .x-p { color: var(--x-grey); font-weight: 500; font-size: var(--x-fs-body); line-height: 1.55; margin: 0; }
+      .x-ember { color: var(--x-ember-dk); }
+      .x-sub2 { color: var(--x-mute); }
+
+      /* Buttons */
+      .x-btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        min-height: var(--x-btn-h); padding: 0 16px; border-radius: 0; text-decoration: none;
+        font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.01em; white-space: nowrap;
+        border: 1px solid transparent; transition: background-color .2s, border-color .2s, transform .2s;
+      }
+      .x-btn--dark { background: var(--x-ink); color: #fff; }
+      .x-btn--dark:hover { background: #2a2a2a; }
+      .x-btn--light { background: #fff; color: var(--x-ink); border-color: #D9D9D9; }
+      .x-btn--light:hover { border-color: #9a9a9a; }
+      .x-btn--lg { min-height: var(--x-btn-h-lg); padding: 0 19px; font-size: 13px; }
+
+      /* ===== Announcement bar ===== */
+      .x-ann { background: var(--x-tint); color: var(--x-ink); font-size: var(--x-fs-ui); font-weight: 500; }
+      .x-ann__in { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--x-annh); position: relative; padding-inline: 44px; text-align: center; box-sizing: border-box; }
+      .x-ann__dot { width: 5px; height: 5px; background: var(--x-ember); flex: none; }
+      .x-ann__x { position: absolute; right: 4px; top: 0; width: 36px; height: 36px; border: 0; background: none; color: var(--x-ink); font-size: 16px; cursor: pointer; border-radius: 0; }
+      .x-ann[hidden] { display: none; }
+
+      /* ===== 2. Header (partial:header from landing-reference-v4.html) ===== */
+      .x-head { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid transparent; transition: border-color .2s; }
+      .x-head.is-scrolled { border-bottom-color: var(--x-line); }
+      .x-head__in { display: flex; align-items: center; justify-content: space-between; gap: 13px; height: var(--x-hh); }
+      .x-brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--x-ink); font-weight: 600; font-size: 14px; letter-spacing: -0.02em; min-height: 36px; }
+      /* Logo lockup: logo.png carries transparent margins, so the box crops to the artwork (bbox 212,209 to 2788,763 of 3000x965) */
+      .x-logo { --lh: 26px; position: relative; display: block; flex: none; overflow: hidden; height: var(--lh); width: calc(var(--lh) * 2576 / 554); }
+      .x-logo img { position: absolute; max-width: none; height: calc(var(--lh) * 965 / 554); width: auto; top: calc(var(--lh) * -209 / 554); left: calc(var(--lh) * -212 / 554); }
+      .x-logo--foot { --lh: 36px; }
+      .x-nav { display: flex; gap: 2px; }
+      .x-nav a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; color: var(--x-grey); text-decoration: none; font-size: var(--x-fs-ui); font-weight: 500; border-radius: 6px; transition: color .2s; }
+      .x-nav a:hover { color: var(--x-ink); }
+      .x-head__cta { display: flex; gap: 6px; align-items: center; }
+      .x-menu { display: none; width: 36px; height: 36px; border: 1px solid #D9D9D9; border-radius: 999px; background: #fff; cursor: pointer; align-items: center; justify-content: center; }
+      .x-menu span, .x-menu span::before { display: block; width: 14px; height: 1.5px; background: var(--x-ink); position: relative; }
+      .x-menu span::before { content: ""; position: absolute; top: 4px; }
+      .x-menu span { top: -2px; }
+      @media (max-width: 920px) {
+        .x-nav { display: none; position: absolute; top: var(--x-hh); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--x-line); flex-direction: column; padding: 6px var(--x-gut) 13px; }
+        .x-head.is-open .x-nav { display: flex; }
+        .x-nav a { font-size: 14px; color: var(--x-ink); }
+        .x-menu { display: inline-flex; }
+      }
+      @media (max-width: 440px) { .x-head__cta .x-signin { display: none; } }
+
+      /* ===== 2b. Product dropdown (hover/click, plain list in the mobile menu) ===== */
+      .x-dd { position: relative; display: flex; align-items: center; }
+      .x-dd__btn { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 0 10px; border: 0; border-radius: 6px; background: none; color: var(--x-grey); font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.005em; cursor: pointer; transition: color .2s; }
+      .x-dd__btn:hover, .x-dd.is-open .x-dd__btn { color: var(--x-ink); }
+      .x-dd__chev { flex: none; width: 5px; height: 5px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); transition: transform .2s; }
+      .x-dd.is-open .x-dd__chev { transform: translateY(1px) rotate(-135deg); }
+      .x-dd__lbl { display: none; }
+      .x-dd__menu { display: none; position: absolute; top: 100%; left: 0; z-index: 60; width: 268px; margin: 0; padding: 6px; list-style: none; background: #fff; border: 1px solid #D4D4D4; }
+      .x-dd.is-open .x-dd__menu { display: block; }
+      .x-nav .x-dd__menu a { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 3px; min-height: 44px; padding: 8px 10px; border-radius: 0; color: var(--x-ink); font-size: 13px; font-weight: 600; letter-spacing: -0.015em; }
+      .x-dd__menu a small { font-size: 12px; font-weight: 500; letter-spacing: -0.005em; color: var(--x-grey); }
+      .x-nav .x-dd__menu a:hover { background: var(--x-tint); }
+      @media (hover: hover) and (min-width: 921px) {
+        .x-dd:hover .x-dd__menu { display: block; }
+        .x-dd:hover .x-dd__btn { color: var(--x-ink); }
+      }
+      @media (max-width: 920px) {
+        .x-dd { flex-direction: column; align-items: stretch; }
+        .x-dd__btn { display: none; }
+        .x-dd__lbl { display: block; padding: 10px 10px 2px; font: 500 12px/1.2 var(--x-sans); color: var(--x-grey); }
+        .x-dd__menu, .x-dd.is-open .x-dd__menu { display: block; position: static; width: auto; padding: 0 0 4px; border: 0; }
+        .x-nav .x-dd__menu a { font-size: 14px; }
+      }
+      /* Current page (Flows): ember bar on its menu item, Product trigger in ink */
+      .x-dd:has([aria-current="page"]) .x-dd__btn { color: var(--x-ink); }
+      .x-nav .x-dd__menu a[aria-current="page"] { position: relative; background: var(--x-tint); }
+      .x-nav .x-dd__menu a[aria-current="page"]::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: var(--x-ember); }
+
+      /* ===== Hero ===== */
+      .x-hero { padding-top: clamp(40px, 6vw, 72px); text-align: center; }
+      .x-hero__copy { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+      .x-hero__sub { max-width: 540px; margin: 21px auto 0; font-size: clamp(14.5px, 1.3vw, 16px); }
+      .x-cta { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 27px; }
+      .x-hero__tert { margin: 16px 0 0; font-size: var(--x-fs-ui); color: var(--x-grey); }
+      .x-hero__tert b { font-weight: 500; padding: 0 4px; }
+      .x-hero__mock { margin-top: clamp(40px, 5vw, 60px); text-align: left; }
+
+      /* ===== Mockup system: flat white frames, square corners, offset sheet ===== */
+      .x-ex { display: flex; align-items: center; justify-content: flex-end; gap: 7px; margin: 0 0 10px; font: 500 12px/1 var(--x-sans); color: var(--x-mute); }
+      .x-ex::before { content: ""; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-win { position: relative; margin: 0 6px 6px 0; background: var(--x-white); border: 1px solid var(--x-fr); font: 500 13px/1.35 var(--x-sans); letter-spacing: -0.01em; color: var(--x-ink); }
+      .x-win p { margin: 0; }
+      .x-bar { display: flex; align-items: center; gap: 5px; height: 32px; box-sizing: border-box; padding: 0 10px 0 12px; border-bottom: 1px solid var(--x-line); }
+      .x-bar > i { flex: none; width: 7px; height: 7px; background: var(--x-line); }
+      .x-bar__crumb { flex: 1 1 auto; min-width: 0; margin-left: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 500 12px/1 var(--x-mono); color: var(--x-mute); }
+      .x-bar__crumb b { font-weight: 500; color: var(--x-ink); }
+      .x-need { flex: none; display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 8px; border: 1px solid var(--x-fr); font: 500 12px/1 var(--x-sans); white-space: nowrap; }
+      .x-need b { display: inline-grid; place-items: center; min-width: 16px; height: 16px; padding: 0 3px; box-sizing: border-box; background: var(--x-ember); color: var(--x-ink); font-weight: 600; }
+      .x-ub { display: inline-flex; align-items: center; gap: 6px; height: 28px; box-sizing: border-box; padding: 0 10px; border: 1px solid var(--x-fr); background: var(--x-white); font: 500 12px/1 var(--x-sans); color: var(--x-ink); white-space: nowrap; }
+      .x-ub--dk { background: var(--x-ink); border-color: var(--x-ink); color: var(--x-paper); }
+      .x-ub--sm { height: 24px; padding: 0 8px; }
+      .x-sw { display: inline-flex; align-items: center; gap: 7px; font: 500 12px/1 var(--x-sans); white-space: nowrap; }
+      .x-sw i { position: relative; flex: none; width: 26px; height: 15px; background: var(--x-fr); }
+      .x-sw i::after { content: ""; position: absolute; left: 2px; top: 2px; width: 11px; height: 11px; background: var(--x-white); }
+      .x-sw.is-on i { background: var(--x-ember); }
+      .x-sw.is-on i::after { transform: translateX(11px); }
+      .x-k { display: inline-flex; align-items: center; gap: 6px; font: 500 12px/1 var(--x-mono); letter-spacing: .02em; color: var(--x-mute); }
+      .x-k::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ink); }
+      .x-k--when::before { background: var(--x-ember); }
+      .x-k--email::before { background: var(--x-white); box-sizing: border-box; border: 1px solid var(--x-ink); }
+      .x-k--leads::before { background: #8A8A8A; }
+      .x-st { flex: none; display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 8px; border: 1px solid var(--x-line); background: var(--x-paper); font: 500 12px/1 var(--x-sans); color: var(--x-grey); white-space: nowrap; }
+      .x-st--ok::before { content: ""; width: 6px; height: 6px; background: var(--x-ink); }
+      .x-st--need { border-color: var(--x-ember); background: var(--x-tint); color: var(--x-ink); }
+      .x-st--need::before { content: ""; width: 6px; height: 6px; background: var(--x-ember); }
+
+      /* Flow canvas (hero) */
+      .x-cv__tb { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--x-line); }
+      .x-cv__pick { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; border: 1px solid var(--x-fr); border-radius: 0; font: 500 12px/1 var(--x-sans); }
+      .x-cv__pick b { font-weight: 600; color: var(--x-mute); }
+      .x-cv__name { flex: 1 1 220px; min-width: 0; height: 28px; display: flex; align-items: center; padding: 0 10px; border: 1px solid var(--x-line); font: 600 13px/1 var(--x-sans); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+      .x-cv__act { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+      .x-cv__body { display: grid; grid-template-columns: 196px minmax(0, 1fr); min-height: 380px; }
+      .x-pal { padding: 12px; border-right: 1px solid var(--x-line); }
+      .x-pal__hd { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; font: 600 13px/1 var(--x-sans); }
+      .x-pal__hd small { font: 500 12px/1 var(--x-sans); color: var(--x-mute); }
+      .x-pal__g { margin: 12px 0 6px; font: 500 12px/1 var(--x-sans); color: var(--x-mute); }
+      .x-pal__i { display: block; margin-bottom: 4px; padding: 6px 8px; border: 1px solid var(--x-line); font: 500 12px/1.2 var(--x-sans); }
+      .x-pal__i.is-drag { border-color: var(--x-ink); }
+      .x-cv__stage {
+        position: relative; display: flex; align-items: center; padding: 56px 20px 64px; background-color: var(--x-paper);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect x='7' y='7' width='1.5' height='1.5' fill='%23D4D4D4'/%3E%3C/svg%3E");
+      }
+      .x-cv__fit { position: absolute; right: 12px; top: 12px; }
+      .x-cv__zoom { position: absolute; left: 12px; bottom: 12px; display: flex; }
+      .x-cv__zoom span { display: grid; place-items: center; min-width: 26px; height: 26px; padding: 0 6px; box-sizing: border-box; border: 1px solid var(--x-fr); background: var(--x-white); font: 500 12px/1 var(--x-sans); }
+      .x-cv__zoom span + span { border-left: 0; }
+      .x-flow { display: flex; align-items: center; width: 100%; list-style: none; margin: 0; padding: 0; }
+      .x-nd { flex: 1 1 0; min-width: 0; padding: 10px 11px 11px; background: var(--x-white); border: 1px solid var(--x-fr); transition: border-color .3s, background-color .3s; }
+      .x-nd .x-k { margin-bottom: 7px; }
+      .x-nd__t { font: 600 13px/1.25 var(--x-sans); }
+      .x-nd__d { margin-top: 4px; font: 500 12px/1.4 var(--x-sans); color: var(--x-grey); overflow-wrap: anywhere; }
+      .x-nd__d code { font: inherit; color: var(--x-ink); }
+      .x-ar { position: relative; flex: 0 0 26px; height: 1px; background: var(--x-ink); list-style: none; }
+      .x-ar::after { content: ""; position: absolute; right: -1px; top: -4px; border: 4.5px solid transparent; border-left: 6px solid var(--x-ink); border-right: 0; }
+      .x-cv.is-on .x-nd { animation: x-run 6s ease infinite both; animation-delay: calc(var(--i) * .9s); }
+      @keyframes x-run { 0%, 18%, 100% { border-color: var(--x-fr); background-color: var(--x-white); } 3%, 14% { border-color: var(--x-ember); background-color: var(--x-tint); } }
+      @media (max-width: 860px) { .x-cv__body { grid-template-columns: 1fr; } .x-pal { display: none; } }
+      @media (max-width: 680px) {
+        .x-cv__stage { padding: 52px 14px 56px; }
+        .x-flow { flex-direction: column; align-items: stretch; }
+        .x-nd { flex: none; }
+        .x-ar { flex: 0 0 22px; width: 1px; height: 22px; align-self: center; }
+        .x-ar::after { right: auto; top: auto; left: -4px; bottom: -1px; border: 4.5px solid transparent; border-top: 6px solid var(--x-ink); border-bottom: 0; }
+        .x-cv__act .x-ub--runs { display: none; }
+      }
+
+      /* ===== Sections ===== */
+      .x-sec { padding: var(--x-sec-pad) 0 0; scroll-margin-top: var(--x-hh); }
+      .x-sec__head { margin-bottom: clamp(29px, 4vw, 51px); }
+      .x-sec__head .x-p { margin-top: 16px; max-width: 560px; font-size: 15px; }
+
+      /* Pain */
+      .x-pain { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--x-line); border: 1px solid var(--x-line); }
+      .x-pain > div { position: relative; background: var(--x-paper); padding: 22px 20px 24px; min-height: 150px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; }
+      .x-pain p { margin: 0; }
+      .x-pain__n { font: 500 12px/1 var(--x-mono); color: var(--x-mute); }
+      .x-pain b { display: block; font: 600 20px/1.1 var(--x-sans); letter-spacing: -0.03em; }
+      .x-pain span:not(.x-pain__n) { display: block; margin-top: 6px; font-size: 13px; color: var(--x-grey); }
+      .x-pain > div + div::before { content: "×"; position: absolute; left: -11px; top: 50%; z-index: 1; width: 21px; height: 21px; margin-top: -11px; display: grid; place-items: center; background: var(--x-white); border: 1px solid var(--x-fr); font: 600 13px/1 var(--x-sans); color: var(--x-ember-dk); }
+      .x-pain__glue { margin: 14px 0 0; font-size: 13px; color: var(--x-grey); }
+      .x-pain__copy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; margin-top: 44px; align-items: start; }
+      .x-pain__copy .x-p { font-size: 15px; }
+      .x-chain { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; list-style: none; margin: 0; padding: 0; }
+      .x-chain li { display: inline-flex; align-items: center; height: 30px; padding: 0 11px; background: var(--x-white); border: 1px solid var(--x-ink); font: 600 13px/1 var(--x-sans); }
+      .x-chain li.x-chain__ar { height: auto; padding: 0; border: 0; background: none; color: var(--x-ink); font-weight: 600; }
+      .x-chain__lab { margin: 0 0 10px; font: 500 12px/1 var(--x-sans); color: var(--x-mute); }
+      @media (max-width: 860px) {
+        .x-pain { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .x-pain > div:nth-child(3)::before { display: none; }
+        .x-pain__copy { grid-template-columns: 1fr; gap: 24px; }
+      }
+      @media (max-width: 480px) { .x-pain { grid-template-columns: 1fr; } .x-pain > div { min-height: 0; } .x-pain > div + div::before { left: 50%; top: -11px; margin: 0 0 0 -11px; } .x-pain > div:nth-child(3)::before { display: grid; } }
+
+      /* How it works */
+      .x-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--x-gap); }
+      .x-pan { position: relative; aspect-ratio: 4 / 3; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 30px 18px 14px; background: var(--x-panel); border: 1px solid var(--x-line); }
+      .x-pan > .x-ex { position: absolute; top: 10px; right: 12px; margin: 0; }
+      .x-pan .x-win { width: 100%; max-width: 280px; }
+      .x-step__label { margin: 21px 0 10px; font: 500 12px/1 var(--x-mono); color: var(--x-mute); }
+      .x-step .x-p { margin-top: 10px; font-size: 14px; }
+      .x-mini { padding: 10px 12px; }
+      .x-mini__h { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; font: 600 13px/1.2 var(--x-sans); }
+      .x-opt { display: flex; align-items: center; gap: 8px; padding: 7px 8px; border: 1px solid var(--x-line); font: 500 12.5px/1.2 var(--x-sans); }
+      .x-opt + .x-opt { margin-top: 4px; }
+      .x-opt i { flex: none; width: 8px; height: 8px; box-sizing: border-box; border: 1px solid var(--x-fr); }
+      .x-opt.is-sel { border-color: var(--x-ink); }
+      .x-opt.is-sel i { background: var(--x-ember); border-color: var(--x-ember); }
+      .x-opt small { margin-left: auto; font: 500 12px/1 var(--x-sans); color: var(--x-mute); }
+      .x-vlist { position: relative; list-style: none; margin: 0; padding: 0; }
+      .x-vlist::before { content: ""; position: absolute; left: 4px; top: 12px; bottom: 12px; width: 1px; background: var(--x-fr); }
+      .x-vlist li { position: relative; display: flex; align-items: center; gap: 10px; min-height: 26px; font: 500 12.5px/1.2 var(--x-sans); }
+      .x-vlist li::before { content: ""; position: relative; flex: none; width: 9px; height: 9px; box-sizing: border-box; background: var(--x-ink); }
+      .x-vlist li.is-new::before { background: var(--x-white); border: 1px dashed var(--x-ink); }
+      .x-vlist li .x-k { margin-left: auto; }
+      .x-vlist li .x-k::before { display: none; }
+      .x-btns { display: flex; justify-content: flex-end; gap: 6px; margin-top: 10px; }
+      @media (max-width: 900px) { .x-steps { grid-template-columns: 1fr; gap: 45px; } .x-step { max-width: 460px; } }
+
+      /* Steps palette */
+      .x-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--x-line); border: 1px solid var(--x-line); }
+      .x-grp { background: var(--x-paper); padding: 22px 20px 24px; }
+      .x-grp__h { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin: 0 0 14px; font: 600 18px/1.15 var(--x-sans); letter-spacing: -0.03em; }
+      .x-grp__h small { font: 500 12px/1 var(--x-mono); color: var(--x-mute); letter-spacing: 0; }
+      .x-grp ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+      .x-sc { padding: 10px 12px; background: var(--x-white); border: 1px solid var(--x-fr); }
+      .x-sc b { display: block; font: 600 13.5px/1.25 var(--x-sans); letter-spacing: -0.01em; }
+      .x-sc span { display: block; margin-top: 3px; font: 500 12.5px/1.4 var(--x-sans); color: var(--x-grey); }
+      .x-grp--soon { grid-column: 1 / -1; }
+      .x-grp--soon ul { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .x-grp--soon .x-sc { background: transparent; border-style: dashed; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+      .x-grp--soon .x-sc b { color: var(--x-mute); }
+      .x-grp--soon .x-st { height: 20px; }
+      @media (max-width: 900px) { .x-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .x-grp--soon ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (max-width: 560px) { .x-grid { grid-template-columns: 1fr; } .x-grp--soon ul { grid-template-columns: 1fr; } }
+
+      /* Safety */
+      .x-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
+      .x-pts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--x-line); }
+      .x-pts li { display: grid; grid-template-columns: 38px 1fr; gap: 4px 10px; padding: 18px 0; border-bottom: 1px solid var(--x-line); }
+      .x-pts .x-pts__n { grid-row: 1 / 3; font: 500 12px/1.6 var(--x-mono); color: var(--x-mute); }
+      .x-pts h3 { margin: 0; font: 600 18px/1.2 var(--x-sans); letter-spacing: -0.03em; }
+      .x-pts p { margin: 0; color: var(--x-grey); font-size: 14px; }
+      .x-tr__tip { display: flex; gap: 8px; align-items: flex-start; margin: 0; padding: 10px 12px; background: var(--x-ink); color: var(--x-paper); font: 500 12.5px/1.4 var(--x-sans); }
+      .x-tr__tip::before { content: ""; flex: none; width: 6px; height: 6px; margin-top: 5px; background: var(--x-ember); }
+      .x-rows { list-style: none; margin: 0; padding: 0 12px; }
+      .x-rows li { display: flex; align-items: center; gap: 10px; min-height: 42px; padding: 6px 0; border-top: 1px solid var(--x-line); }
+      .x-rows li:first-child { border-top: 0; }
+      .x-rows .x-k { flex: none; width: 66px; }
+      .x-rows__t { flex: 1 1 auto; min-width: 0; font: 500 12.5px/1.3 var(--x-sans); }
+      .x-rows__t small { display: block; font-size: 12px; color: var(--x-grey); overflow-wrap: anywhere; }
+      .x-sub { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 12px; border-top: 1px solid var(--x-line); background: var(--x-paper); font: 600 12.5px/1.2 var(--x-sans); }
+      .x-sub small { font: 500 12px/1 var(--x-sans); color: var(--x-mute); }
+      .x-ask { margin: 10px 12px 12px; padding: 10px 12px; border: 1px solid var(--x-ember); }
+      .x-ask__t { font: 600 13px/1.3 var(--x-sans); }
+      .x-ask__d { margin-top: 3px !important; font: 500 12px/1.4 var(--x-sans); color: var(--x-grey); }
+      .x-ask .x-btns { justify-content: flex-start; }
+      @media (max-width: 860px) { .x-split { grid-template-columns: 1fr; } }
+
+      /* Recipes */
+      .x-rec { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--x-gap); align-items: start; }
+      .x-rec__win .x-cv__tb { gap: 6px; }
+      .x-rec__win .x-cv__name { flex-basis: 100%; height: auto; min-height: 28px; padding: 6px 10px; white-space: normal; line-height: 1.3; }
+      .x-chainv { list-style: none; margin: 0; padding: 14px 12px 16px; background: var(--x-paper); }
+      .x-chainv li.x-nd { flex: none; }
+      .x-chainv li.x-ar { width: 1px; height: 18px; margin: 0 auto; flex: none; }
+      .x-chainv li.x-ar::after { right: auto; top: auto; left: -4px; bottom: -1px; border: 4.5px solid transparent; border-top: 6px solid var(--x-ink); border-bottom: 0; }
+      .x-rec h3 { margin: 22px 0 8px; }
+      .x-rec .x-p { font-size: 14px; }
+      @media (max-width: 860px) { .x-rec { grid-template-columns: 1fr; gap: 48px; } }
+
+      /* Compare */
+      .x-cmp { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
+      .x-cmp table { width: 100%; min-width: 560px; table-layout: fixed; border-collapse: separate; border-spacing: 0; border-top: 1px solid var(--x-line); border-left: 1px solid var(--x-line); margin: 0; }
+      .x-cmp col.x-c1 { width: 28%; }
+      .x-cmp th, .x-cmp td { box-sizing: border-box; border: 0; border-right: 1px solid var(--x-line); border-bottom: 1px solid var(--x-line); border-radius: 0; padding: 14px 16px; text-align: left; vertical-align: top; font: 500 13.5px/1.45 var(--x-sans); letter-spacing: -0.01em; color: var(--x-grey); background: var(--x-paper); overflow-wrap: break-word; }
+      .x-cmp thead th { font: 600 15px/1.2 var(--x-sans); letter-spacing: -0.02em; color: var(--x-ink); }
+      .x-cmp tbody th { font-weight: 600; color: var(--x-ink); }
+      .x-cmp tbody td { position: relative; padding-left: 34px; }
+      .x-cmp tbody td::before { content: ""; position: absolute; left: 16px; top: 23px; width: 8px; height: 1.5px; background: #8A8A8A; }
+      .x-cmp .x-us { background: var(--x-tint); color: var(--x-ink); }
+      .x-cmp tbody .x-us::before { top: 20px; width: 7px; height: 7px; background: var(--x-ember); }
+      .x-cmp thead .x-us { background: var(--x-ink); color: var(--x-paper); }
+
+      /* FAQ */
+      .x-faq { border-top: 1px solid var(--x-line); max-width: 736px; }
+      .x-faq details { border-bottom: 1px solid var(--x-line); }
+      .x-faq summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 38px 1fr 19px; gap: 10px; align-items: baseline; min-height: 36px; padding: 19px 0; font-weight: 600; font-size: 15.5px; letter-spacing: -0.02em; color: var(--x-ink); }
+      .x-faq summary::-webkit-details-marker { display: none; }
+      .x-faq summary::after { content: "+"; font-weight: 500; color: var(--x-grey); text-align: right; }
+      .x-faq details[open] summary::after { content: "\2212"; }
+      .x-faq__n { font: 500 12px/1 var(--x-mono); color: var(--x-mute); }
+      .x-faq details p { margin: -6px 0 0; padding: 0 29px 19px 48px; color: var(--x-grey); }
+      @media (max-width: 640px) { .x-faq summary { grid-template-columns: 29px 1fr 16px; font-size: 14.5px; } .x-faq details p { padding: 0 0 18px 39px; } }
+
+      /* Final CTA */
+      .x-final { margin-top: var(--x-sec-pad); border-top: 1px solid var(--x-line); }
+      .x-final__copy { text-align: center; padding: 77px 19px 96px; max-width: 608px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+      .x-final__copy .x-p { margin-top: 18px; max-width: 448px; font-size: 15px; }
+      .x-fire { width: 72px; height: 85px; overflow: hidden; position: relative; margin-bottom: 22px; }
+      .x-fire img { position: absolute; width: 472px; max-width: none; height: auto; left: -33px; top: -33px; }
+      .x-final__more { margin: 22px 0 0; font-size: 13px; color: var(--x-grey); }
+      .x-final__more a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 4px; color: var(--x-ink); font-weight: 600; text-underline-offset: 3px; text-decoration-color: var(--x-ember); }
+
+      /* ===== 12. Footer: blueprint grid (partial:footer from landing-reference-v4.html) ===== */
+      .x-ft { --ft-line: #D4D4D4; --ft-tile: #E6E6E6; padding: var(--x-sec-pad) 0 48px; }
+      .x-ft__frame { padding: 0 14px; border-inline: 1px solid #E6E6E6; background: repeating-linear-gradient(135deg, #E2E2E2 0 1px, transparent 1px 6px); }
+      .x-ft__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr) minmax(0, 1fr); border-top: 1px solid var(--ft-line); border-left: 1px solid var(--ft-line); }
+      .x-ft__cell { position: relative; box-sizing: border-box; min-width: 0; padding: 28px 24px 30px; background: #fff; border-right: 1px solid var(--ft-line); border-bottom: 1px solid var(--ft-line); }
+      .x-ft__cell--b { background: #F7F7F7; }
+      .x-ft__cell--r { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+      /* Crosshairs: 13px box, 1px #111 strokes centred on the hairline intersections */
+      .x-ft__x { position: absolute; z-index: 2; width: 13px; height: 13px; pointer-events: none; background: linear-gradient(#111, #111) 6px 0 / 1px 100% no-repeat, linear-gradient(#111, #111) 0 6px / 100% 1px no-repeat; }
+      .x-ft__x--tl { left: -7px; top: -7px; } .x-ft__x--tr { right: -6px; top: -7px; }
+      .x-ft__x--bl { left: -7px; bottom: -6px; } .x-ft__x--br { right: -6px; bottom: -6px; }
+      .x-ft__lbl { display: flex; align-items: center; gap: 8px; margin: 0 0 16px; font: 500 13px/1.2 var(--x-sans); letter-spacing: -0.01em; color: var(--x-ember-dk); }
+      .x-ft__lbl::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-ft__logo { display: inline-flex; min-height: 44px; align-items: center; }
+      .x-ft__tag { margin: 14px 0 0; max-width: 240px; font: 500 13px/1.5 var(--x-sans); color: #555; }
+      .x-ft ul { list-style: none; margin: 0; padding: 0; }
+      .x-ft__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+      .x-ft__h { margin: 0 0 6px; font: 500 13px/1.3 var(--x-sans); color: #6B6B6B; }
+      .x-ft__links a { display: inline-flex; align-items: center; min-height: 32px; padding: 4px 0; box-sizing: border-box; color: var(--x-ink); text-decoration: none; font: 500 13px/1.3 var(--x-sans); letter-spacing: -0.01em; transition: color .2s; }
+      .x-ft__links a:hover { color: var(--x-ember-dk); }
+      .x-ft__copy { margin: 18px 0 0; font: 500 12px/1.4 var(--x-sans); color: #6B6B6B; }
+      .x-ft__tiles { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; max-width: calc(56px * 3 + 12px); }
+      .x-ft__tile { position: relative; box-sizing: border-box; display: grid; place-items: center; width: 56px; height: 56px; background: #fff; border: 1px solid var(--ft-tile); color: var(--x-ink); text-decoration: none; transition: background-color .2s, color .2s, border-color .2s; }
+      .x-ft__tile svg { width: 22px; height: 22px; }
+      .x-ft__tile:hover, .x-ft__tile:focus-visible { background: var(--x-ink); border-color: var(--x-ink); color: #fff; }
+      .x-ft__tile::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); right: 0; z-index: 3; padding: 6px 9px; background: var(--x-ink); color: #fff; font: 500 12px/1.2 var(--x-sans); white-space: nowrap; opacity: 0; transform: translateY(3px); pointer-events: none; transition: opacity .15s, transform .15s; }
+      .x-ft__tile:hover::after, .x-ft__tile:focus-visible::after { opacity: 1; transform: none; }
+      .x-ft .x-ft__tile:focus-visible { border-radius: 0; }
+      .x-ft__ctas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; height: 100%; }
+      .x-ft__cta { display: flex; flex-direction: column; gap: 6px; box-sizing: border-box; min-height: 44px; padding: 18px 18px 20px; background: #fff; border: 1px solid var(--ft-tile); color: var(--x-ink); text-decoration: none; transition: border-color .2s; }
+      .x-ft__cta:hover { border-color: var(--x-ink); }
+      .x-ft__cta img { width: 24px; height: 24px; image-rendering: pixelated; margin-bottom: 8px; }
+      .x-ft__cta b { display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 600 15px/1.25 var(--x-sans); letter-spacing: -0.02em; }
+      .x-ft__cta b::after { content: "→"; font-weight: 500; color: var(--x-ember-dk); transition: transform .2s; }
+      .x-ft__cta:hover b::after { transform: translateX(3px); }
+      .x-ft__cta span { font: 500 13px/1.45 var(--x-sans); color: #555; }
+      @media (max-width: 860px) {
+        .x-ft__grid { grid-template-columns: minmax(0, 1fr); }
+        .x-ft__cell--r { align-items: flex-start; text-align: left; }
+        .x-ft__tiles { justify-content: flex-start; }
+        .x-ft__tile::after { right: auto; left: 0; }
+      }
+      @media (max-width: 560px) {
+        .x-ft__frame { padding: 0 8px; }
+        .x-ft__cell { padding: 24px 18px 26px; }
+        .x-ft__cols, .x-ft__ctas { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      }
+
+      /* Motion and touch */
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .x-body *, .x-body *::before, .x-body *::after { animation: none !important; transition: none !important; }
+      }
+      @media (pointer: coarse), (max-width: 640px) {
+        .x-btn, .x-btn--lg, .x-nav a, .x-brand, .x-ann__in, .x-ft__links a, .x-faq summary, .x-final__more a { min-height: 44px; }
+        .x-ann__x, .x-menu { width: 44px; height: 44px; }
+        .x-ann__x { top: 50%; margin-top: -22px; }
+        :root { --x-annh: 44px; }
+        .x-ft__links a { min-width: 44px; }
+        .x-final__more a { min-width: 44px; justify-content: center; }
+      }
+      /* Single-column layouts must shrink to the viewport */
+      @media (max-width: 900px) {
+        .x-cv__body, .x-pain__copy, .x-steps, .x-split, .x-rec { grid-template-columns: minmax(0, 1fr) !important; }
+        .x-split > *, .x-rec > *, .x-steps > *, .x-pain__copy > * { min-width: 0; }
+      }
+      @media (max-width: 560px) { .x-grid, .x-grp--soon ul { grid-template-columns: minmax(0, 1fr); } }
+      @media (max-width: 480px) { .x-pain { grid-template-columns: minmax(0, 1fr); } }
+      @media (max-width: 680px) { .x-cv__name { flex-basis: 100%; height: auto; min-height: 28px; padding: 6px 10px; white-space: normal; line-height: 1.3; overflow: visible; } }
+      .x-page { overflow-x: clip; }
+      /* Square corners on every control in the shared header (only dots stay round) */
+      .x-nav a, .x-dd__btn, .x-menu { border-radius: 0; }
+    </style>
+  </head>
+  <body class="x-body">
+    <div class="x-page" id="top">
+      <div class="x-ann" id="ann">
+        <div class="x-ann__in">
+          <span class="x-ann__dot" aria-hidden="true"></span>
+          <span>New: LinkedIn steps now run inside Flows</span>
+          <button class="x-ann__x" type="button" aria-label="Dismiss announcement">×</button>
+        </div>
+      </div>
+
+      <!-- partial:header -->
+      <header class="x-head" id="head">
+        <div class="x-wrap x-head__in">
+          <a class="x-brand" href="/"><span class="x-logo"><img src="logo.png" alt="Bonfire GTM" /></span></a>
+          <nav class="x-nav" id="nav" aria-label="Main">
+            <div class="x-dd" id="x-dd">
+              <button class="x-dd__btn" type="button" aria-expanded="false" aria-controls="x-dd-menu">Product<span class="x-dd__chev" aria-hidden="true"></span></button>
+              <span class="x-dd__lbl" aria-hidden="true">Product</span>
+              <ul class="x-dd__menu" id="x-dd-menu" aria-label="Product">
+                <li><a href="/flows" aria-current="page">Flows<small>Email + LinkedIn in one chain</small></a></li>
+                <li><a href="/agents">Agents<small>8 AI agents, one crew</small></a></li>
+                <li><a href="/plays">Plays<small>Funding &amp; hiring triggers</small></a></li>
+              </ul>
+            </div>
+            <a href="/#start">How it works</a>
+            <a href="/blog">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </nav>
+          <div class="x-head__cta">
+            <a class="x-btn x-btn--light x-signin" href="/#waitlist">Join the waitlist</a>
+            <a class="x-btn x-btn--dark" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+            <button class="x-menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+          </div>
+        </div>
+      </header>
+      <!-- /partial:header -->
+
+      <main>
+        <!-- Hero -->
+        <section class="x-hero x-wrap" aria-labelledby="hero-h">
+          <div class="x-hero__copy">
+            <h1 class="x-h1" id="hero-h"><span>Stop duct-taping</span><span>your <span class="x-ember" style="display:inline">outbound.</span></span></h1>
+            <p class="x-p x-hero__sub">Five tools and a Zapier account, or one flow. Email and LinkedIn steps, AI agents and approvals on one canvas.</p>
+            <div class="x-cta">
+              <a class="x-btn x-btn--dark x-btn--lg" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+              <a class="x-btn x-btn--light x-btn--lg" href="https://forms.gle/EdGWZGEn91CfFPFG7" target="_blank" rel="noopener">Join waitlist</a>
+            </div>
+            <p class="x-hero__tert">Trigger<b>·</b>Research<b>·</b>Verify<b>·</b>Write<b>·</b>Send<b>·</b>Route replies</p>
+          </div>
+
+          <div class="x-hero__mock">
+            <p class="x-ex">Example</p>
+            <div class="x-win x-cv" id="hero-cv" role="img" aria-label="Example flow canvas. Toolbar: Flows 2, flow name Funding signal → research → notify, Flow on, Test run, Run now. Chain: WHEN New signal, Funding; TASK Agent task, researcher researches the company, the round and who leads marketing; TASK Notify me, the company just raised and research is in Agents; EMAIL Add to campaign.">
+              <div class="x-bar" aria-hidden="true">
+                <i></i><i></i><i></i>
+                <span class="x-bar__crumb">Flows / <b>Funding signal → research → notify</b></span>
+                <span class="x-need">Needs you <b>1</b></span>
+              </div>
+              <div aria-hidden="true">
+                <div class="x-cv__tb">
+                  <span class="x-cv__pick">Flows <b>2</b></span>
+                  <span class="x-cv__name">Funding signal → research → notify</span>
+                  <div class="x-cv__act">
+                    <span class="x-sw is-on"><i></i>Flow on</span>
+                    <span class="x-ub">Test run</span>
+                    <span class="x-ub x-ub--dk">Run now</span>
+                    <span class="x-ub x-ub--runs">Runs</span>
+                  </div>
+                </div>
+                <div class="x-cv__body">
+                  <div class="x-pal">
+                    <p class="x-pal__hd">Steps <small>click or drag</small></p>
+                    <p class="x-pal__g">Triggers</p>
+                    <span class="x-pal__i">New signal</span><span class="x-pal__i">New lead</span><span class="x-pal__i">New reply</span>
+                    <p class="x-pal__g">LinkedIn</p>
+                    <span class="x-pal__i is-drag">LinkedIn message</span>
+                    <p class="x-pal__g">Email</p>
+                    <span class="x-pal__i">Send email</span><span class="x-pal__i">Add to campaign</span>
+                  </div>
+                  <div class="x-cv__stage">
+                    <span class="x-ub x-ub--sm x-cv__fit">Fit</span>
+                    <ol class="x-flow">
+                      <li class="x-nd" style="--i:0"><span class="x-k x-k--when">WHEN</span><p class="x-nd__t">New signal</p><p class="x-nd__d">Funding</p></li>
+                      <li class="x-ar"></li>
+                      <li class="x-nd" style="--i:1"><span class="x-k">TASK</span><p class="x-nd__t">Agent task</p><p class="x-nd__d">researcher · Research <code>{{company}}</code>: what they do, the round, who leads marketing</p></li>
+                      <li class="x-ar"></li>
+                      <li class="x-nd" style="--i:2"><span class="x-k">TASK</span><p class="x-nd__t">Notify me</p><p class="x-nd__d"><code>{{company}}</code> just raised. Research is in Agents.</p></li>
+                      <li class="x-ar"></li>
+                      <li class="x-nd" style="--i:3"><span class="x-k x-k--email">EMAIL</span><p class="x-nd__t">Add to campaign</p><p class="x-nd__d">Campaign picked</p></li>
+                    </ol>
+                    <div class="x-cv__zoom"><span>+</span><span>−</span><span>Fit view</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pain -->
+        <section class="x-sec" id="pain" aria-labelledby="pain-h">
+          <div class="x-wrap">
+            <div class="x-sec__head">
+              <h2 class="x-h2" id="pain-h"><span>Four tools.</span><span class="x-sub2">Zero conversation.</span></h2>
+            </div>
+            <div class="x-pain">
+              <div><span class="x-pain__n">Tool 1</span><p><b>The trigger</b><span>Lives in your signal tool.</span></p></div>
+              <div><span class="x-pain__n">Tool 2</span><p><b>The data</b><span>Lives in your enrichment tool.</span></p></div>
+              <div><span class="x-pain__n">Tool 3</span><p><b>The sender</b><span>Lives in your email tool.</span></p></div>
+              <div><span class="x-pain__n">Tool 4</span><p><b>LinkedIn</b><span>Lives in yet another tool.</span></p></div>
+            </div>
+            <p class="x-pain__glue">Holding it together: a Zapier account, a pile of CSVs and you.</p>
+            <div class="x-pain__copy">
+              <p class="x-p">Nothing talks to anything else. A funding round lands, and three days later you're still exporting, mapping columns and pasting copy. One broken Zap and the whole motion goes quiet. Nobody tells you.</p>
+              <div>
+                <p class="x-chain__lab">With Flows, it's one chain:</p>
+                <ul class="x-chain" aria-label="Trigger, research, verify, write, send on email and LinkedIn, route replies">
+                  <li>Trigger</li><li class="x-chain__ar" aria-hidden="true">→</li>
+                  <li>Research</li><li class="x-chain__ar" aria-hidden="true">→</li>
+                  <li>Verify</li><li class="x-chain__ar" aria-hidden="true">→</li>
+                  <li>Write</li><li class="x-chain__ar" aria-hidden="true">→</li>
+                  <li>Send: email + LinkedIn</li><li class="x-chain__ar" aria-hidden="true">→</li>
+                  <li>Route replies</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="x-sec" id="how" aria-labelledby="how-h">
+          <div class="x-wrap">
+            <div class="x-sec__head"><h2 class="x-h2" id="how-h">Three moves. Then it runs.</h2></div>
+            <div class="x-steps">
+              <article class="x-step">
+                <div class="x-pan" role="img" aria-label="Example: choosing a trigger. New signal is selected; New lead and New reply are the other options.">
+                  <p class="x-ex" aria-hidden="true">Example</p>
+                  <div class="x-win" aria-hidden="true">
+                    <div class="x-mini">
+                      <p class="x-mini__h">When this happens <span class="x-k x-k--when">WHEN</span></p>
+                      <div class="x-opt is-sel"><i></i>New signal <small>Funding</small></div>
+                      <div class="x-opt"><i></i>New lead</div>
+                      <div class="x-opt"><i></i>New reply</div>
+                    </div>
+                  </div>
+                </div>
+                <p class="x-step__label">Step 01</p>
+                <h3 class="x-h3">Pick the trigger.</h3>
+                <p class="x-p">New signal, New lead or New reply. The flow fires the moment it happens, not when you remember to check.</p>
+              </article>
+              <article class="x-step">
+                <div class="x-pan" role="img" aria-label="Example: steps stacked in order: Enrich, Verify email, Agent task, Send email, with LinkedIn invite being added.">
+                  <p class="x-ex" aria-hidden="true">Example</p>
+                  <div class="x-win" aria-hidden="true">
+                    <div class="x-mini">
+                      <p class="x-mini__h">Steps</p>
+                      <ul class="x-vlist">
+                        <li>Enrich <span class="x-k">LEADS</span></li>
+                        <li>Verify email <span class="x-k">LEADS</span></li>
+                        <li>Agent task <span class="x-k">TASK</span></li>
+                        <li>Send email <span class="x-k">EMAIL</span></li>
+                        <li class="is-new">LinkedIn invite (no note) <span class="x-k">LINKEDIN</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <p class="x-step__label">Step 02</p>
+                <h3 class="x-h3">Stack the steps.</h3>
+                <p class="x-p">Click or drag from the palette. Email, LinkedIn, leads, agents and logic, in the order you want them.</p>
+              </article>
+              <article class="x-step">
+                <div class="x-pan" role="img" aria-label="Example: Needs you card for Send email to {{company}}, with Approve and Skip, and the Flow on switch turned on.">
+                  <p class="x-ex" aria-hidden="true">Example</p>
+                  <div class="x-win" aria-hidden="true">
+                    <div class="x-mini">
+                      <p class="x-mini__h">Needs you <span class="x-sw is-on"><i></i>Flow on</span></p>
+                      <div class="x-opt is-sel" style="display:block">
+                        <p style="font-weight:600">Send email · {{company}}</p>
+                        <p style="margin-top:3px;color:var(--x-grey);font-size:12px">From your template. Waiting for you.</p>
+                      </div>
+                      <div class="x-btns"><span class="x-ub x-ub--sm">Skip</span><span class="x-ub x-ub--sm x-ub--dk">Approve</span></div>
+                    </div>
+                  </div>
+                </div>
+                <p class="x-step__label">Step 03</p>
+                <h3 class="x-h3">Approve and run.</h3>
+                <p class="x-p">Test run first. Switch Flow on. Anything risky waits in Needs you until you say go.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Steps palette -->
+        <section class="x-sec" id="steps" aria-labelledby="steps-h">
+          <div class="x-wrap">
+            <div class="x-sec__head">
+              <h2 class="x-h2" id="steps-h"><span>Every step you need.</span><span class="x-sub2">One palette.</span></h2>
+              <p class="x-p">Grouped exactly as you'll see them in the app. Pick one, drop it in, done.</p>
+            </div>
+            <div class="x-grid">
+              <div class="x-grp">
+                <h3 class="x-grp__h">Triggers <small>3</small></h3>
+                <ul>
+                  <li class="x-sc"><b>New signal</b><span>A funding, hiring, launch or leadership signal is found</span></li>
+                  <li class="x-sc"><b>New lead</b><span>A lead is added (import, list builder, play, agent)</span></li>
+                  <li class="x-sc"><b>New reply</b><span>Someone replies to a campaign email</span></li>
+                </ul>
+              </div>
+              <div class="x-grp">
+                <h3 class="x-grp__h">LinkedIn <small>3</small></h3>
+                <ul>
+                  <li class="x-sc"><b>View LinkedIn profile</b><span>A light touch: visits their profile after you approve</span></li>
+                  <li class="x-sc"><b>LinkedIn invite (no note)</b><span>Connection request without a note, after you approve</span></li>
+                  <li class="x-sc"><b>LinkedIn message</b><span>Message to a connection, after you approve</span></li>
+                </ul>
+              </div>
+              <div class="x-grp">
+                <h3 class="x-grp__h">Email <small>2</small></h3>
+                <ul>
+                  <li class="x-sc"><b>Send email</b><span>A 1:1 email from your template. You approve it, then the engine sends it</span></li>
+                  <li class="x-sc"><b>Add to campaign</b><span>Enrol the lead in a campaign</span></li>
+                </ul>
+              </div>
+              <div class="x-grp">
+                <h3 class="x-grp__h">Leads <small>2</small></h3>
+                <ul>
+                  <li class="x-sc"><b>Enrich</b><span>Find work email, title and LinkedIn</span></li>
+                  <li class="x-sc"><b>Verify email</b><span>Check the email is deliverable</span></li>
+                </ul>
+              </div>
+              <div class="x-grp">
+                <h3 class="x-grp__h">Tasks &amp; agents <small>3</small></h3>
+                <ul>
+                  <li class="x-sc"><b>Create task</b><span>A to-do on the lead's record</span></li>
+                  <li class="x-sc"><b>Agent task</b><span>Give an agent a task (changes still need approval)</span></li>
+                  <li class="x-sc"><b>Notify me</b><span>A card in Needs you</span></li>
+                </ul>
+              </div>
+              <div class="x-grp">
+                <h3 class="x-grp__h">Logic <small>2</small></h3>
+                <ul>
+                  <li class="x-sc"><b>Wait</b><span>Pause before the next step</span></li>
+                  <li class="x-sc"><b>Condition</b><span>Yes / no branch</span></li>
+                </ul>
+              </div>
+              <div class="x-grp x-grp--soon">
+                <h3 class="x-grp__h">Coming soon <small>4</small></h3>
+                <ul>
+                  <li class="x-sc"><b>Update CRM</b><span class="x-st">Soon</span></li>
+                  <li class="x-sc"><b>Slack message</b><span class="x-st">Soon</span></li>
+                  <li class="x-sc"><b>Webhook out</b><span class="x-st">Soon</span></li>
+                  <li class="x-sc"><b>Move deal</b><span class="x-st">Soon</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Safety -->
+        <section class="x-sec" id="safety" aria-labelledby="safety-h">
+          <div class="x-wrap x-split">
+            <div>
+              <div class="x-sec__head">
+                <h2 class="x-h2" id="safety-h"><span>Nothing risky sends</span><span class="x-sub2">without you.</span></h2>
+                <p class="x-p">Automation that burns your domain isn't automation. It's arson.</p>
+              </div>
+              <ul class="x-pts">
+                <li><span class="x-pts__n">01</span><h3>Test run</h3><p>Dry run on the latest matching item. Nothing changes. See every step before a single lead does.</p></li>
+                <li><span class="x-pts__n">02</span><h3>Approvals land in Needs you</h3><p>Emails, LinkedIn steps and agent changes wait for your yes. Approve, skip, move on.</p></li>
+                <li><span class="x-pts__n">03</span><h3>On/off per flow, with run history</h3><p>Flip one flow off without touching the rest. Runs shows what fired and what it did.</p></li>
+              </ul>
+            </div>
+            <div>
+              <p class="x-ex">Example</p>
+              <div class="x-win" role="img" aria-label="Example test run: Dry run on the latest matching item, nothing changes. New signal matched, Agent task and Notify me would run, Add to campaign needs you. A Needs you card asks to approve a LinkedIn message.">
+                <div class="x-bar" aria-hidden="true"><i></i><i></i><i></i><span class="x-bar__crumb">Flows / <b>Test run</b></span><span class="x-need">Needs you <b>1</b></span></div>
+                <div aria-hidden="true">
+                  <p class="x-tr__tip">Dry run on the latest matching item. Nothing changes.</p>
+                  <ul class="x-rows">
+                    <li><span class="x-k x-k--when">WHEN</span><span class="x-rows__t">New signal<small>Funding · latest match: {{company}}</small></span><span class="x-st x-st--ok">Matched</span></li>
+                    <li><span class="x-k">TASK</span><span class="x-rows__t">Agent task<small>researcher · Research {{company}}</small></span><span class="x-st x-st--ok">Would run</span></li>
+                    <li><span class="x-k">TASK</span><span class="x-rows__t">Notify me<small>A card in Needs you</small></span><span class="x-st x-st--ok">Would run</span></li>
+                    <li><span class="x-k x-k--email">EMAIL</span><span class="x-rows__t">Add to campaign<small>Enrol the lead in a campaign</small></span><span class="x-st x-st--need">Needs you</span></li>
+                  </ul>
+                  <div class="x-sub">Needs you <small>Waiting on your approval</small></div>
+                  <div class="x-ask">
+                    <p class="x-ask__t">LinkedIn message · {{company}}</p>
+                    <p class="x-ask__d">Message to a connection, after you approve.</p>
+                    <div class="x-btns"><span class="x-ub x-ub--sm x-ub--dk">Approve</span><span class="x-ub x-ub--sm">Skip</span></div>
+                  </div>
+                  <div class="x-sub">Runs <small>Test run · nothing changed</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recipes -->
+        <section class="x-sec" id="recipes" aria-labelledby="recipes-h">
+          <div class="x-wrap">
+            <div class="x-sec__head">
+              <h2 class="x-h2" id="recipes-h"><span>Two flows to steal.</span><span class="x-sub2">Copy them on day one.</span></h2>
+            </div>
+            <div class="x-rec">
+              <article>
+                <p class="x-ex">Example</p>
+                <div class="x-win x-rec__win" role="img" aria-label="Example flow: Funding signal → research → notify. WHEN New signal Funding; TASK Agent task researcher researches the company; TASK Notify me; TASK Agent task researcher summarises why now; EMAIL Add to campaign, campaign picked.">
+                  <div aria-hidden="true">
+                    <div class="x-cv__tb"><span class="x-cv__name">Funding signal → research → notify</span><span class="x-sw"><i></i>Flow on</span><span class="x-ub x-ub--sm">Test run</span></div>
+                    <ol class="x-chainv">
+                      <li class="x-nd"><span class="x-k x-k--when">WHEN</span><p class="x-nd__t">New signal</p><p class="x-nd__d">Funding</p></li>
+                      <li class="x-ar"></li>
+                      <li class="x-nd"><span class="x-k">TASK</span><p class="x-nd__t">Agent task</p><p class="x-nd__d">researcher · Research <code>{{company}}</code>: what they do, the round, who leads marketing</p></li>
+                      <li class="x-ar"></li>
+                      <li class="x-nd"><span class="x-k">TASK</span><p class="x-nd__t">Notify me</p><p class="x-nd__d"><code>{{company}}</code> just raised. Research is in Agents.</p></li>
+                      <li class="x-ar"></li>
+                      <li class="x-nd"><span class="x-k">TASK</span><p class="x-nd__t">Agent task</p><p class="x-nd__d">researcher · Research <code>{{company}}</code> and summarise why now</p></li>
+                      <li class="x-ar"></li>
+                      <li class="x-nd"><span class="x-k x-k--email">EMAIL</span><p class="x-nd__t">Add to campaign</p><p class="x-nd__d">Campaign picked</p></li>
+                    </ol>
+                  </div>
+                </div>
+                <h3 class="x-h3">Funding signal → research → notify</h3>
+                <p class="x-p">Fresh money means fresh budget. Be in their inbox with a reason while competitors are still reading the press release.</p>
+              </article>
+              <article>
+                <p class="x-ex">Example</p>
+                <div class="x-win x-rec__win" role="img" aria-label="Example flow: Hiring for sales or marketing → verify → write 3-step sequence → add to campaign. WHEN New signal hiring for sales or marketing; LEADS Verify email; TASK Agent task copywriter writes a 3-step email sequence; EMAIL Add to campaign.">
+                  <div aria-hidden="true">
+                    <div class="x-cv__tb"><span class="x-cv__name">Hiring for sales/marketing → verify → sequence</span><span class="x-sw"><i></i>Flow on</span><span class="x-ub x-ub--sm">Test run</span></div>
+                    <ol class="x-chainv">
+                      <li class="x-nd"><span class="x-k x-k--when">WHEN</span><p class="x-nd__t">New signal</p><p class="x-nd__d">Hiring: sales or marketing roles</p></li>
+                      <li class="x-ar"></li>
+                      <li class="x-nd"><span class="x-k x-k--leads">LEADS</span><p class="x-nd__t">Verify email</p><p class="x-nd__d">Check the email is deliverable</p></li>
+                      <li class="x-ar"></li>
+                      <li class="x-nd"><span class="x-k">TASK</span><p class="x-nd__t">Agent task</p><p class="x-nd__d">copywriter · Write a 3-step email sequence for <code>{{company}}</code> (plain and direct)</p></li>
+                      <li class="x-ar"></li>
+                      <li class="x-nd"><span class="x-k x-k--email">EMAIL</span><p class="x-nd__t">Add to campaign</p><p class="x-nd__d">Enrol the lead in a campaign</p></li>
+                    </ol>
+                  </div>
+                </div>
+                <h3 class="x-h3">Hiring for sales/marketing → verify → write 3-step sequence → add to campaign</h3>
+                <p class="x-p">A company hiring for growth is admitting it needs growth. Verify first so nothing bounces, then let the copywriter do the typing.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Compare -->
+        <section class="x-sec" id="compare" aria-labelledby="compare-h">
+          <div class="x-wrap">
+            <div class="x-sec__head"><h2 class="x-h2" id="compare-h"><span>Flows vs the usual stack.</span><span class="x-sub2">One chain beats five logins.</span></h2></div>
+            <div class="x-cmp" tabindex="0" role="region" aria-label="Comparison table, scrolls sideways">
+              <table>
+                <colgroup><col class="x-c1" /><col /><col /></colgroup>
+                <thead><tr><td></td><th scope="col">Zapier + sender + LinkedIn tool</th><th scope="col" class="x-us">Bonfire GTM Flows</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Email + LinkedIn in one chain</th><td>Two tools, glued by a Zap</td><td class="x-us">Both channels, one flow</td></tr>
+                  <tr><th scope="row">AI agents as steps</th><td>Copy-paste from a chat window</td><td class="x-us">Agent task is a step. Changes still need approval.</td></tr>
+                  <tr><th scope="row">Approvals built in</th><td>Build your own, or skip them</td><td class="x-us">Risky steps wait in Needs you</td></tr>
+                  <tr><th scope="row">Dry-run testing</th><td>Test on live leads and hope</td><td class="x-us">Test run: nothing changes</td></tr>
+                  <tr><th scope="row">One inbox for replies</th><td>Replies scattered across tools</td><td class="x-us">One inbox, and New reply can start the next flow</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="x-sec" id="faq" aria-labelledby="faq-h">
+          <div class="x-wrap">
+            <div class="x-sec__head"><h2 class="x-h2" id="faq-h"><span>Questions,</span><span class="x-sub2">answered.</span></h2></div>
+            <div class="x-faq">
+              <details><summary><span class="x-faq__n">01</span><span>Do I need Zapier?</span></summary><p>No. Triggers, research, verification, email, LinkedIn, agents and approvals all run inside one flow in Bonfire GTM. Nothing to glue together.</p></details>
+              <details><summary><span class="x-faq__n">02</span><span>Can it send LinkedIn messages?</span></summary><p>Yes. Flows can view a LinkedIn profile, send an invite with no note, and message a connection. Each one runs after you approve it.</p></details>
+              <details><summary><span class="x-faq__n">03</span><span>Does anything send without me?</span></summary><p>Nothing risky. Emails, LinkedIn steps and agent changes land in Needs you until you approve them. Test run is a dry run on the latest matching item, so nothing changes.</p></details>
+              <details><summary><span class="x-faq__n">04</span><span>What triggers a flow?</span></summary><p>Three things: New signal (a funding, hiring, launch or leadership signal is found), New lead (a lead is added from an import, list builder, play or agent) and New reply (someone replies to a campaign email).</p></details>
+              <details><summary><span class="x-faq__n">05</span><span>How long does setup take?</span></summary><p>About 15 minutes for your first flow: pick a trigger, add steps, do a test run and switch it on. New sending inboxes still warm up for 21 days before they send at full volume.</p></details>
+            </div>
+          </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="x-final" aria-labelledby="final-h">
+          <div class="x-final__copy">
+            <div class="x-fire"><img src="logo.png" alt="" /></div>
+            <h2 class="x-h2" id="final-h"><span>Build it once.</span><span class="x-ember">Let it run.</span></h2>
+            <p class="x-p">Book a demo. We'll build your first flow with you, live, from trigger to Needs you.</p>
+            <div class="x-cta">
+              <a class="x-btn x-btn--dark x-btn--lg" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+              <a class="x-btn x-btn--light x-btn--lg" href="https://forms.gle/EdGWZGEn91CfFPFG7" target="_blank" rel="noopener">Join waitlist</a>
+            </div>
+            <p class="x-final__more">See who runs the steps: <a href="/agents">Agents</a> · and what to run: <a href="/plays">Plays</a></p>
+          </div>
+        </section>
+      </main>
+
+      <!-- partial:footer -->
+      <footer class="x-foot x-ft">
+        <div class="x-wrap">
+          <div class="x-ft__frame">
+            <div class="x-ft__grid">
+              <!-- Row 1 -->
+              <div class="x-ft__cell">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <a class="x-ft__logo" href="/" aria-label="Bonfire GTM home"><span class="x-logo x-logo--foot"><img src="logo.png" alt="Bonfire GTM" /></span></a>
+                <p class="x-ft__tag">Your whole outbound engine, kept warm.</p>
+              </div>
+              <nav class="x-ft__cell" aria-label="Quick links">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Quick links</p>
+                <div class="x-ft__cols">
+                  <div>
+                    <h3 class="x-ft__h">Product</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/flows">Flows</a></li>
+                      <li><a href="/agents">Agents</a></li>
+                      <li><a href="/plays">Plays</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Resources</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/blog">Blog</a></li>
+                      <li><a href="/blog/cold-email-guide">Cold email guide</a></li>
+                      <li><a href="/blog/email-deliverability-for-cold-email-the-guide">Deliverability guide</a></li>
+                      <li><a href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Compare</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/blog/bonfire-gtm-vs-instantly">Bonfire GTM vs Instantly</a></li>
+                      <li><a href="/blog/bonfire-gtm-vs-smartlead">vs Smartlead</a></li>
+                      <li><a href="/blog/bonfire-gtm-vs-lemlist">vs Lemlist</a></li>
+                      <li><a href="/blog/bonfire-gtm-vs-apollo">vs Apollo</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <div class="x-ft__cell x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Social</p>
+                <div class="x-ft__tiles">
+                  <a class="x-ft__tile" href="https://www.linkedin.com/company/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on LinkedIn" data-tip="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M8 10.5V17M12 17v-6.5M12 13.5c0-1.9 1.2-3 2.7-3s2.3 1 2.3 2.8V17"/><circle cx="8" cy="7.5" r=".6" fill="currentColor"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="https://x.com/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on X" data-tip="X">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4h4.2L20 20h-4.2z"/><path d="M19.5 4l-6.4 7M4.5 20l6.4-7"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="mailto:bonfiregtm@gmail.com" aria-label="Email bonfiregtm@gmail.com" data-tip="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13"/><path d="M3 6l9 7 9-7"/></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Row 2 -->
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Legal</p>
+                <ul class="x-ft__links">
+                  <li><a href="/privacy">Privacy policy</a></li>
+                  <li><a href="/terms">Terms</a></li>
+                </ul>
+                <p class="x-ft__copy">© 2026 Bonfire GTM</p>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <div class="x-ft__ctas">
+                  <a class="x-ft__cta" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">
+                    <img src="app-icon.png" alt="" width="24" height="24" />
+                    <b>Book a 20-min demo</b>
+                    <span>See your engine run on your own ICP.</span>
+                  </a>
+                  <a class="x-ft__cta" href="/#waitlist">
+                    <img src="app-icon.png" alt="" width="24" height="24" />
+                    <b>Join the waitlist</b>
+                    <span>Early access. Limited onboarding spots.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Ask AI about us</p>
+                <div class="x-ft__tiles" id="x-ft-ai">
+                  <a class="x-ft__tile" data-ai="https://chatgpt.com/?q=" href="https://chatgpt.com/" target="_blank" rel="noopener" aria-label="Ask ChatGPT about Bonfire GTM" data-tip="Ask ChatGPT">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://claude.ai/new?q=" href="https://claude.ai/new" target="_blank" rel="noopener" aria-label="Ask Claude about Bonfire GTM" data-tip="Ask Claude">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.3 4.3M14.1 14.1l4.3 4.3M18.4 5.6l-4.3 4.3M9.9 14.1l-4.3 4.3"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.perplexity.ai/search?q=" href="https://www.perplexity.ai/" target="_blank" rel="noopener" aria-label="Ask Perplexity about Bonfire GTM" data-tip="Ask Perplexity">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M5 3l7 6 7-6v6H5zM5 9v8l7-6 7 6V9M5 15v4l7-5 7 5v-4"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.google.com/search?udm=50&amp;q=" href="https://www.google.com/search?udm=50" target="_blank" rel="noopener" aria-label="Ask Gemini (Google AI Mode) about Bonfire GTM" data-tip="Ask Gemini">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c.6 5.2 4.3 8.9 9.5 9.5-5.2.6-8.9 4.3-9.5 9.5-.6-5.2-4.3-8.9-9.5-9.5 5.2-.6 8.9-4.3 9.5-9.5z"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://grok.com/?q=" href="https://grok.com/" target="_blank" rel="noopener" aria-label="Ask Grok about Bonfire GTM" data-tip="Ask Grok">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M18.5 4L5 20.5"/><path d="M15.5 7.2A7 7 0 0 0 6 16.8"/><path d="M18 9.5a7 7 0 0 1-8.6 9.7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          (function () {
+            var q = encodeURIComponent("Explain what Bonfire GTM (bonfiregtm.com) does, who it's for, and how it compares to Instantly, Smartlead and Clay.");
+            document.querySelectorAll("#x-ft-ai [data-ai]").forEach(function (a) { a.href = a.getAttribute("data-ai") + q; });
+          })();
+        </script>
+      </footer>
+      <!-- /partial:footer -->
+    </div>
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        var ann = document.getElementById("ann");
+        ann.querySelector(".x-ann__x").addEventListener("click", function () { ann.hidden = true; });
+        var head = document.getElementById("head"), menu = head.querySelector(".x-menu");
+        function onScroll() { head.classList.toggle("is-scrolled", head.getBoundingClientRect().top <= 0 && window.scrollY > 4); }
+        window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+        menu.addEventListener("click", function () {
+          var open = head.classList.toggle("is-open");
+          menu.setAttribute("aria-expanded", open); menu.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        });
+        head.querySelectorAll(".x-nav a").forEach(function (a) {
+          a.addEventListener("click", function () { head.classList.remove("is-open"); menu.setAttribute("aria-expanded", "false"); });
+        });
+        /* Product dropdown: click/Enter toggles, Escape and outside click close */
+        var dd = document.getElementById("x-dd"), ddBtn = dd.querySelector(".x-dd__btn");
+        function ddSet(open) { dd.classList.toggle("is-open", open); ddBtn.setAttribute("aria-expanded", open ? "true" : "false"); }
+        ddBtn.addEventListener("click", function () { ddSet(!dd.classList.contains("is-open")); });
+        dd.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && dd.classList.contains("is-open")) { ddSet(false); ddBtn.focus(); }
+          if (e.key === "ArrowDown" && document.activeElement === ddBtn) { e.preventDefault(); ddSet(true); dd.querySelector(".x-dd__menu a").focus(); }
+        });
+        dd.addEventListener("focusout", function (e) { if (!dd.contains(e.relatedTarget)) ddSet(false); });
+        document.addEventListener("click", function (e) { if (!dd.contains(e.target)) ddSet(false); });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && head.classList.contains("is-open")) { head.classList.remove("is-open"); menu.setAttribute("aria-expanded", "false"); menu.focus(); }
+        });
+        var cv = document.getElementById("hero-cv");
+        if (cv && "IntersectionObserver" in window) {
+          new IntersectionObserver(function (es) { cv.classList.toggle("is-on", es[0].isIntersecting); }, { threshold: 0.3 }).observe(cv);
+        }
+      })();
+    </script>
+  </body>
+</html>

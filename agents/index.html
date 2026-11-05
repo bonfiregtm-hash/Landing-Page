@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI SDR agents for outbound: 8 agents, one crew | Bonfire GTM</title>
+    <meta name="description" content="Bonfire GTM isn't one black-box AI SDR. It's a crew of 8 specialist agents that research, build lists, verify, write, protect your domains, handle replies and report, while you approve what goes out." />
+    <link rel="canonical" href="/agents" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/agents" />
+    <meta property="og:title" content="AI SDR agents for outbound: 8 agents, one crew | Bonfire GTM" />
+    <meta property="og:description" content="One chatbot SDR can't run outbound. Eight specialist agents can, and nothing sends without your approval." />
+    <meta property="og:site_name" content="Bonfire GTM" />
+    <meta property="og:image" content="/app-icon.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AI SDR agents for outbound: 8 agents, one crew | Bonfire GTM" />
+    <meta name="twitter:description" content="One chatbot SDR can't run outbound. Eight specialist agents can, and nothing sends without your approval." />
+    <meta name="twitter:image" content="/app-icon.png" />
+    <link rel="icon" type="image/png" href="app-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "Bonfire GTM",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "url": "/agents",
+            "description": "A crew of 8 specialist AI agents that run outbound end to end: research, lead lists, email verification, sequences, deliverability, replies and a Monday report. You approve what goes out."
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "/" },
+              { "@type": "ListItem", "position": 2, "name": "Agents", "item": "/agents" }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              { "@type": "Question", "name": "Is Bonfire GTM just another AI SDR?", "acceptedAnswer": { "@type": "Answer", "text": "No. An AI SDR is one bot doing every job. Bonfire GTM is 8 specialist agents, each with one job: research, signals, lists, verification, copy, deliverability, replies and reporting." } },
+              { "@type": "Question", "name": "Can an agent send something without me?", "acceptedAnswer": { "@type": "Answer", "text": "No. Anything that changes what goes out lands in Needs approval first. You approve it, edit it or stop it. Stop all halts every agent at once." } },
+              { "@type": "Question", "name": "Will the agents make things up?", "acceptedAnswer": { "@type": "Answer", "text": "They work from what you tell them and your Knowledge. The Researcher drafts your offer and ICP from your words and saves it for your approval before anyone else uses it." } },
+              { "@type": "Question", "name": "How long until the crew is working?", "acceptedAnswer": { "@type": "Answer", "text": "About 15 minutes of your time to tell the Researcher what you sell and approve the draft. New inboxes then go through a 21-day warm-up, and the crew builds lists and sequences while they warm." } },
+              { "@type": "Question", "name": "Can I build my own agent?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Under Your agents, add a new agent or build one from a template. It sits next to the crew, with the same chat, tasks and approvals." } }
+            ]
+          }
+        ]
+      }
+    </script>
+    <style>
+      /* ===== Global (Bonfire v4: custom design, departs from Hark default; matches landing-reference-v4.html) ===== */
+      :root {
+        /* Colours: every colour on the page lives here */
+        --x-bg: #FFFFFF;          /* background */
+        --x-ink: #111111;         /* ink */
+        --x-grey: #555555;        /* text-2 */
+        --x-rule: #D4D4D4;        /* rules: frames, controls */
+        --x-line: #E6E6E6;        /* hairlines */
+        --x-panel: #F7F7F7;       /* panel */
+        --x-ember: #FF5A1F;       /* ember */
+        --x-ember-dk: #C2410C;    /* ember text */
+        --x-tint: #FFF1EA;        /* ember tint */
+        --x-on-ink: #FFFFFF;      /* text on ink */
+        --x-ink-hover: #2A2A2A;   /* dark button hover (reference) */
+        --x-rule-hover: #9A9A9A;  /* light button hover border (reference) */
+        --x-sub: #8A8A8A;         /* second line of a headline (reference) */
+        --x-px-mid: #8A8A8A;      /* pixel glyph, mid */
+        --x-px-light: #BDBDBD;    /* pixel glyph, light; table dashes */
+        --x-px-hot-2: var(--x-px-hot-2);    /* selected glyph, mid ember */
+        --x-px-hot-3: var(--x-px-hot-3);    /* selected glyph, light ember */
+        --x-hatch: #E2E2E2;       /* hatched frame stroke */
+        --x-meta: #6B6B6B;        /* footer column heads and copyright (reference) */
+        --x-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+        --x-mono: "Geist Mono", ui-monospace, monospace;
+        --x-max: 992px; --x-gut: clamp(16px, 3.2vw, 32px);
+        --x-hh: 54px;
+        --x-fs-h1: clamp(36px, 5.6vw, 67px);
+        --x-fs-h2: clamp(28px, 3.84vw, 45px);
+        --x-fs-h3: 21px;
+        --x-fs-body: 14.5px;
+        --x-fs-ui: 12px;
+        --x-btn-h: 36px; --x-btn-h-lg: 40px;
+        --x-sec-pad: clamp(64px, 8.8vw, 112px);
+        --x-gap: 26px;
+        color-scheme: light;
+      }
+      html { background: var(--x-bg); }
+      body.x-body {
+        margin: 0; background: var(--x-bg); color: var(--x-ink);
+        font: 500 var(--x-fs-body)/1.55 var(--x-sans); letter-spacing: -0.005em;
+        -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      }
+      .x-body :focus-visible { outline: 2px solid var(--x-ember-dk); outline-offset: 3px; border-radius: 0; }
+      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: var(--x-gut); }
+      .x-h1, .x-h2, .x-h3 { font-family: var(--x-sans); color: var(--x-ink); letter-spacing: -0.035em; margin: 0; }
+      .x-h1 { font-size: var(--x-fs-h1); line-height: 1.0; font-weight: 600; }
+      .x-h2 { font-size: var(--x-fs-h2); line-height: 1.04; font-weight: 600; }
+      .x-h2 span, .x-h1 span { display: block; }
+      .x-h2 .x-sub2 { color: var(--x-sub); }
+      .x-h3 { font-size: var(--x-fs-h3); line-height: 1.1; font-weight: 600; letter-spacing: -0.03em; }
+      .x-p { color: var(--x-grey); font-weight: 500; font-size: var(--x-fs-body); line-height: 1.55; margin: 0; }
+      .x-p + .x-p { margin-top: 14px; }
+      .x-ember-sm { color: var(--x-ember-dk); }
+
+      /* Buttons (reference .x-btn, square corners) */
+      .x-btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        min-height: var(--x-btn-h); padding: 0 16px; border-radius: 0; text-decoration: none;
+        font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.01em; white-space: nowrap;
+        border: 1px solid transparent; transition: background-color .2s, border-color .2s, transform .2s;
+      }
+      .x-btn--dark { background: var(--x-ink); color: var(--x-on-ink); }
+      .x-btn--dark:hover { background: var(--x-ink-hover); }
+      .x-btn--light { background: var(--x-bg); color: var(--x-ink); border-color: var(--x-rule); }
+      .x-btn--light:hover { border-color: var(--x-rule-hover); }
+      .x-btn--lg { min-height: var(--x-btn-h-lg); padding: 0 19px; font-size: 13px; }
+
+      /* ===== Header (partial:header, from landing-reference-v4.html) ===== */
+      .x-head { position: sticky; top: 0; z-index: 50; background: var(--x-bg); border-bottom: 1px solid transparent; transition: border-color .2s; }
+      .x-head.is-scrolled { border-bottom-color: var(--x-line); }
+      .x-head__in { display: flex; align-items: center; justify-content: space-between; gap: 13px; height: var(--x-hh); }
+      .x-brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--x-ink); font-weight: 600; font-size: 14px; letter-spacing: -0.02em; min-height: 36px; }
+      /* Logo lockup: logo.png carries transparent margins, so the box crops to the artwork (bbox 212,209 to 2788,763 of 3000x965) */
+      .x-logo { --lh: 26px; position: relative; display: block; flex: none; overflow: hidden; height: var(--lh); width: calc(var(--lh) * 2576 / 554); }
+      .x-logo img { position: absolute; max-width: none; height: calc(var(--lh) * 965 / 554); width: auto; top: calc(var(--lh) * -209 / 554); left: calc(var(--lh) * -212 / 554); }
+      .x-logo--foot { --lh: 36px; }
+      .x-nav { display: flex; gap: 2px; }
+      .x-nav a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; color: var(--x-grey); text-decoration: none; font-size: var(--x-fs-ui); font-weight: 500; border-radius: 0; transition: color .2s; }
+      .x-nav a:hover { color: var(--x-ink); }
+      .x-head__cta { display: flex; gap: 6px; align-items: center; }
+      .x-menu { display: none; width: 36px; height: 36px; border: 1px solid var(--x-rule); border-radius: 0; background: var(--x-bg); cursor: pointer; align-items: center; justify-content: center; }
+      .x-menu span, .x-menu span::before { display: block; width: 14px; height: 1.5px; background: var(--x-ink); position: relative; }
+      .x-menu span::before { content: ""; position: absolute; top: 4px; }
+      .x-menu span { top: -2px; }
+      @media (max-width: 920px) {
+        .x-nav { display: none; position: absolute; top: var(--x-hh); left: 0; right: 0; background: var(--x-bg); border-bottom: 1px solid var(--x-line); flex-direction: column; padding: 6px var(--x-gut) 13px; }
+        .x-head.is-open .x-nav { display: flex; }
+        .x-nav a { font-size: 14px; color: var(--x-ink); }
+        .x-menu { display: inline-flex; }
+      }
+      @media (max-width: 440px) { .x-head__cta .x-signin { display: none; } }
+
+      /* ===== Product dropdown (hover/click, plain list in the mobile menu) ===== */
+      .x-dd { position: relative; display: flex; align-items: center; }
+      .x-dd__btn { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 0 10px; border: 0; border-radius: 0; background: none; color: var(--x-grey); font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.005em; cursor: pointer; transition: color .2s; }
+      .x-dd__btn:hover, .x-dd.is-open .x-dd__btn { color: var(--x-ink); }
+      .x-dd__chev { flex: none; width: 5px; height: 5px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); transition: transform .2s; }
+      .x-dd.is-open .x-dd__chev { transform: translateY(1px) rotate(-135deg); }
+      .x-dd__lbl { display: none; }
+      .x-dd__menu { display: none; position: absolute; top: 100%; left: 0; z-index: 60; width: 268px; margin: 0; padding: 6px; list-style: none; background: var(--x-bg); border: 1px solid var(--x-rule); }
+      .x-dd.is-open .x-dd__menu { display: block; }
+      .x-nav .x-dd__menu a { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 3px; min-height: 44px; padding: 8px 10px; border-radius: 0; color: var(--x-ink); font-size: 13px; font-weight: 600; letter-spacing: -0.015em; }
+      .x-dd__menu a small { font-size: 12px; font-weight: 500; letter-spacing: -0.005em; color: var(--x-grey); }
+      .x-nav .x-dd__menu a:hover { background: var(--x-tint); }
+      @media (hover: hover) and (min-width: 921px) {
+        .x-dd:hover .x-dd__menu { display: block; }
+        .x-dd:hover .x-dd__btn { color: var(--x-ink); }
+      }
+      @media (max-width: 920px) {
+        .x-dd { flex-direction: column; align-items: stretch; }
+        .x-dd__btn { display: none; }
+        .x-dd__lbl { display: block; padding: 10px 10px 2px; font: 500 12px/1.2 var(--x-sans); color: var(--x-grey); }
+        .x-dd__menu, .x-dd.is-open .x-dd__menu { display: block; position: static; width: auto; padding: 0 0 4px; border: 0; }
+        .x-nav .x-dd__menu a { font-size: 14px; }
+      }
+      /* Current page: Agents */
+      .x-nav .x-dd__menu a[aria-current="page"] { background: var(--x-tint); }
+      .x-nav .x-dd__menu a[aria-current="page"]::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: var(--x-ember); }
+      .x-nav .x-dd__menu a { position: relative; }
+
+      /* ===== Sections ===== */
+      .x-sec { padding: var(--x-sec-pad) 0 0; scroll-margin-top: var(--x-hh); }
+      .x-sec__head { margin-bottom: clamp(29px, 4vw, 51px); }
+      .x-sec__head .x-p { margin-top: 18px; max-width: 560px; }
+
+      /* ===== Hero ===== */
+      .x-hero { padding-top: clamp(28px, 5vw, 56px); }
+      .x-hero__copy { max-width: 760px; }
+      .x-hero__sub { margin-top: 21px; max-width: 560px; font-size: clamp(14px, 1.28vw, 15px); }
+      .x-hero__cta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 27px; }
+      .x-hero__tert { margin-top: 16px; font-size: var(--x-fs-ui); color: var(--x-grey); font-weight: 500; }
+      .x-hero__tert b { font-weight: 500; color: var(--x-grey); padding: 0 3px; }
+      .x-h1 .x-agw { display: inline; padding: 0 .12em .02em; border: 2px solid var(--x-ember); border-radius: 0; background: var(--x-tint); }
+      .x-hero .x-aw { margin-top: clamp(36px, 5vw, 56px); }
+
+      /* ===== Pain list ===== */
+      .x-pain { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--x-line); border: 1px solid var(--x-line); }
+      .x-pain > div { box-sizing: border-box; background: var(--x-bg); padding: 26px 24px 28px; }
+      .x-pain h3 { margin: 0 0 8px; font: 600 17px/1.2 var(--x-sans); letter-spacing: -0.03em; }
+      .x-pain p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--x-grey); }
+      .x-pain__fix { background: var(--x-tint) !important; }
+      .x-pain__fix h3 { color: var(--x-ember-dk); }
+      .x-pain__fix p { color: var(--x-grey); }
+      @media (max-width: 719px) { .x-pain { grid-template-columns: minmax(0, 1fr); } }
+
+      /* ===== Crew cards ===== */
+      .x-crew { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--x-line); border: 1px solid var(--x-line); }
+      .x-crew > article { box-sizing: border-box; background: var(--x-bg); padding: 22px 20px 24px; display: flex; flex-direction: column; gap: 10px; min-height: 184px; }
+      .x-crew__top { display: flex; align-items: center; gap: 9px; }
+      .x-crew__n { font: 400 12px/1 var(--x-mono); color: var(--x-grey); }
+      .x-crew h3 { margin: 0; font: 600 15px/1.2 var(--x-sans); letter-spacing: -0.03em; }
+      .x-crew p { margin: 0; font-size: 13px; line-height: 1.5; color: var(--x-grey); }
+      .x-crew__job { margin-top: auto !important; font: 400 12px/1.4 var(--x-mono) !important; color: var(--x-grey) !important; }
+      @media (max-width: 1099px) { .x-crew { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (max-width: 519px) { .x-crew { grid-template-columns: minmax(0, 1fr); } .x-crew > article { min-height: 0; } }
+
+      /* ===== Control panel (approvals) ===== */
+      .x-ctl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--x-gap); align-items: start; }
+      .x-ctl__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--x-line); }
+      .x-ctl__list li { display: grid; grid-template-columns: 18px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--x-line); }
+      .x-ctl__list b { display: block; font: 600 15px/1.3 var(--x-sans); letter-spacing: -0.02em; }
+      .x-ctl__list span { display: block; margin-top: 4px; font-size: 13.5px; line-height: 1.5; color: var(--x-grey); }
+      .x-ctl__mk { margin-top: 6px; width: 8px; height: 8px; background: var(--x-ember); }
+      @media (max-width: 859px) { .x-ctl { grid-template-columns: minmax(0, 1fr); } }
+
+      /* ===== Plug-in cells (Flows / Plays) ===== */
+      .x-plug { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--x-line); border: 1px solid var(--x-line); }
+      .x-plug > div { box-sizing: border-box; background: var(--x-bg); padding: 28px 26px 30px; }
+      .x-plug h3 { margin: 0 0 10px; font: 600 20px/1.2 var(--x-sans); letter-spacing: -0.03em; }
+      .x-plug p { margin: 0 0 16px; font-size: 14px; line-height: 1.55; color: var(--x-grey); }
+      .x-plug a.x-tlink { display: inline-flex; align-items: center; min-height: 36px; font-size: 13px; font-weight: 600; color: var(--x-ember-dk); text-decoration: underline; text-underline-offset: 3px; }
+      @media (max-width: 719px) { .x-plug { grid-template-columns: minmax(0, 1fr); } .x-fl li { min-width: 0; } .x-fl li > span { min-width: 0; overflow-wrap: anywhere; } }
+
+      /* ===== Comparison table ===== */
+      .x-cmp { display: block; width: 100%; box-sizing: border-box; padding-bottom: 2px; }
+      @media (max-width: 719px) { .x-cmp { overflow-x: auto; -webkit-overflow-scrolling: touch; } }
+      .x-cmp table { width: 100%; min-width: 608px; box-sizing: border-box; table-layout: fixed; border-collapse: separate; border-spacing: 0; border-top: 1px solid var(--x-line); border-left: 1px solid var(--x-line); margin: 0; font-size: 13px; }
+      .x-cmp col.x-cmp__c1 { width: 22%; }
+      .x-cmp col.x-cmp__cn { width: 26%; }
+      .x-cmp table tbody tr:last-child > * { border-bottom: 1px solid var(--x-line); }
+      .x-cmp table th, .x-cmp table td { box-sizing: border-box; border: 0; border-right: 1px solid var(--x-line); border-bottom: 1px solid var(--x-line); border-radius: 0; padding: 14px 16px; text-align: left; vertical-align: top; font: 500 13px/1.45 var(--x-sans); letter-spacing: -0.01em; overflow-wrap: break-word; }
+      .x-cmp thead th { font-family: var(--x-sans); font-weight: 600; font-size: 14px; color: var(--x-ink); }
+      .x-cmp tbody th { font-weight: 600; color: var(--x-ink); }
+      .x-cmp td { color: var(--x-grey); }
+      .x-cmp tbody td { position: relative; padding-left: 34px; }
+      .x-cmp tbody td::before { content: ""; position: absolute; left: 16px; top: 23px; width: 8px; height: 1.5px; background: var(--x-px-light); }
+      .x-cmp .x-cmp__us { background: var(--x-tint); color: var(--x-ink); }
+      .x-cmp tbody .x-cmp__us::before { top: 19px; width: 7px; height: 7px; background: var(--x-ember); }
+      .x-cmp thead .x-cmp__us { background: var(--x-ink); color: var(--x-on-ink); }
+
+      /* ===== FAQ ===== */
+      .x-faq { border-top: 1px solid var(--x-line); max-width: 736px; }
+      .x-faq details { border-bottom: 1px solid var(--x-line); }
+      .x-faq summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 38px 1fr 19px; gap: 10px; align-items: baseline; min-height: 36px; padding: 19px 0; font-family: var(--x-sans); font-weight: 600; font-size: 15px; letter-spacing: -0.02em; color: var(--x-ink); }
+      .x-faq summary::-webkit-details-marker { display: none; }
+      .x-faq summary::after { content: "+"; font-weight: 500; color: var(--x-grey); text-align: right; }
+      .x-faq details[open] summary::after { content: "\2212"; }
+      .x-faq__n { font: 400 12px/1 var(--x-mono); color: var(--x-grey); letter-spacing: 0; }
+      .x-faq details p { margin: -6px 0 0; padding: 0 29px 19px 48px; color: var(--x-grey); font-weight: 500; }
+      @media (max-width: 640px) { .x-faq summary { grid-template-columns: 29px 1fr 16px; font-size: 14px; } .x-faq details p { padding: 0 0 18px 38px; } }
+
+      /* ===== Final CTA ===== */
+      .x-final { margin-top: var(--x-sec-pad); }
+      .x-final__card { position: relative; overflow: hidden; border-top: 1px solid var(--x-line); border-bottom: 1px solid var(--x-line); background: var(--x-panel); min-height: 440px; display: flex; justify-content: center; }
+      .x-final__copy { position: relative; z-index: 1; text-align: center; padding: 77px 19px 72px; max-width: 608px; display: flex; flex-direction: column; align-items: center; }
+      .x-final__copy .x-p { margin-top: 18px; max-width: 448px; }
+      .x-final__copy .x-hero__cta { justify-content: center; }
+      .x-fire { width: 72px; height: 85px; overflow: hidden; position: relative; margin-bottom: 22px; }
+      .x-fire img { position: absolute; width: 472px; max-width: none; height: auto; left: -33px; top: -33px; }
+
+      /* ===== Footer (partial:footer, from landing-reference-v4.html): blueprint grid (hairlines + crosshairs inside the hatched side frame) ===== */
+      .x-ft { --ft-line: var(--x-rule); --ft-tile: var(--x-line); padding: var(--x-sec-pad) 0 48px; }
+      .x-ft__frame { padding: 0 14px; border-inline: 1px solid var(--x-line); background: repeating-linear-gradient(135deg, var(--x-hatch) 0 1px, transparent 1px 6px); }
+      .x-ft__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr) minmax(0, 1fr); border-top: 1px solid var(--ft-line); border-left: 1px solid var(--ft-line); }
+      .x-ft__cell { position: relative; box-sizing: border-box; min-width: 0; padding: 28px 24px 30px; background: var(--x-bg); border-right: 1px solid var(--ft-line); border-bottom: 1px solid var(--ft-line); }
+      .x-ft__cell--b { background: var(--x-panel); }
+      .x-ft__cell--r { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+      /* Crosshairs: 13px box, 1px ink strokes centred on the hairline intersections */
+      .x-ft__x { position: absolute; z-index: 2; width: 13px; height: 13px; pointer-events: none; background: linear-gradient(var(--x-ink), var(--x-ink)) 6px 0 / 1px 100% no-repeat, linear-gradient(var(--x-ink), var(--x-ink)) 0 6px / 100% 1px no-repeat; }
+      .x-ft__x--tl { left: -7px; top: -7px; } .x-ft__x--tr { right: -6px; top: -7px; }
+      .x-ft__x--bl { left: -7px; bottom: -6px; } .x-ft__x--br { right: -6px; bottom: -6px; }
+      .x-ft__lbl { display: flex; align-items: center; gap: 8px; margin: 0 0 16px; font: 500 13px/1.2 var(--x-sans); letter-spacing: -0.01em; color: var(--x-ember-dk); }
+      .x-ft__lbl::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-ft__logo { display: inline-flex; min-height: 44px; align-items: center; }
+      .x-ft__tag { margin: 14px 0 0; max-width: 240px; font: 500 13px/1.5 var(--x-sans); color: var(--x-grey); }
+      .x-ft ul { list-style: none; margin: 0; padding: 0; }
+      .x-ft__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+      .x-ft__h { margin: 0 0 6px; font: 500 13px/1.3 var(--x-sans); color: var(--x-meta); }
+      .x-ft__links a { display: inline-flex; align-items: center; min-height: 32px; padding: 4px 0; box-sizing: border-box; color: var(--x-ink); text-decoration: none; font: 500 13px/1.3 var(--x-sans); letter-spacing: -0.01em; transition: color .2s; }
+      .x-ft__links a:hover { color: var(--x-ember-dk); }
+      .x-ft__copy { margin: 18px 0 0; font: 500 12px/1.4 var(--x-sans); color: var(--x-meta); }
+      .x-ft__tiles { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; max-width: calc(56px * 3 + 12px); }
+      .x-ft__tile { position: relative; box-sizing: border-box; display: grid; place-items: center; width: 56px; height: 56px; background: var(--x-bg); border: 1px solid var(--ft-tile); color: var(--x-ink); text-decoration: none; transition: background-color .2s, color .2s, border-color .2s; }
+      .x-ft__tile svg { width: 22px; height: 22px; }
+      .x-ft__tile:hover, .x-ft__tile:focus-visible { background: var(--x-ink); border-color: var(--x-ink); color: var(--x-on-ink); }
+      .x-ft__tile::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); right: 0; z-index: 3; padding: 6px 9px; background: var(--x-ink); color: var(--x-on-ink); font: 500 12px/1.2 var(--x-sans); white-space: nowrap; opacity: 0; transform: translateY(3px); pointer-events: none; transition: opacity .15s, transform .15s; }
+      .x-ft__tile:hover::after, .x-ft__tile:focus-visible::after { opacity: 1; transform: none; }
+      .x-ft .x-ft__tile:focus-visible { border-radius: 0; }
+      .x-ft__ctas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; height: 100%; }
+      .x-ft__cta { display: flex; flex-direction: column; gap: 6px; box-sizing: border-box; min-height: 44px; padding: 18px 18px 20px; background: var(--x-bg); border: 1px solid var(--ft-tile); color: var(--x-ink); text-decoration: none; transition: border-color .2s; }
+      .x-ft__cta:hover { border-color: var(--x-ink); }
+      .x-ft__cta img { width: 24px; height: 24px; image-rendering: pixelated; margin-bottom: 8px; }
+      .x-ft__cta b { display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 600 15px/1.25 var(--x-sans); letter-spacing: -0.02em; }
+      .x-ft__cta b::after { content: "→"; font-weight: 500; color: var(--x-ember-dk); transition: transform .2s; }
+      .x-ft__cta:hover b::after { transform: translateX(3px); }
+      .x-ft__cta span { font: 500 13px/1.45 var(--x-sans); color: var(--x-grey); }
+      @media (max-width: 860px) {
+        .x-ft__grid { grid-template-columns: minmax(0, 1fr); }
+        .x-ft__cell--r { align-items: flex-start; text-align: left; }
+        .x-ft__tiles { justify-content: flex-start; }
+        .x-ft__tile::after { right: auto; left: 0; }
+      }
+      @media (max-width: 560px) {
+        .x-ft__frame { padding: 0 8px; }
+        .x-ft__cell { padding: 24px 18px 26px; }
+        .x-ft__cols, .x-ft__ctas { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      }
+
+      /* ===== App mockup: the three-column Agents screen (after landing-reference .x-aw) ===== */
+      .x-aw { position: relative; }
+      .x-aw__tag { margin: 0 0 10px auto; display: table; padding: 0; font: 400 12px/1 var(--x-sans); color: var(--x-grey); }
+      .x-aw__win { display: flex; flex-direction: column; height: 560px; overflow: hidden; background: var(--x-bg); border: 1px solid var(--x-rule); border-radius: 0; box-shadow: none; font-family: var(--x-sans); letter-spacing: -0.01em; }
+      .x-aw__bar { flex: none; display: flex; align-items: center; gap: 5px; height: 32px; box-sizing: border-box; padding: 0 8px 0 12px; border-bottom: 1px solid var(--x-line); }
+      .x-aw__bar > i { flex: none; width: 7px; height: 7px; background: var(--x-line); }
+      .x-aw__crumb { flex: 1 1 auto; min-width: 0; margin-left: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 400 12px/1 var(--x-sans); color: var(--x-grey); }
+      .x-aw__crumb b { font-weight: 500; color: var(--x-ink); }
+      .x-aw__live { flex: none; display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 4px; font: 400 12px/1 var(--x-sans); color: var(--x-ink); white-space: nowrap; }
+      .x-aw__live i { width: 6px; height: 6px; background: var(--x-ember); }
+      .x-aw__new { flex: none; display: inline-flex; align-items: center; height: 22px; margin-left: 6px; padding: 0 9px; background: var(--x-ink); color: var(--x-on-ink); font: 400 12px/1 var(--x-sans); white-space: nowrap; }
+      .x-aw__body { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: 232px minmax(0, 1fr) 264px; }
+      /* A) crew */
+      .x-aw__crew { min-height: 0; overflow-y: auto; padding: 12px 10px; border-right: 1px solid var(--x-line); background: var(--x-bg); scrollbar-width: thin; }
+      .x-aw__all { display: flex; align-items: center; gap: 8px; margin: 0 0 14px; padding: 8px 11px; border: 1px solid var(--x-rule); background: var(--x-bg); font: 400 12px/1.3 var(--x-sans); color: var(--x-grey); }
+      .x-aw__all i { flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-aw__all b { font-weight: 500; color: var(--x-ink); }
+      .x-aw__lab { margin: 0 0 6px; padding: 0 6px; font: 400 12px/1 var(--x-sans); color: var(--x-grey); }
+      .x-aw__list { display: flex; flex-direction: column; gap: 1px; margin-bottom: 14px; }
+      .x-aw__row { display: flex; align-items: center; gap: 9px; width: 100%; min-height: 44px; margin: 0; padding: 6px; border: 0; background: none; text-align: left; font-family: inherit; color: inherit; }
+      .x-aw__row.is-sel { background: var(--x-ink); }
+      .x-aw__row.is-sel .x-aw__nm b { color: var(--x-on-ink); }
+      .x-aw__row.is-sel .x-aw__nm small { color: var(--x-px-light); }
+      .x-aw__av { display: grid; place-items: initial; width: 15px; height: 15px; margin: 0 4px; flex: none; }
+      .x-aw__row.is-sel .v5-glyph i, .x-aw__av--hd i { background: var(--x-px-hot-3); }
+      .x-aw__row.is-sel .v5-glyph i.a, .x-aw__av--hd i.a { background: var(--x-px-hot-2); }
+      .x-aw__row.is-sel .v5-glyph i.b, .x-aw__av--hd i.b { background: var(--x-ember); }
+      .v5-glyph { flex: none; display: grid; grid-template-columns: repeat(5, 3px); grid-auto-rows: 3px; }
+      .v5-glyph i { background: var(--x-px-light); } .v5-glyph i.a { background: var(--x-px-mid); } .v5-glyph i.b { background: var(--x-ink); } .v5-glyph i.o { background: transparent !important; }
+      .x-aw__nm { display: flex; flex-direction: column; min-width: 0; }
+      .x-aw__nm b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 500 13px/1.25 var(--x-sans); color: var(--x-ink); }
+      .x-aw__nm small { display: inline-flex; align-items: center; gap: 6px; font: 400 12px/1.3 var(--x-sans); color: var(--x-grey); white-space: nowrap; }
+      .x-aw__nm small::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-px-light); }
+      .x-aw__nm small.is-on::before { background: var(--x-ember); }
+      .x-aw__nm small.is-wait::before { box-sizing: border-box; background: none; border: 1px solid var(--x-ember); }
+      .x-aw__row.is-sel small.is-wait::before { border-color: var(--x-px-hot-2); }
+      .x-aw__tpl { margin: 0; padding: 10px; border: 1px dashed var(--x-rule); font: 400 12px/1.3 var(--x-sans); color: var(--x-grey); }
+      /* B) chat */
+      .x-aw__chat { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+      .x-aw__head { flex: none; display: flex; align-items: center; gap: 9px; height: 52px; box-sizing: border-box; padding: 0 14px; border-bottom: 1px solid var(--x-line); }
+      .x-aw__head .x-aw__nm { flex: 1 1 auto; }
+      .x-aw__gear { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 32px; padding: 0 8px; font: 400 12px/1 var(--x-sans); color: var(--x-grey); }
+      .x-aw__log { flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding: 16px 14px; scrollbar-width: thin; }
+      .x-aw__msg { display: flex; gap: 8px; max-width: 90%; }
+      .x-aw__msg p { margin: 0; font: 400 13px/1.5 var(--x-sans); color: var(--x-ink); }
+      .x-aw__msg--me { align-self: flex-end; }
+      .x-aw__msg--me p { padding: 9px 12px; border: 1px solid var(--x-line); background: var(--x-panel); }
+      .x-aw__msg--ai { align-self: flex-start; align-items: flex-start; }
+      .x-aw__mav { flex: none; position: relative; box-sizing: border-box; width: 20px; height: 20px; margin-top: 2px; border: 1px solid var(--x-rule); background: var(--x-bg); }
+      .x-aw__mav::after { content: ""; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-aw__card { min-width: 0; padding: 10px 12px; border: 1px solid var(--x-rule); background: var(--x-bg); }
+      .x-aw__mini { display: flex; align-items: center; gap: 7px; margin-top: 9px; padding: 8px 10px; border: 1px solid var(--x-line); background: var(--x-panel); font: 400 12px/1.2 var(--x-sans); color: var(--x-grey); }
+      .x-aw__mini::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-aw__mini span { color: var(--x-grey); }
+      .x-aw__acts { display: flex; gap: 6px; margin-top: 9px; }
+      .x-aw__btn { display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border: 1px solid var(--x-rule); background: var(--x-bg); font: 400 12px/1 var(--x-sans); color: var(--x-ink); white-space: nowrap; }
+      .x-aw__btn--dk { border-color: var(--x-ink); background: var(--x-ink); color: var(--x-on-ink); }
+      .x-aw__foot { flex: none; padding: 0 14px 14px; }
+      .x-aw__sugg { display: flex; gap: 6px; margin-bottom: 8px; overflow-x: auto; scrollbar-width: none; }
+      .x-aw__sugg::-webkit-scrollbar { display: none; }
+      .x-aw__sugg span { flex: none; padding: 6px 10px; border: 1px solid var(--x-rule); background: var(--x-bg); font: 400 12px/1.2 var(--x-sans); color: var(--x-grey); white-space: nowrap; }
+      .x-aw__comp { display: flex; align-items: center; gap: 8px; height: 44px; box-sizing: border-box; padding: 0 6px 0 14px; border: 1px solid var(--x-rule); background: var(--x-bg); font: 400 13px/1 var(--x-sans); color: var(--x-grey); }
+      .x-aw__comp > span:first-child { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .x-aw__send { flex: none; display: grid; place-items: center; width: 30px; height: 30px; background: var(--x-ink); color: var(--x-on-ink); }
+      /* C) tasks rail */
+      .x-aw__rail { min-height: 0; overflow-y: auto; padding: 14px; border-left: 1px solid var(--x-line); background: var(--x-bg); }
+      .x-aw__rail .x-aw__lab { padding: 0; }
+      .x-aw__rhd { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 10px; font: 500 13px/1.2 var(--x-sans); color: var(--x-ink); }
+      .x-aw__give { display: flex; align-items: center; gap: 6px; height: 32px; box-sizing: border-box; margin-bottom: 14px; padding: 0 4px 0 10px; border: 1px solid var(--x-rule); font: 400 12px/1 var(--x-sans); color: var(--x-grey); }
+      .x-aw__give > span:first-child { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .x-aw__grp { margin: 0 0 8px; font: 400 12px/1 var(--x-sans); color: var(--x-grey); }
+      .x-aw__task { margin: 0 0 8px; padding: 9px 10px; border: 1px solid var(--x-line); background: var(--x-bg); }
+      .x-aw__task b { display: block; font: 400 12px/1.35 var(--x-sans); color: var(--x-ink); }
+      .x-aw__task small { display: block; margin-top: 4px; font: 400 12px/1.3 var(--x-sans); color: var(--x-grey); }
+      .x-aw__task--need { border-left: 3px solid var(--x-ember); }
+      @media (max-width: 1024px) {
+        .x-aw__body { grid-template-columns: 220px minmax(0, 1fr); }
+        .x-aw__rail { display: none; }
+      }
+      @media (max-width: 700px) {
+        .x-aw__win { height: auto; }
+        .x-aw__body { display: flex; flex-direction: column; }
+        .x-aw__crumb { margin-left: 4px; }
+        .x-aw__new { display: none; }
+        .x-aw__crew { overflow: visible; padding: 10px 0 8px; border-right: 0; border-bottom: 1px solid var(--x-line); }
+        .x-aw__all, .x-aw__crew .x-aw__lab, .x-aw__tpl { display: none; }
+        .x-aw__list { flex-direction: row; gap: 6px; margin: 0; padding: 0 12px; overflow-x: auto; scrollbar-width: none; }
+        .x-aw__list::-webkit-scrollbar { display: none; }
+        .x-aw__row { flex: none; width: auto; padding: 6px 12px 6px 6px; border: 1px solid var(--x-rule); background: var(--x-bg); }
+        .x-aw__row.is-sel { border-color: var(--x-ink); }
+        .x-aw__log { height: 320px; flex: none; }
+      }
+
+      .x-crew .v5-glyph { grid-template-columns: repeat(5, 5px); grid-auto-rows: 5px; }
+      .x-aw__solo .x-aw__tpl, .x-aw__solo .x-aw__lab { display: block !important; }
+      .x-aw__solo .x-aw__row { width: 100%; border: 0; padding: 6px; }
+      /* ===== Agent chat mockup (section 4), narrower, one column ===== */
+      .x-chatw { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--x-gap); align-items: start; }
+      .x-chatw .x-aw__win { height: 400px; }
+      @media (max-width: 859px) { .x-chatw { grid-template-columns: minmax(0, 1fr); } }
+      .x-aw__nm small { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+      .x-aw, .x-aw__win { min-width: 0; max-width: 100%; }
+      .x-aw__head { height: auto; min-height: 52px; padding-block: 8px; }
+      .x-aw__head .x-aw__nm small { white-space: normal; overflow: visible; text-overflow: clip; align-items: flex-start; }
+      .x-aw__head .x-aw__nm small::before { margin-top: 4px; }
+
+      /* ===== Flow step mockup ===== */
+      .x-fl { margin: 0 0 16px; padding: 12px; border: 1px solid var(--x-rule); background: var(--x-bg); }
+      .x-fl li { display: flex; align-items: center; gap: 10px; min-height: 30px; font: 400 12px/1.3 var(--x-sans); color: var(--x-ink); }
+      .x-fl ul { list-style: none; margin: 0; padding: 0; }
+      .x-fl i { flex: none; display: block; width: 9px; height: 9px; background: var(--x-ink); }
+      .x-fl .is-ag i { background: var(--x-ember); }
+      .x-fl .is-wait i { box-sizing: border-box; background: var(--x-bg); border: 1px dashed var(--x-px-mid); }
+      .x-fl code { font: 400 12px/1.3 var(--x-mono); color: var(--x-grey); }
+
+      /* Square corners on every card, frame, chip and button (only dots stay round); no shadows */
+      .x-body .x-btn, .x-body .x-menu, .x-body .x-dd__btn, .x-body .x-nav a, .x-body .x-dd__menu,
+      .x-body .x-aw__win, .x-body .x-aw__btn, .x-body .x-aw__sugg span, .x-body .x-aw__row, .x-body .x-aw__card,
+      .x-body .x-aw__task, .x-body .x-aw__comp, .x-body .x-aw__give, .x-body .x-fl, .x-body .x-ft__tile, .x-body .x-ft__cta { border-radius: 0; box-shadow: none; }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .x-body *, .x-body *::before, .x-body *::after { animation: none !important; transition: none !important; }
+      }
+      @media (pointer: coarse), (max-width: 640px) {
+        .x-btn, .x-btn--lg, .x-nav a, .x-brand, .x-ft__links a, .x-faq summary, .x-plug a.x-tlink { min-height: 44px; }
+        .x-menu { width: 44px; height: 44px; }
+        .x-ft__links a { min-width: 44px; }
+      }
+    </style>
+  </head>
+  <body class="x-body">
+    <div class="x-page" id="top">
+      <!-- partial:header -->
+      <header class="x-head" id="head">
+        <div class="x-wrap x-head__in">
+          <a class="x-brand" href="/"><span class="x-logo"><img src="logo.png" alt="Bonfire GTM" /></span></a>
+          <nav class="x-nav" id="nav" aria-label="Main">
+            <div class="x-dd" id="x-dd">
+              <button class="x-dd__btn" type="button" aria-expanded="false" aria-controls="x-dd-menu">Product<span class="x-dd__chev" aria-hidden="true"></span></button>
+              <span class="x-dd__lbl" aria-hidden="true">Product</span>
+              <ul class="x-dd__menu" id="x-dd-menu" aria-label="Product">
+                <li><a href="/flows">Flows<small>Email + LinkedIn in one chain</small></a></li>
+                <li><a href="/agents" aria-current="page">Agents<small>8 AI agents, one crew</small></a></li>
+                <li><a href="/plays">Plays<small>Funding &amp; hiring triggers</small></a></li>
+              </ul>
+            </div>
+            <a href="/#start">How it works</a>
+            <a href="/blog">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </nav>
+          <div class="x-head__cta">
+            <a class="x-btn x-btn--light x-signin" href="/#waitlist">Join the waitlist</a>
+            <a class="x-btn x-btn--dark" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+            <button class="x-menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+          </div>
+        </div>
+      </header>
+      <!-- /partial:header -->
+
+      <main>
+        <!-- Hero -->
+        <section class="x-hero x-wrap" aria-labelledby="hero-h">
+          <div class="x-hero__copy">
+            <h1 class="x-h1" id="hero-h"><span>Eight <span class="x-agw">agents</span>.</span><span>Zero SDR salaries.</span></h1>
+            <p class="x-p x-hero__sub">You don't need another chatbot that blasts your list. You need a crew: research, lists, verification, copy, deliverability, replies and reporting, each run by an agent that only does its job. You approve. They work.</p>
+            <div class="x-hero__cta">
+              <a class="x-btn x-btn--dark x-btn--lg" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+              <a class="x-btn x-btn--light x-btn--lg" href="https://forms.gle/EdGWZGEn91CfFPFG7" target="_blank" rel="noopener">Join waitlist</a>
+            </div>
+            <p class="x-hero__tert">8 AI agents<b>·</b>Nothing sends without approval<b>·</b>Stop any agent in one click</p>
+          </div>
+
+          <div class="x-aw" role="img" aria-label="Example of the Agents screen: the Crew list on the left with Researcher working and Reply agent waiting on you, an Ask Bonfire chat in the centre, and Tasks and activity on the right grouped as Needs approval, Running and Done.">
+            <p class="x-aw__tag" aria-hidden="true">Example</p>
+            <div class="x-aw__win" aria-hidden="true">
+              <div class="x-aw__bar">
+                <i></i><i></i><i></i>
+                <span class="x-aw__crumb">Agents / <b>Bonfire</b></span>
+                <span class="x-aw__live"><i></i>1 working · 1 waiting on you</span>
+                <span class="x-aw__new">+ New agent</span>
+              </div>
+              <div class="x-aw__body">
+                <div class="x-aw__crew">
+                  <p class="x-aw__all"><i></i><span><b>All agents</b> · Ask Bonfire anything</span></p>
+                  <p class="x-aw__lab">Crew</p>
+                  <div class="x-aw__list">
+                    <div class="x-aw__row"><span class="x-aw__av v5-glyph" data-g="baaabaaaaaabbbab-a-b.-.-."></span><span class="x-aw__nm"><b>Researcher</b><small class="is-on">Working</small></span></div>
+                    <div class="x-aw__row"><span class="x-aw__av v5-glyph" data-g="--.--bb-bba.b.aaa.aa-a.a-"></span><span class="x-aw__nm"><b>Scout</b><small>Idle</small></span></div>
+                    <div class="x-aw__row"><span class="x-aw__av v5-glyph" data-g="-aba-.---.babab.aaa.aaaaa"></span><span class="x-aw__nm"><b>List builder</b><small>Idle</small></span></div>
+                    <div class="x-aw__row"><span class="x-aw__av v5-glyph" data-g="b.b.babababbbbb-.a.-b.a.b"></span><span class="x-aw__nm"><b>Verifier</b><small>Idle</small></span></div>
+                    <div class="x-aw__row"><span class="x-aw__av v5-glyph" data-g="a.b.abb-bbbabab.bbb.bb-bb"></span><span class="x-aw__nm"><b>Copywriter</b><small>Idle</small></span></div>
+                    <div class="x-aw__row"><span class="x-aw__av v5-glyph" data-g="-a.a-bababbabababbbaaabaa"></span><span class="x-aw__nm"><b>Deliverability guard</b><small>Idle</small></span></div>
+                    <div class="x-aw__row"><span class="x-aw__av v5-glyph" data-g="-bbb-aabaabababbb.bbaabaa"></span><span class="x-aw__nm"><b>Reply agent</b><small class="is-wait">Waiting on you</small></span></div>
+                    <div class="x-aw__row"><span class="x-aw__av v5-glyph" data-g="ab.ba-.b.-aabaaa-b-aab.ba"></span><span class="x-aw__nm"><b>Reporter</b><small>Idle</small></span></div>
+                  </div>
+                  <p class="x-aw__lab">Your agents</p>
+                  <p class="x-aw__tpl">+ Build one from a template…</p>
+                </div>
+                <div class="x-aw__chat">
+                  <div class="x-aw__head">
+                    <span class="x-aw__mav"></span>
+                    <span class="x-aw__nm"><b>All agents</b><small class="is-on">Ask Bonfire anything</small></span>
+                  </div>
+                  <div class="x-aw__log">
+                    <div class="x-aw__msg x-aw__msg--me"><p>find me 1 architect in mumbai</p></div>
+                    <div class="x-aw__msg x-aw__msg--ai"><span class="x-aw__mav"></span><div class="x-aw__card"><p>I'll research architects located in Mumbai and return a suitable lead.</p><div class="x-aw__mini"><span>Research: Find an architect based in Mumbai, India, with a LinkedIn profile and contact em… · Decided</span></div><div class="x-aw__acts"><span class="x-aw__btn">Open this task</span></div></div></div>
+                    <p class="x-aw__grp" style="margin:0 0 0 28px">Based on: Workspace</p>
+                  </div>
+                  <div class="x-aw__foot">
+                    <div class="x-aw__sugg"><span>What should I set up first?</span><span>Which leads have no email yet?</span><span>What's waiting on me?</span></div>
+                    <div class="x-aw__comp"><span>Ask about anything Bonfire did…</span><span class="x-aw__send"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7M12 19V5"/></svg></span></div>
+                  </div>
+                </div>
+                <div class="x-aw__rail">
+                  <p class="x-aw__rhd">Tasks &amp; activity <span class="x-aw__btn">Stop all</span></p>
+                  <div class="x-aw__give"><span>Give Bonfire a task…</span><span class="x-aw__btn x-aw__btn--dk">Give</span></div>
+                  <p class="x-aw__grp">Needs approval (1)</p>
+                  <div class="x-aw__task x-aw__task--need"><b>Reply to an interested lead</b><small>15:53 · Reply agent · Stop</small></div>
+                  <p class="x-aw__grp">Running (2)</p>
+                  <div class="x-aw__task"><b>Approve offer &amp; ICP: Launch Video Package</b><small>Nov 3 · Researcher · Stop</small></div>
+                  <div class="x-aw__task"><b>Approve offer &amp; ICP: Launch Video Package</b><small>Nov 3 · Researcher · Stop</small></div>
+                  <p class="x-aw__grp">Done</p>
+                  <div class="x-aw__task"><b>find me 1 architect in mumbai</b><small>16:00 · Everything decided. Task complete.</small></div>
+                  <div class="x-aw__task"><b>you can research them</b><small>05:59 · Everything decided. Task complete.</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- The pain -->
+        <section class="x-sec" id="pain" aria-labelledby="pain-h">
+          <div class="x-wrap">
+            <div class="x-sec__head">
+              <h2 class="x-h2" id="pain-h"><span>Two bad options.</span><span class="x-sub2">You've probably tried one.</span></h2>
+            </div>
+            <div class="x-pain">
+              <div>
+                <h3>The AI SDR bot</h3>
+                <p>One black box does everything. It picks the leads, writes the copy and hits send. You find out what it said when the unsubscribes and bounces roll in, and your domain takes the hit.</p>
+              </div>
+              <div>
+                <h3>The SDR hire</h3>
+                <p>A full salary before the first meeting. Months to ramp. Half the week goes on research, lists and admin, not selling. When they leave, the pipeline leaves with them.</p>
+              </div>
+              <div class="x-pain__fix" style="grid-column: 1 / -1">
+                <h3>Bonfire GTM: a crew of 8 specialists that ask before they act</h3>
+                <p>Every part of outbound gets its own agent. Each one does one job, shows you its work and waits for your approval before anything goes out. 8 stations, end to end, and you hold the keys.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Meet the crew -->
+        <section class="x-sec" id="crew" aria-labelledby="crew-h">
+          <div class="x-wrap">
+            <div class="x-sec__head">
+              <h2 class="x-h2" id="crew-h"><span>Meet the crew.</span><span class="x-sub2">One agent per job.</span></h2>
+              <p class="x-p">A generalist bot is mediocre at eight things. A specialist is good at one. So Bonfire GTM gives every station its own agent.</p>
+            </div>
+            <div class="x-crew">
+              <article><div class="x-crew__top"><span class="v5-glyph" data-g="baaabaaaaaabbbab-a-b.-.-."></span><span class="x-crew__n">01</span></div><h3>Researcher</h3><p>Turns what you sell into an offer &amp; ICP, then researches the companies worth contacting.</p><p class="x-crew__job">Offer &amp; ICP · company research</p></article>
+              <article><div class="x-crew__top"><span class="v5-glyph" data-g="--.--bb-bba.b.aaa.aa-a.a-"></span><span class="x-crew__n">02</span></div><h3>Scout</h3><p>Watches for buying signals and runs your Plays when one fires.</p><p class="x-crew__job">Signals · Plays</p></article>
+              <article><div class="x-crew__top"><span class="v5-glyph" data-g="-aba-.---.babab.aaa.aaaaa"></span><span class="x-crew__n">03</span></div><h3>List builder</h3><p>Builds lead lists that match your ICP, not a scraped dump.</p><p class="x-crew__job">Lead lists</p></article>
+              <article><div class="x-crew__top"><span class="v5-glyph" data-g="b.b.babababbbbb-.a.-b.a.b"></span><span class="x-crew__n">04</span></div><h3>Verifier</h3><p>Verifies every email before it gets near a sequence.</p><p class="x-crew__job">Email verification</p></article>
+              <article><div class="x-crew__top"><span class="v5-glyph" data-g="a.b.abb-bbbabab.bbb.bb-bb"></span><span class="x-crew__n">05</span></div><h3>Copywriter</h3><p>Writes your sequences from your offer and your Knowledge.</p><p class="x-crew__job">Sequences</p></article>
+              <article><div class="x-crew__top"><span class="v5-glyph" data-g="-a.a-bababbabababbbaaabaa"></span><span class="x-crew__n">06</span></div><h3>Deliverability guard</h3><p>Protects your domains and pauses sending the moment bounces climb.</p><p class="x-crew__job">Domains · bounce pause</p></article>
+              <article><div class="x-crew__top"><span class="v5-glyph" data-g="-bbb-aabaabababbb.bbaabaa"></span><span class="x-crew__n">07</span></div><h3>Reply agent</h3><p>Sorts every reply and drafts the answer. You approve it.</p><p class="x-crew__job">Classify · draft replies</p></article>
+              <article><div class="x-crew__top"><span class="v5-glyph" data-g="ab.ba-.b.-aabaaa-b-aab.ba"></span><span class="x-crew__n">08</span></div><h3>Reporter</h3><p>Sends the Monday report: what ran, what landed, what's next.</p><p class="x-crew__job">Monday report</p></article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Talk to any agent -->
+        <section class="x-sec" id="talk" aria-labelledby="talk-h">
+          <div class="x-wrap x-chatw">
+            <div>
+              <div class="x-sec__head">
+                <h2 class="x-h2" id="talk-h"><span>Talk to any agent.</span><span class="x-sub2">Like a teammate.</span></h2>
+                <p class="x-p">Every agent has its own chat. Ask it what it's doing, tell it what you want, or hand it a task. Want the big picture? Ask Bonfire, the chat that sees the whole crew.</p>
+                <p class="x-p">No prompt engineering. No settings maze. You talk, it drafts, you approve.</p>
+              </div>
+            </div>
+            <div class="x-aw" role="img" aria-label="Example of the Researcher chat: it asks what you sell and who buys it, offers to draft your offer and ICP for approval, with chips Draft my offer and ICP and What's my current ICP, and a box to give Researcher a task.">
+              <p class="x-aw__tag" aria-hidden="true">Example</p>
+              <div class="x-aw__win" aria-hidden="true">
+                <div class="x-aw__chat" style="flex:1 1 auto">
+                  <div class="x-aw__head">
+                    <span class="x-aw__av v5-glyph x-aw__av--hd" data-g="baaabaaaaaabbbab-a-b.-.-."></span>
+                    <span class="x-aw__nm"><b>Researcher</b><small class="is-on">Working · Approve offer &amp; ICP: Launch Video Package</small></span>
+                    <span class="x-aw__gear">Offer &amp; ICP</span>
+                  </div>
+                  <div class="x-aw__log">
+                    <div class="x-aw__msg x-aw__msg--ai" style="max-width:100%"><span class="x-aw__mav"></span><div class="x-aw__card"><p><b style="font-weight:600">Ask the Researcher</b></p><p style="margin-top:6px">Tell me what you sell and who buys it, in your own words. I'll draft your offer &amp; ICP and save it for your approval. I only use what you tell me and your Knowledge.</p></div></div>
+                  </div>
+                  <div class="x-aw__foot">
+                    <div class="x-aw__sugg"><span>Draft my offer &amp; ICP</span><span>What's my current ICP?</span><span>We sell … to …</span></div>
+                    <div class="x-aw__comp"><span>Message Researcher…</span><span class="x-aw__send"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7M12 19V5"/></svg></span></div>
+                    <div class="x-aw__give" style="margin:8px 0 0"><span>Give Researcher a task…</span><span class="x-aw__btn x-aw__btn--dk">Give task</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- You stay in control -->
+        <section class="x-sec" id="control" aria-labelledby="control-h">
+          <div class="x-wrap">
+            <div class="x-sec__head">
+              <h2 class="x-h2" id="control-h"><span>They do the work.</span><span class="x-sub2">You keep the keys.</span></h2>
+              <p class="x-p">Agents can't change what goes out without your approval. Period.</p>
+            </div>
+            <div class="x-ctl">
+              <div class="x-aw" role="img" aria-label="Example of the approval controls: status reads 1 working, 1 waiting on you. One task needs approval, two are running, each with a Stop control, and a Stop all button.">
+                <p class="x-aw__tag" aria-hidden="true">Example</p>
+                <div class="x-aw__win" style="height:auto" aria-hidden="true">
+                  <div class="x-aw__bar">
+                    <i></i><i></i><i></i>
+                    <span class="x-aw__crumb">Agents / <b>Tasks &amp; activity</b></span>
+                    <span class="x-aw__live"><i></i>1 working · 1 waiting on you</span>
+                  </div>
+                  <div class="x-aw__rail" style="display:block;border:0">
+                    <p class="x-aw__rhd">Tasks &amp; activity <span class="x-aw__btn">Stop all</span></p>
+                    <p class="x-aw__grp">Needs approval (1)</p>
+                    <div class="x-aw__task x-aw__task--need"><b>Reply to an interested lead</b><small>15:53 · Reply agent</small><div class="x-aw__acts"><span class="x-aw__btn x-aw__btn--dk">Approve</span><span class="x-aw__btn">Edit</span><span class="x-aw__btn">Stop</span></div></div>
+                    <p class="x-aw__grp">Running (2)</p>
+                    <div class="x-aw__task"><b>Approve offer &amp; ICP: Launch Video Package</b><small>Nov 3 · Researcher</small><div class="x-aw__acts"><span class="x-aw__btn">Stop</span></div></div>
+                    <div class="x-aw__task"><b>Approve offer &amp; ICP: Launch Video Package</b><small>Nov 3 · Researcher</small><div class="x-aw__acts"><span class="x-aw__btn">Stop</span></div></div>
+                    <div class="x-aw__give" style="margin:14px 0 0"><span>Researcher settings</span><span class="x-aw__btn">Stop all for this agent</span></div>
+                  </div>
+                </div>
+              </div>
+              <ul class="x-ctl__list">
+                <li><i class="x-ctl__mk"></i><div><b>Needs approval</b><span>Every reply, offer and change that matters lands in one queue. Approve, edit or kill it.</span></div></li>
+                <li><i class="x-ctl__mk"></i><div><b>Stop and Stop all</b><span>Stop one task. Stop one agent. Or hit Stop all and the whole crew halts.</span></div></li>
+                <li><i class="x-ctl__mk"></i><div><b>Per-agent settings</b><span>Each agent has its own settings, so the Reply agent and the Copywriter play by your rules.</span></div></li>
+                <li><i class="x-ctl__mk"></i><div><b>Live status</b><span>One line tells you where things stand: "1 working · 1 waiting on you". No digging.</span></div></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Build your own + Flows and Plays -->
+        <section class="x-sec" id="build" aria-labelledby="build-h">
+          <div class="x-wrap">
+            <div class="x-sec__head">
+              <h2 class="x-h2" id="build-h"><span>Need a ninth agent?</span><span class="x-sub2">Build it.</span></h2>
+              <p class="x-p">Your agents sit right under the crew. Start from scratch with New agent, or pick "Build one from a template…". Same chat, same tasks, same approvals.</p>
+            </div>
+            <div class="x-ctl">
+              <div class="x-aw" role="img" aria-label="Example of the Your agents panel, with a New agent button and a Build one from a template link.">
+                <p class="x-aw__tag" aria-hidden="true">Example</p>
+                <div class="x-aw__win" style="height:auto" aria-hidden="true">
+                  <div class="x-aw__crew x-aw__solo" style="border:0;padding:14px">
+                    <p class="x-aw__rhd" style="padding:0 6px">Your agents <span class="x-aw__btn x-aw__btn--dk">+ New agent</span></p>
+                    <p class="x-aw__tpl">+ Build one from a template…</p>
+                    <p class="x-aw__lab" style="margin-top:16px">Crew</p>
+                    <div class="x-aw__row"><span class="x-aw__av v5-glyph" data-g="baaabaaaaaabbbab-a-b.-.-."></span><span class="x-aw__nm"><b>Researcher</b><small class="is-on">Working</small></span></div>
+                    <div class="x-aw__row"><span class="x-aw__av v5-glyph" data-g="--.--bb-bba.b.aaa.aa-a.a-"></span><span class="x-aw__nm"><b>Scout</b><small>Idle</small></span></div>
+                  </div>
+                </div>
+              </div>
+              <ul class="x-ctl__list">
+                <li><i class="x-ctl__mk"></i><div><b>Start from a template</b><span>Skip the blank page. Pick a template, then tune it in plain words.</span></div></li>
+                <li><i class="x-ctl__mk"></i><div><b>Same rules as the crew</b><span>Custom agents can't send or change anything without your approval either.</span></div></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec" id="flows" aria-labelledby="flows-h">
+          <div class="x-wrap">
+            <div class="x-sec__head">
+              <h2 class="x-h2" id="flows-h"><span>Agents plug into</span><span class="x-sub2">Flows and Plays.</span></h2>
+              <p class="x-p">The crew doesn't live in a chat box. It does real steps in real campaigns.</p>
+            </div>
+            <div class="x-plug">
+              <div>
+                <h3>An agent task is a step in a flow</h3>
+                <div class="x-fl" role="img" aria-label="Example flow with an agent task step: copywriter, Write a 3-step email sequence for company.">
+                  <p class="x-aw__grp" aria-hidden="true">Example</p>
+                  <ul aria-hidden="true">
+                    <li><i></i>Lead added</li>
+                    <li class="is-ag"><i></i><span>Agent task · <code>copywriter · Write a 3-step email sequence for {{company}}</code></span></li>
+                    <li class="is-wait"><i></i>Your approval</li>
+                    <li><i></i>Email + LinkedIn steps</li>
+                  </ul>
+                </div>
+                <p>Drop an agent into any flow. It runs at that step, for every lead, and waits for you where you tell it to.</p>
+                <a class="x-tlink" href="/flows">See how Flows work</a>
+              </div>
+              <div>
+                <h3>Scout owns Plays</h3>
+                <div class="x-fl" role="img" aria-label="Example: Scout finds a signal and runs a Play.">
+                  <p class="x-aw__grp" aria-hidden="true">Example</p>
+                  <ul aria-hidden="true">
+                    <li class="is-ag"><i></i>Scout finds a signal</li>
+                    <li><i></i>Play runs</li>
+                    <li><i></i>List builder and Verifier take over</li>
+                    <li class="is-wait"><i></i>Your approval</li>
+                  </ul>
+                </div>
+                <p>Plays are the signals you care about. Scout watches for them and runs the Play when one fires, so you reach people while the reason to talk is fresh.</p>
+                <a class="x-tlink" href="/plays">See how Plays work</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Comparison -->
+        <section class="x-sec" id="compare" aria-labelledby="compare-h">
+          <div class="x-wrap">
+            <div class="x-sec__head"><h2 class="x-h2" id="compare-h"><span>Crew vs bot vs hire.</span><span class="x-sub2">Pick your poison, or don't.</span></h2></div>
+            <div class="x-cmp" tabindex="0" role="region" aria-label="Comparison table, scrolls sideways">
+              <table>
+                <colgroup><col class="x-cmp__c1" /><col class="x-cmp__cn" /><col class="x-cmp__cn" /><col class="x-cmp__cn" /></colgroup>
+                <thead><tr><td></td><th scope="col">Hiring an SDR</th><th scope="col">A single AI SDR bot</th><th scope="col" class="x-cmp__us">Bonfire GTM agents</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Specialist agents per job</th><td>One person does every job</td><td>One bot does every job</td><td class="x-cmp__us">8 agents, one job each</td></tr>
+                  <tr><th scope="row">Approvals before sending</th><td>Only if you check their work</td><td>Usually sends on its own</td><td class="x-cmp__us">Nothing goes out until you approve</td></tr>
+                  <tr><th scope="row">Email + LinkedIn</th><td>Yes, by hand</td><td>Depends on the tool</td><td class="x-cmp__us">Both, in one flow</td></tr>
+                  <tr><th scope="row">Talk to each agent</th><td>Weekly 1:1s</td><td>One chat, one bot</td><td class="x-cmp__us">Chat with any agent, or Ask Bonfire</td></tr>
+                  <tr><th scope="row">Custom agents</th><td>Hire another person</td><td>No</td><td class="x-cmp__us">Build your own from a template</td></tr>
+                  <tr><th scope="row">Salary</th><td>Full salary, plus ramp</td><td>No salary, no control</td><td class="x-cmp__us">No SDR salary</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="x-sec" id="faq" aria-labelledby="faq-h">
+          <div class="x-wrap">
+            <div class="x-sec__head"><h2 class="x-h2" id="faq-h"><span>Questions,</span><span class="x-sub2">answered.</span></h2></div>
+            <div class="x-faq">
+              <details><summary><span class="x-faq__n">01</span><span>Is Bonfire GTM just another AI SDR?</span></summary><p>No. An AI SDR is one bot doing every job. Bonfire GTM is 8 specialist agents, each with one job: research, signals, lists, verification, copy, deliverability, replies and reporting.</p></details>
+              <details><summary><span class="x-faq__n">02</span><span>Can an agent send something without me?</span></summary><p>No. Anything that changes what goes out lands in Needs approval first. You approve it, edit it or stop it. Stop all halts every agent at once.</p></details>
+              <details><summary><span class="x-faq__n">03</span><span>Will the agents make things up?</span></summary><p>They work from what you tell them and your Knowledge. The Researcher drafts your offer and ICP from your words and saves it for your approval before anyone else uses it.</p></details>
+              <details><summary><span class="x-faq__n">04</span><span>How long until the crew is working?</span></summary><p>About 15 minutes of your time to tell the Researcher what you sell and approve the draft. New inboxes then go through a 21-day warm-up, and the crew builds lists and sequences while they warm.</p></details>
+              <details><summary><span class="x-faq__n">05</span><span>Can I build my own agent?</span></summary><p>Yes. Under Your agents, add a new agent or build one from a template. It sits next to the crew, with the same chat, tasks and approvals.</p></details>
+            </div>
+          </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="x-final" aria-labelledby="final-h">
+          <div class="x-final__card">
+            <div class="x-final__copy">
+              <h2 class="x-h2" id="final-h"><span>Hire the crew.</span><span>Skip the salaries.</span></h2>
+              <p class="x-p">Book a demo. We'll walk you through all 8 agents, the approval queue and your first flow, live.</p>
+              <div class="x-hero__cta">
+                <a class="x-btn x-btn--dark x-btn--lg" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+                <a class="x-btn x-btn--light x-btn--lg" href="https://forms.gle/EdGWZGEn91CfFPFG7" target="_blank" rel="noopener">Join waitlist</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- partial:footer -->
+      <footer class="x-foot x-ft">
+        <div class="x-wrap">
+          <div class="x-ft__frame">
+            <div class="x-ft__grid">
+              <!-- Row 1 -->
+              <div class="x-ft__cell">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <a class="x-ft__logo" href="/" aria-label="Bonfire GTM home"><span class="x-logo x-logo--foot"><img src="logo.png" alt="Bonfire GTM" /></span></a>
+                <p class="x-ft__tag">Your whole outbound engine, kept warm.</p>
+              </div>
+              <nav class="x-ft__cell" aria-label="Quick links">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Quick links</p>
+                <div class="x-ft__cols">
+                  <div>
+                    <h3 class="x-ft__h">Product</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/flows">Flows</a></li>
+                      <li><a href="/agents">Agents</a></li>
+                      <li><a href="/plays">Plays</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Resources</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/blog">Blog</a></li>
+                      <li><a href="/blog/cold-email-guide">Cold email guide</a></li>
+                      <li><a href="/blog/email-deliverability-for-cold-email-the-guide">Deliverability guide</a></li>
+                      <li><a href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Compare</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/blog/bonfire-gtm-vs-instantly">Bonfire GTM vs Instantly</a></li>
+                      <li><a href="/blog/bonfire-gtm-vs-smartlead">vs Smartlead</a></li>
+                      <li><a href="/blog/bonfire-gtm-vs-lemlist">vs Lemlist</a></li>
+                      <li><a href="/blog/bonfire-gtm-vs-apollo">vs Apollo</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <div class="x-ft__cell x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Social</p>
+                <div class="x-ft__tiles">
+                  <a class="x-ft__tile" href="https://www.linkedin.com/company/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on LinkedIn" data-tip="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M8 10.5V17M12 17v-6.5M12 13.5c0-1.9 1.2-3 2.7-3s2.3 1 2.3 2.8V17"/><circle cx="8" cy="7.5" r=".6" fill="currentColor"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="https://x.com/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on X" data-tip="X">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4h4.2L20 20h-4.2z"/><path d="M19.5 4l-6.4 7M4.5 20l6.4-7"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="mailto:bonfiregtm@gmail.com" aria-label="Email bonfiregtm@gmail.com" data-tip="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13"/><path d="M3 6l9 7 9-7"/></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Row 2 -->
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Legal</p>
+                <ul class="x-ft__links">
+                  <li><a href="/privacy">Privacy policy</a></li>
+                  <li><a href="/terms">Terms</a></li>
+                </ul>
+                <p class="x-ft__copy">© 2026 Bonfire GTM</p>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <div class="x-ft__ctas">
+                  <a class="x-ft__cta" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">
+                    <img src="app-icon.png" alt="" width="24" height="24" />
+                    <b>Book a 20-min demo</b>
+                    <span>See your engine run on your own ICP.</span>
+                  </a>
+                  <a class="x-ft__cta" href="/#waitlist">
+                    <img src="app-icon.png" alt="" width="24" height="24" />
+                    <b>Join the waitlist</b>
+                    <span>Early access. Limited onboarding spots.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Ask AI about us</p>
+                <div class="x-ft__tiles" id="x-ft-ai">
+                  <a class="x-ft__tile" data-ai="https://chatgpt.com/?q=" href="https://chatgpt.com/" target="_blank" rel="noopener" aria-label="Ask ChatGPT about Bonfire GTM" data-tip="Ask ChatGPT">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://claude.ai/new?q=" href="https://claude.ai/new" target="_blank" rel="noopener" aria-label="Ask Claude about Bonfire GTM" data-tip="Ask Claude">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.3 4.3M14.1 14.1l4.3 4.3M18.4 5.6l-4.3 4.3M9.9 14.1l-4.3 4.3"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.perplexity.ai/search?q=" href="https://www.perplexity.ai/" target="_blank" rel="noopener" aria-label="Ask Perplexity about Bonfire GTM" data-tip="Ask Perplexity">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M5 3l7 6 7-6v6H5zM5 9v8l7-6 7 6V9M5 15v4l7-5 7 5v-4"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.google.com/search?udm=50&amp;q=" href="https://www.google.com/search?udm=50" target="_blank" rel="noopener" aria-label="Ask Gemini (Google AI Mode) about Bonfire GTM" data-tip="Ask Gemini">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c.6 5.2 4.3 8.9 9.5 9.5-5.2.6-8.9 4.3-9.5 9.5-.6-5.2-4.3-8.9-9.5-9.5 5.2-.6 8.9-4.3 9.5-9.5z"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://grok.com/?q=" href="https://grok.com/" target="_blank" rel="noopener" aria-label="Ask Grok about Bonfire GTM" data-tip="Ask Grok">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M18.5 4L5 20.5"/><path d="M15.5 7.2A7 7 0 0 0 6 16.8"/><path d="M18 9.5a7 7 0 0 1-8.6 9.7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          (function () {
+            var q = encodeURIComponent("Explain what Bonfire GTM (bonfiregtm.com) does, who it's for, and how it compares to Instantly, Smartlead and Clay.");
+            document.querySelectorAll("#x-ft-ai [data-ai]").forEach(function (a) { a.href = a.getAttribute("data-ai") + q; });
+          })();
+        </script>
+      </footer>
+      <!-- /partial:footer -->
+    </div>
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        /* Pixel glyph avatars: 25-cell pattern, b dark, a mid, - light, . empty */
+        var cls = { b: ' class="b"', a: ' class="a"', ".": ' class="o"', "-": "" };
+        [].forEach.call(document.querySelectorAll("[data-g]"), function (el) {
+          el.setAttribute("aria-hidden", "true");
+          el.innerHTML = el.getAttribute("data-g").split("").map(function (c) { return "<i" + (cls[c] || "") + "></i>"; }).join("");
+        });
+        /* Header: hairline on scroll, mobile menu */
+        var head = document.getElementById("head"), menu = head.querySelector(".x-menu");
+        function onScroll() { head.classList.toggle("is-scrolled", head.getBoundingClientRect().top <= 0 && window.scrollY > 4); }
+        window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+        menu.addEventListener("click", function () {
+          var open = head.classList.toggle("is-open");
+          menu.setAttribute("aria-expanded", open); menu.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        });
+        head.querySelectorAll(".x-nav a").forEach(function (a) {
+          a.addEventListener("click", function () { head.classList.remove("is-open"); menu.setAttribute("aria-expanded", "false"); });
+        });
+
+        /* Product dropdown: click/Enter toggles, Escape and outside click close */
+        var dd = document.getElementById("x-dd"), ddBtn = dd.querySelector(".x-dd__btn");
+        function ddSet(open) { dd.classList.toggle("is-open", open); ddBtn.setAttribute("aria-expanded", open ? "true" : "false"); }
+        ddBtn.addEventListener("click", function () { ddSet(!dd.classList.contains("is-open")); });
+        dd.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && dd.classList.contains("is-open")) { ddSet(false); ddBtn.focus(); }
+          if (e.key === "ArrowDown" && document.activeElement === ddBtn) { e.preventDefault(); ddSet(true); dd.querySelector(".x-dd__menu a").focus(); }
+        });
+        dd.addEventListener("focusout", function (e) { if (!dd.contains(e.relatedTarget)) ddSet(false); });
+        document.addEventListener("click", function (e) { if (!dd.contains(e.target)) ddSet(false); });
+      })();
+    </script>
+  </body>
+</html>
