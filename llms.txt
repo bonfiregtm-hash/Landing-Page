@@ -1,0 +1,36 @@
+# Bonfire GTM
+
+> Your whole outbound stack, run by agents. Leads found, inboxes warmed, every email and LinkedIn step written, replies sorted, meetings booked. One app. One bill.
+
+Bonfire GTM is in early access: teams join a waitlist and are let in in small batches, or book a 20-minute demo. Pricing is not public; it is one flat price, shared on the demo.
+It is built for agencies that win on referrals and want a second, steady source of booked calls (for themselves or their clients) without hiring SDRs, and also for founder-led startups and in-house sales teams.
+
+Guard rails: it never sends from your main domain (only from separate domains and inboxes), warms new inboxes for 21 days, verifies every email before sending (invalid dropped, catch-alls held back), pauses itself when bounces cross your cap, and holds anything that changes what goes out in "Needs you" for your approval. Agents write only from your offer, case studies and Knowledge.
+
+8 AI agents (Researcher, Scout, List builder, Verifier, Copywriter, Deliverability guard, Reply agent, Reporter) share one task list across 8 stations: Offer & ICP, Lead lists, Plays, Verification, Domains & inboxes, Warm-up + Sending, Replies, Meetings. It replaces a stack of Google Workspace, Smartlead, Prospeo, Reoon, Clay, HeyReach, HubSpot and Cal.com.
+
+## Product pages
+
+- [Home](https://bonfiregtm.com/): product overview, how it works, FAQ
+- [Flows](https://bonfiregtm.com/flows/): email and LinkedIn steps, triggers and agent tasks in one flow, with a test run before you activate
+- [Agents](https://bonfiregtm.com/agents/): the crew of 8 specialist AI agents; talk to any agent in plain words or build your own from a template
+- [Plays](https://bonfiregtm.com/plays/): turn funding, hiring, launch and new-leader signals into verified outreach with When / Who / Do rules
+- [Lead lists](https://bonfiregtm.com/lead-lists/): lists built from your ICP and buying signals
+- [Verification](https://bonfiregtm.com/verification/): every email verified (via Reoon) before it is sent
+- [Deliverability](https://bonfiregtm.com/deliverability/): separate domains and inboxes, 21-day warm-up, sending caps, automatic pause on bounces
+- [LinkedIn](https://bonfiregtm.com/linkedin/): connection requests, messages after accept, profile views and InMail in the same flow as email
+- [Replies](https://bonfiregtm.com/replies/): one inbox for every channel; each reply sorted (Interested / Not now / Unsubscribe) with a draft prepared
+- [Meetings](https://bonfiregtm.com/meetings/): meetings booked and tracked through the pipeline to won deals
+- [Client workspaces](https://bonfiregtm.com/client-workspaces/): each client separate (leads, plays, campaigns, pipeline), with daily caps and suppression
+- [Reports](https://bonfiregtm.com/reports/): the Monday report from the Reporter agent
+
+## Blog
+
+- [Bonfire GTM Blog](https://bonfiregtm.com/blog/): comparisons, playbooks and templates for cold email, LinkedIn and AI-run outbound
+- [Blog sitemap](https://bonfiregtm.com/blog/sitemap.xml) · [RSS](https://bonfiregtm.com/blog/rss.xml)
+
+## Contact
+
+- [Book a demo](https://cal.com/bonfiregtm/demo)
+- [Join the waitlist](https://forms.gle/EdGWZGEn91CfFPFG7)
+- [X](https://x.com/bonfiregtm) · [LinkedIn](https://www.linkedin.com/company/bonfiregtm) · Email: bonfiregtm@gmail.com
