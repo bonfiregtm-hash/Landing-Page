@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Email verification before every send | Bonfire GTM</title>
+    <meta name="description" content="Bonfire GTM verifies every email before it sends. Invalid addresses are dropped, catch-alls are held back, and only verified emails reach a sequence. Verification runs on Reoon, built in." />
+    <link rel="canonical" href="https://bonfiregtm.com/verification/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bonfiregtm.com/verification/" />
+    <meta property="og:title" content="Email verification before every send | Bonfire GTM" />
+    <meta property="og:description" content="Every email checked. Before it&#x27;s sent. Invalid dropped, catch-alls held back, verified with Reoon." />
+    <meta property="og:site_name" content="Bonfire GTM" />
+    <meta property="og:image" content="https://bonfiregtm.com/assets/app-icon.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Email verification before every send | Bonfire GTM" />
+    <meta name="twitter:description" content="Every email checked. Before it&#x27;s sent. Invalid dropped, catch-alls held back, verified with Reoon." />
+    <meta name="twitter:image" content="https://bonfiregtm.com/assets/app-icon.png" />
+    <link rel="icon" type="image/png" href="/assets/app-icon.png" />
+    <link rel="stylesheet" href="/assets/site.css" />
+    <link rel="stylesheet" href="/assets/chrome.css" />
+    <link rel="stylesheet" href="/assets/feature.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Bonfire GTM Verification",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "url": "https://bonfiregtm.com/verification/",
+          "description": "Built-in email verification. The Verifier checks every address with Reoon before it gets near a sequence: invalid emails are dropped and catch-alls are held back.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Bonfire GTM",
+            "url": "https://bonfiregtm.com/",
+            "sameAs": [
+              "https://x.com/bonfiregtm",
+              "https://www.linkedin.com/company/bonfiregtm"
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://bonfiregtm.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Product",
+              "item": "https://bonfiregtm.com/agents/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Verification",
+              "item": "https://bonfiregtm.com/verification/"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Which verifier does Bonfire GTM use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Reoon, built in. Verification runs inside Bonfire GTM, so there's no separate tool to export to and re-import from."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When does verification happen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Before anything sends. The Verifier checks every email before it gets near a sequence, and in Flows, Verify email is a step before Send email."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens to catch-all addresses?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "They're held back. A catch-all can't be confirmed as deliverable, so it isn't sent."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens to invalid addresses?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "They're dropped before they can bounce."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if bounces climb anyway?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Deliverability guard pauses sending when bounces cross your cap, so one bad batch can't burn a domain."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="x-body">
+    <a class="x-skip" href="#main">Skip to content</a>
+    <div class="x-page" id="top">
+      <div class="x-ann" id="ann">
+        <div class="x-ann__in">
+          <span class="x-ann__dot" aria-hidden="true"></span>
+          <span>New: LinkedIn steps now run inside Flows</span>
+          <button class="x-ann__x" type="button" aria-label="Dismiss announcement">×</button>
+        </div>
+      </div>
+
+      <!-- partial:header -->
+      <header class="x-head" id="head">
+        <div class="x-wrap x-head__in">
+          <a class="x-brand" href="/"><span class="x-logo"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
+          <nav class="x-nav" id="nav" aria-label="Main">
+            <div class="x-dd" id="x-dd">
+              <button class="x-dd__btn" type="button" aria-expanded="false" aria-controls="x-dd-menu">Product<span class="x-dd__chev" aria-hidden="true"></span></button>
+              <span class="x-dd__lbl" aria-hidden="true">Product</span>
+              <ul class="x-dd__menu" id="x-dd-menu" aria-label="Product">
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Engine</p>
+                  <ul>
+                    <li><a href="/agents">Agents<small>8 AI agents, one crew</small></a></li>
+                    <li><a href="/flows">Flows<small>Email + LinkedIn in one chain</small></a></li>
+                    <li><a href="/plays">Plays<small>Funding &amp; hiring triggers</small></a></li>
+                  </ul>
+                </li>
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Outreach</p>
+                  <ul>
+                    <li><a href="/lead-lists">Lead lists<small>Built from buying signals</small></a></li>
+                    <li><a href="/verification">Verification<small>Every email checked first</small></a></li>
+                    <li><a href="/deliverability">Deliverability<small>Separate domains, 21-day warm-up</small></a></li>
+                    <li><a href="/linkedin">LinkedIn<small>Invites, messages and InMail</small></a></li>
+                  </ul>
+                </li>
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Pipeline</p>
+                  <ul>
+                    <li><a href="/replies">Replies<small>One inbox, every channel</small></a></li>
+                    <li><a href="/meetings">Meetings<small>Meetings to won deals</small></a></li>
+                    <li><a href="/reports">Reports<small>The Monday report</small></a></li>
+                    <li><a href="/client-workspaces">Client workspaces<small>One workspace per client</small></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <a href="/#start">How it works</a>
+            <a href="/blog">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </nav>
+          <div class="x-head__cta">
+            <a class="x-btn x-btn--light x-signin" href="/#waitlist">Join the waitlist</a>
+            <a class="x-btn x-btn--dark" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+            <button class="x-menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+          </div>
+        </div>
+      </header>
+      <!-- /partial:header -->
+
+      <main id="main">
+        <!-- Hero -->
+        <section class="x-hero x-wrap" aria-labelledby="hero-h">
+          <div class="x-hero__copy">
+            <nav class="x-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/agents">Product</a><span aria-hidden="true">/</span><span aria-current="page">Verification</span></nav>
+            <h1 class="x-h1" id="hero-h"><span>Every email <span class="x-agw">checked</span>.</span><span>Before it's sent.</span></h1>
+            <p class="x-p x-hero__sub">Bounces burn domains. So the Verifier checks every address before it gets near a sequence. Invalid emails are dropped, catch-alls are held back, and only verified addresses go out.</p>
+            <div class="x-hero__cta">
+              <a class="x-btn x-btn--dark x-btn--lg" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+              <a class="x-btn x-btn--light x-btn--lg" href="https://forms.gle/EdGWZGEn91CfFPFG7" target="_blank" rel="noopener">Join waitlist</a>
+            </div>
+            <p class="x-hero__tert"><span>Verified with Reoon</span><b>·</b><span>Invalid dropped</span><b>·</b><span>Catch-alls held back</span></p>
+          </div>
+
+          <div class="x-aw" role="img" aria-label="Example of the Verification station: four addresses checked, two verified and moving to the sequence, one catch-all held back and one invalid address dropped.">
+              <p class="x-aw__tag" aria-hidden="true">Example</p>
+              <div class="x-aw__win" aria-hidden="true">
+                <div class="x-aw__bar"><i></i><i></i><i></i><span class="x-aw__crumb">Verification / <b>Funded SaaS founders</b></span><span class="x-aw__live"><i></i>Verifier working</span></div>
+                <div class="x-mk x-mk--2">
+                  <div class="x-mk__main">
+                    <p class="x-mk__h">Checked before sending <small>Reoon</small></p>
+                    <div class="x-rows" style="--cols:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);--cols-s:minmax(0,1fr) auto">
+                      <div class="x-rows__hd"><span>Email</span><span>Result</span><span class="x-hide-xs">Next</span></div>
+                      <div class="x-rows__r"><code>maya@lumen.io</code><span class="x-st x-st--ok">Verified</span><span class="x-hide-xs">To sequence</span></div>
+                      <div class="x-rows__r"><code>tom@gridline.co</code><span class="x-st x-st--ok">Verified</span><span class="x-hide-xs">To sequence</span></div>
+                      <div class="x-rows__r is-sel"><code>ops@fern.io</code><span class="x-st x-st--wait">Catch-all, held</span><span class="x-hide-xs">Not sent</span></div>
+                      <div class="x-rows__r is-dim"><code>jon@quilo.app</code><span class="x-st x-st--off">Invalid</span><span class="x-hide-xs">Dropped</span></div>
+                    </div>
+                    <div class="x-mini" style="margin-top:12px"><span>Only verified addresses reach a sequence. Catch-alls wait, invalid emails never send.</span></div>
+                    <div class="x-mini is-done"><span>Deliverability guard · pauses sending if bounces cross your cap</span><em>Watching</em></div>
+                  </div>
+                  <div class="x-mk__rail">
+                    <p class="x-mk__lab">Verifier</p>
+                    <div class="x-card"><b style="display:flex;align-items:center;gap:8px"><span class="v5-glyph" data-g="b.b.babababbbbb-.a.-b.a.b"></span> Verifies every email before it gets near a sequence.</b></div>
+                    <p class="x-mk__lab" style="margin-top:14px">Rules</p>
+                    <div class="x-card"><b>Verified</b><small>Moves on to the sequence</small></div>
+                    <div class="x-card"><b>Catch-all</b><small>Held back, not sent</small></div>
+                    <div class="x-card"><b>Invalid</b><small>Dropped before it can bounce</small></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+
+        <section class="x-sec" id="why" aria-labelledby="s1-h">
+          <div class="x-wrap">
+            <div class="x-sec__head">
+              <p class="x-label">Why verify everything</p>
+              <h2 class="x-h2" id="s1-h"><span>One bad list</span><span class="x-sub2">can cost you a domain.</span></h2>
+              <p class="x-p">Unverified addresses bounce. Bounces hurt the sender reputation of the inboxes you just spent weeks warming.</p>
+            </div>
+            <div class="x-pain">
+              <div><h3>Sending blind</h3><p>The list looks fine until the bounces arrive. By then the damage is done, and the domain you warmed takes the hit.</p></div>
+              <div><h3>Verifying by hand</h3><p>Export, upload to a verifier, download, re-import. Repeat for every list. Skip it once and the invalid rows ship anyway.</p></div>
+              <div class="x-pain__fix"><h3>Bonfire GTM: verification is a step, not a chore</h3><p>It runs on every lead, inside the flow, before any email is sent. No exports, no second tool, no list that skips it.</p></div>
+            </div>
+          </div>
+        </section>
+        <section class="x-sec" id="outcomes" aria-labelledby="s2-h">
+          <div class="x-wrap">
+            <div class="x-sec__head">
+              <p class="x-label">Three outcomes</p>
+              <h2 class="x-h2" id="s2-h"><span>Verified, held or dropped.</span><span class="x-sub2">Nothing in between.</span></h2>
+              <p class="x-p">Every address gets one of three results, and each result decides what happens next.</p>
+            </div>
+            <div class="x-quad x-quad--3">
+              <article><span class="x-quad__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><h3>Verified</h3><p>The address is deliverable. It moves on to the sequence you approved.</p><p class="x-quad__job">→ sequence</p></article>
+              <article><span class="x-quad__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"><path d="M9 6v12M15 6v12"/></svg></span><h3>Catch-all</h3><p>The domain accepts every address, so this one can't be confirmed. It's held back, not sent.</p><p class="x-quad__job">→ held back</p></article>
+              <article><span class="x-quad__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"><path d="M6 6l12 12M18 6L6 18"/></svg></span><h3>Invalid</h3><p>The address won't deliver. It's dropped before it can bounce.</p><p class="x-quad__job">→ dropped</p></article>
+            </div>
+          </div>
+        </section>
+        <section class="x-sec" id="flow" aria-labelledby="s3-h">
+          <div class="x-wrap x-ctl">
+            <div>
+              <div class="x-sec__head">
+              <p class="x-label">Built into every flow</p>
+              <h2 class="x-h2" id="s3-h"><span>Verify is a step.</span><span class="x-sub2">Not an afterthought.</span></h2>
+              <p class="x-p">In Flows, Verify email sits between finding a lead and sending to it. Only verified addresses go on to Send email.</p>
+            </div>
+              <ul class="x-ctl__list">
+                  <li><i class="x-ctl__mk" aria-hidden="true"></i><div><b>Before the first send</b><span>Leads are enriched, then verified, then sent. In that order, every time.</span></div></li>
+                  <li><i class="x-ctl__mk" aria-hidden="true"></i><div><b>Deliverable only</b><span>A condition step checks the result. Only verified addresses reach Send email.</span></div></li>
+                  <li><i class="x-ctl__mk" aria-hidden="true"></i><div><b>And if bounces still climb</b><span>The Deliverability guard pauses sending when bounces cross your cap.</span></div></li>
+              </ul>
+            </div>
+            <div class="x-aw" role="img" aria-label="Example flow: when a funding signal arrives, enrich the lead, verify the email, check it is verified, then send the email.">
+              <p class="x-aw__tag" aria-hidden="true">Example</p>
+              <div class="x-aw__win" aria-hidden="true">
+                <div class="x-aw__bar"><i></i><i></i><i></i><span class="x-aw__crumb">Flows / <b>Funding signal → verify → email</b></span><span class="x-aw__live"><i></i>Test run</span></div>
+                <div class="x-mk__main">
+                  <ul class="x-vf">
+                    <li><span class="x-vf__k x-vf__k--sig">When</span><span><b>New signal</b><small>Funding round</small></span><span class="x-st x-st--ok">Matched</span></li>
+                    <li><span class="x-vf__k">Leads</span><span><b>Enrich</b><small>Email, title, LinkedIn</small></span><span class="x-st x-st--ok">Done</span></li>
+                    <li class="is-need"><span class="x-vf__k x-vf__k--sig">Leads</span><span><b>Verify email</b><small>Deliverable only</small></span><span class="x-st x-st--on">Verifier</span></li>
+                    <li><span class="x-vf__k">Logic</span><span><b>Condition</b><small>Email verified? Yes / No</small></span><span class="x-chip">Yes</span></li>
+                    <li><span class="x-vf__k">Email</span><span><b>Send email</b><small>Case-study opener</small></span><span class="x-st x-st--wait">Would run</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="x-sec" id="related" aria-labelledby="s4-h">
+          <div class="x-wrap">
+            <div class="x-sec__head">
+              <p class="x-label">Keep going</p>
+              <h2 class="x-h2" id="s4-h"><span>Clean lists,</span><span class="x-sub2">safe domains.</span></h2>
+            </div>
+            <div class="x-plug">
+              <a href="/deliverability"><small>Deliverability</small><h3>Never your main domain</h3><p>Separate domains and inboxes, a 21-day warm-up, sending caps and a pause on bounces.</p><span class="x-tlink">See Deliverability</span></a>
+              <a href="/lead-lists"><small>Lead lists</small><h3>Lists built from signals</h3><p>Researcher, Scout and List builder find the people worth verifying in the first place.</p><span class="x-tlink">See Lead lists</span></a>
+              <a href="/flows"><small>Flows</small><h3>Verify inside every flow</h3><p>Email and LinkedIn steps in one flow, with verification as a step before sending.</p><span class="x-tlink">See how Flows work</span></a>
+            </div>
+          </div>
+        </section>
+        <section class="x-sec" id="faq" aria-labelledby="faq-h">
+          <div class="x-wrap">
+            <div class="x-sec__head"><h2 class="x-h2" id="faq-h"><span>Questions,</span><span class="x-sub2">answered.</span></h2></div>
+            <div class="x-faq">
+              <details><summary><span class="x-faq__n">01</span><span>Which verifier does Bonfire GTM use?</span></summary><p>Reoon, built in. Verification runs inside Bonfire GTM, so there's no separate tool to export to and re-import from.</p></details>
+              <details><summary><span class="x-faq__n">02</span><span>When does verification happen?</span></summary><p>Before anything sends. The Verifier checks every email before it gets near a sequence, and in Flows, Verify email is a step before Send email.</p></details>
+              <details><summary><span class="x-faq__n">03</span><span>What happens to catch-all addresses?</span></summary><p>They're held back. A catch-all can't be confirmed as deliverable, so it isn't sent.</p></details>
+              <details><summary><span class="x-faq__n">04</span><span>What happens to invalid addresses?</span></summary><p>They're dropped before they can bounce.</p></details>
+              <details><summary><span class="x-faq__n">05</span><span>What if bounces climb anyway?</span></summary><p>The Deliverability guard pauses sending when bounces cross your cap, so one bad batch can't burn a domain.</p></details>
+            </div>
+          </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="x-final" aria-labelledby="final-h">
+          <div class="x-final__copy">
+            <div class="x-fire"><img src="/assets/logo.png" alt="" /></div>
+            <h2 class="x-h2" id="final-h"><span>Verify first.</span><span>Then send.</span></h2>
+            <p class="x-p">Book a demo. We'll show you the Verifier at work on your own list, live.</p>
+            <div class="x-hero__cta">
+              <a class="x-btn x-btn--dark x-btn--lg" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+              <a class="x-btn x-btn--light x-btn--lg" href="https://forms.gle/EdGWZGEn91CfFPFG7" target="_blank" rel="noopener">Join waitlist</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- partial:footer -->
+      <footer class="x-foot x-ft">
+        <div class="x-wrap">
+          <div class="x-ft__frame">
+            <div class="x-ft__grid">
+              <!-- Row 1 -->
+              <div class="x-ft__cell">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <a class="x-ft__logo" href="/" aria-label="Bonfire GTM home"><span class="x-logo x-logo--foot"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
+                <p class="x-ft__tag">Your whole outbound engine, kept warm.</p>
+              </div>
+              <nav class="x-ft__cell" aria-label="Quick links">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Quick links</p>
+                <div class="x-ft__cols">
+                  <div>
+                    <h3 class="x-ft__h">Product</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/flows">Flows</a></li>
+                      <li><a href="/agents">Agents</a></li>
+                      <li><a href="/plays">Plays</a></li>
+                      <li><a href="/reports">Reports</a></li>
+                      <li><a href="/client-workspaces">Client workspaces</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Features</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/lead-lists">Lead lists</a></li>
+                      <li><a href="/verification">Verification</a></li>
+                      <li><a href="/deliverability">Deliverability</a></li>
+                      <li><a href="/linkedin">LinkedIn</a></li>
+                      <li><a href="/replies">Replies</a></li>
+                      <li><a href="/meetings">Meetings</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Resources</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/blog">Blog</a></li>
+                      <li><a href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <div class="x-ft__cell x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Social</p>
+                <div class="x-ft__tiles">
+                  <a class="x-ft__tile" href="https://www.linkedin.com/company/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on LinkedIn" data-tip="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M8 10.5V17M12 17v-6.5M12 13.5c0-1.9 1.2-3 2.7-3s2.3 1 2.3 2.8V17"/><circle cx="8" cy="7.5" r=".6" fill="currentColor"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="https://x.com/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on X" data-tip="X">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4h4.2L20 20h-4.2z"/><path d="M19.5 4l-6.4 7M4.5 20l6.4-7"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="mailto:bonfiregtm@gmail.com" aria-label="Email bonfiregtm@gmail.com" data-tip="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13"/><path d="M3 6l9 7 9-7"/></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Row 2 -->
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Bonfire GTM</p>
+                <p class="x-ft__copy">© 2026 Bonfire GTM</p>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <div class="x-ft__ctas">
+                  <a class="x-ft__cta" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">
+                    <img src="/assets/app-icon.png" alt="" width="24" height="24" />
+                    <b>Book a 20-min demo</b>
+                    <span>See your engine run on your own ICP.</span>
+                  </a>
+                  <a class="x-ft__cta" href="/#waitlist">
+                    <img src="/assets/app-icon.png" alt="" width="24" height="24" />
+                    <b>Join the waitlist</b>
+                    <span>Early access. Limited onboarding spots.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Ask AI about us</p>
+                <div class="x-ft__tiles" id="x-ft-ai">
+                  <a class="x-ft__tile" data-ai="https://chatgpt.com/?q=" href="https://chatgpt.com/" target="_blank" rel="noopener" aria-label="Ask ChatGPT about Bonfire GTM" data-tip="Ask ChatGPT">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://claude.ai/new?q=" href="https://claude.ai/new" target="_blank" rel="noopener" aria-label="Ask Claude about Bonfire GTM" data-tip="Ask Claude">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.3 4.3M14.1 14.1l4.3 4.3M18.4 5.6l-4.3 4.3M9.9 14.1l-4.3 4.3"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.perplexity.ai/search?q=" href="https://www.perplexity.ai/" target="_blank" rel="noopener" aria-label="Ask Perplexity about Bonfire GTM" data-tip="Ask Perplexity">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M5 3l7 6 7-6v6H5zM5 9v8l7-6 7 6V9M5 15v4l7-5 7 5v-4"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.google.com/search?udm=50&amp;q=" href="https://www.google.com/search?udm=50" target="_blank" rel="noopener" aria-label="Ask Gemini (Google AI Mode) about Bonfire GTM" data-tip="Ask Gemini">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c.6 5.2 4.3 8.9 9.5 9.5-5.2.6-8.9 4.3-9.5 9.5-.6-5.2-4.3-8.9-9.5-9.5 5.2-.6 8.9-4.3 9.5-9.5z"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://grok.com/?q=" href="https://grok.com/" target="_blank" rel="noopener" aria-label="Ask Grok about Bonfire GTM" data-tip="Ask Grok">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M18.5 4L5 20.5"/><path d="M15.5 7.2A7 7 0 0 0 6 16.8"/><path d="M18 9.5a7 7 0 0 1-8.6 9.7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          (function () {
+            var q = encodeURIComponent("Explain what Bonfire GTM (bonfiregtm.com) does, who it's for, and how it compares to Instantly, Smartlead and Clay.");
+            document.querySelectorAll("#x-ft-ai [data-ai]").forEach(function (a) { a.href = a.getAttribute("data-ai") + q; });
+          })();
+        </script>
+      </footer>
+      <!-- /partial:footer -->
+    </div>
+    <script>
+      (function () {
+        /* Pixel glyph avatars (as /agents): 25-cell pattern, b dark, a mid, - light, . empty */
+        var cls = { b: ' class="b"', a: ' class="a"', ".": ' class="o"', "-": "" };
+        [].forEach.call(document.querySelectorAll("[data-g]"), function (el) {
+          el.setAttribute("aria-hidden", "true");
+          el.innerHTML = el.getAttribute("data-g").split("").map(function (c) { return "<i" + (cls[c] || "") + "></i>"; }).join("");
+        });
+      })();
+    </script>
+    <script src="/assets/site.js"></script>
+    <script src="/assets/chrome.js"></script>
+  </body>
+</html>

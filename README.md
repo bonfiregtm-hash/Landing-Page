@@ -10,3 +10,9 @@ Links: demo https://cal.com/bonfiregtm/demo · waitlist https://forms.gle/EdGWZG
 - `assets/site.js`: announcement dismiss, header hairline on scroll, mobile menu.
 - `partials/header.html`, `partials/footer.html`: inlined verbatim into every page between the `<!-- partial:... -->` markers.
 - Page files keep only their own section styles.
+
+## Feature pages
+`/lead-lists`, `/verification`, `/deliverability`, `/linkedin`, `/replies`, `/meetings`, `/client-workspaces`, `/reports`: one folder each, styled by `assets/feature.css` (shared section + mockup patterns, mirroring /agents and /plays).
+They are generated: edit copy in `site/tools/features_content.py` (facts only from blog-cms/docs/bonfire-facts.md), then
+`python3 ../tools/build_features.py . && python3 ../tools/inline_partials.py .` (the second step re-inlines the header/footer partials into every page).
+The Product dropdown groups pages as Engine (Agents, Flows, Plays) / Outreach (Lead lists, Verification, Deliverability, LinkedIn) / Pipeline (Replies, Meetings, Reports, Client workspaces).
