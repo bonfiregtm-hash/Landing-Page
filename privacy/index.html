@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy policy · Bonfire GTM</title>
+    <meta name="description" content="How Bonfire GTM collects, uses, shares and protects personal data, and the rights you have over it." />
+    <link rel="canonical" href="https://bonfiregtm.com/privacy/" />
+    <link rel="stylesheet" href="hark.css" />
+    <style>
+      /* ===== Global (Bonfire v4: custom design, departs from Hark default) ===== */
+      @font-face { font-family: "Geist"; src: url("/assets/fonts/Geist.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+      @font-face { font-family: "Geist Mono"; src: url("/assets/fonts/GeistMono.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+      :root {
+        --x-ink: #111111; --x-grey: #5F5F5F; --x-line: #E7E7E7; --x-panel: #FAFAFA;
+        --x-ember: #FF5A1F; --x-ember-dk: #C2410C; --x-tint: #FFF1EA;
+        --x-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+        --x-mono: "Geist Mono", ui-monospace, monospace;
+        --x-k: .8;
+        --x-max: 992px; --x-gut: clamp(16px, 3.2vw, 32px);
+        --x-hh: 54px;
+        --x-fs-h1: clamp(36px, 5.6vw, 67px);
+        --x-fs-h2: clamp(28px, 3.84vw, 45px);
+        --x-fs-h3: 21px;
+        --x-fs-body: 14.5px;
+        --x-fs-ui: 12px;
+        --x-btn-h: 36px; --x-btn-h-lg: 40px;
+        --x-sec-pad: clamp(64px, 8.8vw, 112px);
+        --x-gap: 26px;
+        color-scheme: light;
+      }
+      html { background: #fff; scroll-padding-top: calc(var(--x-hh) + 16px); }
+      body.x-body {
+        margin: 0; background: #fff; color: var(--x-ink);
+        font: 500 var(--x-fs-body)/1.55 var(--x-sans); letter-spacing: -0.005em;
+        -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      }
+      .x-body :focus-visible { outline: 2px solid var(--x-ember-dk); outline-offset: 3px; border-radius: 6px; }
+      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: var(--x-gut); }
+      .x-h1, .x-h2, .x-h3 { font-family: var(--x-sans); color: var(--x-ink); letter-spacing: -0.035em; margin: 0; }
+      .x-h1 { font-size: var(--x-fs-h1); line-height: 1.0; font-weight: 600; }
+      .x-h3 { font-size: var(--x-fs-h3); line-height: 1.1; font-weight: 600; letter-spacing: -0.03em; }
+      .x-p { color: var(--x-grey); font-weight: 500; font-size: var(--x-fs-body); line-height: 1.55; margin: 0; }
+
+      /* Buttons */
+      .x-btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        min-height: var(--x-btn-h); padding: 0 16px; border-radius: 999px; text-decoration: none;
+        font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.01em; white-space: nowrap;
+        border: 1px solid transparent; transition: background-color .2s, border-color .2s, transform .2s;
+      }
+      .x-btn--dark { background: var(--x-ink); color: #fff; }
+      .x-btn--dark:hover { background: #2a2a2a; }
+      .x-btn--light { background: #fff; color: var(--x-ink); border-color: #D9D9D9; }
+      .x-btn--light:hover { border-color: #9a9a9a; }
+
+      /* ===== 2. Header ===== */
+      .x-head { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid transparent; transition: border-color .2s; }
+      .x-head.is-scrolled { border-bottom-color: var(--x-line); }
+      .x-head__in { display: flex; align-items: center; justify-content: space-between; gap: 13px; height: var(--x-hh); }
+      .x-brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--x-ink); font-weight: 600; font-size: 14px; letter-spacing: -0.02em; min-height: 36px; }
+      .x-logo { --lh: 26px; position: relative; display: block; flex: none; overflow: hidden; height: var(--lh); width: calc(var(--lh) * 2576 / 554); }
+      .x-logo img { position: absolute; max-width: none; height: calc(var(--lh) * 965 / 554); width: auto; top: calc(var(--lh) * -209 / 554); left: calc(var(--lh) * -212 / 554); }
+      .x-logo--foot { --lh: 36px; }
+      .x-nav { display: flex; gap: 2px; }
+      .x-nav a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; color: var(--x-grey); text-decoration: none; font-size: var(--x-fs-ui); font-weight: 500; border-radius: 6px; transition: color .2s; }
+      .x-nav a:hover { color: var(--x-ink); }
+      .x-head__cta { display: flex; gap: 6px; align-items: center; }
+      .x-menu { display: none; width: 36px; height: 36px; border: 1px solid #D9D9D9; border-radius: 999px; background: #fff; cursor: pointer; align-items: center; justify-content: center; }
+      .x-menu span, .x-menu span::before { display: block; width: 14px; height: 1.5px; background: var(--x-ink); position: relative; }
+      .x-menu span::before { content: ""; position: absolute; top: 4px; }
+      .x-menu span { top: -2px; }
+      @media (max-width: 920px) {
+        .x-nav { display: none; position: absolute; top: var(--x-hh); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--x-line); flex-direction: column; padding: 6px var(--x-gut) 13px; }
+        .x-head.is-open .x-nav { display: flex; }
+        .x-nav a { font-size: 14px; color: var(--x-ink); }
+        .x-menu { display: inline-flex; }
+      }
+      @media (max-width: 440px) { .x-head__cta .x-signin { display: none; } }
+
+      /* ===== 2b. Product dropdown ===== */
+      .x-dd { position: relative; display: flex; align-items: center; }
+      .x-dd__btn { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 0 10px; border: 0; border-radius: 6px; background: none; color: var(--x-grey); font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.005em; cursor: pointer; transition: color .2s; }
+      .x-dd__btn:hover, .x-dd.is-open .x-dd__btn { color: var(--x-ink); }
+      .x-dd__chev { flex: none; width: 5px; height: 5px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); transition: transform .2s; }
+      .x-dd.is-open .x-dd__chev { transform: translateY(1px) rotate(-135deg); }
+      .x-dd__lbl { display: none; }
+      .x-dd__menu { display: none; position: absolute; top: 100%; left: 0; z-index: 60; width: 268px; margin: 0; padding: 6px; list-style: none; background: #fff; border: 1px solid #D4D4D4; }
+      .x-dd.is-open .x-dd__menu { display: block; }
+      .x-nav .x-dd__menu a { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 3px; min-height: 44px; padding: 8px 10px; border-radius: 0; color: var(--x-ink); font-size: 13px; font-weight: 600; letter-spacing: -0.015em; }
+      .x-dd__menu a small { font-size: 12px; font-weight: 500; letter-spacing: -0.005em; color: var(--x-grey); }
+      .x-nav .x-dd__menu a:hover { background: var(--x-tint); }
+      @media (hover: hover) and (min-width: 921px) {
+        .x-dd:hover .x-dd__menu { display: block; }
+        .x-dd:hover .x-dd__btn { color: var(--x-ink); }
+      }
+      @media (max-width: 920px) {
+        .x-dd { flex-direction: column; align-items: stretch; }
+        .x-dd__btn { display: none; }
+        .x-dd__lbl { display: block; padding: 10px 10px 2px; font: 500 12px/1.2 var(--x-sans); color: var(--x-grey); }
+        .x-dd__menu, .x-dd.is-open .x-dd__menu { display: block; position: static; width: auto; padding: 0 0 4px; border: 0; }
+        .x-nav .x-dd__menu a { font-size: 14px; }
+      }
+
+      /* ===== 12. Footer: blueprint grid (hairlines + crosshairs inside the hatched side frame) ===== */
+      .x-ft { --ft-line: #D4D4D4; --ft-tile: #E6E6E6; padding: var(--x-sec-pad) 0 48px; }
+      .x-ft__frame { padding: 0 14px; border-inline: 1px solid #E6E6E6; background: repeating-linear-gradient(135deg, #E2E2E2 0 1px, transparent 1px 6px); }
+      .x-ft__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr) minmax(0, 1fr); border-top: 1px solid var(--ft-line); border-left: 1px solid var(--ft-line); }
+      .x-ft__cell { position: relative; box-sizing: border-box; min-width: 0; padding: 28px 24px 30px; background: #fff; border-right: 1px solid var(--ft-line); border-bottom: 1px solid var(--ft-line); }
+      .x-ft__cell--b { background: #F7F7F7; }
+      .x-ft__cell--r { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+      .x-ft__x { position: absolute; z-index: 2; width: 13px; height: 13px; pointer-events: none; background: linear-gradient(#111, #111) 6px 0 / 1px 100% no-repeat, linear-gradient(#111, #111) 0 6px / 100% 1px no-repeat; }
+      .x-ft__x--tl { left: -7px; top: -7px; } .x-ft__x--tr { right: -6px; top: -7px; }
+      .x-ft__x--bl { left: -7px; bottom: -6px; } .x-ft__x--br { right: -6px; bottom: -6px; }
+      .x-ft__lbl { display: flex; align-items: center; gap: 8px; margin: 0 0 16px; font: 500 13px/1.2 var(--x-sans); letter-spacing: -0.01em; color: var(--x-ember-dk); }
+      .x-ft__lbl::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-ft__logo { display: inline-flex; min-height: 44px; align-items: center; }
+      .x-ft__tag { margin: 14px 0 0; max-width: 240px; font: 500 13px/1.5 var(--x-sans); color: #555; }
+      .x-ft ul { list-style: none; margin: 0; padding: 0; }
+      .x-ft__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+      .x-ft__h { margin: 0 0 6px; font: 500 13px/1.3 var(--x-sans); color: #6B6B6B; }
+      .x-ft__links a { display: inline-flex; align-items: center; min-height: 32px; padding: 4px 0; box-sizing: border-box; color: var(--x-ink); text-decoration: none; font: 500 13px/1.3 var(--x-sans); letter-spacing: -0.01em; transition: color .2s; }
+      .x-ft__links a:hover { color: var(--x-ember-dk); }
+      .x-ft__links a[aria-current="page"] { color: var(--x-ember-dk); }
+      .x-ft__copy { margin: 18px 0 0; font: 500 12px/1.4 var(--x-sans); color: #6B6B6B; }
+      .x-ft__tiles { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; max-width: calc(56px * 3 + 12px); }
+      .x-ft__tile { position: relative; box-sizing: border-box; display: grid; place-items: center; width: 56px; height: 56px; background: #fff; border: 1px solid var(--ft-tile); color: var(--x-ink); text-decoration: none; transition: background-color .2s, color .2s, border-color .2s; }
+      .x-ft__tile svg { width: 22px; height: 22px; }
+      .x-ft__tile:hover, .x-ft__tile:focus-visible { background: var(--x-ink); border-color: var(--x-ink); color: #fff; }
+      .x-ft__tile::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); right: 0; z-index: 3; padding: 6px 9px; background: var(--x-ink); color: #fff; font: 500 12px/1.2 var(--x-sans); white-space: nowrap; opacity: 0; transform: translateY(3px); pointer-events: none; transition: opacity .15s, transform .15s; }
+      .x-ft__tile:hover::after, .x-ft__tile:focus-visible::after { opacity: 1; transform: none; }
+      .x-ft .x-ft__tile:focus-visible { border-radius: 0; }
+      .x-ft__ctas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; height: 100%; }
+      .x-ft__cta { display: flex; flex-direction: column; gap: 6px; box-sizing: border-box; min-height: 44px; padding: 18px 18px 20px; background: #fff; border: 1px solid var(--ft-tile); color: var(--x-ink); text-decoration: none; transition: border-color .2s; }
+      .x-ft__cta:hover { border-color: var(--x-ink); }
+      .x-ft__cta b { display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 600 15px/1.25 var(--x-sans); letter-spacing: -0.02em; }
+      .x-ft__cta b::after { content: "→"; font-weight: 500; color: var(--x-ember-dk); transition: transform .2s; }
+      .x-ft__cta:hover b::after { transform: translateX(3px); }
+      .x-ft__cta span { font: 500 13px/1.45 var(--x-sans); color: #555; }
+      @media (max-width: 860px) {
+        .x-ft__grid { grid-template-columns: minmax(0, 1fr); }
+        .x-ft__cell--r { align-items: flex-start; text-align: left; }
+        .x-ft__tiles { justify-content: flex-start; }
+        .x-ft__tile::after { right: auto; left: 0; }
+      }
+      @media (max-width: 560px) {
+        .x-ft__frame { padding: 0 8px; }
+        .x-ft__cell { padding: 24px 18px 26px; }
+        .x-ft__cols, .x-ft__ctas { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      }
+
+      /* ===== Legal page: long-form column inside the hatched side frame ===== */
+      .x-lg { padding-top: clamp(32px, 4vw, 48px); }
+      .x-lg__frame { padding: 0 14px; border-inline: 1px solid #E6E6E6; background: repeating-linear-gradient(135deg, #E2E2E2 0 1px, transparent 1px 6px); }
+      .x-lg__sheet { background: #fff; border: 1px solid #D4D4D4; border-width: 1px 0; }
+      .x-lg__top { padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 56px) clamp(28px, 4vw, 40px); border-bottom: 1px solid #E6E6E6; }
+      .x-lg__top .x-h1 { font-size: clamp(36px, 5.2vw, 56px); }
+      .x-lg__crumb { display: flex; align-items: center; gap: 8px; margin: 0 0 20px; font: 500 13px/1.2 var(--x-sans); color: var(--x-ember-dk); }
+      .x-lg__crumb::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-lg__sub { margin-top: 18px; max-width: 600px; font-size: 16px; color: #555; }
+      .x-lg__meta { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 22px 0 0; padding: 0; list-style: none; font: 500 13px/1.4 var(--x-sans); color: #555; }
+      .x-lg__meta b { font-weight: 500; color: var(--x-ink); }
+      .x-lg__body { padding: clamp(28px, 4vw, 48px) clamp(20px, 5vw, 56px) clamp(40px, 6vw, 72px); }
+      .x-lg__col { max-width: 720px; }
+
+      .x-toc { margin: 0 0 clamp(36px, 5vw, 56px); background: #F7F7F7; border: 1px solid #D4D4D4; padding: 20px 22px 14px; }
+      .x-toc__lbl { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font: 500 13px/1.2 var(--x-sans); color: var(--x-ember-dk); }
+      .x-toc__lbl::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-toc ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+      .x-toc a { display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 4px 0; color: var(--x-ink); text-decoration: none; font: 500 14px/1.3 var(--x-sans); letter-spacing: -0.01em; border-bottom: 1px solid #E6E6E6; transition: color .2s; }
+      .x-toc a:hover { color: var(--x-ember-dk); }
+      .x-toc a span { flex: none; width: 22px; font: 400 12px/1 var(--x-mono); color: #6E6E6E; }
+      @media (max-width: 640px) { .x-toc ol { grid-template-columns: minmax(0, 1fr); } }
+
+      .x-pol { border-top: 1px solid #E6E6E6; padding: 32px 0 8px; }
+      .x-pol:first-of-type { border-top: 0; padding-top: 0; }
+      .x-pol h2 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 14px; font: 600 24px/1.15 var(--x-sans); letter-spacing: -0.03em; color: var(--x-ink); }
+      .x-pol h2 span { flex: none; font: 400 13px/1 var(--x-mono); letter-spacing: 0; color: var(--x-ember-dk); }
+      .x-pol h3 { margin: 22px 0 6px; font: 600 16px/1.3 var(--x-sans); letter-spacing: -0.02em; color: var(--x-ink); }
+      .x-pol p, .x-pol li { color: #555; font-size: 15px; line-height: 1.65; }
+      .x-pol p { margin: 0 0 14px; }
+      .x-pol ul { margin: 0 0 16px; padding: 0; list-style: none; }
+      .x-pol li { position: relative; padding-left: 20px; margin: 0 0 8px; }
+      .x-pol li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 5px; height: 5px; background: #111; }
+      .x-pol strong { font-weight: 600; color: var(--x-ink); }
+      .x-pol a { color: var(--x-ink); text-decoration: underline; text-decoration-color: var(--x-ember); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+      .x-pol a:hover { color: var(--x-ember-dk); }
+      .x-note { margin: 4px 0 18px; padding: 14px 16px; background: var(--x-tint); border-left: 2px solid var(--x-ember); color: var(--x-ink); font-size: 15px; line-height: 1.55; }
+      .x-note p { color: var(--x-ink); margin: 0; }
+
+      .x-tbl { margin: 4px 0 18px; border: 1px solid #D4D4D4; overflow-x: auto; }
+      .x-tbl table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.5; }
+      .x-tbl th, .x-tbl td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid #E6E6E6; }
+      .x-tbl thead th { background: #F7F7F7; font-weight: 500; font-size: 13px; color: #555; border-bottom-color: #D4D4D4; }
+      .x-tbl tbody th { font-weight: 600; color: var(--x-ink); width: 34%; }
+      .x-tbl td { color: #555; }
+      .x-tbl tr:last-child th, .x-tbl tr:last-child td { border-bottom: 0; }
+      @media (max-width: 560px) {
+        .x-lg__frame { padding: 0 8px; }
+        .x-tbl thead { display: none; }
+        .x-tbl tr, .x-tbl th, .x-tbl td { display: block; width: auto; }
+        .x-tbl tbody th { padding-bottom: 2px; border-bottom: 0; }
+        .x-tbl td { padding-top: 0; }
+      }
+
+      .x-contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin: 6px 0 18px; background: #E6E6E6; border: 1px solid #D4D4D4; }
+      .x-contact div { background: #fff; padding: 16px 18px; }
+      .x-contact dt { margin: 0 0 4px; font: 500 13px/1.3 var(--x-sans); color: #6B6B6B; }
+      .x-contact dd { margin: 0; font: 500 15px/1.4 var(--x-sans); color: var(--x-ink); }
+      .x-contact dd a { display: inline-flex; align-items: center; min-height: 44px; }
+      @media (max-width: 560px) { .x-contact { grid-template-columns: minmax(0, 1fr); } }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .x-body *, .x-body *::before, .x-body *::after { animation: none !important; transition: none !important; }
+      }
+      @media (pointer: coarse), (max-width: 640px) {
+        .x-btn, .x-nav a, .x-brand, .x-ft__links a { min-height: 44px; }
+        .x-menu { width: 44px; height: 44px; }
+        .x-ft__links a { min-width: 44px; }
+        .x-pol p a { display: inline-block; box-sizing: border-box; min-height: 44px; min-width: 44px; padding-block: 10px; margin-block: -10px; vertical-align: baseline; }
+      }
+    </style>
+    <link rel="stylesheet" href="/assets/chrome.css" />
+  </head>
+  <body class="x-body">
+    <div class="x-page" id="top">
+      <!-- partial:header -->
+      <header class="x-head" id="head">
+        <div class="x-wrap x-head__in">
+          <a class="x-brand" href="/"><span class="x-logo"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
+          <nav class="x-nav" id="nav" aria-label="Main">
+            <div class="x-dd" id="x-dd">
+              <button class="x-dd__btn" type="button" aria-expanded="false" aria-controls="x-dd-menu">Product<span class="x-dd__chev" aria-hidden="true"></span></button>
+              <span class="x-dd__lbl" aria-hidden="true">Product</span>
+              <ul class="x-dd__menu" id="x-dd-menu" aria-label="Product">
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Engine</p>
+                  <ul>
+                    <li><a href="/agents/">Agents<small>8 AI agents, one crew</small></a></li>
+                    <li><a href="/flows/">Flows<small>Email + LinkedIn in one chain</small></a></li>
+                    <li><a href="/plays/">Plays<small>Funding &amp; hiring triggers</small></a></li>
+                  </ul>
+                </li>
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Outreach</p>
+                  <ul>
+                    <li><a href="/lead-lists/">Lead lists<small>Built from buying signals</small></a></li>
+                    <li><a href="/verification/">Verification<small>Every email checked first</small></a></li>
+                    <li><a href="/deliverability/">Deliverability<small>Separate domains, 21-day warm-up</small></a></li>
+                    <li><a href="/linkedin/">LinkedIn<small>Invites, messages and InMail</small></a></li>
+                  </ul>
+                </li>
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Pipeline</p>
+                  <ul>
+                    <li><a href="/replies/">Replies<small>One inbox, every channel</small></a></li>
+                    <li><a href="/meetings/">Meetings<small>Meetings to won deals</small></a></li>
+                    <li><a href="/reports/">Reports<small>The Monday report</small></a></li>
+                    <li><a href="/client-workspaces/">Client workspaces<small>One workspace per client</small></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <a href="/#start">How it works</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </nav>
+          <div class="x-head__cta">
+            <a class="x-btn x-btn--light x-signin" href="/pricing/">See pricing</a>
+            <a class="x-btn x-btn--dark" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+            <button class="x-menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+          </div>
+        </div>
+      </header>
+      <!-- /partial:header -->
+
+      <main class="x-lg x-wrap">
+        <div class="x-lg__frame">
+          <article class="x-lg__sheet" aria-labelledby="pol-h">
+            <header class="x-lg__top">
+              <p class="x-lg__crumb">Legal</p>
+              <h1 class="x-h1" id="pol-h">Privacy policy</h1>
+              <p class="x-p x-lg__sub">What personal data Bonfire GTM collects, why, who we share it with, and how you can see, change or delete it. Written in plain English.</p>
+              <ul class="x-lg__meta">
+                <li>Last updated: <b>7 November 2026</b></li>
+                <li>Applies to: <b>bonfiregtm.com and the Bonfire GTM app</b></li>
+              </ul>
+            </header>
+
+            <div class="x-lg__body">
+              <div class="x-lg__col">
+                <nav class="x-toc" aria-label="On this page">
+                  <p class="x-toc__lbl">On this page</p>
+                  <ol>
+                    <li><a href="#who"><span>01</span>Who we are</a></li>
+                    <li><a href="#collect"><span>02</span>Data we collect</a></li>
+                    <li><a href="#use"><span>03</span>How we use it</a></li>
+                    <li><a href="#bases"><span>04</span>Legal bases</a></li>
+                    <li><a href="#sharing"><span>05</span>Sharing</a></li>
+                    <li><a href="#transfers"><span>06</span>International transfers</a></li>
+                    <li><a href="#retention"><span>07</span>Retention</a></li>
+                    <li><a href="#security"><span>08</span>Security</a></li>
+                    <li><a href="#rights"><span>09</span>Your rights</a></li>
+                    <li><a href="#cookies"><span>10</span>Cookies</a></li>
+                    <li><a href="#children"><span>11</span>Children</a></li>
+                    <li><a href="#changes"><span>12</span>Changes and contact</a></li>
+                  </ol>
+                </nav>
+
+                <section class="x-pol" id="who" aria-labelledby="who-h">
+                  <h2 id="who-h"><span>01</span>Who we are</h2>
+                  <p>Bonfire GTM (<a href="https://bonfiregtm.com">bonfiregtm.com</a>) is AI-powered outbound software for agencies and B2B teams. It sets up sending domains and inboxes, warms them up, builds and verifies lead lists, runs email and LinkedIn sequences, sorts replies and books meetings.</p>
+                  <p>Bonfire GTM is run by its founder as an individual sole proprietor based in Maharashtra, India. In this policy, "Bonfire GTM", "we", "us" and "our" mean that business. "You" means anyone whose personal data we handle: visitors to our website, people who sign up for an account, and people our customers contact using the app.</p>
+                  <p>For data about our website visitors and account holders, we are the <strong>data controller</strong>: we decide why and how that data is used. For the prospect and contact data our customers put into the app, the customer is the controller and we act as their <strong>processor</strong> (see section 2).</p>
+                  <p>You can reach us about anything in this policy at <a href="mailto:bonfiregtm@gmail.com">bonfiregtm@gmail.com</a>.</p>
+                </section>
+
+                <section class="x-pol" id="collect" aria-labelledby="collect-h">
+                  <h2 id="collect-h"><span>02</span>Data we collect</h2>
+                  <p>We collect only what we need to run the service. It falls into five groups.</p>
+                  <h3>Account data</h3>
+                  <p>When you sign up or book a demo, we collect your name, email address and company name, plus anything else you choose to tell us, such as your role, your website or your offer and target customers.</p>
+                  <h3>Billing data</h3>
+                  <p>Payments are handled by <strong>Dodo Payments</strong>, our Merchant of Record and authorised reseller. Dodo Payments collects and processes your payment details, handles sales tax, VAT and GST, and issues your invoices. We do not see or store full card numbers. We receive limited billing records from Dodo Payments, such as your plan, payment status, the amount paid, your billing country and the last digits of your card, so we can manage your subscription and credits.</p>
+                  <h3>Connected-account data</h3>
+                  <p>To run your campaigns, you may connect email inboxes, a LinkedIn account and a calendar. We access these only with the permissions you grant, and only to do the work you set up: sending and warming up messages, reading replies to sort them, and booking meetings. This can include message content, sender and recipient addresses, LinkedIn profile and connection details, and calendar availability. We use connected-account data only to run your campaigns, never for advertising, and you can disconnect any account at any time.</p>
+                  <h3>Prospect and contact data</h3>
+                  <p>Customers upload lists of prospects or build them in the app. This can include names, job titles, work email addresses, company details, LinkedIn profile links and public signals such as funding or hiring news. Our agents may find, enrich and verify this data on the customer's behalf.</p>
+                  <div class="x-note"><p>For prospect data, <strong>the customer is the controller and Bonfire GTM acts as a processor.</strong> The customer decides who to contact and is responsible for having a lawful basis to do so. We process this data only on their instructions and to provide the service.</p></div>
+                  <h3>Usage, log and cookie data</h3>
+                  <p>When you use the website or the app, we automatically collect technical data such as your IP address, browser and device type, pages and features used, timestamps, error reports and cookie identifiers. We use it to keep the service working, secure and fast.</p>
+                </section>
+
+                <section class="x-pol" id="use" aria-labelledby="use-h">
+                  <h2 id="use-h"><span>03</span>How we use it</h2>
+                  <p>We use personal data to:</p>
+                  <ul>
+                    <li><strong>Provide and secure the service:</strong> create and run your account, keep it safe, and prevent fraud, spam and abuse.</li>
+                    <li><strong>Run the campaigns you configure:</strong> find and verify leads, send email and LinkedIn steps, sort replies, book meetings and send your Monday report. Risky steps wait in your "Needs you" approval queue until you approve them.</li>
+                    <li><strong>Give support:</strong> answer your questions and fix problems you report.</li>
+                    <li><strong>Handle billing:</strong> manage your plan and credits, working with Dodo Payments.</li>
+                    <li><strong>Improve the product:</strong> understand which features are used and where things break, mostly from aggregated or de-identified usage data.</li>
+                    <li><strong>Meet legal duties:</strong> keep records the law requires, and respond to lawful requests.</li>
+                  </ul>
+                  <p>We may also email account holders about important service changes and, where allowed, about new features. You can unsubscribe from product news at any time; service messages about your account will still be sent.</p>
+                  <div class="x-note"><p><strong>We do not sell personal data.</strong> We do not share it for others' advertising, and we do not use your connected-account or prospect data to train general AI models.</p></div>
+                </section>
+
+                <section class="x-pol" id="bases" aria-labelledby="bases-h">
+                  <h2 id="bases-h"><span>04</span>Legal bases</h2>
+                  <p>Where laws such as the GDPR require a legal basis for using personal data, we rely on these:</p>
+                  <ul>
+                    <li><strong>Contract:</strong> to provide the service you signed up for, run your campaigns, give support and manage billing.</li>
+                    <li><strong>Legitimate interests:</strong> to secure the service, prevent abuse, fix errors, improve the product and run our business, where those interests are not outweighed by your rights.</li>
+                    <li><strong>Consent:</strong> for optional cookies and marketing emails where consent is required, and for the access you grant when you connect an inbox, LinkedIn or a calendar. You can withdraw consent at any time.</li>
+                    <li><strong>Legal obligation:</strong> to keep tax and accounting records and respond to lawful requests.</li>
+                  </ul>
+                  <p>Under India's Digital Personal Data Protection Act, 2023, we process personal data for the purposes you consent to or for legitimate uses the Act allows, such as uses you have voluntarily provided data for.</p>
+                </section>
+
+                <section class="x-pol" id="sharing" aria-labelledby="sharing-h">
+                  <h2 id="sharing-h"><span>05</span>Sharing</h2>
+                  <p>We share personal data only with service providers (sub-processors) who help us run Bonfire GTM, and only as much as each one needs. They must protect the data and use it only to provide their service to us.</p>
+                  <div class="x-tbl">
+                    <table>
+                      <thead>
+                        <tr><th scope="col">Type of provider</th><th scope="col">What they do</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><th scope="row">Hosting and cloud <br />e.g. Vercel, AWS</th><td>Host the website and app, and store and process data.</td></tr>
+                        <tr><th scope="row">Email providers</th><td>Deliver and receive messages, including through the inboxes you connect.</td></tr>
+                        <tr><th scope="row">AI model providers</th><td>Power our agents, for example to write messages, research leads and sort replies.</td></tr>
+                        <tr><th scope="row">Error monitoring <br />Sentry</th><td>Record crashes and errors so we can fix them.</td></tr>
+                        <tr><th scope="row">Payments <br />Dodo Payments</th><td>Process payments as our Merchant of Record, handle tax and issue invoices.</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p>When you buy from us, you also accept Dodo Payments' <a href="https://dodopayments.com/legal/buyer-terms" target="_blank" rel="noopener">Buyer Terms</a>, and Dodo Payments handles your payment data under its own privacy terms.</p>
+                  <p>We may also disclose personal data when the law requires it, such as in response to a valid court order or request from a public authority; to protect the rights, safety or property of our users, the public or Bonfire GTM; or as part of a sale or transfer of the business, in which case this policy will continue to apply to your data.</p>
+                </section>
+
+                <section class="x-pol" id="transfers" aria-labelledby="transfers-h">
+                  <h2 id="transfers-h"><span>06</span>International transfers</h2>
+                  <p>Bonfire GTM is based in India, and our providers may store or process data in other countries, including the United States and the European Union. This means your data may be handled outside the country where you live.</p>
+                  <p>When we transfer personal data out of the European Economic Area, the United Kingdom or Switzerland, we rely on safeguards such as the European Commission's Standard Contractual Clauses or an adequacy decision. For transfers from India, we follow the rules of the Digital Personal Data Protection Act, 2023, including any country restrictions the Government of India sets. You can ask us for more detail about these safeguards.</p>
+                </section>
+
+                <section class="x-pol" id="retention" aria-labelledby="retention-h">
+                  <h2 id="retention-h"><span>07</span>Retention</h2>
+                  <p>We keep personal data for as long as your account is active and we need it to provide the service.</p>
+                  <p>When an account is closed, we delete or anonymise its personal data, including connected-account and prospect data, <strong>within 90 days of closure</strong>, unless the law requires us to keep some of it longer. For example, billing and tax records may need to be kept for several years. Backups are overwritten on a rolling schedule within the same period.</p>
+                  <p>Customers can delete individual prospects, lists and campaigns in the app at any time.</p>
+                </section>
+
+                <section class="x-pol" id="security" aria-labelledby="security-h">
+                  <h2 id="security-h"><span>08</span>Security</h2>
+                  <p>We protect personal data with technical and organisational measures that fit the risk, such as encryption in transit, restricted access to production systems, keeping access tokens for connected accounts secret, and monitoring for errors and misuse. Our sub-processors are chosen in part for their security practices.</p>
+                  <p>No system is perfectly secure. If we learn of a breach that affects your personal data, we will tell you and the relevant authorities when the law requires, and act quickly to contain it. Please keep your login details private and tell us at once if you think your account has been misused.</p>
+                </section>
+
+                <section class="x-pol" id="rights" aria-labelledby="rights-h">
+                  <h2 id="rights-h"><span>09</span>Your rights</h2>
+                  <p>Depending on where you live, you have some or all of these rights over your personal data:</p>
+                  <ul>
+                    <li><strong>Access:</strong> ask for a copy of the data we hold about you.</li>
+                    <li><strong>Correction:</strong> ask us to fix data that is wrong or incomplete.</li>
+                    <li><strong>Deletion:</strong> ask us to erase your data.</li>
+                    <li><strong>Objection and restriction:</strong> object to, or ask us to limit, how we use your data, including for direct marketing.</li>
+                    <li><strong>Portability:</strong> receive your data in a common, machine-readable format.</li>
+                    <li><strong>Withdraw consent:</strong> where we rely on consent, at any time, without affecting earlier use.</li>
+                  </ul>
+                  <p>People in the EEA and UK have these rights under the GDPR and UK GDPR. People in India have rights under the Digital Personal Data Protection Act, 2023, including to access a summary of their data, to correct and erase it, to have grievances addressed, and to nominate someone to act for them.</p>
+                  <p>To use any of these rights, email <a href="mailto:bonfiregtm@gmail.com">bonfiregtm@gmail.com</a>. We may need to confirm your identity first. If you are unhappy with our answer, you can complain to your local data protection authority, or in India, to the Data Protection Board of India.</p>
+                  <h3>If you received outreach sent through Bonfire GTM</h3>
+                  <p>If a Bonfire GTM customer contacted you, that customer controls your data and is the best place to start. You can also <strong>opt out or ask for deletion by emailing <a href="mailto:bonfiregtm@gmail.com">bonfiregtm@gmail.com</a></strong>. Tell us the email address or LinkedIn profile that was contacted. We will stop further messages to it through Bonfire GTM, pass your request to the customer, and help them respond.</p>
+                </section>
+
+                <section class="x-pol" id="cookies" aria-labelledby="cookies-h">
+                  <h2 id="cookies-h"><span>10</span>Cookies</h2>
+                  <p>Cookies are small files a website stores in your browser. We use:</p>
+                  <ul>
+                    <li><strong>Strictly necessary cookies</strong> to sign you in, keep your session secure and remember your settings. The service does not work without them.</li>
+                    <li><strong>Analytics cookies</strong> to understand, in aggregate, how people use the website and app so we can improve them.</li>
+                  </ul>
+                  <p>Where the law requires consent for non-essential cookies, we ask before setting them. You can also block or delete cookies in your browser settings; if you block necessary cookies, parts of the app may stop working.</p>
+                </section>
+
+                <section class="x-pol" id="children" aria-labelledby="children-h">
+                  <h2 id="children-h"><span>11</span>Children</h2>
+                  <p>Bonfire GTM is a business tool and is not meant for anyone under 18. We do not knowingly collect personal data from children. If you believe a child has given us personal data, email us and we will delete it.</p>
+                </section>
+
+                <section class="x-pol" id="changes" aria-labelledby="changes-h">
+                  <h2 id="changes-h"><span>12</span>Changes and contact</h2>
+                  <p>We may update this policy as the product or the law changes. We will change the "Last updated" date at the top, and for significant changes we will tell account holders by email or in the app before they take effect.</p>
+                  <p>For questions, requests or complaints about privacy, contact us. Our grievance contact under India's Digital Personal Data Protection Act, 2023 is the founder, reachable at the same address.</p>
+                  <dl class="x-contact">
+                    <div><dt>Privacy and grievance contact</dt><dd><a href="mailto:bonfiregtm@gmail.com">bonfiregtm@gmail.com</a></dd></div>
+                    <div><dt>Replies</dt><dd>Within 2 business days, Monday to Friday, IST</dd></div>
+                    <div><dt>Business</dt><dd>Bonfire GTM, sole proprietor, Maharashtra, India</dd></div>
+                    <div><dt>Other questions</dt><dd><a href="/contact/">Contact page</a></dd></div>
+                  </dl>
+                </section>
+              </div>
+            </div>
+          </article>
+        </div>
+      </main>
+
+      <!-- partial:footer -->
+      <footer class="x-foot x-ft">
+        <div class="x-wrap">
+          <div class="x-ft__frame">
+            <div class="x-ft__grid">
+              <!-- Row 1 -->
+              <div class="x-ft__cell">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <a class="x-ft__logo" href="/" aria-label="Bonfire GTM home"><span class="x-logo x-logo--foot"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
+                <p class="x-ft__tag">Your whole outbound engine, kept warm.</p>
+              </div>
+              <nav class="x-ft__cell" aria-label="Quick links">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Quick links</p>
+                <div class="x-ft__cols">
+                  <div>
+                    <h3 class="x-ft__h">Product</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/flows/">Flows</a></li>
+                      <li><a href="/agents/">Agents</a></li>
+                      <li><a href="/plays/">Plays</a></li>
+                      <li><a href="/reports/">Reports</a></li>
+                      <li><a href="/client-workspaces/">Client workspaces</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Features</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/lead-lists/">Lead lists</a></li>
+                      <li><a href="/verification/">Verification</a></li>
+                      <li><a href="/deliverability/">Deliverability</a></li>
+                      <li><a href="/linkedin/">LinkedIn</a></li>
+                      <li><a href="/replies/">Replies</a></li>
+                      <li><a href="/meetings/">Meetings</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Resources</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/blog/">Blog</a></li>
+                      <li><a href="/pricing/">Pricing</a></li>
+                      <li><a href="/contact/">Contact</a></li>
+                      <li><a href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Legal</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/terms/">Terms of service</a></li>
+                      <li><a href="/privacy/">Privacy policy</a></li>
+                      <li><a href="/refund/">Refund and cancellation</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <div class="x-ft__cell x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Social</p>
+                <div class="x-ft__tiles">
+                  <a class="x-ft__tile" href="https://www.linkedin.com/company/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on LinkedIn" data-tip="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M8 10.5V17M12 17v-6.5M12 13.5c0-1.9 1.2-3 2.7-3s2.3 1 2.3 2.8V17"/><circle cx="8" cy="7.5" r=".6" fill="currentColor"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="https://x.com/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on X" data-tip="X">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4h4.2L20 20h-4.2z"/><path d="M19.5 4l-6.4 7M4.5 20l6.4-7"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="mailto:bonfiregtm@gmail.com" aria-label="Email bonfiregtm@gmail.com" data-tip="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13"/><path d="M3 6l9 7 9-7"/></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Row 2 -->
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Bonfire GTM</p>
+                <p class="x-ft__copy">© 2026 Bonfire GTM</p>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <div class="x-ft__ctas">
+                  <a class="x-ft__cta" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">
+                    <img src="/assets/app-icon.png" alt="" width="24" height="24" />
+                    <b>Book a 20-min demo</b>
+                    <span>See your engine run on your own ICP.</span>
+                  </a>
+                  <a class="x-ft__cta" href="/pricing/">
+                    <img src="/assets/app-icon.png" alt="" width="24" height="24" />
+                    <b>See pricing</b>
+                    <span>$149 a month with 1,000 credits included.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Ask AI about us</p>
+                <div class="x-ft__tiles" id="x-ft-ai">
+                  <a class="x-ft__tile" data-ai="https://chatgpt.com/?q=" href="https://chatgpt.com/" target="_blank" rel="noopener" aria-label="Ask ChatGPT about Bonfire GTM" data-tip="Ask ChatGPT">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://claude.ai/new?q=" href="https://claude.ai/new" target="_blank" rel="noopener" aria-label="Ask Claude about Bonfire GTM" data-tip="Ask Claude">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.3 4.3M14.1 14.1l4.3 4.3M18.4 5.6l-4.3 4.3M9.9 14.1l-4.3 4.3"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.perplexity.ai/search?q=" href="https://www.perplexity.ai/" target="_blank" rel="noopener" aria-label="Ask Perplexity about Bonfire GTM" data-tip="Ask Perplexity">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M5 3l7 6 7-6v6H5zM5 9v8l7-6 7 6V9M5 15v4l7-5 7 5v-4"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.google.com/search?udm=50&amp;q=" href="https://www.google.com/search?udm=50" target="_blank" rel="noopener" aria-label="Ask Gemini (Google AI Mode) about Bonfire GTM" data-tip="Ask Gemini">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c.6 5.2 4.3 8.9 9.5 9.5-5.2.6-8.9 4.3-9.5 9.5-.6-5.2-4.3-8.9-9.5-9.5 5.2-.6 8.9-4.3 9.5-9.5z"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://grok.com/?q=" href="https://grok.com/" target="_blank" rel="noopener" aria-label="Ask Grok about Bonfire GTM" data-tip="Ask Grok">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M18.5 4L5 20.5"/><path d="M15.5 7.2A7 7 0 0 0 6 16.8"/><path d="M18 9.5a7 7 0 0 1-8.6 9.7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          (function () {
+            var q = encodeURIComponent("Explain what Bonfire GTM (bonfiregtm.com) does, who it's for, and how it compares to Instantly, Smartlead and Clay.");
+            document.querySelectorAll("#x-ft-ai [data-ai]").forEach(function (a) { a.href = a.getAttribute("data-ai") + q; });
+          })();
+        </script>
+      </footer>
+      <!-- /partial:footer -->
+    </div>
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        })();
+    </script>
+    <script src="/assets/site.js"></script>
+    <script src="/assets/chrome.js"></script>
+  </body>
+</html>

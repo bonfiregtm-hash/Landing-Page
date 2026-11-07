@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact | Bonfire GTM</title>
+    <meta name="description" content="Talk to a human at Bonfire GTM about the product, billing, refunds or custom plans." />
+    <link rel="stylesheet" href="hark.css" />
+    <style>
+      /* ===== Global (Bonfire v4/v5: custom design, departs from Hark default) ===== */
+      @font-face { font-family: "Geist"; src: url("/assets/fonts/Geist.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+      @font-face { font-family: "Geist Mono"; src: url("/assets/fonts/GeistMono.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+      :root {
+        --x-ink: #111111; --x-grey: #555555; --x-line: #E6E6E6; --x-rule: #D4D4D4; --x-panel: #F7F7F7;
+        --x-ember: #FF5A1F; --x-ember-dk: #C2410C; --x-tint: #FFF1EA;
+        --x-hatch: repeating-linear-gradient(135deg, #E2E2E2 0 1px, transparent 1px 6px);
+        --x-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+        --x-mono: "Geist Mono", ui-monospace, monospace;
+        --x-max: 992px; --x-gut: clamp(16px, 3.2vw, 32px);
+        --x-hh: 54px; --x-annh: 0px;
+        --x-fs-h1: clamp(36px, 5.6vw, 67px);
+        --x-fs-h2: clamp(28px, 3.84vw, 45px);
+        --x-fs-h3: 21px;
+        --x-fs-body: 14.5px;
+        --x-fs-ui: 12px;
+        --x-btn-h: 36px; --x-btn-h-lg: 44px;
+        --x-sec-pad: clamp(64px, 8.8vw, 112px);
+        --x-gap: 26px;
+        color-scheme: light;
+      }
+      html { background: #fff; }
+      body.x-body {
+        margin: 0; background: #fff; color: var(--x-ink);
+        font: 500 var(--x-fs-body)/1.55 var(--x-sans); letter-spacing: -0.005em;
+        -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      }
+      .x-body :focus-visible { outline: 2px solid var(--x-ember-dk); outline-offset: 3px; border-radius: 0; }
+      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: var(--x-gut); }
+      .x-h1, .x-h2, .x-h3 { font-family: var(--x-sans); color: var(--x-ink); letter-spacing: -0.035em; margin: 0; }
+      .x-h1 { font-size: var(--x-fs-h1); line-height: 1.0; font-weight: 600; }
+      .x-h2 { font-size: var(--x-fs-h2); line-height: 1.04; font-weight: 600; }
+      .x-h3 { font-size: var(--x-fs-h3); line-height: 1.1; font-weight: 600; letter-spacing: -0.03em; }
+      .x-p { color: var(--x-grey); font-weight: 500; font-size: var(--x-fs-body); line-height: 1.55; margin: 0; }
+
+      /* Buttons (square, per design system v5) */
+      .x-btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        min-height: var(--x-btn-h); padding: 0 16px; border-radius: 0; text-decoration: none;
+        font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.01em; white-space: nowrap;
+        border: 1px solid transparent; transition: background-color .2s, border-color .2s; cursor: pointer;
+      }
+      .x-btn--dark { background: var(--x-ink); color: #fff; }
+      .x-btn--dark:hover { background: #2a2a2a; }
+      .x-btn--light { background: #fff; color: var(--x-ink); border-color: var(--x-rule); }
+      .x-btn--light:hover { border-color: #9a9a9a; }
+      .x-btn--lg { min-height: var(--x-btn-h-lg); padding: 0 19px; font-size: 13px; }
+
+      /* ===== Header ===== */
+      .x-head { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid transparent; transition: border-color .2s; }
+      .x-head.is-scrolled { border-bottom-color: var(--x-line); }
+      .x-head__in { display: flex; align-items: center; justify-content: space-between; gap: 13px; height: var(--x-hh); }
+      .x-brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--x-ink); font-weight: 600; font-size: 14px; letter-spacing: -0.02em; min-height: 44px; }
+      .x-logo { --lh: 26px; position: relative; display: block; flex: none; overflow: hidden; height: var(--lh); width: calc(var(--lh) * 2576 / 554); }
+      .x-logo img { position: absolute; max-width: none; height: calc(var(--lh) * 965 / 554); width: auto; top: calc(var(--lh) * -209 / 554); left: calc(var(--lh) * -212 / 554); }
+      .x-logo--foot { --lh: 36px; }
+      .x-nav { display: flex; gap: 2px; }
+      .x-nav a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; color: var(--x-grey); text-decoration: none; font-size: var(--x-fs-ui); font-weight: 500; border-radius: 0; transition: color .2s; }
+      .x-nav a:hover { color: var(--x-ink); }
+      .x-head__cta { display: flex; gap: 6px; align-items: center; }
+      .x-menu { display: none; width: 44px; height: 44px; border: 1px solid var(--x-rule); border-radius: 0; background: #fff; cursor: pointer; align-items: center; justify-content: center; }
+      .x-menu span, .x-menu span::before { display: block; width: 14px; height: 1.5px; background: var(--x-ink); position: relative; }
+      .x-menu span::before { content: ""; position: absolute; top: 4px; }
+      .x-menu span { top: -2px; }
+      @media (max-width: 920px) {
+        .x-nav { display: none; position: absolute; top: var(--x-hh); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--x-line); flex-direction: column; padding: 6px var(--x-gut) 13px; }
+        .x-head.is-open .x-nav { display: flex; }
+        .x-nav a { font-size: 14px; color: var(--x-ink); min-height: 44px; }
+        .x-menu { display: inline-flex; }
+      }
+      @media (max-width: 440px) { .x-head__cta .x-signin { display: none; } }
+
+      /* Product dropdown */
+      .x-dd { position: relative; display: flex; align-items: center; }
+      .x-dd__btn { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 0 10px; border: 0; border-radius: 0; background: none; color: var(--x-grey); font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.005em; cursor: pointer; transition: color .2s; }
+      .x-dd__btn:hover, .x-dd.is-open .x-dd__btn { color: var(--x-ink); }
+      .x-dd__chev { flex: none; width: 5px; height: 5px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); transition: transform .2s; }
+      .x-dd.is-open .x-dd__chev { transform: translateY(1px) rotate(-135deg); }
+      .x-dd__lbl { display: none; }
+      .x-dd__menu { display: none; position: absolute; top: 100%; left: 0; z-index: 60; width: 268px; margin: 0; padding: 6px; list-style: none; background: #fff; border: 1px solid var(--x-rule); }
+      .x-dd.is-open .x-dd__menu { display: block; }
+      .x-nav .x-dd__menu a { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 3px; min-height: 44px; padding: 8px 10px; border-radius: 0; color: var(--x-ink); font-size: 13px; font-weight: 600; letter-spacing: -0.015em; }
+      .x-dd__menu a small { font-size: 12px; font-weight: 500; letter-spacing: -0.005em; color: var(--x-grey); }
+      .x-nav .x-dd__menu a:hover { background: var(--x-tint); }
+      @media (hover: hover) and (min-width: 921px) {
+        .x-dd:hover .x-dd__menu { display: block; }
+        .x-dd:hover .x-dd__btn { color: var(--x-ink); }
+      }
+      @media (max-width: 920px) {
+        .x-dd { flex-direction: column; align-items: stretch; }
+        .x-dd__btn { display: none; }
+        .x-dd__lbl { display: block; padding: 10px 10px 2px; font: 500 12px/1.2 var(--x-sans); color: var(--x-grey); }
+        .x-dd__menu, .x-dd.is-open .x-dd__menu { display: block; position: static; width: auto; padding: 0 0 4px; border: 0; }
+        .x-nav .x-dd__menu a { font-size: 14px; }
+      }
+      @media (pointer: coarse) {
+        .x-btn, .x-nav a, .x-dd__btn { min-height: 44px; }
+      }
+
+      /* ===== Footer: blueprint grid ===== */
+      .x-ft { --ft-line: #D4D4D4; --ft-tile: #E6E6E6; padding: var(--x-sec-pad) 0 48px; }
+      .x-ft__frame { padding: 0 14px; border-inline: 1px solid #E6E6E6; background: var(--x-hatch); }
+      .x-ft__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr) minmax(0, 1fr); border-top: 1px solid var(--ft-line); border-left: 1px solid var(--ft-line); }
+      .x-ft__cell { position: relative; box-sizing: border-box; min-width: 0; padding: 28px 24px 30px; background: #fff; border-right: 1px solid var(--ft-line); border-bottom: 1px solid var(--ft-line); }
+      .x-ft__cell--b { background: #F7F7F7; }
+      .x-ft__cell--r { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+      .x-ft__x { position: absolute; z-index: 2; width: 13px; height: 13px; pointer-events: none; background: linear-gradient(#111, #111) 6px 0 / 1px 100% no-repeat, linear-gradient(#111, #111) 0 6px / 100% 1px no-repeat; }
+      .x-ft__x--tl { left: -7px; top: -7px; } .x-ft__x--tr { right: -6px; top: -7px; }
+      .x-ft__x--bl { left: -7px; bottom: -6px; } .x-ft__x--br { right: -6px; bottom: -6px; }
+      .x-ft__lbl { display: flex; align-items: center; gap: 8px; margin: 0 0 16px; font: 500 13px/1.2 var(--x-sans); letter-spacing: -0.01em; color: var(--x-ember-dk); }
+      .x-ft__lbl::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-ft__logo { display: inline-flex; min-height: 44px; align-items: center; }
+      .x-ft__tag { margin: 14px 0 0; max-width: 240px; font: 500 13px/1.5 var(--x-sans); color: #555; }
+      .x-ft ul { list-style: none; margin: 0; padding: 0; }
+      .x-ft__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+      .x-ft__h { margin: 0 0 6px; font: 500 13px/1.3 var(--x-sans); color: #555; }
+      .x-ft__links a { display: inline-flex; align-items: center; min-height: 32px; padding: 4px 0; box-sizing: border-box; color: var(--x-ink); text-decoration: none; font: 500 13px/1.3 var(--x-sans); letter-spacing: -0.01em; transition: color .2s; }
+      .x-ft__links a:hover { color: var(--x-ember-dk); }
+      .x-ft__links a[aria-current="page"] { color: var(--x-ember-dk); }
+      .x-ft__copy { margin: 18px 0 0; font: 500 12px/1.4 var(--x-sans); color: #555; }
+      .x-ft__tiles { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; max-width: calc(56px * 3 + 12px); }
+      .x-ft__tile { position: relative; box-sizing: border-box; display: grid; place-items: center; width: 56px; height: 56px; background: #fff; border: 1px solid var(--ft-tile); color: var(--x-ink); text-decoration: none; transition: background-color .2s, color .2s, border-color .2s; }
+      .x-ft__tile svg { width: 22px; height: 22px; }
+      .x-ft__tile:hover, .x-ft__tile:focus-visible { background: var(--x-ink); border-color: var(--x-ink); color: #fff; }
+      .x-ft__tile::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); right: 0; z-index: 3; padding: 6px 9px; background: var(--x-ink); color: #fff; font: 500 12px/1.2 var(--x-sans); white-space: nowrap; opacity: 0; transform: translateY(3px); pointer-events: none; transition: opacity .15s, transform .15s; }
+      .x-ft__tile:hover::after, .x-ft__tile:focus-visible::after { opacity: 1; transform: none; }
+      .x-ft__ctas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; height: 100%; }
+      .x-ft__cta { display: flex; flex-direction: column; gap: 6px; box-sizing: border-box; min-height: 44px; padding: 18px 18px 20px; background: #fff; border: 1px solid var(--ft-tile); color: var(--x-ink); text-decoration: none; transition: border-color .2s; }
+      .x-ft__cta:hover { border-color: var(--x-ink); }
+      .x-ft__cta b { display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 600 15px/1.25 var(--x-sans); letter-spacing: -0.02em; }
+      .x-ft__cta b::after { content: "→"; font-weight: 500; color: var(--x-ember-dk); transition: transform .2s; }
+      .x-ft__cta:hover b::after { transform: translateX(3px); }
+      .x-ft__cta span { font: 500 13px/1.45 var(--x-sans); color: #555; }
+      @media (pointer: coarse) { .x-ft__links a { min-height: 44px; } }
+      @media (max-width: 860px) {
+        .x-ft__grid { grid-template-columns: minmax(0, 1fr); }
+        .x-ft__cell--r { align-items: flex-start; text-align: left; }
+        .x-ft__tiles { justify-content: flex-start; }
+        .x-ft__tile::after { right: auto; left: 0; }
+      }
+      @media (max-width: 560px) {
+        .x-ft__frame { padding: 0 8px; }
+        .x-ft__cell { padding: 24px 18px 26px; }
+        .x-ft__cols, .x-ft__ctas { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      }
+
+      /* ===== Contact page ===== */
+      .x-sec { padding: var(--x-sec-pad) 0 0; scroll-margin-top: var(--x-hh); }
+      .x-sec__head { margin-bottom: clamp(24px, 3.4vw, 40px); }
+      .x-sec__head .x-p { margin-top: 14px; max-width: 520px; font-size: 15px; }
+      .x-frame { padding: 0 14px; border-inline: 1px solid var(--x-line); background: var(--x-hatch); }
+      .x-lbl { display: flex; align-items: center; gap: 8px; margin: 0 0 16px; font: 500 13px/1.2 var(--x-sans); letter-spacing: -0.01em; color: var(--x-ember-dk); }
+      .x-lbl::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+
+      .x-ch { padding-top: 10px; }
+      .x-ch__cell { padding: clamp(48px, 8vw, 104px) clamp(20px, 4vw, 48px); background: #fff; border-block: 1px solid var(--x-rule); }
+      .x-ch__sub { margin-top: 21px; max-width: 520px; font-size: clamp(14px, 1.28vw, 16px); }
+      .x-ch__cta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 27px; }
+
+      .x-opts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--x-line); border-block: 1px solid var(--x-rule); }
+      .x-opt { display: flex; flex-direction: column; gap: 8px; box-sizing: border-box; padding: 24px 24px 22px; background: #fff; }
+      .x-opt h3 { margin: 0; font: 600 17px/1.2 var(--x-sans); letter-spacing: -0.02em; }
+      .x-opt p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--x-grey); }
+      .x-opt__val { color: var(--x-ink) !important; overflow-wrap: anywhere; }
+      .x-opt__go { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: auto; padding-top: 6px; font-size: 13px; font-weight: 600; letter-spacing: -0.01em; color: var(--x-ember-dk); text-decoration: none; }
+      .x-opt__go::after { content: "→"; transition: transform .2s; }
+      .x-opt__go:hover::after { transform: translateX(3px); }
+      .x-opt a.x-inl, .x-biz a, .x-form__aside a { color: var(--x-ink); text-underline-offset: 3px; }
+      .x-opt a.x-inl:hover, .x-biz a:hover, .x-form__aside a:hover { color: var(--x-ember-dk); }
+
+      .x-form__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 1px; background: var(--x-line); border-block: 1px solid var(--x-rule); }
+      .x-form__aside { padding: clamp(20px, 3vw, 32px); background: var(--x-panel); }
+      .x-form__aside .x-p + .x-p { margin-top: 12px; }
+      .x-form { display: grid; gap: 20px; padding: clamp(20px, 3vw, 32px); background: #fff; }
+      .x-f { display: grid; gap: 7px; min-width: 0; }
+      .x-f > label { font: 500 12px/1.3 var(--x-sans); color: var(--x-ink); }
+      .x-f em { font-style: normal; color: var(--x-ember-dk); }
+      .x-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .x-form input, .x-form select, .x-form textarea {
+        box-sizing: border-box; width: 100%; min-height: 44px; margin: 0; padding: 10px 12px; border: 1px solid var(--x-rule); border-radius: 0; background: #fff;
+        font: 400 14px/1.4 var(--x-sans); color: var(--x-ink); transition: border-color .2s; -webkit-appearance: none; appearance: none;
+      }
+      .x-form select {
+        padding-right: 36px; cursor: pointer;
+        background-image: linear-gradient(45deg, transparent 50%, #111 50%), linear-gradient(135deg, #111 50%, transparent 50%);
+        background-position: calc(100% - 19px) 50%, calc(100% - 14px) 50%; background-size: 5px 5px; background-repeat: no-repeat;
+      }
+      .x-form textarea { min-height: 140px; resize: vertical; }
+      .x-form input:hover, .x-form select:hover, .x-form textarea:hover { border-color: #9a9a9a; }
+      .x-form input:focus-visible, .x-form select:focus-visible, .x-form textarea:focus-visible { outline: 2px solid var(--x-ember-dk); outline-offset: 0; border-color: var(--x-ink); }
+      .x-form [aria-invalid="true"] { border-color: var(--x-ember-dk) !important; }
+      .x-err { margin: 0; font: 500 12px/1.3 var(--x-sans); color: var(--x-ember-dk); }
+      .x-err:empty { display: none; }
+      .x-form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+      .x-form__note { margin: 0; font: 500 12px/1.4 var(--x-sans); color: var(--x-grey); }
+      .x-form__status { margin: 0; padding: 12px 14px; background: var(--x-tint); font: 500 13px/1.45 var(--x-sans); color: var(--x-ink); }
+      .x-form__status:empty { display: none; }
+      .x-form__status a { color: inherit; text-underline-offset: 3px; }
+
+      .x-biz { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px; padding: 20px 24px; background: #fff; border-block: 1px solid var(--x-rule); }
+      .x-biz p { margin: 0; font-size: 14px; color: var(--x-grey); }
+      .x-biz b { font-weight: 600; color: var(--x-ink); }
+      .x-biz__soc { display: flex; gap: 4px 20px; flex-wrap: wrap; }
+      .x-biz__soc a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; }
+
+      @media (max-width: 760px) {
+        .x-opts, .x-form__grid { grid-template-columns: 1fr; }
+        .x-frame { padding: 0 8px; }
+      }
+      @media (max-width: 560px) { .x-form__row { grid-template-columns: 1fr; } }
+      /* Mobile tap targets: 44px minimum */
+      @media (max-width: 760px) {
+        .x-head__cta .x-btn, .x-ft__links a { min-height: 44px; }
+        .x-ft__links a, .x-biz__soc a { min-width: 44px; }
+        .x-opt a.x-inl, .x-form__aside a, .x-biz p a { display: inline-flex; align-items: center; min-height: 44px; vertical-align: middle; }
+      }
+    </style>
+    <link rel="stylesheet" href="/assets/chrome.css" />
+  </head>
+  <body class="x-body">
+    <div class="x-page" id="top">
+      <!-- partial:header -->
+      <header class="x-head" id="head">
+        <div class="x-wrap x-head__in">
+          <a class="x-brand" href="/"><span class="x-logo"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
+          <nav class="x-nav" id="nav" aria-label="Main">
+            <div class="x-dd" id="x-dd">
+              <button class="x-dd__btn" type="button" aria-expanded="false" aria-controls="x-dd-menu">Product<span class="x-dd__chev" aria-hidden="true"></span></button>
+              <span class="x-dd__lbl" aria-hidden="true">Product</span>
+              <ul class="x-dd__menu" id="x-dd-menu" aria-label="Product">
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Engine</p>
+                  <ul>
+                    <li><a href="/agents/">Agents<small>8 AI agents, one crew</small></a></li>
+                    <li><a href="/flows/">Flows<small>Email + LinkedIn in one chain</small></a></li>
+                    <li><a href="/plays/">Plays<small>Funding &amp; hiring triggers</small></a></li>
+                  </ul>
+                </li>
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Outreach</p>
+                  <ul>
+                    <li><a href="/lead-lists/">Lead lists<small>Built from buying signals</small></a></li>
+                    <li><a href="/verification/">Verification<small>Every email checked first</small></a></li>
+                    <li><a href="/deliverability/">Deliverability<small>Separate domains, 21-day warm-up</small></a></li>
+                    <li><a href="/linkedin/">LinkedIn<small>Invites, messages and InMail</small></a></li>
+                  </ul>
+                </li>
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Pipeline</p>
+                  <ul>
+                    <li><a href="/replies/">Replies<small>One inbox, every channel</small></a></li>
+                    <li><a href="/meetings/">Meetings<small>Meetings to won deals</small></a></li>
+                    <li><a href="/reports/">Reports<small>The Monday report</small></a></li>
+                    <li><a href="/client-workspaces/">Client workspaces<small>One workspace per client</small></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <a href="/#start">How it works</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </nav>
+          <div class="x-head__cta">
+            <a class="x-btn x-btn--light x-signin" href="/pricing/">See pricing</a>
+            <a class="x-btn x-btn--dark" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+            <button class="x-menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+          </div>
+        </div>
+      </header>
+      <!-- /partial:header -->
+
+      <main id="main">
+        <!-- Hero -->
+        <section class="x-ch x-wrap" aria-labelledby="hero-h">
+          <div class="x-frame">
+            <div class="x-ch__cell">
+              <p class="x-lbl">Contact</p>
+              <h1 class="x-h1" id="hero-h">Talk to a human.</h1>
+              <p class="x-p x-ch__sub">Questions about Bonfire GTM, billing, refunds or a custom plan? Write to us or book a call, and a person replies.</p>
+              <div class="x-ch__cta">
+                <a class="x-btn x-btn--dark x-btn--lg" href="#message">Send a message</a>
+                <a class="x-btn x-btn--light x-btn--lg" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact options -->
+        <section class="x-sec x-wrap" id="options" aria-labelledby="options-h">
+          <div class="x-sec__head">
+            <h2 class="x-h2" id="options-h">Pick the fastest way in.</h2>
+          </div>
+          <div class="x-frame">
+            <ul class="x-opts">
+              <li class="x-opt">
+                <p class="x-lbl">Email support</p>
+                <h3><a class="x-inl x-opt__val" href="mailto:bonfiregtm@gmail.com">bonfiregtm@gmail.com</a></h3>
+                <p>We reply within 2 business days, Monday to Friday, India Standard Time (IST).</p>
+                <a class="x-opt__go" href="mailto:bonfiregtm@gmail.com">Email us</a>
+              </li>
+              <li class="x-opt">
+                <p class="x-lbl">Book a demo</p>
+                <h3>A 20-minute call</h3>
+                <p>See Bonfire GTM run on your own ICP, or talk through a custom plan for a larger team.</p>
+                <a class="x-opt__go" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book on cal.com</a>
+              </li>
+              <li class="x-opt">
+                <p class="x-lbl">Billing and refunds</p>
+                <h3>Include your order ID</h3>
+                <p>Email us with your Dodo Payments order ID. Dodo Payments is our Merchant of Record and issues every invoice. See the <a class="x-inl" href="/refund/">refund and cancellation policy</a>.</p>
+                <a class="x-opt__go" href="mailto:bonfiregtm@gmail.com?subject=Billing%20%26%20refunds">Email billing</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Contact form -->
+        <section class="x-sec x-wrap" id="message" aria-labelledby="message-h">
+          <div class="x-sec__head">
+            <h2 class="x-h2" id="message-h">Send us a message.</h2>
+            <p class="x-p">Fill this in and your email app opens with everything ready to send.</p>
+          </div>
+          <div class="x-frame">
+            <div class="x-form__grid">
+              <div class="x-form__aside">
+                <p class="x-lbl">How this works</p>
+                <p class="x-p">Nothing is stored on this site. Pressing send opens a new email to bonfiregtm@gmail.com with your subject and message filled in; you send it from your own inbox.</p>
+                <p class="x-p">No email app set up? Write to <a href="mailto:bonfiregtm@gmail.com">bonfiregtm@gmail.com</a> directly.</p>
+              </div>
+              <form class="x-form" id="x-form" novalidate>
+                <div class="x-form__row">
+                  <div class="x-f">
+                    <label for="f-name">Name <em>*</em></label>
+                    <input id="f-name" name="name" type="text" autocomplete="name" required />
+                    <p class="x-err" id="f-name-e" aria-live="polite"></p>
+                  </div>
+                  <div class="x-f">
+                    <label for="f-email">Work email <em>*</em></label>
+                    <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required />
+                    <p class="x-err" id="f-email-e" aria-live="polite"></p>
+                  </div>
+                </div>
+                <div class="x-f">
+                  <label for="f-topic">Topic <em>*</em></label>
+                  <select id="f-topic" name="topic" required>
+                    <option value="">Choose a topic</option>
+                    <option>Sales/custom plan</option>
+                    <option>Support</option>
+                    <option>Billing &amp; refunds</option>
+                    <option>Privacy request</option>
+                    <option>Other</option>
+                  </select>
+                  <p class="x-err" id="f-topic-e" aria-live="polite"></p>
+                </div>
+                <div class="x-f">
+                  <label for="f-msg">Message <em>*</em></label>
+                  <textarea id="f-msg" name="message" rows="6" required></textarea>
+                  <p class="x-err" id="f-msg-e" aria-live="polite"></p>
+                </div>
+                <div class="x-form__foot">
+                  <button class="x-btn x-btn--dark x-btn--lg" type="submit">Open in my email app</button>
+                  <p class="x-form__note">For billing, add your Dodo Payments order ID.</p>
+                </div>
+                <p class="x-form__status" id="f-status" role="status"></p>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- Business details -->
+        <section class="x-sec x-wrap" aria-label="Business details">
+          <div class="x-frame">
+            <div class="x-biz">
+              <p><b>Bonfire GTM</b>, run by its founder as a sole proprietor, Maharashtra, India. <a href="https://bonfiregtm.com" target="_blank" rel="noopener">bonfiregtm.com</a></p>
+              <div class="x-biz__soc">
+                <a href="https://x.com/bonfiregtm" target="_blank" rel="noopener">X</a>
+                <a href="https://www.linkedin.com/company/bonfiregtm" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- partial:footer -->
+      <footer class="x-foot x-ft">
+        <div class="x-wrap">
+          <div class="x-ft__frame">
+            <div class="x-ft__grid">
+              <!-- Row 1 -->
+              <div class="x-ft__cell">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <a class="x-ft__logo" href="/" aria-label="Bonfire GTM home"><span class="x-logo x-logo--foot"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
+                <p class="x-ft__tag">Your whole outbound engine, kept warm.</p>
+              </div>
+              <nav class="x-ft__cell" aria-label="Quick links">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Quick links</p>
+                <div class="x-ft__cols">
+                  <div>
+                    <h3 class="x-ft__h">Product</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/flows/">Flows</a></li>
+                      <li><a href="/agents/">Agents</a></li>
+                      <li><a href="/plays/">Plays</a></li>
+                      <li><a href="/reports/">Reports</a></li>
+                      <li><a href="/client-workspaces/">Client workspaces</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Features</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/lead-lists/">Lead lists</a></li>
+                      <li><a href="/verification/">Verification</a></li>
+                      <li><a href="/deliverability/">Deliverability</a></li>
+                      <li><a href="/linkedin/">LinkedIn</a></li>
+                      <li><a href="/replies/">Replies</a></li>
+                      <li><a href="/meetings/">Meetings</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Resources</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/blog/">Blog</a></li>
+                      <li><a href="/pricing/">Pricing</a></li>
+                      <li><a href="/contact/">Contact</a></li>
+                      <li><a href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Legal</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/terms/">Terms of service</a></li>
+                      <li><a href="/privacy/">Privacy policy</a></li>
+                      <li><a href="/refund/">Refund and cancellation</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <div class="x-ft__cell x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Social</p>
+                <div class="x-ft__tiles">
+                  <a class="x-ft__tile" href="https://www.linkedin.com/company/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on LinkedIn" data-tip="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M8 10.5V17M12 17v-6.5M12 13.5c0-1.9 1.2-3 2.7-3s2.3 1 2.3 2.8V17"/><circle cx="8" cy="7.5" r=".6" fill="currentColor"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="https://x.com/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on X" data-tip="X">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4h4.2L20 20h-4.2z"/><path d="M19.5 4l-6.4 7M4.5 20l6.4-7"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="mailto:bonfiregtm@gmail.com" aria-label="Email bonfiregtm@gmail.com" data-tip="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13"/><path d="M3 6l9 7 9-7"/></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Row 2 -->
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Bonfire GTM</p>
+                <p class="x-ft__copy">© 2026 Bonfire GTM</p>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <div class="x-ft__ctas">
+                  <a class="x-ft__cta" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">
+                    <img src="/assets/app-icon.png" alt="" width="24" height="24" />
+                    <b>Book a 20-min demo</b>
+                    <span>See your engine run on your own ICP.</span>
+                  </a>
+                  <a class="x-ft__cta" href="/pricing/">
+                    <img src="/assets/app-icon.png" alt="" width="24" height="24" />
+                    <b>See pricing</b>
+                    <span>$149 a month with 1,000 credits included.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Ask AI about us</p>
+                <div class="x-ft__tiles" id="x-ft-ai">
+                  <a class="x-ft__tile" data-ai="https://chatgpt.com/?q=" href="https://chatgpt.com/" target="_blank" rel="noopener" aria-label="Ask ChatGPT about Bonfire GTM" data-tip="Ask ChatGPT">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://claude.ai/new?q=" href="https://claude.ai/new" target="_blank" rel="noopener" aria-label="Ask Claude about Bonfire GTM" data-tip="Ask Claude">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.3 4.3M14.1 14.1l4.3 4.3M18.4 5.6l-4.3 4.3M9.9 14.1l-4.3 4.3"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.perplexity.ai/search?q=" href="https://www.perplexity.ai/" target="_blank" rel="noopener" aria-label="Ask Perplexity about Bonfire GTM" data-tip="Ask Perplexity">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M5 3l7 6 7-6v6H5zM5 9v8l7-6 7 6V9M5 15v4l7-5 7 5v-4"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.google.com/search?udm=50&amp;q=" href="https://www.google.com/search?udm=50" target="_blank" rel="noopener" aria-label="Ask Gemini (Google AI Mode) about Bonfire GTM" data-tip="Ask Gemini">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c.6 5.2 4.3 8.9 9.5 9.5-5.2.6-8.9 4.3-9.5 9.5-.6-5.2-4.3-8.9-9.5-9.5 5.2-.6 8.9-4.3 9.5-9.5z"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://grok.com/?q=" href="https://grok.com/" target="_blank" rel="noopener" aria-label="Ask Grok about Bonfire GTM" data-tip="Ask Grok">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M18.5 4L5 20.5"/><path d="M15.5 7.2A7 7 0 0 0 6 16.8"/><path d="M18 9.5a7 7 0 0 1-8.6 9.7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          (function () {
+            var q = encodeURIComponent("Explain what Bonfire GTM (bonfiregtm.com) does, who it's for, and how it compares to Instantly, Smartlead and Clay.");
+            document.querySelectorAll("#x-ft-ai [data-ai]").forEach(function (a) { a.href = a.getAttribute("data-ai") + q; });
+          })();
+        </script>
+      </footer>
+      <!-- /partial:footer -->
+    </div>
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        /* Contact form: validate, then open a prefilled mailto (no backend) */
+        var TO = "bonfiregtm@gmail.com";
+        var form = document.getElementById("x-form"), status = document.getElementById("f-status");
+        var fields = ["f-name", "f-email", "f-topic", "f-msg"].map(function (id) { return document.getElementById(id); });
+        function setErr(el, msg) {
+          var e = document.getElementById(el.id + "-e");
+          if (msg) { el.setAttribute("aria-invalid", "true"); el.setAttribute("aria-describedby", e.id); }
+          else { el.removeAttribute("aria-invalid"); el.removeAttribute("aria-describedby"); }
+          e.textContent = msg || "";
+        }
+        function check() {
+          var first = null;
+          fields.forEach(function (el) {
+            var v = el.value.trim(), msg = "";
+            if (!v) msg = el.tagName === "SELECT" ? "Choose a topic." : "Required.";
+            else if (el.type === "email" && !el.checkValidity()) msg = "Enter a valid email.";
+            setErr(el, msg);
+            if (msg && !first) first = el;
+          });
+          return first;
+        }
+        fields.forEach(function (el) {
+          el.addEventListener("input", function () { if (el.getAttribute("aria-invalid")) setErr(el, ""); });
+          el.addEventListener("change", function () { if (el.getAttribute("aria-invalid") && el.value.trim()) setErr(el, ""); });
+        });
+        form.addEventListener("submit", function (ev) {
+          ev.preventDefault();
+          var bad = check();
+          if (bad) { bad.focus(); status.textContent = ""; return; }
+          var name = fields[0].value.trim(), email = fields[1].value.trim(), topic = fields[2].value, msg = fields[3].value.trim();
+          var subject = topic + ": message from " + name;
+          var body = msg + "\n\n--\nName: " + name + "\nWork email: " + email + "\nTopic: " + topic + "\nSent from bonfiregtm.com/contact/";
+          var href = "mailto:" + TO + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+          window.location.href = href;
+          status.innerHTML = "Your email app should open with the message ready. Nothing happened? <a href=\"" + href.replace(/"/g, "&quot;") + "\">Try again</a> or write to <a href=\"mailto:" + TO + "\">" + TO + "</a>.";
+        });
+      })();
+    </script>
+    <script src="/assets/site.js"></script>
+    <script src="/assets/chrome.js"></script>
+  </body>
+</html>

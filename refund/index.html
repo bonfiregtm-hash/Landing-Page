@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Refund and cancellation policy · Bonfire GTM</title>
+    <meta name="description" content="How to cancel Bonfire GTM, when refunds apply, and how to request one. Payments are handled by Dodo Payments, our Merchant of Record." />
+    <link rel="stylesheet" href="hark.css" />
+    <style>
+      /* ===== Global (Bonfire v4, copied from the landing) ===== */
+      @font-face { font-family: "Geist"; src: url("/assets/fonts/Geist.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+      @font-face { font-family: "Geist Mono"; src: url("/assets/fonts/GeistMono.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+      :root {
+        --x-ink: #111111; --x-grey: #555555; --x-line: #E6E6E6; --x-rule: #D4D4D4; --x-panel: #F7F7F7;
+        --x-ember: #FF5A1F; --x-ember-dk: #C2410C; --x-tint: #FFF1EA;
+        --x-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+        --x-mono: "Geist Mono", ui-monospace, monospace;
+        --x-max: 992px; --x-gut: clamp(16px, 3.2vw, 32px);
+        --x-hh: 54px; --x-annh: 0px;
+        --x-fs-h1: clamp(36px, 5.6vw, 67px);
+        --x-fs-body: 14.5px;
+        --x-fs-ui: 12px;
+        --x-btn-h: 36px;
+        --x-sec-pad: clamp(64px, 8.8vw, 112px);
+        color-scheme: light;
+      }
+      html { background: #fff; scroll-behavior: smooth; }
+      body.x-body {
+        margin: 0; background: #fff; color: var(--x-ink);
+        font: 500 var(--x-fs-body)/1.55 var(--x-sans); letter-spacing: -0.005em;
+        -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      }
+      .x-body :focus-visible { outline: 2px solid var(--x-ember-dk); outline-offset: 3px; border-radius: 0; }
+      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: var(--x-gut); }
+
+      /* Buttons */
+      .x-btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        min-height: var(--x-btn-h); padding: 0 16px; border-radius: 999px; text-decoration: none;
+        font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.01em; white-space: nowrap;
+        border: 1px solid transparent; transition: background-color .2s, border-color .2s;
+      }
+      .x-btn--dark { background: var(--x-ink); color: #fff; }
+      .x-btn--dark:hover { background: #2a2a2a; }
+      .x-btn--light { background: #fff; color: var(--x-ink); border-color: #D9D9D9; }
+      .x-btn--light:hover { border-color: #9a9a9a; }
+
+      /* ===== Header ===== */
+      .x-head { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid transparent; transition: border-color .2s; }
+      .x-head.is-scrolled { border-bottom-color: var(--x-line); }
+      .x-head__in { display: flex; align-items: center; justify-content: space-between; gap: 13px; height: var(--x-hh); }
+      .x-brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--x-ink); font-weight: 600; font-size: 14px; letter-spacing: -0.02em; min-height: 36px; }
+      .x-logo { --lh: 26px; position: relative; display: block; flex: none; overflow: hidden; height: var(--lh); width: calc(var(--lh) * 2576 / 554); }
+      .x-logo img { position: absolute; max-width: none; height: calc(var(--lh) * 965 / 554); width: auto; top: calc(var(--lh) * -209 / 554); left: calc(var(--lh) * -212 / 554); }
+      .x-logo--foot { --lh: 36px; }
+      .x-nav { display: flex; gap: 2px; }
+      .x-nav a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; color: var(--x-grey); text-decoration: none; font-size: var(--x-fs-ui); font-weight: 500; transition: color .2s; }
+      .x-nav a:hover { color: var(--x-ink); }
+      .x-head__cta { display: flex; gap: 6px; align-items: center; }
+      .x-menu { display: none; width: 36px; height: 36px; border: 1px solid #D9D9D9; border-radius: 999px; background: #fff; cursor: pointer; align-items: center; justify-content: center; }
+      .x-menu span, .x-menu span::before { display: block; width: 14px; height: 1.5px; background: var(--x-ink); position: relative; }
+      .x-menu span::before { content: ""; position: absolute; top: 4px; }
+      .x-menu span { top: -2px; }
+      @media (max-width: 920px) {
+        .x-nav { display: none; position: absolute; top: var(--x-hh); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--x-line); flex-direction: column; padding: 6px var(--x-gut) 13px; }
+        .x-head.is-open .x-nav { display: flex; }
+        .x-nav a { font-size: 14px; color: var(--x-ink); }
+        .x-menu { display: inline-flex; }
+      }
+      @media (max-width: 440px) { .x-head__cta .x-signin { display: none; } }
+
+      /* Product dropdown */
+      .x-dd { position: relative; display: flex; align-items: center; }
+      .x-dd__btn { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 0 10px; border: 0; background: none; color: var(--x-grey); font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.005em; cursor: pointer; transition: color .2s; }
+      .x-dd__btn:hover, .x-dd.is-open .x-dd__btn { color: var(--x-ink); }
+      .x-dd__chev { flex: none; width: 5px; height: 5px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); transition: transform .2s; }
+      .x-dd.is-open .x-dd__chev { transform: translateY(1px) rotate(-135deg); }
+      .x-dd__lbl { display: none; }
+      .x-dd__menu { display: none; position: absolute; top: 100%; left: 0; z-index: 60; width: 268px; margin: 0; padding: 6px; list-style: none; background: #fff; border: 1px solid #D4D4D4; }
+      .x-dd.is-open .x-dd__menu { display: block; }
+      .x-nav .x-dd__menu a { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 3px; min-height: 44px; padding: 8px 10px; color: var(--x-ink); font-size: 13px; font-weight: 600; letter-spacing: -0.015em; }
+      .x-dd__menu a small { font-size: 12px; font-weight: 500; letter-spacing: -0.005em; color: var(--x-grey); }
+      .x-nav .x-dd__menu a:hover { background: var(--x-tint); }
+      @media (hover: hover) and (min-width: 921px) {
+        .x-dd:hover .x-dd__menu { display: block; }
+        .x-dd:hover .x-dd__btn { color: var(--x-ink); }
+      }
+      @media (max-width: 920px) {
+        .x-dd { flex-direction: column; align-items: stretch; }
+        .x-dd__btn { display: none; }
+        .x-dd__lbl { display: block; padding: 10px 10px 2px; font: 500 12px/1.2 var(--x-sans); color: var(--x-grey); }
+        .x-dd__menu, .x-dd.is-open .x-dd__menu { display: block; position: static; width: auto; padding: 0 0 4px; border: 0; }
+        .x-nav .x-dd__menu a { font-size: 14px; }
+      }
+
+      /* ===== Legal page: hatched gutters, white 720px column ===== */
+      .x-lg { padding: clamp(32px, 4vw, 48px) 0 0; }
+      .x-lg__frame { padding: 0 14px; border-inline: 1px solid var(--x-line); background: repeating-linear-gradient(135deg, #E2E2E2 0 1px, transparent 1px 6px); }
+      .x-lg__in { background: #fff; border-inline: 1px solid var(--x-rule); padding: clamp(40px, 6vw, 72px) var(--x-gut) clamp(48px, 7vw, 88px); }
+      .x-lg__col { max-width: 720px; margin: 0 auto; }
+      .x-lg h1 { margin: 0; font: 600 clamp(32px, 4.6vw, 52px)/1.02 var(--x-sans); letter-spacing: -0.035em; color: var(--x-ink); text-wrap: balance; }
+      .x-lg__date { margin: 16px 0 0; font-size: 13px; color: #666666; }
+      .x-lg__lead { margin: 20px 0 0; font-size: 16px; line-height: 1.55; color: var(--x-grey); }
+      .x-lg p, .x-lg li { color: var(--x-grey); font-size: 15px; line-height: 1.65; }
+      .x-lg p + p { margin-top: 12px; }
+      .x-lg strong { color: var(--x-ink); font-weight: 600; }
+
+      /* Table of contents */
+      .x-toc { margin: 36px 0 0; border: 1px solid var(--x-rule); background: var(--x-panel); padding: 18px 20px 14px; }
+      .x-toc__lbl, .x-sum__lbl { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font: 500 13px/1.2 var(--x-sans); color: var(--x-ember-dk); }
+      .x-toc__lbl::before, .x-sum__lbl::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-toc ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+      .x-toc a { display: flex; align-items: center; gap: 10px; min-height: 36px; color: var(--x-ink); text-decoration: none; font-size: 14px; transition: color .2s; }
+      .x-toc a:hover { color: var(--x-ember-dk); }
+      .x-toc b { font: 400 12px/1 var(--x-mono); color: #666666; min-width: 18px; }
+      @media (max-width: 560px) { .x-toc ol { grid-template-columns: 1fr; } }
+
+      /* Numbered sections */
+      .x-ls { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--x-line); scroll-margin-top: calc(var(--x-hh) + 16px); }
+      .x-ls h2 { display: flex; align-items: baseline; gap: 14px; margin: 0 0 14px; font: 600 clamp(22px, 2.6vw, 28px)/1.15 var(--x-sans); letter-spacing: -0.03em; color: var(--x-ink); }
+      .x-ls h2 b { font: 400 13px/1 var(--x-mono); color: var(--x-ember-dk); }
+      .x-ls ul { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+      .x-ls ul li { position: relative; padding-left: 20px; }
+      .x-ls ul li::before { content: ""; position: absolute; left: 0; top: .72em; width: 6px; height: 6px; background: var(--x-ink); }
+
+      /* Summary box: ember tint, offset sheet behind */
+      .x-sum { position: relative; margin-top: 4px; }
+      .x-sum::before { content: ""; position: absolute; inset: 6px -6px -6px 6px; background: #fff; border: 1px solid var(--x-rule); }
+      .x-sum__in { position: relative; background: var(--x-tint); border: 1px solid var(--x-rule); padding: 20px 22px; }
+      .x-sum ul li::before { background: var(--x-ember); }
+
+      /* Facts table */
+      .x-facts { width: 100%; margin-top: 16px; border-collapse: collapse; border: 1px solid var(--x-rule); font: 500 14px/1.45 var(--x-sans); }
+      .x-facts th, .x-facts td { padding: 12px 14px; border-bottom: 1px solid var(--x-line); text-align: left; vertical-align: top; }
+      .x-facts th:first-child, .x-facts td:first-child { padding-left: 14px; }
+      .x-facts th:last-child, .x-facts td:last-child { padding-right: 14px; }
+      .x-facts thead th { background: var(--x-panel); color: #666666; font-weight: 500; font-size: 12px; }
+      .x-facts tbody th { color: var(--x-ink); font-weight: 600; width: 34%; }
+      .x-facts td { color: var(--x-grey); }
+      @media (max-width: 560px) {
+        .x-facts thead { display: none; }
+        .x-facts, .x-facts tbody, .x-facts tr, .x-facts th, .x-facts td { display: block; width: auto; }
+        .x-facts tbody th { border-bottom: 0; padding-bottom: 2px; }
+      }
+
+      /* In-text links: ember underline, 44px tap area on phones */
+      .x-lg a.x-a { color: var(--x-ink); text-decoration: underline; text-decoration-color: var(--x-ember); text-underline-offset: 3px; text-decoration-thickness: 1px; overflow-wrap: anywhere; transition: color .2s; }
+      .x-lg a.x-a:hover { color: var(--x-ember-dk); }
+      @media (pointer: coarse), (max-width: 640px) {
+        .x-lg a.x-a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; vertical-align: middle; }
+        .x-toc a { min-height: 44px; }
+      }
+
+      /* Contact block */
+      .x-contact { margin-top: 16px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--x-line); border: 1px solid var(--x-rule); }
+      .x-contact > div { background: #fff; padding: 18px 20px; }
+      .x-contact p.x-k { margin: 0 0 4px; font-size: 13px; color: #666666; }
+      .x-contact .x-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+      @media (max-width: 560px) { .x-contact { grid-template-columns: 1fr; } }
+
+      /* ===== Footer: blueprint grid (copied from the landing) ===== */
+      .x-ft { --ft-line: #D4D4D4; --ft-tile: #E6E6E6; padding: var(--x-sec-pad) 0 48px; }
+      .x-ft__frame { padding: 0 14px; border-inline: 1px solid #E6E6E6; background: repeating-linear-gradient(135deg, #E2E2E2 0 1px, transparent 1px 6px); }
+      .x-ft__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr) minmax(0, 1fr); border-top: 1px solid var(--ft-line); border-left: 1px solid var(--ft-line); }
+      .x-ft__cell { position: relative; box-sizing: border-box; min-width: 0; padding: 28px 24px 30px; background: #fff; border-right: 1px solid var(--ft-line); border-bottom: 1px solid var(--ft-line); }
+      .x-ft__cell--b { background: #F7F7F7; }
+      .x-ft__cell--r { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+      .x-ft__x { position: absolute; z-index: 2; width: 13px; height: 13px; pointer-events: none; background: linear-gradient(#111, #111) 6px 0 / 1px 100% no-repeat, linear-gradient(#111, #111) 0 6px / 100% 1px no-repeat; }
+      .x-ft__x--tl { left: -7px; top: -7px; } .x-ft__x--tr { right: -6px; top: -7px; }
+      .x-ft__x--bl { left: -7px; bottom: -6px; } .x-ft__x--br { right: -6px; bottom: -6px; }
+      .x-ft__lbl { display: flex; align-items: center; gap: 8px; margin: 0 0 16px; font: 500 13px/1.2 var(--x-sans); letter-spacing: -0.01em; color: var(--x-ember-dk); }
+      .x-ft__lbl::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-ft__logo { display: inline-flex; min-height: 44px; align-items: center; }
+      .x-ft__tag { margin: 14px 0 0; max-width: 240px; font: 500 13px/1.5 var(--x-sans); color: #555; }
+      .x-ft ul { list-style: none; margin: 0; padding: 0; }
+      .x-ft__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+      .x-ft__h { margin: 0 0 6px; font: 500 13px/1.3 var(--x-sans); color: #6B6B6B; }
+      .x-ft__links a { display: inline-flex; align-items: center; min-height: 32px; padding: 4px 0; box-sizing: border-box; color: var(--x-ink); text-decoration: none; font: 500 13px/1.3 var(--x-sans); letter-spacing: -0.01em; transition: color .2s; }
+      .x-ft__links a:hover { color: var(--x-ember-dk); }
+      .x-ft__links a[aria-current="page"] { color: var(--x-ember-dk); }
+      .x-ft__copy { margin: 18px 0 0; font: 500 12px/1.4 var(--x-sans); color: #6B6B6B; }
+      .x-ft__tiles { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; max-width: calc(56px * 3 + 12px); }
+      .x-ft__tile { position: relative; box-sizing: border-box; display: grid; place-items: center; width: 56px; height: 56px; background: #fff; border: 1px solid var(--ft-tile); color: var(--x-ink); text-decoration: none; transition: background-color .2s, color .2s, border-color .2s; }
+      .x-ft__tile svg { width: 22px; height: 22px; }
+      .x-ft__tile:hover, .x-ft__tile:focus-visible { background: var(--x-ink); border-color: var(--x-ink); color: #fff; }
+      .x-ft__tile::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); right: 0; z-index: 3; padding: 6px 9px; background: var(--x-ink); color: #fff; font: 500 12px/1.2 var(--x-sans); white-space: nowrap; opacity: 0; transform: translateY(3px); pointer-events: none; transition: opacity .15s, transform .15s; }
+      .x-ft__tile:hover::after, .x-ft__tile:focus-visible::after { opacity: 1; transform: none; }
+      .x-ft__ctas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; height: 100%; }
+      .x-ft__cta { display: flex; flex-direction: column; gap: 6px; box-sizing: border-box; min-height: 44px; padding: 18px 18px 20px; background: #fff; border: 1px solid var(--ft-tile); color: var(--x-ink); text-decoration: none; transition: border-color .2s; }
+      .x-ft__cta:hover { border-color: var(--x-ink); }
+      .x-ft__cta b { display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 600 15px/1.25 var(--x-sans); letter-spacing: -0.02em; }
+      .x-ft__cta b::after { content: "→"; font-weight: 500; color: var(--x-ember-dk); transition: transform .2s; }
+      .x-ft__cta:hover b::after { transform: translateX(3px); }
+      .x-ft__cta span { font: 500 13px/1.45 var(--x-sans); color: #555; }
+      @media (max-width: 860px) {
+        .x-ft__grid { grid-template-columns: minmax(0, 1fr); }
+        .x-ft__cell--r { align-items: flex-start; text-align: left; }
+        .x-ft__tiles { justify-content: flex-start; }
+        .x-ft__tile::after { right: auto; left: 0; }
+      }
+      @media (max-width: 560px) {
+        .x-ft__frame, .x-lg__frame { padding: 0 8px; }
+        .x-ft__cell { padding: 24px 18px 26px; }
+        .x-ft__cols, .x-ft__ctas { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .x-body *, .x-body *::before, .x-body *::after { animation: none !important; transition: none !important; }
+      }
+      /* Touch: 44px tap targets */
+      @media (pointer: coarse), (max-width: 640px) {
+        .x-btn, .x-nav a, .x-brand, .x-ft__links a { min-height: 44px; }
+        .x-menu { width: 44px; height: 44px; }
+        .x-ft__links a { min-width: 44px; }
+      }
+    </style>
+    <link rel="stylesheet" href="/assets/chrome.css" />
+  </head>
+  <body class="x-body">
+    <div class="x-page" id="top">
+      <!-- partial:header -->
+      <header class="x-head" id="head">
+        <div class="x-wrap x-head__in">
+          <a class="x-brand" href="/"><span class="x-logo"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
+          <nav class="x-nav" id="nav" aria-label="Main">
+            <div class="x-dd" id="x-dd">
+              <button class="x-dd__btn" type="button" aria-expanded="false" aria-controls="x-dd-menu">Product<span class="x-dd__chev" aria-hidden="true"></span></button>
+              <span class="x-dd__lbl" aria-hidden="true">Product</span>
+              <ul class="x-dd__menu" id="x-dd-menu" aria-label="Product">
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Engine</p>
+                  <ul>
+                    <li><a href="/agents/">Agents<small>8 AI agents, one crew</small></a></li>
+                    <li><a href="/flows/">Flows<small>Email + LinkedIn in one chain</small></a></li>
+                    <li><a href="/plays/">Plays<small>Funding &amp; hiring triggers</small></a></li>
+                  </ul>
+                </li>
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Outreach</p>
+                  <ul>
+                    <li><a href="/lead-lists/">Lead lists<small>Built from buying signals</small></a></li>
+                    <li><a href="/verification/">Verification<small>Every email checked first</small></a></li>
+                    <li><a href="/deliverability/">Deliverability<small>Separate domains, 21-day warm-up</small></a></li>
+                    <li><a href="/linkedin/">LinkedIn<small>Invites, messages and InMail</small></a></li>
+                  </ul>
+                </li>
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Pipeline</p>
+                  <ul>
+                    <li><a href="/replies/">Replies<small>One inbox, every channel</small></a></li>
+                    <li><a href="/meetings/">Meetings<small>Meetings to won deals</small></a></li>
+                    <li><a href="/reports/">Reports<small>The Monday report</small></a></li>
+                    <li><a href="/client-workspaces/">Client workspaces<small>One workspace per client</small></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <a href="/#start">How it works</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </nav>
+          <div class="x-head__cta">
+            <a class="x-btn x-btn--light x-signin" href="/pricing/">See pricing</a>
+            <a class="x-btn x-btn--dark" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+            <button class="x-menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+          </div>
+        </div>
+      </header>
+      <!-- /partial:header -->
+
+      <main>
+        <article class="x-lg x-wrap" aria-labelledby="lg-h">
+          <div class="x-lg__frame">
+            <div class="x-lg__in">
+              <div class="x-lg__col">
+                <h1 id="lg-h">Refund and cancellation policy</h1>
+                <p class="x-lg__date">Last updated: 7 November 2026</p>
+                <p class="x-lg__lead">How to cancel Bonfire GTM, exactly when you get money back, and how to ask for it.</p>
+
+                <nav class="x-toc" aria-label="On this page">
+                  <p class="x-toc__lbl">On this page</p>
+                  <ol>
+                    <li><a href="#summary"><b>01</b>Summary</a></li>
+                    <li><a href="#cancel"><b>02</b>How to cancel</a></li>
+                    <li><a href="#subscription"><b>03</b>Subscription refunds</a></li>
+                    <li><a href="#credits"><b>04</b>Credit top-ups</a></li>
+                    <li><a href="#request"><b>05</b>How to request a refund</a></li>
+                    <li><a href="#suspended"><b>06</b>Suspended accounts</a></li>
+                    <li><a href="#contact"><b>07</b>Contact</a></li>
+                  </ol>
+                </nav>
+
+                <section class="x-ls" id="summary" aria-labelledby="s1">
+                  <h2 id="s1"><b>01</b>Summary</h2>
+                  <div class="x-sum">
+                    <div class="x-sum__in">
+                      <p class="x-sum__lbl">The short version</p>
+                      <ul>
+                        <li><strong>Cancel anytime.</strong> Your access continues until the end of the month you have paid for.</li>
+                        <li><strong>7-day refund on your first payment.</strong> First-time Base subscribers can request a full refund within 7 days of their first payment.</li>
+                        <li><strong>Dodo Payments handles the money.</strong> Payments and refunds are processed by Dodo Payments, our Merchant of Record.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="x-ls" id="cancel" aria-labelledby="s2">
+                  <h2 id="s2"><b>02</b>How to cancel</h2>
+                  <ul>
+                    <li>Cancel from your account settings, or email <a class="x-a" href="mailto:bonfiregtm@gmail.com?subject=Cancel%20my%20subscription">bonfiregtm@gmail.com</a> from the email address on your account.</li>
+                    <li>Cancelling stops your next renewal. You are not charged again.</li>
+                    <li>There are no cancellation fees.</li>
+                  </ul>
+                </section>
+
+                <section class="x-ls" id="subscription" aria-labelledby="s3">
+                  <h2 id="s3"><b>03</b>Subscription refunds</h2>
+                  <p>The Base plan is USD $149 per month, billed monthly, and includes 1,000 credits per month.</p>
+                  <table class="x-facts">
+                    <thead><tr><th scope="col">Charge</th><th scope="col">Refund</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">First monthly payment</th><td>Full refund if you request it within 7 days of that payment.</td></tr>
+                      <tr><th scope="row">Renewals after the first month</th><td>Not refunded. You keep access until the paid period ends.</td></tr>
+                      <tr><th scope="row">Duplicate charges or billing errors</th><td>Refunded in full.</td></tr>
+                    </tbody>
+                  </table>
+                </section>
+
+                <section class="x-ls" id="credits" aria-labelledby="s4">
+                  <h2 id="s4"><b>04</b>Credit top-ups</h2>
+                  <p>A top-up is a one-time purchase of USD $50 for 2,000 credits. Credits are used when agents do work, such as finding, enriching and verifying leads and sending messages.</p>
+                  <ul>
+                    <li>Refundable within 7 days of purchase if none of those 2,000 credits have been used.</li>
+                    <li>Used credits are not refundable.</li>
+                  </ul>
+                </section>
+
+                <section class="x-ls" id="request" aria-labelledby="s5">
+                  <h2 id="s5"><b>05</b>How to request a refund</h2>
+                  <ul>
+                    <li>Email <a class="x-a" href="mailto:bonfiregtm@gmail.com?subject=Refund%20request">bonfiregtm@gmail.com</a> with the order or invoice ID from your Dodo Payments receipt.</li>
+                    <li>We reply within 2 business days.</li>
+                    <li>Approved refunds go back to your original payment method through Dodo Payments, usually within 5–10 business days depending on your bank.</li>
+                  </ul>
+                  <p style="margin-top:14px">Dodo Payments is the Merchant of Record and authorised reseller for all Bonfire GTM purchases. It processes payments, handles sales tax, VAT and GST, and issues invoices. By buying, you also accept the <a class="x-a" href="https://dodopayments.com/legal/buyer-terms" target="_blank" rel="noopener">Dodo Payments Buyer Terms</a>.</p>
+                </section>
+
+                <section class="x-ls" id="suspended" aria-labelledby="s6">
+                  <h2 id="s6"><b>06</b>Suspended accounts</h2>
+                  <p>Accounts suspended for breaking the acceptable use rules in our <a class="x-a" href="/terms/">Terms of service</a> are not eligible for refunds.</p>
+                </section>
+
+                <section class="x-ls" id="contact" aria-labelledby="s7">
+                  <h2 id="s7"><b>07</b>Contact</h2>
+                  <p>Bonfire GTM is run by its founder as a sole proprietor based in Maharashtra, India. It is AI-powered outbound software, delivered instantly online as a software account; there are no physical goods.</p>
+                  <div class="x-contact">
+                    <div>
+                      <p class="x-k">Support</p>
+                      <p><a class="x-a" href="mailto:bonfiregtm@gmail.com">bonfiregtm@gmail.com</a></p>
+                    </div>
+                    <div>
+                      <p class="x-k">Reply time</p>
+                      <p>Within 2 business days, Mon–Fri, IST</p>
+                    </div>
+                  </div>
+                  <p style="margin-top:16px">Larger teams can ask for a custom plan through our <a class="x-a" href="/contact/">contact page</a>.</p>
+                  <div class="x-btns" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px">
+                    <a class="x-btn x-btn--dark" href="/pricing/">See pricing</a>
+                    <a class="x-btn x-btn--light" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </article>
+      </main>
+
+      <!-- partial:footer -->
+      <footer class="x-foot x-ft">
+        <div class="x-wrap">
+          <div class="x-ft__frame">
+            <div class="x-ft__grid">
+              <!-- Row 1 -->
+              <div class="x-ft__cell">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <a class="x-ft__logo" href="/" aria-label="Bonfire GTM home"><span class="x-logo x-logo--foot"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
+                <p class="x-ft__tag">Your whole outbound engine, kept warm.</p>
+              </div>
+              <nav class="x-ft__cell" aria-label="Quick links">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Quick links</p>
+                <div class="x-ft__cols">
+                  <div>
+                    <h3 class="x-ft__h">Product</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/flows/">Flows</a></li>
+                      <li><a href="/agents/">Agents</a></li>
+                      <li><a href="/plays/">Plays</a></li>
+                      <li><a href="/reports/">Reports</a></li>
+                      <li><a href="/client-workspaces/">Client workspaces</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Features</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/lead-lists/">Lead lists</a></li>
+                      <li><a href="/verification/">Verification</a></li>
+                      <li><a href="/deliverability/">Deliverability</a></li>
+                      <li><a href="/linkedin/">LinkedIn</a></li>
+                      <li><a href="/replies/">Replies</a></li>
+                      <li><a href="/meetings/">Meetings</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Resources</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/blog/">Blog</a></li>
+                      <li><a href="/pricing/">Pricing</a></li>
+                      <li><a href="/contact/">Contact</a></li>
+                      <li><a href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Legal</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/terms/">Terms of service</a></li>
+                      <li><a href="/privacy/">Privacy policy</a></li>
+                      <li><a href="/refund/">Refund and cancellation</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <div class="x-ft__cell x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Social</p>
+                <div class="x-ft__tiles">
+                  <a class="x-ft__tile" href="https://www.linkedin.com/company/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on LinkedIn" data-tip="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M8 10.5V17M12 17v-6.5M12 13.5c0-1.9 1.2-3 2.7-3s2.3 1 2.3 2.8V17"/><circle cx="8" cy="7.5" r=".6" fill="currentColor"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="https://x.com/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on X" data-tip="X">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4h4.2L20 20h-4.2z"/><path d="M19.5 4l-6.4 7M4.5 20l6.4-7"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="mailto:bonfiregtm@gmail.com" aria-label="Email bonfiregtm@gmail.com" data-tip="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13"/><path d="M3 6l9 7 9-7"/></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Row 2 -->
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Bonfire GTM</p>
+                <p class="x-ft__copy">© 2026 Bonfire GTM</p>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <div class="x-ft__ctas">
+                  <a class="x-ft__cta" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">
+                    <img src="/assets/app-icon.png" alt="" width="24" height="24" />
+                    <b>Book a 20-min demo</b>
+                    <span>See your engine run on your own ICP.</span>
+                  </a>
+                  <a class="x-ft__cta" href="/pricing/">
+                    <img src="/assets/app-icon.png" alt="" width="24" height="24" />
+                    <b>See pricing</b>
+                    <span>$149 a month with 1,000 credits included.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Ask AI about us</p>
+                <div class="x-ft__tiles" id="x-ft-ai">
+                  <a class="x-ft__tile" data-ai="https://chatgpt.com/?q=" href="https://chatgpt.com/" target="_blank" rel="noopener" aria-label="Ask ChatGPT about Bonfire GTM" data-tip="Ask ChatGPT">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://claude.ai/new?q=" href="https://claude.ai/new" target="_blank" rel="noopener" aria-label="Ask Claude about Bonfire GTM" data-tip="Ask Claude">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.3 4.3M14.1 14.1l4.3 4.3M18.4 5.6l-4.3 4.3M9.9 14.1l-4.3 4.3"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.perplexity.ai/search?q=" href="https://www.perplexity.ai/" target="_blank" rel="noopener" aria-label="Ask Perplexity about Bonfire GTM" data-tip="Ask Perplexity">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M5 3l7 6 7-6v6H5zM5 9v8l7-6 7 6V9M5 15v4l7-5 7 5v-4"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.google.com/search?udm=50&amp;q=" href="https://www.google.com/search?udm=50" target="_blank" rel="noopener" aria-label="Ask Gemini (Google AI Mode) about Bonfire GTM" data-tip="Ask Gemini">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c.6 5.2 4.3 8.9 9.5 9.5-5.2.6-8.9 4.3-9.5 9.5-.6-5.2-4.3-8.9-9.5-9.5 5.2-.6 8.9-4.3 9.5-9.5z"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://grok.com/?q=" href="https://grok.com/" target="_blank" rel="noopener" aria-label="Ask Grok about Bonfire GTM" data-tip="Ask Grok">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M18.5 4L5 20.5"/><path d="M15.5 7.2A7 7 0 0 0 6 16.8"/><path d="M18 9.5a7 7 0 0 1-8.6 9.7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          (function () {
+            var q = encodeURIComponent("Explain what Bonfire GTM (bonfiregtm.com) does, who it's for, and how it compares to Instantly, Smartlead and Clay.");
+            document.querySelectorAll("#x-ft-ai [data-ai]").forEach(function (a) { a.href = a.getAttribute("data-ai") + q; });
+          })();
+        </script>
+      </footer>
+      <!-- /partial:footer -->
+    </div>
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        })();
+    </script>
+    <script src="/assets/site.js"></script>
+    <script src="/assets/chrome.js"></script>
+  </body>
+</html>

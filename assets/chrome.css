@@ -126,7 +126,7 @@
 .x-ft__logo { display: inline-flex; min-height: 44px; align-items: center; }
 .x-ft__tag { margin: 14px 0 0; max-width: 240px; font: 500 13px/1.5 var(--x-sans); color: var(--x-grey); }
 .x-ft ul { list-style: none; margin: 0; padding: 0; }
-.x-ft__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.x-ft__cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .x-ft__h { margin: 0 0 6px; font: 500 13px/1.3 var(--x-sans); color: var(--x-meta); }
 .x-ft__links a { display: inline-flex; align-items: center; min-height: 32px; padding: 4px 0; box-sizing: border-box; color: var(--x-ink); text-decoration: none; font: 500 13px/1.3 var(--x-sans); letter-spacing: -0.01em; transition: color .2s; }
 .x-ft__links a:hover { color: var(--x-ember-dk); }

@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terms of service | Bonfire GTM</title>
+    <meta name="description" content="The terms that govern your use of Bonfire GTM, AI-powered outbound software for agencies and B2B teams." />
+    <link rel="canonical" href="https://bonfiregtm.com/terms/" />
+    <link rel="stylesheet" href="hark.css" />
+    <style>
+      /* ===== Global (Bonfire v4, copied from the landing) ===== */
+      @font-face { font-family: "Geist"; src: url("/assets/fonts/Geist.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+      @font-face { font-family: "Geist Mono"; src: url("/assets/fonts/GeistMono.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+      :root {
+        --x-ink: #111111; --x-grey: #555555; --x-line: #E6E6E6; --x-rule: #D4D4D4; --x-panel: #F7F7F7;
+        --x-ember: #FF5A1F; --x-ember-dk: #C2410C; --x-tint: #FFF1EA;
+        --x-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+        --x-mono: "Geist Mono", ui-monospace, monospace;
+        --x-max: 992px; --x-gut: clamp(16px, 3.2vw, 32px);
+        --x-hh: 54px;
+        --x-fs-h1: clamp(36px, 5.6vw, 67px);
+        --x-fs-body: 14.5px;
+        --x-fs-ui: 12px;
+        --x-btn-h: 36px;
+        --x-sec-pad: clamp(64px, 8.8vw, 112px);
+        color-scheme: light;
+      }
+      html { background: #fff; }
+      body.x-body {
+        margin: 0; background: #fff; color: var(--x-ink);
+        font: 500 var(--x-fs-body)/1.55 var(--x-sans); letter-spacing: -0.005em;
+        -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      }
+      .x-body :focus-visible { outline: 2px solid var(--x-ember-dk); outline-offset: 3px; border-radius: 0; }
+      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: var(--x-gut); }
+      .x-h1 { font-family: var(--x-sans); color: var(--x-ink); letter-spacing: -0.035em; margin: 0; font-size: var(--x-fs-h1); line-height: 1.0; font-weight: 600; }
+
+      /* Buttons (square, per the brief) */
+      .x-btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        min-height: var(--x-btn-h); padding: 0 16px; border-radius: 0; text-decoration: none;
+        font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.01em; white-space: nowrap;
+        border: 1px solid transparent; transition: background-color .2s, border-color .2s;
+      }
+      .x-btn--dark { background: var(--x-ink); color: #fff; }
+      .x-btn--dark:hover { background: #2a2a2a; }
+      .x-btn--light { background: #fff; color: var(--x-ink); border-color: var(--x-rule); }
+      .x-btn--light:hover { border-color: #9a9a9a; }
+
+      /* ===== Header ===== */
+      .x-head { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid transparent; transition: border-color .2s; }
+      .x-head.is-scrolled { border-bottom-color: var(--x-line); }
+      .x-head__in { display: flex; align-items: center; justify-content: space-between; gap: 13px; height: var(--x-hh); }
+      .x-brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--x-ink); font-weight: 600; font-size: 14px; letter-spacing: -0.02em; min-height: 36px; }
+      .x-logo { --lh: 26px; position: relative; display: block; flex: none; overflow: hidden; height: var(--lh); width: calc(var(--lh) * 2576 / 554); }
+      .x-logo img { position: absolute; max-width: none; height: calc(var(--lh) * 965 / 554); width: auto; top: calc(var(--lh) * -209 / 554); left: calc(var(--lh) * -212 / 554); }
+      .x-logo--foot { --lh: 36px; }
+      .x-nav { display: flex; gap: 2px; }
+      .x-nav a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; color: var(--x-grey); text-decoration: none; font-size: var(--x-fs-ui); font-weight: 500; transition: color .2s; }
+      .x-nav a:hover { color: var(--x-ink); }
+      .x-head__cta { display: flex; gap: 6px; align-items: center; }
+      .x-menu { display: none; width: 36px; height: 36px; border: 1px solid var(--x-rule); border-radius: 0; background: #fff; cursor: pointer; align-items: center; justify-content: center; }
+      .x-menu span, .x-menu span::before { display: block; width: 14px; height: 1.5px; background: var(--x-ink); position: relative; }
+      .x-menu span::before { content: ""; position: absolute; top: 4px; }
+      .x-menu span { top: -2px; }
+      @media (max-width: 920px) {
+        .x-nav { display: none; position: absolute; top: var(--x-hh); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--x-line); flex-direction: column; padding: 6px var(--x-gut) 13px; }
+        .x-head.is-open .x-nav { display: flex; }
+        .x-nav a { font-size: 14px; color: var(--x-ink); }
+        .x-menu { display: inline-flex; }
+      }
+      @media (max-width: 440px) { .x-head__cta .x-signin { display: none; } }
+
+      /* Product dropdown */
+      .x-dd { position: relative; display: flex; align-items: center; }
+      .x-dd__btn { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 0 10px; border: 0; border-radius: 0; background: none; color: var(--x-grey); font: 500 var(--x-fs-ui)/1 var(--x-sans); letter-spacing: -0.005em; cursor: pointer; transition: color .2s; }
+      .x-dd__btn:hover, .x-dd.is-open .x-dd__btn { color: var(--x-ink); }
+      .x-dd__chev { flex: none; width: 5px; height: 5px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); transition: transform .2s; }
+      .x-dd.is-open .x-dd__chev { transform: translateY(1px) rotate(-135deg); }
+      .x-dd__lbl { display: none; }
+      .x-dd__menu { display: none; position: absolute; top: 100%; left: 0; z-index: 60; width: 268px; margin: 0; padding: 6px; list-style: none; background: #fff; border: 1px solid var(--x-rule); }
+      .x-dd.is-open .x-dd__menu { display: block; }
+      .x-nav .x-dd__menu a { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 3px; min-height: 44px; padding: 8px 10px; color: var(--x-ink); font-size: 13px; font-weight: 600; letter-spacing: -0.015em; }
+      .x-dd__menu a small { font-size: 12px; font-weight: 500; letter-spacing: -0.005em; color: var(--x-grey); }
+      .x-nav .x-dd__menu a:hover { background: var(--x-tint); }
+      @media (hover: hover) and (min-width: 921px) {
+        .x-dd:hover .x-dd__menu { display: block; }
+        .x-dd:hover .x-dd__btn { color: var(--x-ink); }
+      }
+      @media (max-width: 920px) {
+        .x-dd { flex-direction: column; align-items: stretch; }
+        .x-dd__btn { display: none; }
+        .x-dd__lbl { display: block; padding: 10px 10px 2px; font: 500 12px/1.2 var(--x-sans); color: var(--x-grey); }
+        .x-dd__menu, .x-dd.is-open .x-dd__menu { display: block; position: static; width: auto; padding: 0 0 4px; border: 0; }
+        .x-nav .x-dd__menu a { font-size: 14px; }
+      }
+
+      /* ===== Footer: blueprint grid ===== */
+      .x-ft { --ft-line: #D4D4D4; --ft-tile: #E6E6E6; padding: var(--x-sec-pad) 0 48px; }
+      .x-ft__frame { padding: 0 14px; border-inline: 1px solid #E6E6E6; background: repeating-linear-gradient(135deg, #E2E2E2 0 1px, transparent 1px 6px); }
+      .x-ft__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr) minmax(0, 1fr); border-top: 1px solid var(--ft-line); border-left: 1px solid var(--ft-line); }
+      .x-ft__cell { position: relative; box-sizing: border-box; min-width: 0; padding: 28px 24px 30px; background: #fff; border-right: 1px solid var(--ft-line); border-bottom: 1px solid var(--ft-line); }
+      .x-ft__cell--b { background: #F7F7F7; }
+      .x-ft__cell--r { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+      .x-ft__x { position: absolute; z-index: 2; width: 13px; height: 13px; pointer-events: none; background: linear-gradient(#111, #111) 6px 0 / 1px 100% no-repeat, linear-gradient(#111, #111) 0 6px / 100% 1px no-repeat; }
+      .x-ft__x--tl { left: -7px; top: -7px; } .x-ft__x--tr { right: -6px; top: -7px; }
+      .x-ft__x--bl { left: -7px; bottom: -6px; } .x-ft__x--br { right: -6px; bottom: -6px; }
+      .x-ft__lbl { display: flex; align-items: center; gap: 8px; margin: 0 0 16px; font: 500 13px/1.2 var(--x-sans); letter-spacing: -0.01em; color: var(--x-ember-dk); }
+      .x-ft__lbl::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-ft__logo { display: inline-flex; min-height: 44px; align-items: center; }
+      .x-ft__tag { margin: 14px 0 0; max-width: 240px; font: 500 13px/1.5 var(--x-sans); color: #555; }
+      .x-ft ul { list-style: none; margin: 0; padding: 0; }
+      .x-ft__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+      .x-ft__h { margin: 0 0 6px; font: 500 13px/1.3 var(--x-sans); color: #6B6B6B; }
+      .x-ft__links a { display: inline-flex; align-items: center; min-height: 32px; padding: 4px 0; box-sizing: border-box; color: var(--x-ink); text-decoration: none; font: 500 13px/1.3 var(--x-sans); letter-spacing: -0.01em; transition: color .2s; }
+      .x-ft__links a:hover, .x-ft__links a[aria-current="page"] { color: var(--x-ember-dk); }
+      .x-ft__copy { margin: 18px 0 0; font: 500 12px/1.4 var(--x-sans); color: #6B6B6B; }
+      .x-ft__tiles { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; max-width: calc(56px * 3 + 12px); }
+      .x-ft__tile { position: relative; box-sizing: border-box; display: grid; place-items: center; width: 56px; height: 56px; background: #fff; border: 1px solid var(--ft-tile); color: var(--x-ink); text-decoration: none; transition: background-color .2s, color .2s, border-color .2s; }
+      .x-ft__tile svg { width: 22px; height: 22px; }
+      .x-ft__tile:hover, .x-ft__tile:focus-visible { background: var(--x-ink); border-color: var(--x-ink); color: #fff; }
+      .x-ft__tile::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); right: 0; z-index: 3; padding: 6px 9px; background: var(--x-ink); color: #fff; font: 500 12px/1.2 var(--x-sans); white-space: nowrap; opacity: 0; transform: translateY(3px); pointer-events: none; transition: opacity .15s, transform .15s; }
+      .x-ft__tile:hover::after, .x-ft__tile:focus-visible::after { opacity: 1; transform: none; }
+      .x-ft__ctas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; height: 100%; }
+      .x-ft__cta { display: flex; flex-direction: column; gap: 6px; box-sizing: border-box; min-height: 44px; padding: 18px 18px 20px; background: #fff; border: 1px solid var(--ft-tile); color: var(--x-ink); text-decoration: none; transition: border-color .2s; }
+      .x-ft__cta:hover { border-color: var(--x-ink); }
+      .x-ft__cta b { display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 600 15px/1.25 var(--x-sans); letter-spacing: -0.02em; }
+      .x-ft__cta b::after { content: "→"; font-weight: 500; color: var(--x-ember-dk); transition: transform .2s; }
+      .x-ft__cta:hover b::after { transform: translateX(3px); }
+      .x-ft__cta span { font: 500 13px/1.45 var(--x-sans); color: #555; }
+      @media (max-width: 860px) {
+        .x-ft__grid { grid-template-columns: minmax(0, 1fr); }
+        .x-ft__cell--r { align-items: flex-start; text-align: left; }
+        .x-ft__tiles { justify-content: flex-start; }
+        .x-ft__tile::after { right: auto; left: 0; }
+      }
+      @media (max-width: 560px) {
+        .x-ft__frame { padding: 0 8px; }
+        .x-ft__cell { padding: 24px 18px 26px; }
+        .x-ft__cols, .x-ft__ctas { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      }
+
+      /* ===== Legal page: hatched gutters, white sheet, 720px reading column ===== */
+      .x-lg { padding-top: clamp(24px, 4vw, 48px); }
+      .x-lg__frame { padding: 0 14px; border-inline: 1px solid var(--x-line); background: repeating-linear-gradient(135deg, #E2E2E2 0 1px, transparent 1px 6px); }
+      .x-lg__sheet { background: #fff; border-block: 1px solid var(--x-rule); padding: clamp(40px, 6vw, 72px) clamp(18px, 5vw, 56px) clamp(48px, 7vw, 88px); }
+      .x-lg__col { max-width: 720px; margin: 0 auto; }
+      .x-lg__crumb { margin: 0 0 20px; font: 500 13px/1.3 var(--x-sans); color: var(--x-grey); }
+      .x-lg__crumb a { display: inline-flex; align-items: center; min-height: 44px; color: var(--x-grey); text-decoration: none; }
+      .x-lg__crumb a:hover { color: var(--x-ink); }
+      .x-lg .x-h1 { font-size: clamp(36px, 5vw, 56px); }
+      .x-lg__date { display: flex; align-items: center; gap: 8px; margin: 20px 0 0; font: 500 13px/1.3 var(--x-sans); color: var(--x-ember-dk); }
+      .x-lg__date::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-lg__lead { margin: 24px 0 0; font: 400 17px/1.6 var(--x-sans); letter-spacing: -0.01em; color: var(--x-grey); }
+      .x-lg a.x-lk { color: var(--x-ember-dk); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; padding-block: 12px; min-width: 44px; }
+      .x-lg a.x-lk:hover { color: var(--x-ink); }
+
+      /* Table of contents: shared-hairline grid on the panel */
+      .x-toc { margin: 40px 0 0; background: var(--x-panel); border: 1px solid var(--x-rule); padding: 20px 20px 16px; }
+      .x-toc__lbl { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font: 500 13px/1.2 var(--x-sans); color: var(--x-ember-dk); }
+      .x-toc__lbl::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-toc ol { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 24px; }
+      .x-toc li { break-inside: avoid; border-bottom: 1px solid var(--x-line); }
+      .x-toc a { display: flex; align-items: center; gap: 10px; min-height: 44px; color: var(--x-ink); text-decoration: none; font: 400 14px/1.3 var(--x-sans); letter-spacing: -0.01em; }
+      .x-toc a:hover { color: var(--x-ember-dk); }
+      .x-toc a span { flex: none; width: 22px; font: 400 12px/1 var(--x-mono); color: #6B6B6B; }
+      @media (max-width: 600px) { .x-toc ol { columns: 1; } }
+
+      /* Numbered sections */
+      .x-cl { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--x-line); scroll-margin-top: calc(var(--x-hh) + 16px); }
+      .x-cl h2 { display: flex; align-items: baseline; gap: 14px; margin: 0 0 16px; font: 600 23px/1.2 var(--x-sans); letter-spacing: -0.03em; color: var(--x-ink); }
+      .x-cl h2 span { flex: none; min-width: 26px; font: 400 13px/1 var(--x-mono); letter-spacing: 0; color: var(--x-ember-dk); }
+      .x-cl h3 { margin: 24px 0 8px; font: 600 16px/1.3 var(--x-sans); letter-spacing: -0.02em; color: var(--x-ink); }
+      .x-cl p, .x-cl li { font: 400 15.5px/1.7 var(--x-sans); letter-spacing: -0.005em; color: #333; }
+      .x-cl p { margin: 0 0 14px; }
+      .x-cl ul { list-style: none; margin: 0 0 16px; padding: 0; }
+      .x-cl li { position: relative; padding-left: 22px; margin-bottom: 8px; }
+      .x-cl li::before { content: ""; position: absolute; left: 2px; top: 11px; width: 6px; height: 6px; background: var(--x-ember); }
+      .x-cl strong { font-weight: 600; color: var(--x-ink); }
+
+      /* Plan figures: shared-hairline cells */
+      .x-plan { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 4px 0 20px; border-top: 1px solid var(--x-line); border-left: 1px solid var(--x-line); }
+      .x-plan > div { padding: 18px 18px 20px; border-right: 1px solid var(--x-line); border-bottom: 1px solid var(--x-line); }
+      .x-plan b { display: block; font: 600 28px/1.1 var(--x-sans); letter-spacing: -0.035em; color: var(--x-ink); }
+      .x-plan span { display: block; margin-top: 6px; font: 400 13px/1.45 var(--x-sans); color: var(--x-grey); }
+      @media (max-width: 520px) { .x-plan { grid-template-columns: minmax(0, 1fr); } }
+
+      /* Enforcement note in the ember tint */
+      .x-note { margin: 20px 0 16px; padding: 18px 20px; background: var(--x-tint); border: 1px solid #FFD9C9; }
+      .x-note p { margin: 0; color: var(--x-ink); }
+      .x-note p + p { margin-top: 10px; }
+
+      /* Contact block */
+      .x-contact { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .x-body *, .x-body *::before, .x-body *::after { animation: none !important; transition: none !important; }
+      }
+      @media (pointer: coarse), (max-width: 640px) {
+        .x-btn, .x-nav a, .x-brand, .x-ft__links a { min-height: 44px; }
+        .x-menu { width: 44px; height: 44px; }
+        .x-ft__links a { min-width: 44px; }
+      }
+    </style>
+    <link rel="stylesheet" href="/assets/chrome.css" />
+  </head>
+  <body class="x-body">
+    <div class="x-page" id="top">
+      <!-- partial:header -->
+      <header class="x-head" id="head">
+        <div class="x-wrap x-head__in">
+          <a class="x-brand" href="/"><span class="x-logo"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
+          <nav class="x-nav" id="nav" aria-label="Main">
+            <div class="x-dd" id="x-dd">
+              <button class="x-dd__btn" type="button" aria-expanded="false" aria-controls="x-dd-menu">Product<span class="x-dd__chev" aria-hidden="true"></span></button>
+              <span class="x-dd__lbl" aria-hidden="true">Product</span>
+              <ul class="x-dd__menu" id="x-dd-menu" aria-label="Product">
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Engine</p>
+                  <ul>
+                    <li><a href="/agents/">Agents<small>8 AI agents, one crew</small></a></li>
+                    <li><a href="/flows/">Flows<small>Email + LinkedIn in one chain</small></a></li>
+                    <li><a href="/plays/">Plays<small>Funding &amp; hiring triggers</small></a></li>
+                  </ul>
+                </li>
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Outreach</p>
+                  <ul>
+                    <li><a href="/lead-lists/">Lead lists<small>Built from buying signals</small></a></li>
+                    <li><a href="/verification/">Verification<small>Every email checked first</small></a></li>
+                    <li><a href="/deliverability/">Deliverability<small>Separate domains, 21-day warm-up</small></a></li>
+                    <li><a href="/linkedin/">LinkedIn<small>Invites, messages and InMail</small></a></li>
+                  </ul>
+                </li>
+                <li class="x-dd__grp">
+                  <p class="x-dd__h">Pipeline</p>
+                  <ul>
+                    <li><a href="/replies/">Replies<small>One inbox, every channel</small></a></li>
+                    <li><a href="/meetings/">Meetings<small>Meetings to won deals</small></a></li>
+                    <li><a href="/reports/">Reports<small>The Monday report</small></a></li>
+                    <li><a href="/client-workspaces/">Client workspaces<small>One workspace per client</small></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <a href="/#start">How it works</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </nav>
+          <div class="x-head__cta">
+            <a class="x-btn x-btn--light x-signin" href="/pricing/">See pricing</a>
+            <a class="x-btn x-btn--dark" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a>
+            <button class="x-menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+          </div>
+        </div>
+      </header>
+      <!-- /partial:header -->
+
+      <main class="x-lg">
+        <div class="x-wrap">
+          <div class="x-lg__frame">
+            <article class="x-lg__sheet" aria-labelledby="terms-h">
+              <div class="x-lg__col">
+                <p class="x-lg__crumb"><a href="/">Bonfire GTM</a> / Terms of service</p>
+                <h1 class="x-h1" id="terms-h">Terms of service</h1>
+                <p class="x-lg__date">Last updated: 7 November 2026</p>
+                <p class="x-lg__lead">These terms are the agreement between you and Bonfire GTM for using our software. We have written them in plain English. Please read them, especially section 6 on acceptable use, because it sets the rules for every campaign you run with us.</p>
+
+                <nav class="x-toc" aria-label="Contents">
+                  <p class="x-toc__lbl">On this page</p>
+                  <ol>
+                    <li><a href="#s1"><span>01</span>Who we are and acceptance</a></li>
+                    <li><a href="#s2"><span>02</span>The service</a></li>
+                    <li><a href="#s3"><span>03</span>Accounts</a></li>
+                    <li><a href="#s4"><span>04</span>Plans, credits and billing</a></li>
+                    <li><a href="#s5"><span>05</span>Cancellation and refunds</a></li>
+                    <li><a href="#s6"><span>06</span>Acceptable use</a></li>
+                    <li><a href="#s7"><span>07</span>Customer data</a></li>
+                    <li><a href="#s8"><span>08</span>Third-party services</a></li>
+                    <li><a href="#s9"><span>09</span>Intellectual property</a></li>
+                    <li><a href="#s10"><span>10</span>Availability and changes</a></li>
+                    <li><a href="#s11"><span>11</span>Disclaimers</a></li>
+                    <li><a href="#s12"><span>12</span>Limitation of liability</a></li>
+                    <li><a href="#s13"><span>13</span>Indemnity</a></li>
+                    <li><a href="#s14"><span>14</span>Suspension and termination</a></li>
+                    <li><a href="#s15"><span>15</span>Governing law</a></li>
+                    <li><a href="#s16"><span>16</span>Changes and contact</a></li>
+                  </ol>
+                </nav>
+
+                <section class="x-cl" id="s1" aria-labelledby="s1-h">
+                  <h2 id="s1-h"><span>01</span>Who we are and acceptance</h2>
+                  <p>Bonfire GTM (<a class="x-lk" href="https://bonfiregtm.com">bonfiregtm.com</a>) is operated by its founder as an individual sole proprietor based in Maharashtra, India. In these terms, "Bonfire GTM", "we", "us" and "our" mean that business. "You" and "customer" mean the person or business that signs up for or uses the service. If you sign up on behalf of a company or agency, you confirm that you have authority to bind it to these terms, and "you" then means that company.</p>
+                  <p>By creating an account, starting a plan, buying credits or otherwise using Bonfire GTM, you accept these terms. If you do not agree with them, do not use the service.</p>
+                  <p>These terms work together with our <a class="x-lk" href="/privacy/">Privacy policy</a>, our <a class="x-lk" href="/refund/">Refund and cancellation policy</a> and, for payments, Dodo Payments' <a class="x-lk" href="https://dodopayments.com/legal/buyer-terms" target="_blank" rel="noopener">Buyer Terms</a>.</p>
+                </section>
+
+                <section class="x-cl" id="s2" aria-labelledby="s2-h">
+                  <h2 id="s2-h"><span>02</span>The service</h2>
+                  <p>Bonfire GTM is AI-powered outbound software, sold as a service (SaaS), for agencies and B2B teams. Depending on your plan and settings, it:</p>
+                  <ul>
+                    <li>sets up sending domains and inboxes, and warms them up over 21 days;</li>
+                    <li>builds and verifies lead lists;</li>
+                    <li>runs email and LinkedIn sequences;</li>
+                    <li>sorts replies and books meetings; and</li>
+                    <li>sends you a report every Monday.</li>
+                  </ul>
+                  <p>The work is done by 8 AI agents. Steps we consider risky are sent to a "Needs you" approval queue, and they do not go ahead until you approve them.</p>
+                  <p>The service is delivered instantly online as a software account. We do not sell or ship any physical goods.</p>
+                </section>
+
+                <section class="x-cl" id="s3" aria-labelledby="s3-h">
+                  <h2 id="s3-h"><span>03</span>Accounts</h2>
+                  <p>To use Bonfire GTM you need an account. When you create and use it, you agree that:</p>
+                  <ul>
+                    <li><strong>Your information is accurate.</strong> You give us true, current and complete details, including your name, business name and email address, and you keep them up to date.</li>
+                    <li><strong>You keep your credentials secure.</strong> You are responsible for your password and for everything that happens under your account, including actions by teammates or clients you invite. Tell us at <a class="x-lk" href="mailto:bonfiregtm@gmail.com">bonfiregtm@gmail.com</a> straight away if you think your account has been accessed without permission.</li>
+                    <li><strong>You are 18 or older and using it for business.</strong> Bonfire GTM is a business tool. It is not for personal, household or consumer use, and you must not use it if you are under 18.</li>
+                  </ul>
+                  <p>You may not share one account between unrelated businesses, resell access, or create accounts to get around a suspension or a limit we have set.</p>
+                </section>
+
+                <section class="x-cl" id="s4" aria-labelledby="s4-h">
+                  <h2 id="s4-h"><span>04</span>Plans, credits and billing</h2>
+                  <div class="x-plan">
+                    <div><b>$149 / month</b><span>Base plan, billed monthly in US dollars. Includes 1,000 credits each month.</span></div>
+                    <div><b>$50</b><span>One-time top-up of 2,000 extra credits.</span></div>
+                  </div>
+                  <h3>Credits</h3>
+                  <p>Credits are used when the agents do work for you, such as finding, enriching and verifying leads and sending messages. Your current balance and usage are shown in your account. Larger teams can ask for a custom plan through our <a class="x-lk" href="/contact/">contact page</a>; a custom plan's agreed terms apply alongside these terms. Current prices are on our <a class="x-lk" href="/pricing/">Pricing page</a>.</p>
+                  <h3>Renewal</h3>
+                  <p>Your plan auto-renews every month, and you are charged at the start of each billing period, until you cancel. By subscribing, you authorise these recurring charges to your chosen payment method.</p>
+                  <h3>Price changes</h3>
+                  <p>We may change our prices. We will give you at least 30 days' notice by email before a new price applies to your plan, and the change takes effect from your next billing period after that notice. If you do not want to pay the new price, you can cancel before it applies.</p>
+                  <h3>Dodo Payments</h3>
+                  <p>Dodo Payments is the Merchant of Record and authorised reseller for all Bonfire GTM purchases. Dodo Payments processes your payment, handles sales tax, VAT and GST, and issues your invoices. Your purchase is therefore also governed by Dodo Payments' <a class="x-lk" href="https://dodopayments.com/legal/buyer-terms" target="_blank" rel="noopener">Buyer Terms</a>, which you accept when you pay. Payment questions can go to us or to Dodo Payments.</p>
+                  <p>If a payment fails, we or Dodo Payments may retry it, and we may pause the service until the amount is paid.</p>
+                </section>
+
+                <section class="x-cl" id="s5" aria-labelledby="s5-h">
+                  <h2 id="s5-h"><span>05</span>Cancellation and refunds</h2>
+                  <p>You can cancel at any time, either from your account settings or by emailing <a class="x-lk" href="mailto:bonfiregtm@gmail.com">bonfiregtm@gmail.com</a> from the email address on your account. Cancelling stops the next renewal; you keep access until the end of the period you have already paid for.</p>
+                  <p>Refunds, and what happens to unused credits, are set out in our <a class="x-lk" href="/refund/">Refund and cancellation policy</a>, which forms part of these terms.</p>
+                </section>
+
+                <section class="x-cl" id="s6" aria-labelledby="s6-h">
+                  <h2 id="s6-h"><span>06</span>Acceptable use</h2>
+                  <p>Bonfire GTM sends messages in your name to real people. You are responsible for every campaign you run and every message sent from your account. When you use the service, you must follow these rules.</p>
+                  <h3>No spam</h3>
+                  <ul>
+                    <li>Do not send spam or unsolicited bulk email. Outreach must be relevant, targeted business communication to people you have a genuine reason to contact.</li>
+                  </ul>
+                  <h3>Follow the law</h3>
+                  <ul>
+                    <li>You must have a lawful basis to contact every recipient, such as legitimate interest or consent where the law requires it.</li>
+                    <li>You must comply with every law that applies to your outreach, including the US CAN-SPAM Act, the EU and UK GDPR, the UK Privacy and Electronic Communications Regulations (PECR), Canada's Anti-Spam Legislation (CASL), India's Digital Personal Data Protection Act, 2023 (DPDP Act) and similar laws where your recipients are.</li>
+                  </ul>
+                  <h3>Opt-outs</h3>
+                  <ul>
+                    <li>Every cold email must include a working way to opt out, such as an unsubscribe link or a clear "reply to stop" line.</li>
+                    <li>You must honour every opt-out promptly and never contact that person again from any account or campaign.</li>
+                  </ul>
+                  <h3>Lists</h3>
+                  <ul>
+                    <li>Do not upload or use purchased, scraped or harvested lists where collecting or using them breaks the law or the terms of the site they came from.</li>
+                  </ul>
+                  <h3>Honesty</h3>
+                  <ul>
+                    <li>Do not use misleading sender names or identities, deceptive subject lines or false "from" details.</li>
+                    <li>Do not impersonate any person, company or brand, or imply a relationship that does not exist.</li>
+                    <li>Do not send content that is illegal, fraudulent, harassing, hateful, or that spreads malware or phishing.</li>
+                  </ul>
+                  <h3>Platform rules</h3>
+                  <ul>
+                    <li>Respect the terms and policies of LinkedIn and of your email providers, such as Google Workspace and Microsoft 365, including their sending and activity limits.</li>
+                    <li>Do not try to bypass our limits, probe or attack the service, or use it to build a competing product.</li>
+                  </ul>
+                  <div class="x-note">
+                    <p><strong>How we enforce this.</strong> Bonfire GTM enforces sending caps, lead verification, bounce caps and approvals in the "Needs you" queue to protect your domains, your recipients and other customers.</p>
+                    <p>We may pause campaigns, or suspend or close accounts, that create abuse, or high bounce or complaint rates, with or without notice where the risk is serious. If you break these rules, you remain responsible for any harm it causes.</p>
+                  </div>
+                </section>
+
+                <section class="x-cl" id="s7" aria-labelledby="s7-h">
+                  <h2 id="s7-h"><span>07</span>Customer data</h2>
+                  <p><strong>You own your data.</strong> This includes the contacts, lead lists, messages, templates and other content you upload to or create in Bonfire GTM ("customer data").</p>
+                  <p>For contacts and lead data you upload or ask us to find, you are the data controller: you decide why and how that personal data is used, and you are responsible for having a lawful basis and giving any notices the law requires. Bonfire GTM processes customer data on your behalf only to provide, secure and improve the service, and as you instruct through your settings.</p>
+                  <p>You give us permission to store, copy and process customer data for those purposes only. How we handle personal data is explained in our <a class="x-lk" href="/privacy/">Privacy policy</a>.</p>
+                </section>
+
+                <section class="x-cl" id="s8" aria-labelledby="s8-h">
+                  <h2 id="s8-h"><span>08</span>Third-party services</h2>
+                  <p>Bonfire GTM connects to services run by other companies, including:</p>
+                  <ul>
+                    <li>email providers that host your sending domains and inboxes;</li>
+                    <li>LinkedIn, for LinkedIn steps in your sequences;</li>
+                    <li>calendar tools, for booking meetings; and</li>
+                    <li>Dodo Payments, for payments, tax and invoices.</li>
+                  </ul>
+                  <p>Your use of each of those services is governed by its own terms and privacy policy, and you are responsible for following them. We do not control them and are not responsible for their availability, their changes, or any action they take against your accounts, such as a LinkedIn restriction or a suspended inbox. When you connect a third-party account, you authorise us to access and act in it as needed to run the service.</p>
+                </section>
+
+                <section class="x-cl" id="s9" aria-labelledby="s9-h">
+                  <h2 id="s9-h"><span>09</span>Intellectual property</h2>
+                  <p>Bonfire GTM, including its software, agents, design, text, logos and the "Bonfire GTM" name, belongs to us or our licensors and is protected by intellectual property laws. While your account is active and in good standing, we give you a limited, non-exclusive, non-transferable right to use the service for your internal business purposes, including running outreach for your agency's clients.</p>
+                  <p>You may not copy, modify, resell, reverse engineer or create derivative works from the service, except where the law expressly allows it. Messages and content the agents generate for you are yours to use, subject to these terms.</p>
+                  <p>If you send us feedback or suggestions, we may use them freely without owing you anything.</p>
+                </section>
+
+                <section class="x-cl" id="s10" aria-labelledby="s10-h">
+                  <h2 id="s10-h"><span>10</span>Service availability and changes</h2>
+                  <p>We work to keep Bonfire GTM running and secure, but we do not promise it will be available all the time or free of errors. It may be unavailable during maintenance, updates, or problems outside our control, including outages at the third-party services it relies on.</p>
+                  <p>We improve the product regularly and may add, change or remove features. If we remove a feature that is central to your plan, we will tell you in advance where we reasonably can.</p>
+                  <p><strong>Beta features.</strong> Some features may be labelled beta, preview or early access. They are offered as they are, may change or be withdrawn at any time, and may be less reliable than the rest of the service.</p>
+                </section>
+
+                <section class="x-cl" id="s11" aria-labelledby="s11-h">
+                  <h2 id="s11-h"><span>11</span>Disclaimers</h2>
+                  <p>Outbound results depend on many things outside our control, including your offer, your market, your lists and the recipients themselves. <strong>We do not guarantee replies, meetings, deliverability, inbox placement or revenue.</strong> Warm-up, verification and the agents' work improve your odds; they do not promise an outcome.</p>
+                  <p>AI-generated content can be wrong. Review what the agents prepare, especially items in the "Needs you" queue, before approving it.</p>
+                  <p>To the fullest extent the law allows, the service is provided "as is" and "as available", without warranties of any kind, whether express or implied, including warranties of merchantability, fitness for a particular purpose and non-infringement.</p>
+                </section>
+
+                <section class="x-cl" id="s12" aria-labelledby="s12-h">
+                  <h2 id="s12-h"><span>12</span>Limitation of liability</h2>
+                  <p>To the fullest extent the law allows:</p>
+                  <ul>
+                    <li>our total liability to you for all claims arising from or related to the service or these terms is limited to the fees you paid to Bonfire GTM in the 3 months before the event that gave rise to the claim; and</li>
+                    <li>we are not liable for indirect, incidental, special, consequential or punitive losses, or for lost profits, revenue, business, goodwill or data, even if we were told they were possible.</li>
+                  </ul>
+                  <p>Nothing in these terms limits liability that cannot be limited by law, such as liability for fraud.</p>
+                </section>
+
+                <section class="x-cl" id="s13" aria-labelledby="s13-h">
+                  <h2 id="s13-h"><span>13</span>Indemnity</h2>
+                  <p>You agree to defend, indemnify and hold harmless Bonfire GTM and its founder against any claims, complaints, fines, losses and costs (including reasonable legal fees) that arise from your campaigns, the messages sent from your account, your customer data, your breach of these terms, or your breach of any law or third-party terms. That includes claims from recipients, regulators, LinkedIn, email providers or your own clients.</p>
+                </section>
+
+                <section class="x-cl" id="s14" aria-labelledby="s14-h">
+                  <h2 id="s14-h"><span>14</span>Suspension and termination</h2>
+                  <p>You can stop using Bonfire GTM and close your account at any time, as described in section 5.</p>
+                  <p>We may suspend or terminate your account, in whole or in part, if you breach these terms (especially section 6), do not pay, create a security or legal risk, or if a third-party provider or the law requires it. Where it is reasonable, we will warn you first and give you a chance to fix the problem.</p>
+                  <p>When your account ends, your right to use the service stops. Export any customer data you want to keep before your account closes, or email us to ask for a copy; after closing we may delete it, except where we must keep records by law. Sections that by their nature should survive, including 7, 9, 11, 12, 13 and 15, continue after termination.</p>
+                </section>
+
+                <section class="x-cl" id="s15" aria-labelledby="s15-h">
+                  <h2 id="s15-h"><span>15</span>Governing law</h2>
+                  <p>These terms are governed by the laws of India. Any dispute arising from them or from the service will be subject to the exclusive jurisdiction of the courts of Mumbai, Maharashtra.</p>
+                  <p>Before going to court, please write to us so we can try to resolve the issue informally.</p>
+                </section>
+
+                <section class="x-cl" id="s16" aria-labelledby="s16-h">
+                  <h2 id="s16-h"><span>16</span>Changes to these terms and contact</h2>
+                  <p>We may update these terms as the product and the law change. We will change the "Last updated" date at the top, and for material changes we will tell you by email or in the app before they take effect. If you keep using Bonfire GTM after the changes apply, you accept the updated terms.</p>
+                  <p>If any part of these terms is found unenforceable, the rest still applies. If we do not enforce a right straight away, we have not waived it. You may not transfer these terms without our consent.</p>
+                  <p>Questions about these terms? Email <a class="x-lk" href="mailto:bonfiregtm@gmail.com">bonfiregtm@gmail.com</a>. We reply within 2 business days, Monday to Friday, India Standard Time.</p>
+                  <div class="x-contact">
+                    <a class="x-btn x-btn--dark" href="mailto:bonfiregtm@gmail.com">Email bonfiregtm@gmail.com</a>
+                    <a class="x-btn x-btn--light" href="/contact/">Contact page</a>
+                  </div>
+                </section>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+
+      <!-- partial:footer -->
+      <footer class="x-foot x-ft">
+        <div class="x-wrap">
+          <div class="x-ft__frame">
+            <div class="x-ft__grid">
+              <!-- Row 1 -->
+              <div class="x-ft__cell">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <a class="x-ft__logo" href="/" aria-label="Bonfire GTM home"><span class="x-logo x-logo--foot"><img src="/assets/logo.png" alt="Bonfire GTM" /></span></a>
+                <p class="x-ft__tag">Your whole outbound engine, kept warm.</p>
+              </div>
+              <nav class="x-ft__cell" aria-label="Quick links">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Quick links</p>
+                <div class="x-ft__cols">
+                  <div>
+                    <h3 class="x-ft__h">Product</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/flows/">Flows</a></li>
+                      <li><a href="/agents/">Agents</a></li>
+                      <li><a href="/plays/">Plays</a></li>
+                      <li><a href="/reports/">Reports</a></li>
+                      <li><a href="/client-workspaces/">Client workspaces</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Features</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/lead-lists/">Lead lists</a></li>
+                      <li><a href="/verification/">Verification</a></li>
+                      <li><a href="/deliverability/">Deliverability</a></li>
+                      <li><a href="/linkedin/">LinkedIn</a></li>
+                      <li><a href="/replies/">Replies</a></li>
+                      <li><a href="/meetings/">Meetings</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Resources</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/blog/">Blog</a></li>
+                      <li><a href="/pricing/">Pricing</a></li>
+                      <li><a href="/contact/">Contact</a></li>
+                      <li><a href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">Book a demo</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="x-ft__h">Legal</h3>
+                    <ul class="x-ft__links">
+                      <li><a href="/terms/">Terms of service</a></li>
+                      <li><a href="/privacy/">Privacy policy</a></li>
+                      <li><a href="/refund/">Refund and cancellation</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <div class="x-ft__cell x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Social</p>
+                <div class="x-ft__tiles">
+                  <a class="x-ft__tile" href="https://www.linkedin.com/company/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on LinkedIn" data-tip="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M8 10.5V17M12 17v-6.5M12 13.5c0-1.9 1.2-3 2.7-3s2.3 1 2.3 2.8V17"/><circle cx="8" cy="7.5" r=".6" fill="currentColor"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="https://x.com/bonfiregtm" target="_blank" rel="noopener" aria-label="Bonfire GTM on X" data-tip="X">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4h4.2L20 20h-4.2z"/><path d="M19.5 4l-6.4 7M4.5 20l6.4-7"/></svg>
+                  </a>
+                  <a class="x-ft__tile" href="mailto:bonfiregtm@gmail.com" aria-label="Email bonfiregtm@gmail.com" data-tip="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13"/><path d="M3 6l9 7 9-7"/></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Row 2 -->
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Bonfire GTM</p>
+                <p class="x-ft__copy">© 2026 Bonfire GTM</p>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <div class="x-ft__ctas">
+                  <a class="x-ft__cta" href="https://cal.com/bonfiregtm/demo" target="_blank" rel="noopener">
+                    <img src="/assets/app-icon.png" alt="" width="24" height="24" />
+                    <b>Book a 20-min demo</b>
+                    <span>See your engine run on your own ICP.</span>
+                  </a>
+                  <a class="x-ft__cta" href="/pricing/">
+                    <img src="/assets/app-icon.png" alt="" width="24" height="24" />
+                    <b>See pricing</b>
+                    <span>$149 a month with 1,000 credits included.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="x-ft__cell x-ft__cell--b x-ft__cell--r">
+                <i class="x-ft__x x-ft__x--tl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--tr" aria-hidden="true"></i><i class="x-ft__x x-ft__x--bl" aria-hidden="true"></i><i class="x-ft__x x-ft__x--br" aria-hidden="true"></i>
+                <p class="x-ft__lbl">Ask AI about us</p>
+                <div class="x-ft__tiles" id="x-ft-ai">
+                  <a class="x-ft__tile" data-ai="https://chatgpt.com/?q=" href="https://chatgpt.com/" target="_blank" rel="noopener" aria-label="Ask ChatGPT about Bonfire GTM" data-tip="Ask ChatGPT">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://claude.ai/new?q=" href="https://claude.ai/new" target="_blank" rel="noopener" aria-label="Ask Claude about Bonfire GTM" data-tip="Ask Claude">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.3 4.3M14.1 14.1l4.3 4.3M18.4 5.6l-4.3 4.3M9.9 14.1l-4.3 4.3"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.perplexity.ai/search?q=" href="https://www.perplexity.ai/" target="_blank" rel="noopener" aria-label="Ask Perplexity about Bonfire GTM" data-tip="Ask Perplexity">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M5 3l7 6 7-6v6H5zM5 9v8l7-6 7 6V9M5 15v4l7-5 7 5v-4"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://www.google.com/search?udm=50&amp;q=" href="https://www.google.com/search?udm=50" target="_blank" rel="noopener" aria-label="Ask Gemini (Google AI Mode) about Bonfire GTM" data-tip="Ask Gemini">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c.6 5.2 4.3 8.9 9.5 9.5-5.2.6-8.9 4.3-9.5 9.5-.6-5.2-4.3-8.9-9.5-9.5 5.2-.6 8.9-4.3 9.5-9.5z"/></svg>
+                  </a>
+                  <a class="x-ft__tile" data-ai="https://grok.com/?q=" href="https://grok.com/" target="_blank" rel="noopener" aria-label="Ask Grok about Bonfire GTM" data-tip="Ask Grok">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M18.5 4L5 20.5"/><path d="M15.5 7.2A7 7 0 0 0 6 16.8"/><path d="M18 9.5a7 7 0 0 1-8.6 9.7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          (function () {
+            var q = encodeURIComponent("Explain what Bonfire GTM (bonfiregtm.com) does, who it's for, and how it compares to Instantly, Smartlead and Clay.");
+            document.querySelectorAll("#x-ft-ai [data-ai]").forEach(function (a) { a.href = a.getAttribute("data-ai") + q; });
+          })();
+        </script>
+      </footer>
+      <!-- /partial:footer -->
+    </div>
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        })();
+    </script>
+    <script src="/assets/site.js"></script>
+    <script src="/assets/chrome.js"></script>
+  </body>
+</html>

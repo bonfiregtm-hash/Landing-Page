@@ -34,3 +34,10 @@ Guard rails: it never sends from your main domain (only from separate domains an
 - [Book a demo](https://cal.com/bonfiregtm/demo)
 - [Join the waitlist](https://forms.gle/EdGWZGEn91CfFPFG7)
 - [X](https://x.com/bonfiregtm) · [LinkedIn](https://www.linkedin.com/company/bonfiregtm) · Email: bonfiregtm@gmail.com
+
+## Pricing and policies
+- Pricing: https://bonfiregtm.com/pricing/ (Base $149/month incl. 1,000 credits; extra 2,000 credits for $50)
+- Terms: https://bonfiregtm.com/terms/
+- Privacy: https://bonfiregtm.com/privacy/
+- Refund and cancellation: https://bonfiregtm.com/refund/
+- Contact: https://bonfiregtm.com/contact/
